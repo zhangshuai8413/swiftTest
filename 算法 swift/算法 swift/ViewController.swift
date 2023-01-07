@@ -45,6 +45,19 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     
+    @IBAction func listNoteClick(_ sender: Any) {
+        
+        let vc = ListNoteViewController()
+        let navition = UINavigationController(rootViewController: vc)
+        self.present(navition, animated: true)
+    }
+    
+    @IBAction func treeNoteClick(_ sender: Any) {
+        let vc = TreeNoteViewController()
+        self.present(vc, animated: true)
+    }
+    
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         //        var nums = [0,1,2,2,3,0,4,2]
         //        let index = removeElement(nums: &nums, target: 2)
