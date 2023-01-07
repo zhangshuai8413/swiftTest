@@ -9,7 +9,7 @@ import UIKit
 
 class BaseTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var compleBlock:((_ title: String )-> Void)?
+    var compleBlock:((_ title: String, IndexPath )-> Void)?
     
     private let cellIdentifier = "BaseTableViewControllerReusedid"
     
@@ -41,7 +41,6 @@ class BaseTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let title = dataSource[indexPath.row]
-        compleBlock?(title)
+        compleBlock?(title, indexPath)
     }
-
 }
