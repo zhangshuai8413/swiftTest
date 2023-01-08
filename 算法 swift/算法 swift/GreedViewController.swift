@@ -1,17 +1,17 @@
 //
-//  TreeNoteViewController.swift
+//  GreedViewController.swift
 //  算法 swift
 //
-//  Created by 张帅 on 2023/1/7.
+//  Created by 张帅 on 2023/1/8.
 //
 
 import UIKit
 
-class TreeNoteViewController: BaseTableViewController {
+class GreedViewController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
         // Do any additional setup after loading the view.
     }
     

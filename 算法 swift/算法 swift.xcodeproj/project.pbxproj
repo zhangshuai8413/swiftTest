@@ -10,6 +10,15 @@
 		5B14AA94296993CF0027E7E1 /* ListNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14AA93296993CF0027E7E1 /* ListNoteViewController.swift */; };
 		5B14AA96296993E80027E7E1 /* TreeNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14AA95296993E80027E7E1 /* TreeNoteViewController.swift */; };
 		5B14AA982969951A0027E7E1 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14AA972969951A0027E7E1 /* BaseTableViewController.swift */; };
+		5B14AA9B296A4C580027E7E1 /* HashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14AA9A296A4C580027E7E1 /* HashViewController.swift */; };
+		5B14AA9D296A6EAE0027E7E1 /* DoublePointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14AA9C296A6EAE0027E7E1 /* DoublePointViewController.swift */; };
+		5B14AA9F296A6ECB0027E7E1 /* DynamicPlanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14AA9E296A6ECB0027E7E1 /* DynamicPlanningViewController.swift */; };
+		5B14AAA1296A6F210027E7E1 /* RetracingAlgorithmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14AAA0296A6F210027E7E1 /* RetracingAlgorithmViewController.swift */; };
+		5B14AAA3296A6F430027E7E1 /* KnapsackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14AAA2296A6F430027E7E1 /* KnapsackViewController.swift */; };
+		5B14AAA5296A722D0027E7E1 /* StringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14AAA4296A722D0027E7E1 /* StringViewController.swift */; };
+		5B14AAA7296A72BB0027E7E1 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14AAA6296A72BB0027E7E1 /* StackViewController.swift */; };
+		5B14AAA9296A72E50027E7E1 /* GreedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14AAA8296A72E50027E7E1 /* GreedViewController.swift */; };
+		5B14AAAB296A74730027E7E1 /* DictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B14AAAA296A74730027E7E1 /* DictViewController.swift */; };
 		5BA8053328F5423A0083CEB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8053228F5423A0083CEB9 /* AppDelegate.swift */; };
 		5BA8053528F5423A0083CEB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8053428F5423A0083CEB9 /* SceneDelegate.swift */; };
 		5BA8053728F5423A0083CEB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8053628F5423A0083CEB9 /* ViewController.swift */; };
@@ -24,6 +33,15 @@
 		5B14AA93296993CF0027E7E1 /* ListNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNoteViewController.swift; sourceTree = "<group>"; };
 		5B14AA95296993E80027E7E1 /* TreeNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNoteViewController.swift; sourceTree = "<group>"; };
 		5B14AA972969951A0027E7E1 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		5B14AA9A296A4C580027E7E1 /* HashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashViewController.swift; sourceTree = "<group>"; };
+		5B14AA9C296A6EAE0027E7E1 /* DoublePointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoublePointViewController.swift; sourceTree = "<group>"; };
+		5B14AA9E296A6ECB0027E7E1 /* DynamicPlanningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicPlanningViewController.swift; sourceTree = "<group>"; };
+		5B14AAA0296A6F210027E7E1 /* RetracingAlgorithmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetracingAlgorithmViewController.swift; sourceTree = "<group>"; };
+		5B14AAA2296A6F430027E7E1 /* KnapsackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnapsackViewController.swift; sourceTree = "<group>"; };
+		5B14AAA4296A722D0027E7E1 /* StringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringViewController.swift; sourceTree = "<group>"; };
+		5B14AAA6296A72BB0027E7E1 /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
+		5B14AAA8296A72E50027E7E1 /* GreedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreedViewController.swift; sourceTree = "<group>"; };
+		5B14AAAA296A74730027E7E1 /* DictViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictViewController.swift; sourceTree = "<group>"; };
 		5BA8052F28F5423A0083CEB9 /* 算法 swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "算法 swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BA8053228F5423A0083CEB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA8053428F5423A0083CEB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,8 +88,17 @@
 				5BA8053428F5423A0083CEB9 /* SceneDelegate.swift */,
 				5BA8053628F5423A0083CEB9 /* ViewController.swift */,
 				5B14AA93296993CF0027E7E1 /* ListNoteViewController.swift */,
+				5B14AA9A296A4C580027E7E1 /* HashViewController.swift */,
 				5B14AA972969951A0027E7E1 /* BaseTableViewController.swift */,
 				5B14AA95296993E80027E7E1 /* TreeNoteViewController.swift */,
+				5B14AA9C296A6EAE0027E7E1 /* DoublePointViewController.swift */,
+				5B14AA9E296A6ECB0027E7E1 /* DynamicPlanningViewController.swift */,
+				5B14AAA0296A6F210027E7E1 /* RetracingAlgorithmViewController.swift */,
+				5B14AAA2296A6F430027E7E1 /* KnapsackViewController.swift */,
+				5B14AAA6296A72BB0027E7E1 /* StackViewController.swift */,
+				5B14AAA8296A72E50027E7E1 /* GreedViewController.swift */,
+				5B14AAAA296A74730027E7E1 /* DictViewController.swift */,
+				5B14AAA4296A722D0027E7E1 /* StringViewController.swift */,
 				5BE5485D2926132400EC0C62 /* Person.swift */,
 				5BE5485F2926133700EC0C62 /* Student.swift */,
 				5BA8053828F5423A0083CEB9 /* Main.storyboard */,
@@ -155,12 +182,21 @@
 			files = (
 				5BA8053728F5423A0083CEB9 /* ViewController.swift in Sources */,
 				5BA8053328F5423A0083CEB9 /* AppDelegate.swift in Sources */,
+				5B14AA9B296A4C580027E7E1 /* HashViewController.swift in Sources */,
+				5B14AAA5296A722D0027E7E1 /* StringViewController.swift in Sources */,
 				5B14AA982969951A0027E7E1 /* BaseTableViewController.swift in Sources */,
+				5B14AAA3296A6F430027E7E1 /* KnapsackViewController.swift in Sources */,
+				5B14AA9D296A6EAE0027E7E1 /* DoublePointViewController.swift in Sources */,
 				5BE5485E2926132400EC0C62 /* Person.swift in Sources */,
 				5BE548602926133700EC0C62 /* Student.swift in Sources */,
 				5B14AA96296993E80027E7E1 /* TreeNoteViewController.swift in Sources */,
+				5B14AAA9296A72E50027E7E1 /* GreedViewController.swift in Sources */,
+				5B14AAAB296A74730027E7E1 /* DictViewController.swift in Sources */,
 				5B14AA94296993CF0027E7E1 /* ListNoteViewController.swift in Sources */,
 				5BA8053528F5423A0083CEB9 /* SceneDelegate.swift in Sources */,
+				5B14AAA7296A72BB0027E7E1 /* StackViewController.swift in Sources */,
+				5B14AAA1296A6F210027E7E1 /* RetracingAlgorithmViewController.swift in Sources */,
+				5B14AA9F296A6ECB0027E7E1 /* DynamicPlanningViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

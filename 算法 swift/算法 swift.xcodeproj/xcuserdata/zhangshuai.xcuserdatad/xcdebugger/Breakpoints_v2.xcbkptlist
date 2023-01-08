@@ -3,4 +3,54 @@
    uuid = "1831C9AB-B790-42F3-8CA2-9FA78F7027CA"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6CDCE82D-5E9F-4D5E-A36B-1AD1D854E534"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x7b97;&#x6cd5; swift/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "treeNoteClick(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6CDCE82D-5E9F-4D5E-A36B-1AD1D854E534 - a16556b6742a97bc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "&#x7b97;&#x6cd5;_swift.ViewController.treeNoteClick(Any) -&gt; ()"
+                  moduleName = "&#x7b97;&#x6cd5; swift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangshuai/Desktop/swiftTest/%E7%AE%97%E6%B3%95%20swift/%E7%AE%97%E6%B3%95%20swift/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "496">
+               </Location>
+               <Location
+                  uuid = "6CDCE82D-5E9F-4D5E-A36B-1AD1D854E534 - a16556b6742a97bc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "&#x7b97;&#x6cd5;_swift.ViewController.treeNoteClick(Any) -&gt; ()"
+                  moduleName = "&#x7b97;&#x6cd5; swift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangshuai/Desktop/swiftTest/%E7%AE%97%E6%B3%95%20swift/%E7%AE%97%E6%B3%95%20swift/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "732">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

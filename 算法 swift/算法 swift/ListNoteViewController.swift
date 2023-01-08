@@ -76,6 +76,27 @@ class ListNoteViewController: BaseTableViewController {
         
     }
     
+    
+    func detectCycle(_ head: ListNode?) -> ListNode? {
+        var fast: ListNode? = head
+        var slow: ListNode? = head
+        while fast != nil && fast?.next != nil {
+            fast = fast?.next?.next
+            slow = slow?.next
+            if fast === slow {
+                var index1 = slow
+                var index2 = fast
+                while index1 !== index1 {
+                    index1 = index1?.next
+                    index2 = index2?.next
+                }
+                
+                return index1
+            }
+        }
+        return nil
+    }
+    
     func getIntersectionNode(_ headA: ListNode?, _ headB: ListNode?) -> ListNode? {
         var listA: ListNode? = headA
         var listB: ListNode? = headB

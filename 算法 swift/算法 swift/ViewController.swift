@@ -32,6 +32,23 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var a: Person? = nil
     var b: Person? = nil
+    
+
+    lazy var vcDict: [String: Any] = {
+        let dict:[String: Any] = ["二叉树": TreeNoteViewController(),
+                          "动态规划": DynamicPlanningViewController(),
+                          "链表": ListNoteViewController(),
+                          "背包": KnapsackViewController(),
+                          "字符串": StringViewController(),
+                          "双指针": DoublePointViewController(),
+                          "字典": HashViewController(),
+                          "回溯算法": RetracingAlgorithmViewController(),
+                          "栈与队列": StackViewController(),
+                          "贪心算法": GreedViewController(),
+                     
+         ]
+        return dict
+    }()
     @IBOutlet weak var redButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +70,17 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func treeNoteClick(_ sender: Any) {
-        let vc = TreeNoteViewController()
-        self.present(vc, animated: true)
+        
+        if let button = sender as? UIButton, let title = button.titleLabel?.text {
+            
+            if let vc: UIViewController =  vcDict[title] as? UIViewController  {
+                vc.title = title
+                let navigation = UINavigationController(rootViewController: vc)
+                self.present(navigation, animated: true)
+                
+            }
+        }
+
     }
     
     
