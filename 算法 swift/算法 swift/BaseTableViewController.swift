@@ -10,6 +10,18 @@ import UIKit
 class BaseTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var compleBlock:((_ title: String, IndexPath )-> Void)?
+    var textViewCompletionBlock:((_ text: String) ->Void)?
+    var inputText: String = ""
+    lazy var textView: InputView = {
+        let view = InputView()
+        view.backgroundColor = UIColor.blue.withAlphaComponent(0.3)
+        view.completionBlock = {[weak self] text in
+            guard let strongSelf = self else { return }
+            strongSelf.textViewCompletionBlock?(text)
+
+        }
+        return view
+    }()
     
     private let cellIdentifier = "BaseTableViewControllerReusedid"
     
@@ -27,6 +39,9 @@ class BaseTableViewController: UIViewController, UITableViewDelegate, UITableVie
         view.addSubview(tableView)
         tableView.frame = self.view.bounds
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        view.addSubview(textView)
+        textView.frame = CGRect(x: view.frame.width - 200, y: 100, width: 150, height: 80)
+        textView.layer.zPosition = 10000
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,5 +57,7 @@ class BaseTableViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let title = dataSource[indexPath.row]
         compleBlock?(title, indexPath)
+        inputView?.becomeFirstResponder()
+        
     }
 }

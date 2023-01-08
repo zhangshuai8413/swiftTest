@@ -9,10 +9,23 @@ import UIKit
 
 class HashViewController: BaseTableViewController {
 
-
+    enum Constant {
+        static let 异位词 = "异位词"
+        static let  查找常用字符 = "查找常用字符"
+        static let 翻转字符串 = "翻转字符串"
+        static let reverse2K = "2K 翻转字符串"
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-         dataSource = ["异位词","查找常用字符"]
+        self.textViewCompletionBlock = { [weak self ]text in
+            guard let strongSelf = self else { return }
+            strongSelf.inputText = text
+            
+        }
+        dataSource =  [Constant.异位词, Constant.查找常用字符,Constant.翻转字符串, Constant.reverse2K]
         self.compleBlock = { [weak self ]title, _ in
             guard let strongSelf = self else { return }
             strongSelf.didSelected(title: title)
@@ -22,19 +35,79 @@ class HashViewController: BaseTableViewController {
     
     
     func didSelected(title: String)  {
-        if title == "异位词" {
+        
+        switch title {
+        case Constant.异位词:
             isAnagram()
-        } else if title == "查找常用字符" {
+        case Constant.查找常用字符:
             commonChars()
+        case Constant.翻转字符串:
+            reverseStrs()
+        case  Constant.reverse2K:
+            reverseStringK()
+        default:
+            break
         }
     }
     
+    func reverse(_ s: inout [Character], start: Int, end: Int)  {
+        if start >= end {
+            return
+        }
+        var start = start
+        var end = end
+        while start < end {
+            s.swapAt(start, end)
+            start += 1
+            end -= 1
+        }
+    }
     
+    func reverseStringK() {
+        let k: Int = 2
+        let str1: String = inputText
+        var str1Character: [Character] = Array(str1)
+        var i: Int = 0
+        let n: Int = str1.count - 1
+        while  i < n {
+            if (i + k <= n) {
+                let end: Int = i + k - 1
+                reverse(&str1Character, start: i, end: end)
+                i += 2 * k
+            } else {
+                reverse(&str1Character, start: i, end: n)
+            }
+            i += 2 * k
+        }
+        print("str1Character----\(str1Character)")
+    }
+    
+    func reverseStrs() {
+        //        编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 char[] 的形式给出。
+        //        不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。
+        //        你可以假设数组中的所有字符都是 ASCII 码表中的可打印字符。
+        //        示例 1：
+        //        输入：["h","e","l","l","o"]
+        //        输出：["o","l","l","e","h"]
+        //
+        //        示例 2：
+        //        输入：["H","a","n","n","a","h"]
+        //        输出：["h","a","n","n","a","H"]
+        var str1 = ["h","e","l","l","o"]
+        print("reverseStrs----start------\(str1)")
+        var left: Int = 0
+        var right: Int = str1.count - 1
+        while left < right {
+            str1.swapAt(left, right)
+            left += 1
+            right -= 1
+        }
+        print("reverseStrs---end----\(str1)")
+    }
     
     func commonChars() {
         //        words = ["bella","label","roller"] 输出：["e","l","l"]
         //        示例 2： 输入：words = ["cool","lock","cook"] 输出：["c","o"]
-        
         var res = [String]()
 //        let words: [String] = ["bella","label","roller"]
         let words: [String] = ["cppllllldl","llllllock","cooklttllllsso"]
@@ -76,7 +149,7 @@ class HashViewController: BaseTableViewController {
         let s = "abcde"
         let t = "cadbe"
         let isanagram = isAnagram(s, t)
-        print("isanagram\(isanagram)")
+        print("isanagram----\(isanagram)")
     }
     
     func isAnagram(_ s: String, _ t: String) -> Bool {

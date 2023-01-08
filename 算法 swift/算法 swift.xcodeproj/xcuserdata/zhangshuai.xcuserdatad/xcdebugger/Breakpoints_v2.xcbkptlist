@@ -7,49 +7,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6CDCE82D-5E9F-4D5E-A36B-1AD1D854E534"
+            uuid = "F406DE7F-B821-4210-BCC7-A8951B63F034"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x7b97;&#x6cd5; swift/ViewController.swift"
+            filePath = "&#x7b97;&#x6cd5; swift/HashViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "treeNoteClick(_:)"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "reverseStringK()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6CDCE82D-5E9F-4D5E-A36B-1AD1D854E534 - a16556b6742a97bc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "&#x7b97;&#x6cd5;_swift.ViewController.treeNoteClick(Any) -&gt; ()"
-                  moduleName = "&#x7b97;&#x6cd5; swift"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhangshuai/Desktop/swiftTest/%E7%AE%97%E6%B3%95%20swift/%E7%AE%97%E6%B3%95%20swift/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "496">
-               </Location>
-               <Location
-                  uuid = "6CDCE82D-5E9F-4D5E-A36B-1AD1D854E534 - a16556b6742a97bc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "&#x7b97;&#x6cd5;_swift.ViewController.treeNoteClick(Any) -&gt; ()"
-                  moduleName = "&#x7b97;&#x6cd5; swift"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhangshuai/Desktop/swiftTest/%E7%AE%97%E6%B3%95%20swift/%E7%AE%97%E6%B3%95%20swift/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "732">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "95138CC8-A5AA-47C5-B88F-E29B8EF0D61F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "&#x7b97;&#x6cd5; swift/HashViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
