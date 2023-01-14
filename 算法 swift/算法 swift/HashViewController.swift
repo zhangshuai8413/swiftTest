@@ -14,7 +14,6 @@ class HashViewController: BaseTableViewController {
         static let  查找常用字符 = "查找常用字符"
         static let 翻转字符串 = "翻转字符串"
         static let reverse2K = "2K 翻转字符串"
-        
     }
     
     
@@ -34,7 +33,7 @@ class HashViewController: BaseTableViewController {
     }
     
     
-    func didSelected(title: String)  {
+    override func didSelected(title: String)  {
         
         switch title {
         case Constant.异位词:

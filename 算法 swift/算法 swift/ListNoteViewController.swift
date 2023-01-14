@@ -54,7 +54,7 @@ class ListNoteViewController: BaseTableViewController {
         }
     }
     
-    func didSelected(title: String) {
+    override func didSelected(title: String) {
         
         switch title {
         case "移除列表倒数N个元素":

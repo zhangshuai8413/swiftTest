@@ -17,6 +17,7 @@ class BaseTableViewController: UIViewController, UITableViewDelegate, UITableVie
         view.backgroundColor = UIColor.blue.withAlphaComponent(0.3)
         view.completionBlock = {[weak self] text in
             guard let strongSelf = self else { return }
+            strongSelf.inputText = text
             strongSelf.textViewCompletionBlock?(text)
 
         }
@@ -26,7 +27,7 @@ class BaseTableViewController: UIViewController, UITableViewDelegate, UITableVie
     private let cellIdentifier = "BaseTableViewControllerReusedid"
     
     var dataSource: [String] = []
-    
+
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.delegate  = self
@@ -44,6 +45,7 @@ class BaseTableViewController: UIViewController, UITableViewDelegate, UITableVie
         textView.layer.zPosition = 10000
     }
     
+    func didSelected(title: String) {}
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
@@ -57,6 +59,7 @@ class BaseTableViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let title = dataSource[indexPath.row]
         compleBlock?(title, indexPath)
+        didSelected(title: title)
         inputView?.becomeFirstResponder()
         
     }
