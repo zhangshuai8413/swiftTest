@@ -77,8 +77,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             if let vc: UIViewController =  vcDict[title] as? UIViewController  {
                 vc.title = title
                 let navigation = UINavigationController(rootViewController: vc)
+          
                 self.present(navigation, animated: true)
-                
             }
         }
 
@@ -102,7 +102,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 //        print("aa ------\(aa)")
         
 //          gcdTest()
-        phoneNums()
+//        phoneNums()
     }
     
     

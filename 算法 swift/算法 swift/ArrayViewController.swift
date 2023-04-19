@@ -14,6 +14,7 @@ class ArrayViewController: BaseTableViewController {
         static let replaceArray = "移除数组"
         static let reverseString = "翻转文字"
         static let reverseLeftString = "左转文字"
+        static let quickSor = "快速排序"
      
     }
     
@@ -21,8 +22,8 @@ class ArrayViewController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "数组"
-        dataSource = [Constant.replaceArray]
-
+        dataSource = [Constant.replaceArray, Constant.quickSor]
+    
         // Do any additional setup after loading the view.
     }
     
@@ -31,6 +32,8 @@ class ArrayViewController: BaseTableViewController {
         switch title {
         case Constant.replaceArray:
             removeArray()
+        case Constant.quickSor:
+            quikSorted()
         default:
             break
         }
@@ -54,6 +57,14 @@ class ArrayViewController: BaseTableViewController {
      
     }
     
+    
+    func quikSorted() {
+        print("begin")
+        var nums:[Int] = [1,3,5,7,10,5,7,24,5,6]
+        quickSort(nums: &nums, low: 0, high: nums.count - 1)
+        print("nums-----\(nums)")
+    }
+    
     func removeElement(nums:[Int], val: Int) -> [Int] {
         var nums: [Int] = nums
         var slow: Int = 0
@@ -67,24 +78,27 @@ class ArrayViewController: BaseTableViewController {
         return Array(nums[0..<slow])
     }
 
-    func quickSort(nums: inout [Int], low: Int, high: Int) { 
+    func quickSort(nums: inout [Int], low: Int, high: Int) {
+        if low >= high { // 递归结束条件
+            return
+        }
         var i: Int = low
         var j: Int = high
         let key: Int = nums[i]
         while i < j {
-            while i < j && nums[j] > key {
+            while i < j && nums[j] >= key {
                 j -= 1
             }
             nums[i] = nums[j]
             
-            while i < j && nums[i] < key {
+            while i < j && nums[i] <= key {
                 i += 1
             }
             nums[j] = nums[i]
         }
         nums[i] = key
-        let mid = low +  (high - low) / 2
-        quickSort(nums: &nums, low: low, high: mid - 1)
-        quickSort(nums: &nums, low: mid + 1, high: high)
+
+        quickSort(nums: &nums, low: low, high: i - 1)
+        quickSort(nums: &nums, low: i + 1, high: high)
     }
 }
