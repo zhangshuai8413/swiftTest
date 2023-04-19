@@ -40,6 +40,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                           "链表": ListNoteViewController(),
                           "背包": KnapsackViewController(),
                           "字符串": StringViewController(),
+                          "数组":  ArrayViewController(),
                           "双指针": DoublePointViewController(),
                           "字典": HashViewController(),
                           "回溯算法": RetracingAlgorithmViewController(),
@@ -90,11 +91,125 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         //        print(index)
 //        sortSqr()
 //        minSubArrayLen()
-        printCircle()
+//        printCircle()
+//        quickSort()
+//        mergeTowList()
+//        let a = myPow(2, -3)
+//        print("a----\(a)")
+//          searchMid()
+//        searchDimensional()
+//        let aa = longestSubString(s: "abcabcbasdfghjkl")
+//        print("aa ------\(aa)")
+        
+//          gcdTest()
+        phoneNums()
     }
     
+    
+    func longestSubString(s: String) -> Int {
+        var map:[Character: Int] = [:]
+        var maxLenght: Int = 0
+        let array: [Character] = Array(s)
+        var left: Int = 0
+        for i in 0..<array.count {
+            let ch = array[i]
+            if let a = map[ch] {
+                left = max(left, a + 1)
+            }
+            map[ch] = i
+            maxLenght = max(maxLenght, i - left + 1)
+        }
+        return maxLenght
+    }
+    
+    func mergeTowList()  {
+        
+        var list1: [Int] = [1,2,4,5,6,11,30]
+        let list2: [Int] = [2,5,6,9,10,20]
+        
+        merge(nums1: &list1, nums2: list2)
+        print("nums1---\(list1)")
+        
+        func merge(nums1: inout[Int], nums2:[Int]) {
+            var i: Int = nums1.count - 1
+            var j: Int = nums2.count - 1
+            var k: Int =  j + i + 1
+            nums1.append(contentsOf: Array(repeatElement(0, count: nums2.count)))
+            while i >= 0 && j >= 0 {
+                if nums1[i] >= nums2[j] {
+                    nums1[k] = nums1[i]
+                    i -= 1
+                } else {
+                    nums1[k] = nums2[j]
+                    j -= 1
+                }
+                k -= 1
+            }
+            
+            while j >= 0 {
+                nums1[k] = nums2[j]
+                j -= 1
+                k -= 1
+            }
+        }
+    }
+  
+    func quickSort() {
+        // 示例
+        var m = [2,3,5,7,1,4,6,15,5,2,7,9,10,15,9,17,12]
+        quickSort(a: &m, low: 0, high: m.count - 1)
+        print(m)
+    }
+   
+    func quickSort(a: inout [Int], low: Int, high: Int) {
+        if low > high {
+            return
+        }
+        var i = low
+        var j = high
+        let key = a[i]
+        while i < j {
+            while i < j  && a[j] >= key {
+                j -= 1
+            }
+            a[i] = a[j]
+            while i < j && a[i] < key {
+             i += 1
+            }
+            a[j] = a[i]
+        }
+        a[i] = key
+        quickSort(a: &a, low: low, high: i - 1)
+        quickSort(a: &a, low: i + 1, high: high)
+    }
+    
+//        if low >= high { // 递归结束条件
+//            return
+//        }
+//        var i = low
+//        var j = high
+//        let key = a[i]
+//        while i < j {
+//            // 从右边开始比较，比key大的数位置不变
+//            while i < j && a[j] >= key {
+//                j -= 1
+//            }
+//            // 只要出现一个比key小的数，将这个数放入左边i的位置
+//            a[i] = a[j]
+//            // 从左边开始比较，比key小的数位置不变
+//            while i < j && a[i] <= key {
+//                i += 1
+//            }
+//            // 只要出现一个比key大的数，将这个数放入右边j的位置
+//            a[j] = a[i]
+//        }
+//        a[i] = key // 将key放入i的位置，则左侧数都比key小，右侧数都比key大
+//        quickSort(a: &a, low: low, high: i - 1) // 左递归
+//        quickSort(a: &a, low: i + 1, high: high) // 右递归
+//    }
+     
 //    1 2 3,4  5
-//    2 1    4 3
+//    2 1 3 4
     
     func swapPairsWhile(_ head: ListNode?) -> ListNode? {
         if head == nil || head?.next == nil {
@@ -131,12 +246,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         if head == nil {
             return head
         }
-        
         while current != nil {
             next = current?.next
-            if next == nil {
-                return next
-            }
             current?.next = pre
             pre = current
             current = next
@@ -158,6 +269,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         return reverse(pre: cur, cur: temp)
         
     }
+    
 //    func removeListNote(header: ListNode?, val: Int) -> ListNode? {
 //        let dummy: ListNode = ListNode()
 //        if header == nil || header?.val == val {
@@ -250,6 +362,13 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         return c
     }
     
+    func searchMid() {
+        let nums: [Int] = [1,2,4,5,6,7,8]
+        let index = searchMid(nums: nums, target: 4)
+        print("index-----\(index)")
+        
+    }
+    
     func searchMid(nums: [Int], target: Int) -> Int {
         var left: Int = 0
         var right: Int = nums.count - 1
@@ -272,7 +391,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         var map:[Int: Int] = [:]
         for num in nums { map[num, default: 0] += 1 }
         return Array(map.keys.sorted{ map[$0]! > map[$1]!}[0..<k])
-    
     }
     
     func pathNumber(nums: [[Int]]) -> Int {
@@ -289,7 +407,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 dp[i][0] = 1
             }
         }
-        
         for i  in  0..<n {
             for j in 0..<m {
                 if nums[i][j] == 1 {
@@ -298,7 +415,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
             }
         }
-        
         return dp[n - 1][m - 1]
     }
 
@@ -308,8 +424,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let firstWords: [Character] =  Array(words.first ?? "")
         let char1: UInt8 = ("a" as Character).asciiValue!
         firstWords.forEach { ch in
-            let  aa = ch.asciiValue  
-            
+            let  aa = ch.asciiValue
         }
         return res
     }
@@ -347,14 +462,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             fast = fast?.next
             n -= 1
         }
-        if fast != nil {
+        while fast?.next != nil {
             fast = fast?.next
-            while fast != nil {
-                fast = fast?.next
-                slow = slow?.next
-            }
-            slow?.next = slow?.next?.next
+            slow = slow?.next
         }
+        slow?.next = slow?.next?.next
         return dummy?.next
     }
     
@@ -368,7 +480,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         return newNote
     }
     func removeNote(root: ListNode?,target: Int) ->ListNode? {
-       
         var root: ListNode? = root
         let dummy: ListNode = ListNode(0)
         dummy.next = root
@@ -383,6 +494,58 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             }
         }
         return dummy.next
+    }
+    
+    func gcdTest() {
+        var a: Int = 0
+        DispatchQueue.global().async {
+            for _ in 0...9 {
+                a += 1
+            }
+            print("a--------\(a)")
+        }
+        DispatchQueue.global().async {
+            for _ in 0...9 {
+                a += 1
+            }
+            print("b--------\(a)")
+        }
+  
+    }
+    
+    func phoneNums() {
+        let inputsNumString: String = "14"
+        let digits: [String] = [ "", // 0
+                                 "", // 1
+                                 "abc", // 2
+                                 "def", // 3
+                                 "ghi", // 4
+                                 "jkl", // 5
+                                 "mno", // 6
+                                 "pqrs", // 7
+                                 "tuv", // 8
+                                 "wxyz", // 9
+        ]
+        let inputnums: [Int] = inputsNumString.compactMap({ Int(String($0))})
+        var result:  [String] = []
+        var str: String = ""
+        func phoneNums(startIndex: Int) {
+            if startIndex == inputnums.count {
+                result.append(str)
+                return
+            }
+            let lettters = digits[inputnums[startIndex]]
+            if lettters.count == 0 {
+                phoneNums(startIndex: startIndex + 1)
+            }
+            for ch in lettters {
+                str.append(ch)
+                phoneNums(startIndex: startIndex + 1)
+                str.removeLast()
+            }
+        }
+        phoneNums(startIndex: 0)
+        print("result--\(result)")
     }
     
     func gcfa() {
@@ -434,6 +597,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func printCircle()  {
+        
         func printCircle(nums:[[Int]], start: Int) {
             var result: [Int] = []
             // left  -> right
@@ -487,7 +651,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
 
-    
     func sortVersion() {
         var aaa = ["1.0","1.1.0","1.2.1","1.0.0","1.11.1"]
         aaa = aaa.sorted(by: <)
@@ -504,7 +667,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             sum += num
             if sum >= target {
                 subLength = j - i + 1
-                res = res < subLength ? res : sum
+                res = res < subLength ? res : subLength
                 i += 1
                 sum -= nums[i]
             }
@@ -612,7 +775,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 }
                 l += 1
             }
-            
         }
         return  anSL == -1 ? s.count : lenght
     }
@@ -656,21 +818,31 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    
+    func searchDimensional()  {
+        
+        let nums:[[Int]] =  [[1,3,5,7,8,9],
+                             [2,5,6,7,9,10],
+                             [4,7,9,10,12,18],
+                             [6,8,10,12,14,30],
+                             [7,9,13,14,16,40]]
+        
+        let jj = searchNums(nums: nums, target: 16)
+        print("index --------\(jj)")
+                            
+    }
     func searchNums(nums:[[Int]], target: Int) -> (Int , Int) {
         guard !nums.isEmpty else {
             return (0,0)
         }
         let n = nums.count
         let m = nums[0].count
-     
         var row: Int = 0
         var colum: Int = m - 1
-        while row < n &&  colum > 0 {
-             row = 0
-            if nums[(row * n )][colum] == target {
+        while row < n &&  colum >= 0 {
+            if nums[row][colum] == target {
                 return (row, colum)
-            }
-            if target < nums[(row * n )][colum] {
+            } else if target > nums[row][colum] {
                 row += 1
             } else {
                 colum -= 1
@@ -689,20 +861,17 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     func myPow(_ x: Double, _ n: Int) -> Double {
-        let n = n
-        return n > 0  ? quickMul(x: x, n: n) :  quickMul(x: x, n: -n)
+        return n > 0 ? quickMul(x: x, n: n) : 1.0 / quickMul(x: x, n: -n)
     }
     
     func quickMul(x: Double, n: Int) -> Double {
         if n == 0 {
             return 1.0
         }
-        
         let y = quickMul(x: x, n: n / 2)
-        
-        return n % 2 == 0 ? y * y  :   1.0 / y * y * x
-        
+        return n % 2 == 0 ? (y * y) : (y * y * x)
     }
+    
     func abcMinPathSum(grid: [[Int]]) -> Int {
         if grid.isEmpty || grid[0].isEmpty {
             return 0
@@ -729,7 +898,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 }
             }
         }
-        
         let dd = dp[row - 1][columns - 1]
         return dd
     }
@@ -829,8 +997,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         if start == end {
             return strs[start]
         }
-        let mid =  (end - start)  / 2
-        let left  = longestCommonPrefix(strs: strs, start: start, end: mid)
+        let mid = (end + start) / 2
+        let left = longestCommonPrefix(strs: strs, start: start, end: mid)
         let right = longestCommonPrefix(strs: strs, start: mid + 1, end: end)
         return longestCommonPrefix(string1: left, string2: right)
     }
@@ -840,7 +1008,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let str2s: [Character] = string2.map({$0})
         let minCount = min(string1.count, string2.count)
         var subIndex: Int = 0
-        for index in 1...minCount {
+        for index in 1...minCount - 1 {
             if str1s[index] != str2s[index] {
                 subIndex = index
                 break
@@ -919,7 +1087,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             }
             let digit = x % 10
             x = x / 10
-            revers =  revers * 10 + digit
+            revers = revers * 10 + digit
         }
         return revers
     }
@@ -950,7 +1118,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             res.append(ant)
             return
         }
-        combinationSum(candidates: candidates, res: &res, ant: &ant, target: target , index: index + 1 )
+        combinationSum(candidates: candidates, res: &res, ant: &ant, target: target, index: index + 1 )
         let newTarget = target - candidates[index]
         if newTarget >= 0 {
             ant.append(candidates[index])
@@ -1004,6 +1172,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     func printTreeNote(treeNote: TreeNode? = nil) {
         var list: [TreeNode] = []
+//        queue
+    
         guard let treeNote = treeNote else {
             return
         }
@@ -1134,12 +1304,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         guard let rootView  = view else {
             return nil
         }
-        
-        if rootView.tag == tag {
-            return rootView
-        }
-        var quene: [UIView] = []
-        quene.append(rootView)
+        var quene: [UIView] = [rootView]
         while !quene.isEmpty {
             let viewCount = quene.count
             for _ in  1...viewCount {
@@ -1152,6 +1317,21 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                     }
                 }
             }
+        }
+        return nil
+    }
+    
+    func depathRootView(view: UIView?, tag: Int) -> UIView? {
+        guard let rootView  = view else {
+            return nil
+        }
+        if view?.tag == tag {
+            return view
+        }
+        let subViews = rootView.subviews
+        for i in 0...subViews.count {
+            let subview = subViews[i]
+            return depathRootView(view: subview, tag: tag)
         }
         return nil
     }
@@ -1189,6 +1369,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
+//    单调栈是按照 行 的方向来计算雨水
+//    从栈顶到栈底的顺序：从小到大
+//    通过三个元素来接水：栈顶，栈顶的下一个元素，以及即将入栈的元素
+//    雨水高度是 min(凹槽左边高度, 凹槽右边高度) - 凹槽底部高度
+//    雨水的宽度是 凹槽右边的下标 - 凹槽左边的下标 - 1（因为只求中间宽度）
+    
     func trap(_ height: [Int]) -> Int {
         var stack: [Int] = []
         var res: Int = 0
@@ -1201,7 +1387,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 }
                 let left: Int = stack.last ?? 0
                 let currWidth = index - left - 1
-                let currHeight = min(height[top],  height[index] - height[top])
+                let currHeight = min(height[left],  height[index]) - height[top]
                 res += currHeight * currWidth
             }
             stack.append(index)
@@ -1341,21 +1527,19 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         return Int(finalInt!)
     }
     
-    func longsub(nums: [Int]) -> Int {
+    func lengthOfLIS(nums: [Int]) -> Int {
         var dp: [Int] = []
-        dp = nums.compactMap({ _ in return 0})
+        dp = nums.compactMap({ _ in return 1})
         var maxans: Int = 0
-        dp [0] = 1
         for i in 0..<nums.count {
-            dp [0] = 1
-            for j in 0..<nums.count {
-                if nums[j] > dp[i] {
+            for j in 0..<i {
+                if nums[i] > dp[j] {
                     dp [i] = max(dp[i], dp[j + 1])
                 }
             }
             maxans = max(maxans, dp[i])
         }
-        return dp.last ?? 0
+        return maxans
     }
     
     func lowestCommonAncestor(_ root: TreeNode?, _ p: TreeNode?, _ q: TreeNode?) ->  TreeNode? {
@@ -1368,13 +1552,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         if left != nil && right != nil {
             return  root
         }
-        if left != nil {
+        if left == nil {
             return right
         }
-        if right != nil {
-            return left
-        }
-        return nil
+        return left
     }
     
 
@@ -1438,7 +1619,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         var a = a
         var b = b
-        var header: ListNode?
+        var header: ListNode? = ListNode(-1)
         var tail:ListNode?
         header =  tail
         while a != nil && b != nil {
@@ -1453,7 +1634,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         tail?.next = a != nil ? a : b
         
-        return header
+        return header?.next
     }
     
     func merge(notes:[ListNode], left: Int, right: Int) -> ListNode? {
@@ -1491,6 +1672,39 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         head?.next = swipList(head:newNote?.next)
         newNote?.next = head
         return newNote
+    }
+    
+    func inorderTraversal(root: TreeNode?) -> Int  {
+        var root = root
+        var stack: [TreeNode] = []
+        var level: Int = 0
+        var result: Int = 0
+        if let root = root {
+            stack.append(root)
+        }
+        while !stack.isEmpty ||  root != nil {
+            if root != nil {
+                root = root?.left
+                level += 1
+                result = max(result, level)
+                if let root = root {
+                    stack.append(root)
+                }
+            } else {
+                let top = stack.last
+                if let top = top {
+                    level -= 1
+                    stack.removeLast()
+                }
+                root = top?.right
+                if stack.isEmpty  &&  root != nil {
+                    level += 1
+                    result = max(result, level)
+                }
+            }
+        }
+        
+        return result
     }
 }
 
