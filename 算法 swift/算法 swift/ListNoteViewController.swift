@@ -153,20 +153,22 @@ class ListNoteViewController: BaseTableViewController {
         var listA: ListNode? = headA
         var listB: ListNode? = headB
         while listA !== listB {
-            if listA != nil {
-                listA = listA?.next
-            } else {
-                listA = headB
-            }
-            if listB != nil {
-                listB = listB?.next
-            } else {
-                listB = headA
-            }
+            listA = (listA != nil) ? listA?.next : headB
+            listB = (listB != nil) ? listB?.next : headA
         }
         return listA
     }
-   
+    
+    func commonView(_ viewA: UIView?, viewB: UIView? ) -> UIView? {
+        var view1: UIView? = viewA
+        var view2: UIView? = viewB
+        while viewA != viewB {
+            view1 = (view1 == nil) ? viewB : view1?.superview
+            view2 = (view2 == nil) ? viewA : view2?.superview
+        }
+        return view1
+    }
+    
     func removeListNote(_ head: ListNode?, n: Int = 0) -> ListNode? {
         if head == nil {
             return head
@@ -192,7 +194,7 @@ class ListNoteViewController: BaseTableViewController {
             return head
         }
         var head: ListNode? = head
-        var dummy: ListNode = ListNode()
+        let dummy: ListNode = ListNode()
         dummy.next = head
         var pre: ListNode? = dummy
         while head != nil {
@@ -204,9 +206,9 @@ class ListNoteViewController: BaseTableViewController {
                 }
             }
             let next = tail?.next
-            let (head1, tail1) = reverse(pre?.next, tail)
+            let (head1, tail1) = reverse(head, tail)
             pre?.next = head1
-            tail?.next = tail?.next
+            tail?.next = tail1?.next
             pre = next
             head = next?.next
             
@@ -216,9 +218,8 @@ class ListNoteViewController: BaseTableViewController {
     
     func reverse(_ head: ListNode?, _ tail: ListNode?) -> (ListNode? , ListNode?) {
         var head: ListNode? = head
-        var tail: ListNode? = tail
-        var pre: ListNode? = tail
-        while head !== tail {
+        var pre: ListNode? = tail?.next
+        while pre !== tail {
             let temp: ListNode? = head?.next
             head?.next = pre
             pre = head

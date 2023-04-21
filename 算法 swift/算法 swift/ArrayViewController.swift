@@ -10,14 +10,11 @@ import UIKit
 class ArrayViewController: BaseTableViewController {
 
     enum Constant {
-    
         static let replaceArray = "移除数组"
         static let reverseString = "翻转文字"
         static let reverseLeftString = "左转文字"
         static let quickSor = "快速排序"
-     
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,14 +87,12 @@ class ArrayViewController: BaseTableViewController {
                 j -= 1
             }
             nums[i] = nums[j]
-            
             while i < j && nums[i] <= key {
                 i += 1
             }
             nums[j] = nums[i]
         }
         nums[i] = key
-
         quickSort(nums: &nums, low: low, high: i - 1)
         quickSort(nums: &nums, low: i + 1, high: high)
     }

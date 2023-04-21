@@ -57,6 +57,7 @@ class StringViewController: BaseTableViewController {
         print(inputText)
         let ww = reverseWords(words: inputText)
         print(ww?.trimmingCharacters(in: .alphanumerics))
+       
         func reverseWords(words: String?) -> String? {
             guard var  words = words else {
                 return nil

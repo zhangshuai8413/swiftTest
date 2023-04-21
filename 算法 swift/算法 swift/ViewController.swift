@@ -145,7 +145,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 }
                 k -= 1
             }
-            
             while j >= 0 {
                 nums1[k] = nums2[j]
                 j -= 1
@@ -173,7 +172,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 j -= 1
             }
             a[i] = a[j]
-            while i < j && a[i] < key {
+            while i < j && a[i] <= key {
              i += 1
             }
             a[j] = a[i]
@@ -182,35 +181,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         quickSort(a: &a, low: low, high: i - 1)
         quickSort(a: &a, low: i + 1, high: high)
     }
-    
-//        if low >= high { // 递归结束条件
-//            return
-//        }
-//        var i = low
-//        var j = high
-//        let key = a[i]
-//        while i < j {
-//            // 从右边开始比较，比key大的数位置不变
-//            while i < j && a[j] >= key {
-//                j -= 1
-//            }
-//            // 只要出现一个比key小的数，将这个数放入左边i的位置
-//            a[i] = a[j]
-//            // 从左边开始比较，比key小的数位置不变
-//            while i < j && a[i] <= key {
-//                i += 1
-//            }
-//            // 只要出现一个比key大的数，将这个数放入右边j的位置
-//            a[j] = a[i]
-//        }
-//        a[i] = key // 将key放入i的位置，则左侧数都比key小，右侧数都比key大
-//        quickSort(a: &a, low: low, high: i - 1) // 左递归
-//        quickSort(a: &a, low: i + 1, high: high) // 右递归
-//    }
-     
-//    1 2 3,4  5
-//    2 1 3 4
-    
+
     func swapPairsWhile(_ head: ListNode?) -> ListNode? {
         if head == nil || head?.next == nil {
             return head
@@ -252,7 +223,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             pre = current
             current = next
         }
-        
         return pre
     }
     
@@ -859,7 +829,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         return (0, 0)
     }
     
-    
     func myPow(_ x: Double, _ n: Int) -> Double {
         return n > 0 ? quickMul(x: x, n: n) : 1.0 / quickMul(x: x, n: -n)
     }
@@ -1277,7 +1246,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             }
             dic[num] = index
         }
-        return  (0,0)
+        return  (-1,-1)
     }
     
     func lengthOfLongestSubstring(string: String) -> Int {
@@ -1299,6 +1268,21 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         return ant
     }
+    
+    func lengthOfLongestSubstring(str: String) -> Int {
+        var dict:[Character: Int] = [:]
+        var left: Int = 0
+        var len: Int = 0
+        for (i, ch)  in str.enumerated() {
+            if let index = dict[ch] {
+                left = max(left, index + 1)
+            }
+            len = max(len, i - left + 1)
+            dict[ch] = i
+        }
+        return len
+    }
+
     
     func rootView(view: UIView?, tag: Int) -> UIView? {
         guard let rootView  = view else {
@@ -1396,7 +1380,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func search(_ nums: [Int], _ target: Int) -> Int {
-        var index: Int = -1
+       
         let length: Int = nums.count
         let first: Int = nums.first ?? 0
         var left: Int = 0
@@ -1422,7 +1406,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 
             }
         }
-        return index
+        return -1
     }
     
     func findMedianSortedArrays(_ nums1: [Int], _ nums2: [Int]) -> Double {
@@ -1558,7 +1542,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         return left
     }
     
-
     func auoChange(_ s: String) -> Int {
         var ret: Int = 0
         let auto = Automaton()
@@ -1633,7 +1616,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             tail = tail?.next
         }
         tail?.next = a != nil ? a : b
-        
         return header?.next
     }
     
