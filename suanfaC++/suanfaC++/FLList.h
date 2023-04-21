@@ -6,17 +6,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
-//struct ListNode {
-//    int val;
-//    ListNode * _Nonnull next;
-//    ListNode (int value) {
-//        value = value;
-//        next = nullptr;
-//    }
-//};
-
-
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
 struct ListNode {
     int val;
     ListNode * _Nullable next;
@@ -33,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 ListNode * addTwo(ListNode *list1, ListNode *list2);
 
 ListNode * reverse(ListNode *head);
+std::vector<int> twoSum(std::vector<int>& nums, int target);
+
 @end
 
 NS_ASSUME_NONNULL_END
