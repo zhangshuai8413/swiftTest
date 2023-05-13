@@ -1,15 +1,21 @@
 //
-//  FLList.h
+//  FFList.hpp
 //  suanfaC++
 //
-//  Created by 张帅 on 2023/4/21.
+//  Created by 张帅 on 2023/5/1.
 //
 
-#import <Foundation/Foundation.h>
+#ifndef FFList_hpp
+#define FFList_hpp
+
+#include <stdio.h>
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <stack>
+#include <unordered_set>
 using namespace std;
+
 struct ListNode {
     int val;
     ListNode * _Nullable next;
@@ -19,15 +25,8 @@ struct ListNode {
 };
 
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface FLList : NSObject
-
 ListNode * addTwo(ListNode *list1, ListNode *list2);
-
 ListNode * reverse(ListNode *head);
-std::vector<int> twoSum(std::vector<int>& nums, int target);
+vector<int> twoSum(vector<int>& nums, int target);
 
-@end
-
-NS_ASSUME_NONNULL_END
+#endif /* FFList_hpp */

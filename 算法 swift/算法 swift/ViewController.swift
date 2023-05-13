@@ -103,8 +103,22 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
 //          gcdTest()
 //        phoneNums()
+      
     }
     
+    
+    func revese(x: inout Int) -> Int {
+        var res: Int = 0
+        while x != 0 {
+            if x > Int.max / 10 || x < Int.min / 10 {
+                return 0
+            } else {
+                res = res * 10 + x % 10
+                x = x / 10
+            }
+        }
+        return res
+    }
     
     func longestSubString(s: String) -> Int {
         var map:[Character: Int] = [:]

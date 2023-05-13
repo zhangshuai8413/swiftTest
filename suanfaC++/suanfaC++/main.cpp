@@ -6,14 +6,30 @@
 //
 
 #include <iostream>
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <stack>
+#include <map>
+#include <string>
 
-
-
+using namespace std;
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "Hello, World!\n";
+  
+//    int array[] = {1,3,4,5,6};
+//    for (int index :array) {
+//        printf(" %d \n",index);
+//    }
+    
+    int i = 0;
+    i++;
+    printf("%d---",i);
+  
     return 0;
+    
+    
 }
 
 

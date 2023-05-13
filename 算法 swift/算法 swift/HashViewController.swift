@@ -14,6 +14,7 @@ class HashViewController: BaseTableViewController {
         static let  查找常用字符 = "查找常用字符"
         static let 翻转字符串 = "翻转字符串"
         static let reverse2K = "2K 翻转字符串"
+        static let kuohao = "有效括号"
     }
     
     
@@ -24,7 +25,7 @@ class HashViewController: BaseTableViewController {
             strongSelf.inputText = text
             
         }
-        dataSource =  [Constant.异位词, Constant.查找常用字符,Constant.翻转字符串, Constant.reverse2K]
+        dataSource =  [Constant.异位词, Constant.查找常用字符,Constant.翻转字符串, Constant.reverse2K,Constant.kuohao]
         self.compleBlock = { [weak self ]title, _ in
             guard let strongSelf = self else { return }
             strongSelf.didSelected(title: title)
@@ -44,9 +45,36 @@ class HashViewController: BaseTableViewController {
             reverseStrs()
         case  Constant.reverse2K:
             reverseStringK()
+            
+        case Constant.kuohao:
+            isValidkuooa()
         default:
             break
         }
+    }
+    
+    
+    func isValidkuooa() {
+        let s: String = ""
+        let isValide = isValid(s)
+        print("isValide---\(isValide)")
+    }
+    func isValid(_ s: String) -> Bool {
+        guard s.count % 2 == 0 else {return false}
+        let dict: [Character: Character] = ["{":"}","(":")","[":"]"]
+        var stack: [Character] = []
+        for ch in s {
+            if let value = dict[ch] {
+                stack.append(value)
+            } else {
+                if stack.last == ch  {
+                    stack.removeLast()
+                } else {
+                    return false
+                }
+            }
+        }
+        return stack.isEmpty
     }
     
     func reverse(_ s: inout [Character], start: Int, end: Int)  {
@@ -171,4 +199,29 @@ class HashViewController: BaseTableViewController {
         }
         return isAnagram
     }
+    
+    
+    func quikMul(_ x: Double, _ n: Int) -> Double {
+        if n == 0 {
+            return 1.0
+        }
+
+        let y = quikMul(x, n / 2)
+        return n % 2 == 0 ?  y * y :  y * y * x
+    }
+    
+    
+//    func quikMul(_ x: Double, _ n: Int) -> Double {
+//        var ans: Double = 1.0
+//        var n = n
+//        var x = x
+//        while n > 0 {
+//            if n % 2 == 1 {
+//                ans *= x
+//            }
+//            x *= x
+//            n /= 2
+//        }
+//        return ans
+//    }
 }

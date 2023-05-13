@@ -54,3 +54,33 @@ func lowestCommonAncestor(_ root: TreeNode?, _ p: TreeNode?, _ q: TreeNode?) -> 
     }
 }
 
+func getDeth(_ root: TreeNode?) -> Int {
+    let head: TreeNode? = root
+    var stack: [TreeNode?] = []
+    if head != nil {
+        stack.append(head)
+    }
+    var depth = 0; // 记录深度
+    var maxDepth = 0;
+    while !stack.isEmpty {
+        if let node: TreeNode = stack.last as?TreeNode {
+            stack.removeLast()
+            stack.append(node)
+            stack.append(nil)
+            depth += 1
+            if let right = node.right {
+                stack.append(right)
+            }
+            if let left = node.left {
+                stack.append(left)
+            }
+        } else {
+            stack.removeLast()
+            stack.removeLast()
+            depth -= 1
+        }
+        maxDepth = max(maxDepth, depth)
+    }
+    return maxDepth
+}
+

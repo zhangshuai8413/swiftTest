@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5BD8D3C729F22E7400CA2857 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8D3C629F22E7400CA2857 /* main.cpp */; };
-		5BD8D3CF29F22F7500CA2857 /* FLList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8D3CE29F22F7500CA2857 /* FLList.mm */; };
+		5BD8D3FE29FF789000CA2857 /* FFList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8D3FC29FF789000CA2857 /* FFList.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +26,8 @@
 /* Begin PBXFileReference section */
 		5BD8D3C329F22E7400CA2857 /* suanfaC++ */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "suanfaC++"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD8D3C629F22E7400CA2857 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		5BD8D3CD29F22F7500CA2857 /* FLList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLList.h; sourceTree = "<group>"; };
-		5BD8D3CE29F22F7500CA2857 /* FLList.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FLList.mm; sourceTree = "<group>"; };
+		5BD8D3FC29FF789000CA2857 /* FFList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FFList.cpp; sourceTree = "<group>"; };
+		5BD8D3FD29FF789000CA2857 /* FFList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FFList.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				5BD8D3C629F22E7400CA2857 /* main.cpp */,
-				5BD8D3CD29F22F7500CA2857 /* FLList.h */,
-				5BD8D3CE29F22F7500CA2857 /* FLList.mm */,
+				5BD8D3FC29FF789000CA2857 /* FFList.cpp */,
+				5BD8D3FD29FF789000CA2857 /* FFList.hpp */,
 			);
 			path = "suanfaC++";
 			sourceTree = "<group>";
@@ -124,8 +124,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BD8D3FE29FF789000CA2857 /* FFList.cpp in Sources */,
 				5BD8D3C729F22E7400CA2857 /* main.cpp in Sources */,
-				5BD8D3CF29F22F7500CA2857 /* FLList.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
