@@ -6,7 +6,7 @@
 //
 
 #include "TreeNode.hpp"
-
+#include <string>
 
 vector<vector<int>> levelOrder(TreeNode* root) {
     vector<vector<int>> result;
@@ -114,7 +114,6 @@ int getdepthIteration(TreeNode* root) {
 
 class solution {
     
-    
 public:
     
     int result;
@@ -141,7 +140,6 @@ public:
          return result;
      }
     
-    
     int getDepth(TreeNode* node) {
         if (node == NULL) return 0;
         int leftDepth = getDepth(node->left);
@@ -156,6 +154,7 @@ public:
         int result = 1 + min(leftDepth, rightDepth);
         return result;
     }
+    
     int minDepth(TreeNode* root) {
         return getDepth(root);
     }
@@ -226,7 +225,6 @@ bool isBalanced(TreeNode* root) {
     return getHeight(root) == -1 ? false : true;
 }
 
-
 int getDepth(TreeNode* cur) {
     stack<TreeNode*>st;
     if (cur == nullptr) {
@@ -267,4 +265,64 @@ bool isBalancedIteration(TreeNode* root) {
               if (node->left) st.push(node->left);
     }
     return true;
+}
+
+
+void traversal(TreeNode * cur,vector<int> &path, vector<string> &result) {
+    path.push_back(cur->val);
+    if (cur->left == nullptr && cur->right == nullptr) {
+        string sPath;
+        for (int i=0; i< path.size() -1; ++i) {
+            sPath += to_string(path[i]);
+            sPath += "->";
+        }
+        sPath += to_string(path[path.size() -1]);
+        result.push_back(sPath);
+        return;
+    }
+    if (cur ->left) {
+        traversal(cur->left, path, result);
+        path.pop_back();
+    }
+    
+    if (cur->right) {
+        traversal(cur->right, path, result);
+        path.pop_back();
+    }
+}
+ 
+
+vector<string> binaryTreePaths(TreeNode* root) {
+    vector<string> result;
+    vector<int> path;
+    if(root == nullptr) return result ;
+    traversal(root, path, result);
+    return result;
+}
+
+vector<string> binaryTreePathsIteration(TreeNode* root) {
+    vector<string> result;
+    stack<TreeNode*> treeStack;
+    stack<string> pathStack;
+    if (root == nullptr) {
+        return result;
+    }
+    treeStack.push(root);
+    pathStack.push(to_string(root->val));
+    while (!treeStack.empty()) {
+        TreeNode *node = treeStack.top(); treeStack.pop();
+        string path = pathStack.top(); pathStack.pop();
+        if(node->left == nullptr && node->right == nullptr){
+            result.push_back(path);
+        }
+        if(node->left) {
+            treeStack.push(node->left);
+            pathStack.push(path + "->" + to_string(node->left->val));
+        }
+        if(node->right) {
+            treeStack.push(node->right);
+            pathStack.push(path + "->" + to_string(node->right->val));
+        }
+    }
+    return result;
 }
