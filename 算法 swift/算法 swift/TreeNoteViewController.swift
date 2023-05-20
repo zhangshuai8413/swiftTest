@@ -84,3 +84,54 @@ func getDeth(_ root: TreeNode?) -> Int {
     return maxDepth
 }
 
+
+func postorderTraversal(_ root: TreeNode?) -> [Int] {
+    guard let root = root else {
+      return []
+    }
+    var result: [Int] = []
+    var stack: [TreeNode] = [root]
+    while !stack.isEmpty {
+        let note = stack.removeFirst()
+        if let left = note.left {
+            stack.append(left)
+        }
+        if let right = note.right {
+            stack.append(right)
+        }
+        result.insert(note.val, at: 0)
+    }
+    return result
+ }
+
+
+func postorderTraversal2(_ root: TreeNode?) -> [Int] {
+    guard let root = root else {
+      return []
+    }
+    var result: [Int] = []
+    var stack: [TreeNode?] = [root]
+    while !stack.isEmpty {
+        var note: TreeNode? = stack.last ?? nil
+        if let note = note {
+            stack.removeLast()
+            stack.append(note)
+            stack.append(nil)
+            if let right = note.right {
+                stack.append(right)
+            }
+            if let left = note.left {
+                stack.append(left)
+            }
+        } else {
+            stack.removeLast()
+            note = stack.removeLast()
+            if let note = note {
+                result.append(note.val)
+            }
+        }
+    }
+    return result
+ }
+
+

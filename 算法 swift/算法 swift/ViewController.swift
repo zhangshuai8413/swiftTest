@@ -86,6 +86,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        var stack = [1,2,3, 2,3]
+        print("\(stack)")
+        
         //        var nums = [0,1,2,2,3,0,4,2]
         //        let index = removeElement(nums: &nums, target: 2)
         //        print(index)
