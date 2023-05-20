@@ -187,3 +187,84 @@ public:
 };
 
 
+int countNodes(TreeNode* root) {
+    if(root == nullptr) return 0;
+    TreeNode *left = root->left;
+    TreeNode *right = root->right;
+    int leftDepth = 0;
+    int rightDepth = 0;
+    while (left) {
+        left = left->left;
+        leftDepth ++;
+    }
+    while (right) {
+        right = right->right;
+        rightDepth ++;
+    }
+    
+    if (leftDepth == rightDepth) {
+        return (2 << leftDepth )-1;
+    }
+    return countNodes(left) + countNodes(right);
+}
+
+
+int getHeight(TreeNode* node) {
+    if(node == NULL) {
+        return 0;
+    }
+    int leftHeight = getHeight(node->left);
+    if (leftHeight == -1) {
+        return -1;
+    }
+    int rightHeight = getHeight(node->right);
+    if (rightHeight == -1) return -1;
+    return abs(leftHeight - rightHeight) > 1 ? -1 : 1 + max(leftHeight, rightHeight);
+}
+
+bool isBalanced(TreeNode* root) {
+    return getHeight(root) == -1 ? false : true;
+}
+
+
+int getDepth(TreeNode* cur) {
+    stack<TreeNode*>st;
+    if (cur == nullptr) {
+        st.push(cur);
+    }
+    int result = 0;
+    int depth = 0;
+    while (!st.empty()) {
+        TreeNode *node = st.top();
+        if (node == NULL) {
+            st.pop();
+            st.push(node);
+            st.push(nullptr);
+            depth ++;
+        } else {
+            st.pop();
+            node = st.top();
+            st.pop();
+            depth--;
+        }
+        result = max(depth, result);
+    }
+    return 0;
+}
+
+bool isBalancedIteration(TreeNode* root) {
+    stack<TreeNode*>st;
+    if (root == nullptr) {
+        return  true;
+    }
+    st.push(root);
+    while (!st.empty()) {
+        TreeNode *node = st.top();
+        if (abs(getdepth(node->left) - getdepth(node->right)) > 1) {
+            return false;
+        }
+        if (node->right) st.push(node->right);           // 右（空节点不入栈）
+              if (node->left) st.push(node->left);
+    }
+    return true;
+}
