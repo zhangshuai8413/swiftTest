@@ -400,4 +400,31 @@ public:
     }
 };
 
+bool hasPathSum(TreeNode* root, int sum) {
+    if (!root) {
+        return false;
+    }
+    if (!root->left && !root->right && sum == root->val) {
+        return true;
+    }
+    return hasPathSum(root->left, sum - root->val) || hasPathSum(root->right, sum - root->val);
+}
 
+
+bool hasPathSumIteration(TreeNode* root, int sum) {
+    if (root == NULL) {
+        return false;
+    }
+    stack<pair<TreeNode*, int>> st;
+    pair<TreeNode *, int>  node = st.top();
+    st.pop();
+    if (!node.first->left && !node.first->right && sum == node.second)  return true;
+    if(node.first->right) {
+        st.push(pair<TreeNode*, int>(node.first->right, node.second + node.first->right->val));
+    }
+    
+    if(node.first->left) {
+        st.push(pair<TreeNode*, int>(node.first->left, node.second + node.first->left->val));
+    }
+    return false;
+}
