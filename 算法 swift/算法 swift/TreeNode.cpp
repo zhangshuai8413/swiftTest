@@ -326,3 +326,78 @@ vector<string> binaryTreePathsIteration(TreeNode* root) {
     }
     return result;
 }
+
+int leftNodeSum(TreeNode *root) {
+    int result = 0;
+    queue<TreeNode*> que;
+    if(root == NULL) return result;
+    que.push(root);
+    while (!que.empty()) {
+        TreeNode *node = que.front();que.pop();
+        if (node->left !=nullptr &&node->left->left == nullptr&&node->left->right == nullptr ) {
+            result += node->left->val;
+        }
+        if (node->left) {
+            que.push(node->left);
+        }
+        if (node->right) {
+            que.push(node->right);
+        }
+        
+    }
+    return result;
+}
+
+
+class LeftNodeSolution {
+public:
+    int maxDepth = INT_MIN;
+    int result = 0;
+    void traversal(TreeNode* root, int depth) {
+        if(root->left == NULL && root->right == nullptr) {
+            if(depth > maxDepth) {
+                maxDepth = depth;
+                result = root-> val;
+            }
+            return;
+        }
+        if (root->left) {
+            traversal(root->left, depth +1);
+        }
+        if (root->right) {
+            traversal(root->right, depth + 1);
+        }
+    }
+    
+    int findBottomleftValue(TreeNode*root) {
+        traversal(root, 0);
+        return result;
+    }
+    
+    int findBottomleftValueIteration(TreeNode*root) {
+        queue<TreeNode*> que;
+        if (root != NULL) {
+            que.push(root);
+        }
+        int result = 0;
+        while (!que.empty()) {
+            long size = que.size();
+            for (int i=0; i< size; ++i) {
+                TreeNode *node = que.front();
+                que.pop();
+                if (i== 0) {
+                    result = node->val;
+                }
+                if (node->left) {
+                    que.push(node->left);
+                }
+                if (node->right) {
+                    que.push(node->right);
+                }
+            }
+        }
+        return result;
+    }
+};
+
+
