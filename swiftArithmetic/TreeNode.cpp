@@ -467,3 +467,96 @@ TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
     }
     return traversal(inorder, postorder);
 }
+
+
+TreeNode* traversal (vector<int>& inorder, int inorderBegin, int inorderEnd, vector<int>& preorder, int preorderBegin, int preorderEnd) {
+    
+    if(preorderBegin == preorderEnd) {
+        return NULL;
+    }
+    int rootValue = preorder[preorderBegin];
+    TreeNode *root = new TreeNode(rootValue);
+    if (preorderEnd - preorderBegin == 1) {
+        return root;
+    }
+    
+    int delimiterIndex;
+    for (delimiterIndex = inorderBegin; delimiterIndex < inorderEnd; ++delimiterIndex) {
+        if(inorder[delimiterIndex] == rootValue) break;
+    }
+
+    int leftInoderBegin = inorderBegin;
+    int leftInoderEnd = delimiterIndex;
+    int rightInorderBegin = delimiterIndex + 1;
+    int rightInorderEnd = inorderEnd;
+    
+    
+    // 切割前序数组
+    int leftPreorderBegin = preorderBegin + 1;
+    int leftPreorderEnd = preorderBegin + 1 + delimiterIndex - inorderBegin;
+    
+    int rightPreorderBegin = preorderBegin + 1 + (delimiterIndex - inorderBegin);
+    int rightPreorderEnd = preorderEnd;
+ 
+    root->left = traversal(inorder, leftInoderBegin, leftInoderEnd, preorder, leftPreorderBegin, leftPreorderEnd);
+    root->right = traversal(preorder, rightPreorderBegin, rightPreorderEnd, preorder, rightInorderBegin, rightInorderEnd);
+    
+    return root;
+}
+
+TreeNode* buildTree1(vector<int>& preorder, vector<int>& inorder) {
+    if (inorder.size() == 0 || preorder.size() == 0) {
+        return NULL;
+    }
+    
+    return traversal(inorder, 0, (int)inorder.size(), preorder, 0, (int)preorder.size());
+  
+}
+
+
+class Solution2 {
+
+private:
+    unordered_map<int, int> indexMap;
+public:
+    TreeNode *buideTree(const vector<int> preorder, const vector<int> &inorder,int preorder_left, int preorder_right, int inorder_left, int inorder_right) {
+        
+        if (preorder_left > preorder_right) {
+            return nullptr;
+        }
+        
+        int preorder_root = preorder_left;
+        int inorder_root = indexMap[preorder[preorder_root]];
+        
+        TreeNode *root = new TreeNode(preorder[preorder_root]);
+      
+        int size_left_subtree = inorder_root - inorder_left;
+        
+        root->left = buideTree(preorder, inorder, preorder_left +1, preorder_left +size_left_subtree, inorder_left, inorder_root -1);
+        
+        root->right = buideTree(preorder, inorder, preorder_left + size_left_subtree + 1, preorder_right, inorder_root + 1, inorder_right);
+        return root;
+    }
+    
+    TreeNode *buildTree(vector<int>& preorder,vector<int>& inorder) {
+        int n = (int)preorder.size();
+        for (int i=0; i< n; ++i) {
+            indexMap[inorder[i]] = i;
+        }
+        return buideTree(preorder, inorder, 0, n -1, 0, n -1);
+
+    }
+
+};
+
+
+TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
+    if(root1 == NULL) return root2;
+    if (root2 == NULL) {
+        return root1;
+    }
+    root1->val += root2->val;
+    root1->left = mergeTrees(root1->left, root2->left);
+    root1->right = mergeTrees(root1->right, root2->right);
+    return root1;
+}
