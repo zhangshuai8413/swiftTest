@@ -560,3 +560,59 @@ TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
     root1->right = mergeTrees(root1->right, root2->right);
     return root1;
 }
+
+TreeNode* searchBST(TreeNode* root, int val) {
+    if (root == nullptr || root->val == val) {
+        return root;
+    }
+    if(root->val > val) return searchBST(root->left, val);
+    if(root->val < val) return searchBST(root->right, val);
+    return nullptr;
+ 
+}
+
+class SearchBST {
+    
+public:
+    TreeNode* searchBST(TreeNode* root, int val) {
+        while (root != nullptr) {
+            if(root->val > val) root = root->left;
+            else if (root->val < val) root = root->right;
+            else return root;
+        }
+        return nullptr;
+    }
+    
+    TreeNode *pre = nullptr;
+    bool isValidBST(TreeNode* root) {
+        if (root == nullptr) {
+            return true;
+        }
+        bool left = isValidBST(root->left);
+        if (pre != nullptr  && pre->val >= root->val) return false;
+            
+        bool right = isValidBST(root->right);
+       
+        return left && right;
+    }
+    
+};
+
+bool isValidBST(TreeNode* root) {
+    stack<TreeNode*> st;
+    TreeNode *cur = root;
+    TreeNode *pre = nullptr;
+    while (cur != nullptr || !st.empty()) {
+        if(cur != nullptr) {
+            st.push(cur);
+            cur = cur->left;
+        } else {
+            cur = st.top();
+            st.pop();
+            if(pre != nullptr && pre->val >= cur->val) return false;
+            pre = cur;
+            cur = cur->right;
+        }
+    }
+    return true;
+}
