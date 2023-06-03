@@ -616,3 +616,82 @@ bool isValidBST(TreeNode* root) {
     }
     return true;
 }
+
+class SolutionSearchBSTMin {
+private: vector<int> vec;
+    
+public:
+    void traversal(TreeNode *root) {
+        if(root == nullptr) return;
+        traversal(root->left);
+        vec.push_back(root->val);
+        traversal(root->right);
+    }
+    
+    int getMinNumDifferce(TreeNode *root) {
+        vec.clear();
+        traversal(root);
+        if (vec.size() < 2) return 0;
+        int result = INT_MAX;
+        for (int i=1; i< vec.size(); ++i) {
+            result = min(result, vec[i] -vec[i-1]);
+        }
+        return result;
+    }
+
+};
+
+
+class SolutionSearchBSTMin1 {
+
+public:
+    int result = INT_MAX;
+    TreeNode *pre = nullptr;
+    
+    void traversal(TreeNode *root) {
+        if(root == nullptr) return;
+        traversal(root->left);   // 左
+        if(pre != nullptr) {
+            result = min(result, root->val - pre->val);
+        }
+        pre = root;
+        traversal(root->right);
+    }
+    int getMinNumDifferce(TreeNode *root) {
+        traversal(root);
+        return result;
+    }
+
+    
+    void searchBST(TreeNode *current, unordered_map<int, int> &map) {
+        if(current == nullptr)  return;
+        map[current->val] ++;
+        searchBST(current->left, map);
+        searchBST(current->right, map);
+    }
+    bool static cmp(const pair<int, int>&a, const pair<int, int> &b){
+        return a.second > b.second;
+    }
+    
+    vector<int> findMode(TreeNode *root) {
+        unordered_map<int, int> map;
+        vector<int> result;
+        if(root == nullptr) return result;
+        searchBST(root, map);
+        vector<pair<int, int>> vec(map.begin(), map.end());
+        sort(vec.begin(), vec.end(), cmp);
+        result.push_back(vec[0].first);
+        for (int i=1; i< vec.size(); ++i) {
+            if(vec[i].second ==  vec[0].second) {
+                result.push_back(vec[i].first);
+            }
+            
+        }
+
+        return result;
+    }
+};
+
+
+
+
