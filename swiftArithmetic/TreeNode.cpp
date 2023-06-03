@@ -685,13 +685,52 @@ public:
             if(vec[i].second ==  vec[0].second) {
                 result.push_back(vec[i].first);
             }
-            
         }
-
         return result;
     }
 };
 
 
+
+class SearchBSTMode {
+  
+private:
+   int maxCount = 0;
+    int count = 0;
+    TreeNode *pre = nullptr;
+    vector<int> result;
+    
+public:
+    void searchBST(TreeNode *current) {
+        if(current == nullptr) return;
+        searchBST(current->left);
+        if(pre == nullptr) {
+            count++;
+        } else if (pre-> val != current->val) {
+            count++;
+        } else {
+            count = 1;
+        }
+        pre = current;
+        if(count == maxCount) {
+            result.push_back(current->val);
+        }
+        if(count >maxCount) {
+            maxCount = count;
+            result.clear();
+            result.push_back(current->val);
+        }
+        searchBST(current->right);
+    }
+    
+    vector<int> findMode(TreeNode *root) {
+        count = 0;
+        maxCount = 0;
+        pre = nullptr;
+        result.clear();
+        searchBST(root);
+        return result;
+    }
+};
 
 
