@@ -704,12 +704,11 @@ public:
     void searchBST(TreeNode *current) {
         if(current == nullptr) return;
         searchBST(current->left);
-        if(pre == nullptr) {
-            count++;
-        } else if (pre-> val != current->val) {
-            count++;
-        } else {
+        
+        if (pre == nullptr || pre-> val != current->val) {
             count = 1;
+        } else {
+            count ++;
         }
         pre = current;
         if(count == maxCount) {
@@ -731,6 +730,307 @@ public:
         searchBST(root);
         return result;
     }
+    
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if (root->val > p->val && root->val > q->val) {
+            return lowestCommonAncestor(root->left, p, q);
+        } else if (root->val < p->val && root->val < q->val ) {
+            return lowestCommonAncestor(root->right, p, q);
+        } else {
+            return root;
+        }
+    }
+        
+};
+
+TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+    if (root == nullptr || root == p || root == q) {
+        return root;
+    }
+    TreeNode *left = lowestCommonAncestor(root->left, p, q);
+    TreeNode *right = lowestCommonAncestor(root->right, p, q);
+    if(left != nullptr && right != nullptr) return root;
+    if(left == nullptr) return right;
+    return left;
+}
+
+
+class LowestCommonAncestorBST {
+    
+private:
+    TreeNode *result;
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        while (true) {
+            if(root->val > p->val && root->val > q->val) {
+                root = root->left;
+            } else if (root->val < p->val && root->val < q->val){
+                root = root->right;
+            } else {break;}
+        }
+        return root;
+    }
+    
+    TreeNode* insertIntoBST(TreeNode* root, int val)  {
+        if(root == nullptr) {
+            TreeNode *node = new TreeNode(val);
+            return node;
+        }
+        if(root->val > val) root->left = insertIntoBST(root->left, val);
+        if (root->val < val) root->right = insertIntoBST(root->right, val);
+        return root;
+    }
 };
 
 
+class SolutionBSTInsert {
+    
+public:
+    TreeNode* parent;
+    void traversal(TreeNode* cur, int val) {
+        if(cur == nullptr) {
+            TreeNode *node = new TreeNode(val);
+            if(val > parent->val) {
+                parent->right = node;
+            } else  {
+                parent->left = node;
+            }
+            return;
+        }
+        parent = cur;
+        if(cur->val >val)  traversal(cur->left, val);
+        if (cur->val < val) traversal(cur->right, val);
+        return;
+    }
+    
+    TreeNode* insertIntoBST(TreeNode* root, int val) {
+        parent = new TreeNode(0);
+        if (root == nullptr) {
+            root = new TreeNode(val);
+        }
+        traversal(root, val);
+        return root;
+    }
+    
+};
+
+TreeNode* insertIntoBST(TreeNode* root, int val) {
+    if(root == nullptr) {
+        return new TreeNode(val);
+    }
+    TreeNode *current = root;
+    TreeNode *parent = root;
+    if(current !=nullptr) {
+        parent = current;
+        if(current->val > val) current = current->left;
+        if(current->val < val) current = current->right;
+    }
+    TreeNode *node = new TreeNode(val);
+    if(parent->val > val) {
+        parent->left = node;
+    }
+    if (parent->val < val) {
+        parent->right = node;
+    }
+    return node;
+    
+}
+
+
+TreeNode* deleteNode(TreeNode* root, int key) {
+    if (root == nullptr) {
+        return root;
+    }
+    if(root->val == key) {
+        if(root->left == nullptr && root->right == nullptr) {
+            delete  root;
+            return nullptr;
+        } else if (root->left == nullptr) {
+            TreeNode *right = root->right;
+            delete root;
+            return right;
+        }  else if (root->right == nullptr) {
+            TreeNode *left = root->left;
+            delete root;
+            return left;
+        } else {
+            TreeNode *current = root->right;
+            while (current->left != nullptr) {
+                current = current->left;
+            }
+            
+            current->left = root->left;
+            TreeNode *temp = root;
+            root = root->right;
+            delete temp;
+            return root;
+        }
+    }
+    
+    if (root->val > key) {
+        root->left = deleteNode(root->left, key);
+    }
+    if (root->val < key) {
+        root->right = deleteNode(root->right, key);
+    }
+    
+    return root;
+}
+
+class SortedArrayToBST {
+    
+    
+public:
+    TreeNode* traversal(vector<int>& nums, int left, int right) {
+        if(left> right) {
+            return nullptr;
+        }
+        int mid = left + ((right -left) >> 2);
+        TreeNode* root = new TreeNode(nums[mid]);
+        root->left = traversal(nums, left, mid-1);
+        root->right = traversal(nums, mid + 1, right);
+        return root;
+        
+    }
+    
+    TreeNode *sortedArrayToBST(vector<int> &nums) {
+        TreeNode *root = traversal(nums, 0, (int32_t)nums.size()-1);
+        return root;
+    }
+};
+
+class ZuHE {
+    
+public:
+    vector<vector<int>> result;
+    vector<int> path;
+    void backtracking(int n, int k, int startIndex) {
+        if(path.size() == k) {
+            result.push_back(path);
+            return;
+        }
+        for (int i= startIndex; i <= n -(k - path.size()) + 1; ++i) {
+            path.push_back(i);
+            backtracking(n, k, i +1);
+            path.pop_back();
+        }
+    }
+    vector<vector<int>> combine(int n, int k) {
+        backtracking(n, k, 1);
+        return result;
+    }
+};
+
+class Combining {
+    
+public:
+    vector<vector<int>>reslut;
+    vector<int> path;
+    
+    void backtracking(int target,int k, int sum, int startIndx) {
+       
+        if(sum > target) {
+            return;
+        }
+        if(path.size() == k) {
+            if(sum == target) {
+                reslut.push_back(path);
+            }
+            return;
+        }
+        for (int i=startIndx; i< 9-(k -path.size()) + 1; ++i) {
+            sum += i;
+            path.push_back(i);
+            backtracking(target,k, sum,i +1);
+            sum -=i;
+            path.pop_back();
+        }
+    }
+    
+    vector<vector<int>> combinationSum3(int k, int n) {
+        reslut.clear();
+        path.clear();
+        backtracking(n,k, 0, 1);
+        return reslut;
+    }
+};
+
+
+class PhoneNumber {
+private:
+  
+public:
+    
+    const string letterMap[10] = {
+        "",
+        "",
+        "abc", //2
+        "def", //3
+        "ghi", //
+        "jkl",
+        "mno",
+        "pqrs",
+        "tuv",
+        "wxyz"
+    };
+    vector<string> result;
+    string s;
+    void backtracking(const string &digits, int index) {
+        if(index == digits.size()) {
+            result.push_back(s);
+            return;
+        }
+        
+        int digit = digits[index] - '0';
+        string lettters = letterMap[digit];
+        for(char ch: lettters) {
+            s.push_back(ch);
+            backtracking(digits, index + 1);
+            s.pop_back();
+            
+        }
+    }
+    
+    vector<string> letterCombinations(string digits) {
+        s.clear();
+        result.clear();
+        if(digits.size() == 0) {
+            return result;
+        }
+        backtracking(digits, 0);
+        return result;
+    }
+    
+};
+
+
+class SolutionComBine {
+    
+    
+public:
+    
+    vector<vector<int>> result;
+    vector<int> path;
+    void backtracking(vector<int>& candidates, int target, int sum, int startIndex) {
+        if (sum == target) {
+            result.push_back(path);
+            return;
+        }
+        for (int i= startIndex; i< candidates.size() &&  sum + candidates[i] <= target; ++i) {
+            sum += candidates[i];
+            path.push_back(candidates[i]);
+            backtracking(candidates, target, sum, i);
+            sum -= candidates[i];
+            path.pop_back();
+        }
+    }
+    
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        result.clear();
+        path.clear();
+        sort(candidates.begin(), candidates.end());
+        backtracking(candidates, target, 0, 0);
+        return result;
+    }
+    
+};
