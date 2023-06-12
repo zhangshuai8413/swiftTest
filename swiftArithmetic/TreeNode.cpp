@@ -1034,3 +1034,120 @@ public:
     }
     
 };
+
+class Palindrome {
+    
+    
+public:
+    
+    vector<vector<string>> result;
+    vector<string> path; // 放已经回文的子串
+    vector<vector<bool>> palindromes; // 放事先计算好的是否回文子串的结果
+    
+    bool isPalindrome(const string& s, int start, int end) {
+        for (int i= start, j = end; i< j;  ++i, --j) {
+            if (s[start] != s[end]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    void backtracking(const string &s, int startIndex) {
+        if (startIndex >= s.size()) {
+            result.push_back(path);
+            return;
+        }
+        for (int i= startIndex; i< s.size(); ++i) {
+            if(palindromes[startIndex][i]) {
+                string str = s.substr(startIndex, i- startIndex + 1);
+                path.push_back(str);
+            } else {
+                continue;
+            }
+            backtracking(s, i +1);
+            path.pop_back();
+            
+        }
+    }
+    
+    void computePalindrome(const string &s) {
+        palindromes.resize(s.size(), vector<bool>(s.size(),false));
+        for (int i= (int)s.size()-1; i >=0 ; i--) {
+            for (int j = i; j < s.size(); j++) {
+                if (j == i) {
+                    palindromes[i][j] = true;
+                } else if (j -i == 1) {
+                    palindromes[i][j]  = (s[i] == s[j]);
+                } else {
+                    palindromes[i][j]  = (s[i] == s[j] && palindromes[i+1][j-1]);
+                }
+            }
+            
+        }
+    }
+    
+    vector<vector<string>> partition(string s) {
+        result.clear();
+        path.clear();
+        computePalindrome(s);
+        backtracking(s, 0);
+        return result;
+    }
+    
+};
+
+
+class IPRe {
+    
+public:
+    vector<string> result;
+    bool isValid(const string &s, int start, int end) {
+        if(start > end) {
+            return false;
+        }
+        if(s[start] == '0' && start != end) {
+            return false;
+        }
+        int num = 0;
+        for (int i=start; i< end; ++i) {
+            if(s[i] > '9' || s[i] < '0') {
+                return false;
+            }
+            num = num *10 + (s[i] - '0');
+            if(num > 255) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    void backtracking(string &s, int start, int pointNum) {
+        if(pointNum == 3) {
+            if (isValid(s, start, (int)s.size() -1)) {
+                result.push_back(s);
+            }
+            return;
+        }
+        
+        for (int i=start; i< s.size(); ++i) {
+            if (isValid(s, start, i)) {
+                s.insert(s.begin() + i + 1, '.');
+                pointNum++;
+                backtracking(s, i + 2, pointNum);
+                pointNum --;
+                s.erase(s.begin() + i + 1);
+            } else break;;
+        }
+
+    }
+    
+    vector<string> restoreIpAddresses(string s) {
+        result.clear();
+        if(s.size() < 4 || s.size() > 12) return result;
+        backtracking(s, 0, 0);
+        return result;
+    }
+    
+};
+
