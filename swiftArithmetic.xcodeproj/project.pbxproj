@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B1E2C022A2F864000096D0D /* BackTrack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E2C002A2F864000096D0D /* BackTrack.cpp */; };
+		5B1E2C052A3764DC00096D0D /* Greedy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E2C032A3764DC00096D0D /* Greedy.cpp */; };
 		5B26D4B52A1A6C8D00EDCA2F /* swiftArithmeticApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26D4B42A1A6C8D00EDCA2F /* swiftArithmeticApp.swift */; };
 		5B26D4B72A1A6C8D00EDCA2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26D4B62A1A6C8D00EDCA2F /* ContentView.swift */; };
 		5B26D4B92A1A6C8E00EDCA2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B26D4B82A1A6C8E00EDCA2F /* Assets.xcassets */; };
@@ -38,6 +39,9 @@
 /* Begin PBXFileReference section */
 		5B1E2C002A2F864000096D0D /* BackTrack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BackTrack.cpp; sourceTree = "<group>"; };
 		5B1E2C012A2F864000096D0D /* BackTrack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BackTrack.hpp; sourceTree = "<group>"; };
+		5B1E2C032A3764DC00096D0D /* Greedy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Greedy.cpp; sourceTree = "<group>"; };
+		5B1E2C042A3764DC00096D0D /* Greedy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Greedy.hpp; sourceTree = "<group>"; };
+		5B1E2C062A37651500096D0D /* CPlusHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPlusHeader.h; sourceTree = "<group>"; };
 		5B26D4B12A1A6C8D00EDCA2F /* swiftArithmetic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftArithmetic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B26D4B42A1A6C8D00EDCA2F /* swiftArithmeticApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftArithmeticApp.swift; sourceTree = "<group>"; };
 		5B26D4B62A1A6C8D00EDCA2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +106,9 @@
 			children = (
 				5B26D4B42A1A6C8D00EDCA2F /* swiftArithmeticApp.swift */,
 				5B26D4B62A1A6C8D00EDCA2F /* ContentView.swift */,
+				5B1E2C032A3764DC00096D0D /* Greedy.cpp */,
+				5B1E2C042A3764DC00096D0D /* Greedy.hpp */,
+				5B1E2C062A37651500096D0D /* CPlusHeader.h */,
 				5B26D4EE2A1A6D2F00EDCA2F /* MyQueue.cpp */,
 				5B26D4ED2A1A6D2F00EDCA2F /* MyQueue.hpp */,
 				5B26D4EB2A1A6D2600EDCA2F /* TreeNode.cpp */,
@@ -232,6 +239,7 @@
 				5B26D4E02A1A6CC600EDCA2F /* RetracingAlgorithmViewController.swift in Sources */,
 				5B26D4EF2A1A6D2F00EDCA2F /* MyQueue.cpp in Sources */,
 				5B26D4DA2A1A6CC600EDCA2F /* StringViewController.swift in Sources */,
+				5B1E2C052A3764DC00096D0D /* Greedy.cpp in Sources */,
 				5B26D4DE2A1A6CC600EDCA2F /* ListNoteViewController.swift in Sources */,
 				5B26D4D72A1A6CC600EDCA2F /* DoublePointViewController.swift in Sources */,
 				5B26D4D82A1A6CC600EDCA2F /* Student.swift in Sources */,
