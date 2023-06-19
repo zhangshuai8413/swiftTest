@@ -56,6 +56,7 @@ int wiggleMaxLength(vector<int>& nums) {
     return result;
 }
 
+
 class WiggleMax {
 
 public:
@@ -89,9 +90,6 @@ int maxProfit(vector<int>&price) {
 
 }
 
-
-
-    
 
 int DynmicProfit:: maxProfit(vector<int>& prices) {
     int n = (int)prices.size();
@@ -130,3 +128,34 @@ public:
         return result;
     }
 };
+
+
+bool canJump(vector<int>& nums) {
+    
+    int cover = 0;
+    if (nums.size() == 1) {
+        return  true;
+    }
+    for(int i =0; i <= cover;  i++) {
+        cover = max(i + nums[i], cover);
+        if (cover >= nums.size() - 1) {
+            return true;
+        }
+    }
+    return false;
+}
+
+int jump(vector<int>& nums) {
+    int  curDistance = 0;
+    int ans = 0;
+    int nextDistance = 0;
+    for(int i = 0; i < nums.size() -1 ; i ++) {
+        nextDistance = max(i + nums[i], nextDistance);
+        if (curDistance == i) {
+            curDistance = nextDistance;
+            ans++;
+        }
+    }
+    return ans;
+}
+
