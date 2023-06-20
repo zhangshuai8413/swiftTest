@@ -180,3 +180,22 @@ int canCompleteCircuit(vector<int>&gas, vector<int>cost) {
 }
 
 
+int candy(vector<int>& ratings) {
+    int result = 0;
+    vector<int>candyVec(ratings.size(), 1);
+    for (int i = 1 ; i < (int)ratings.size(); i++) {
+        if (ratings[i] > ratings[i -1]) {
+            candyVec[i] = candyVec[i -1] + 1;
+        }
+    }
+    for (int i = (int)ratings.size() - 1; i > 0; i--) {
+        if (ratings[i] > ratings[i + 1]) {
+            candyVec[i] = max(candyVec[i], candyVec[i + 1] + 1);
+        }
+    }
+  
+    for (int i = 0; i < candyVec.size(); i ++) {
+        result += candyVec[i];
+    }
+    return result;
+}
