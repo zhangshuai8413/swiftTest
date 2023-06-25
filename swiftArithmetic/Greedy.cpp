@@ -81,16 +81,36 @@ public:
     }
     
 };
-int maxProfit(vector<int>&price) {
-    int result = 0;
-    for (int i=1; i< price.size(); ++i) {
-        result += max(price[i] - price[i -1], 0);
+
+class MAXProfit {
+    
+    
+public:
+    //  只操作一天
+    int maxProfit(vector<int>&price) {
+        int result = 0;
+        for (int i=1; i< price.size(); ++i) {
+            result += max(price[i] - price[i -1], 0);
+        }
+        return result;
+
     }
-    return result;
+    
+    //  只操作一天
+    int maxProfitDym(vector<int>&prices) {
+        int result = 0;
+        for (int i=1; i< prices.size(); ++i) {
+            result += max(prices[i] - prices[i -1], 0);
+        }
+        return result;
 
-}
+    }
+    
+    
+};
 
 
+ // 可以多日操作
 int DynmicProfit:: maxProfit(vector<int>& prices) {
     int n = (int)prices.size();
     vector<vector<int>>dp(n, vector<int>(2,0));
@@ -107,23 +127,21 @@ int DynmicProfit:: maxProfit(vector<int>& prices) {
 
 class Solution {
     
-    
 public:
     static bool cmp(int a, int b) {
         return abs(a) > abs(b);
     }
-    
     int largestSumAfterKNegations(vector<int>&A, int k) {
         sort(A.begin(), A.end());
         int result = 0;
         for (int i=0; i< A.size(); ++i) {
             if(A[i] < 0 && k >0) {
                 A[i] *= -1;
-                 k--;
+                k--;
             }
         }
         
-        if(k % 2 == 1) A[A.size() -1] *= -1;        
+        if(k % 2 == 1) A[A.size() -1] *= -1;
         for(int a: A) result += a;
         return result;
     }
@@ -198,4 +216,30 @@ int candy(vector<int>& ratings) {
         result += candyVec[i];
     }
     return result;
+}
+
+
+bool lemonadeChange(vector<int>& bills) {
+    int five = 0, ten = 0, twenty = 0;
+    for( int bill :  bills) {
+        if(bill == 5) five ++;
+        if (bill == 10) {
+            if (five <= 0) {
+                return false;
+            }
+            ten++;
+            five--;
+        }
+        if (bill == 20) {
+            if (five> 0 &&  ten >0) {
+                five--;
+                ten--;
+            } else if(five >=3) {
+                five -= 3;
+            } else {
+                return false;
+            }
+        }
+    }
+    return true;
 }
