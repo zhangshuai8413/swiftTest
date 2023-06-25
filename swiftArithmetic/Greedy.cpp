@@ -220,7 +220,7 @@ int candy(vector<int>& ratings) {
 
 
 bool lemonadeChange(vector<int>& bills) {
-    int five = 0, ten = 0, twenty = 0;
+    int five = 0, ten = 0;
     for( int bill :  bills) {
         if(bill == 5) five ++;
         if (bill == 10) {
@@ -243,3 +243,24 @@ bool lemonadeChange(vector<int>& bills) {
     }
     return true;
 }
+
+class  SortHeight {
+    
+public:
+    static  bool com(const vector<int> &a, const vector<int>&b) {
+        if (a[0]== b[0]) {
+            return a[1] < b[1];
+        }
+        return a[0]> b[0];
+    }
+    vector<vector<int>> reconstructQueue(vector<vector<int>> & people) {
+        sort(people.begin(), people.end(), com);
+        vector<vector<int>> que;
+        for (int i = 0; i <people.size(); i ++) {
+            int position = people[i][1];
+            que.insert(que.begin() + position, people[i]);
+        
+        }
+        return que;
+    }
+};
