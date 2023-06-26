@@ -12,5 +12,7 @@
 #include "CPlusHeader.h"
 class DynmicProfit {
     int maxProfit(vector<int>& prices);
+    int maxProfit1(vector<int>& prices);
+    
 };
 #endif /* Greedy_hpp */
