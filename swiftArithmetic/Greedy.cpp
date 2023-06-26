@@ -264,3 +264,54 @@ public:
         return que;
     }
 };
+
+
+class  SortHeightII {
+    
+public:
+    static  bool com(const vector<int> &a, const vector<int>&b) {
+        if (a[0]== b[0]) {
+            return a[1] < b[1];
+        }
+        return a[0]> b[0];
+    }
+    vector<vector<int>> reconstructQueue(vector<vector<int>> & people) {
+        sort(people.begin(), people.end(), com);
+        list<vector<int>> que;
+        for (int i = 0; i <people.size(); i ++) {
+            int position = people[i][1];
+            list<vector<int>> :: iterator it = que.begin();
+            while (position--) {
+                it++;
+            }
+            que.insert(it, people[i]);
+        
+        }
+        return vector<vector<int>>(que.begin(), que.end());
+    }
+};
+
+class MinArrowShots {
+    
+public:
+    
+    static bool cmp(const vector<int> &a, const vector<int>&b) {
+        return a[0] < b[0];
+    }
+    
+    int findMinArrowShots(vector<vector<int>> &points) {
+        if (points.size() == 0) {
+            return 0;
+        }
+        sort(points.begin(), points.end(), cmp);
+        int result = 1;
+        for (int i = 0; i <points.size(); i ++) {
+            if (points[i][0] > points[i -1][1]) {
+                result++;
+            } else {
+                points[i][1] = min(points[i-1][1], points[i][1]);
+            }
+        }
+        return result;
+    }
+};
