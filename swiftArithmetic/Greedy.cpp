@@ -8,10 +8,10 @@
 #include "Greedy.hpp"
 
 /* 分发 饼干
-
+ 
  g  胃口
  s 饼干尺寸
-*/
+ */
 int findContentChildren(vector<int>& g, vector<int>& s) {
     sort(g.begin(), g.end());
     sort(s.begin(), s.end());
@@ -58,7 +58,7 @@ int wiggleMaxLength(vector<int>& nums) {
 
 
 class WiggleMax {
-
+    
 public:
     int dp[1005][2];
     int wiggleMaxLength(vector<int>& nums) {
@@ -93,7 +93,7 @@ public:
             result += max(price[i] - price[i -1], 0);
         }
         return result;
-
+        
     }
     
     //  只操作一天
@@ -103,14 +103,14 @@ public:
             result += max(prices[i] - prices[i -1], 0);
         }
         return result;
-
+        
     }
     
     
 };
 
 
- // 可以多日操作
+// 可以多日操作
 int DynmicProfit:: maxProfit(vector<int>& prices) {
     int n = (int)prices.size();
     vector<vector<int>>dp(n, vector<int>(2,0));
@@ -177,8 +177,6 @@ int jump(vector<int>& nums) {
     return ans;
 }
 
-
-
 int canCompleteCircuit(vector<int>&gas, vector<int>cost) {
     int curSum = 0;
     int totalSum = 0;
@@ -211,7 +209,7 @@ int candy(vector<int>& ratings) {
             candyVec[i] = max(candyVec[i], candyVec[i + 1] + 1);
         }
     }
-  
+    
     for (int i = 0; i < candyVec.size(); i ++) {
         result += candyVec[i];
     }
@@ -259,7 +257,7 @@ public:
         for (int i = 0; i <people.size(); i ++) {
             int position = people[i][1];
             que.insert(que.begin() + position, people[i]);
-        
+            
         }
         return que;
     }
@@ -267,9 +265,12 @@ public:
 
 
 class  SortHeightII {
+    //    根据身高重建队列
+    // https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E6%A0%B9%E6%8D%AE%E8%BA%AB%E9%AB%98%E9%87%8D%E5%BB%BA%E9%98%9F%E5%88%97%EF%BC%88vector%E5%8E%9F%E7%90%86%E8%AE%B2%E8%A7%A3%EF%BC%89.md
+    
     
 public:
-    static  bool com(const vector<int> &a, const vector<int>&b) {
+    static bool com(const vector<int> &a, const vector<int>&b) {
         if (a[0]== b[0]) {
             return a[1] < b[1];
         }
@@ -285,13 +286,20 @@ public:
                 it++;
             }
             que.insert(it, people[i]);
-        
+            
         }
         return vector<vector<int>>(que.begin(), que.end());
     }
 };
 
 class MinArrowShots {
+    /*
+     有一些球形气球贴在一堵用 XY 平面表示的墙面上。墙面上的气球记录在整数数组 points ，其中points[i] = [xstart, xend] 表示水平直径在 xstart 和 xend之间的气球。你不知道气球的确切 y 坐标。
+     
+     一支弓箭可以沿着 x 轴从不同点 完全垂直 地射出。在坐标 x 处射出一支箭，若有一个气球的直径的开始和结束坐标为 xstart，xend， 且满足  xstart ≤ x ≤ xend，则该气球会被 引爆 。可以射出的弓箭的数量 没有限制 。 弓箭一旦被射出之后，可以无限地前进。
+     
+     给你一个数组 points ，返回引爆所有气球所必须射出的 最小 弓箭数 。
+     */
     
 public:
     
