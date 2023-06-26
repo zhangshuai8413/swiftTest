@@ -15,5 +15,7 @@ extension Person {
     @objc
     func addName() {
 //        print("Person")
+        let nums: [Int] = [1,3,5,6,3]
+        let sum = nums.reduce(0, {$0 + $1})
     }
 }
