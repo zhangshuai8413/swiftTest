@@ -444,3 +444,24 @@ public:
     }
     
 };
+
+
+int monotoneIncreasingDigits(int n) {
+    
+    string numStr = to_string(n);
+    int flag = 0;
+    string result;
+    for (int i = (int)numStr.size() - 1; i >0 ; i--) {
+        if (numStr[i-1] > numStr[i]) {
+            flag = i;
+            numStr[i-1]--;
+        }
+    }
+
+    for (int i = flag; i < numStr.size() ; i++) {
+        numStr[i] = '9';
+    }
+    return stoi(numStr);
+    
+}
+

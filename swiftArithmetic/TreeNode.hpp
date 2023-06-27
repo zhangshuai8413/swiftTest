@@ -14,7 +14,8 @@
 #include <queue>
 
 using namespace std;
-struct TreeNode {
+
+ struct TreeNode {
     int val;
     TreeNode *left;
     TreeNode *right;
