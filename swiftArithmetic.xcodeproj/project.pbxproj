@@ -34,6 +34,8 @@
 		5B26D4E92A1A6D0200EDCA2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26D4E82A1A6D0200EDCA2F /* ViewController.swift */; };
 		5B26D4EC2A1A6D2600EDCA2F /* TreeNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B26D4EB2A1A6D2600EDCA2F /* TreeNode.cpp */; };
 		5B26D4EF2A1A6D2F00EDCA2F /* MyQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B26D4EE2A1A6D2F00EDCA2F /* MyQueue.cpp */; };
+		84C785F42A4BB442007DC50F /* TestMetal.metal in Sources */ = {isa = PBXBuildFile; fileRef = 84C785F32A4BB442007DC50F /* TestMetal.metal */; };
+		84C785F72A4BB4C7007DC50F /* DynamicProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,9 @@
 		5B26D4EB2A1A6D2600EDCA2F /* TreeNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TreeNode.cpp; sourceTree = "<group>"; };
 		5B26D4ED2A1A6D2F00EDCA2F /* MyQueue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MyQueue.hpp; sourceTree = "<group>"; };
 		5B26D4EE2A1A6D2F00EDCA2F /* MyQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyQueue.cpp; sourceTree = "<group>"; };
+		84C785F32A4BB442007DC50F /* TestMetal.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = TestMetal.metal; sourceTree = "<group>"; };
+		84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DynamicProgram.cpp; sourceTree = "<group>"; };
+		84C785F62A4BB4C7007DC50F /* DynamicProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DynamicProgram.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +122,9 @@
 				5B1E2C012A2F864000096D0D /* BackTrack.hpp */,
 				5B26D4C32A1A6CAA00EDCA2F /* ListNode.cpp */,
 				5B26D4C42A1A6CAA00EDCA2F /* ListNode.hpp */,
+				84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */,
+				84C785F62A4BB4C7007DC50F /* DynamicProgram.hpp */,
+				84C785F32A4BB442007DC50F /* TestMetal.metal */,
 				5B26D4CB2A1A6CC600EDCA2F /* ArrayViewController.swift */,
 				5B26D4E82A1A6D0200EDCA2F /* ViewController.swift */,
 				5B26D4D62A1A6CC600EDCA2F /* BaseTableViewController.swift */,
@@ -226,6 +234,8 @@
 				5B26D4E72A1A6CC600EDCA2F /* BaseTableViewController.swift in Sources */,
 				5B26D4E42A1A6CC600EDCA2F /* StackViewController.swift in Sources */,
 				5B1E2C022A2F864000096D0D /* BackTrack.cpp in Sources */,
+				84C785F42A4BB442007DC50F /* TestMetal.metal in Sources */,
+				84C785F72A4BB4C7007DC50F /* DynamicProgram.cpp in Sources */,
 				5B26D4E62A1A6CC600EDCA2F /* TreeNoteViewController.swift in Sources */,
 				5B26D4E32A1A6CC600EDCA2F /* longViewController.swift in Sources */,
 				5B26D4E12A1A6CC600EDCA2F /* InputView.swift in Sources */,
