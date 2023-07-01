@@ -15,7 +15,7 @@ class DynmicProfit {
     int maxProfit1(vector<int>& prices);
     
 };
-
+using namespace std;
 
 class MinCameraCover {
     /*
@@ -81,6 +81,8 @@ private:
         if (traversal(root) == 0) {
             result++;
         }
+    
+        
         return result;
     }
 };
