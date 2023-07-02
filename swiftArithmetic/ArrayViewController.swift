@@ -20,12 +20,10 @@ class ArrayViewController: BaseTableViewController {
         super.viewDidLoad()
         title = "数组"
         dataSource = [Constant.replaceArray, Constant.quickSor]
-    
         // Do any additional setup after loading the view.
     }
     
     override func didSelected(title: String) {
-    
         switch title {
         case Constant.replaceArray:
             removeArray()
@@ -53,7 +51,6 @@ class ArrayViewController: BaseTableViewController {
         print("aaaa-----\(aa)")
      
     }
-    
     
     func quikSorted() {
         print("begin")

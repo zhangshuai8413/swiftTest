@@ -9,9 +9,19 @@
 #define DynamicProgram_hpp
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
 #include "CPlusHeader.h"
 
 using namespace std;
+//void print1() {};
+
+template <typename T, typename... Types>
+void print1(const T& firstArg, const Types&... args)
+{
+    cout << firstArg << endl;
+//    print1(args...);
+}
 
 class FIB {
     /*
@@ -38,7 +48,6 @@ class FIB {
      */
     
 public:
-    
     int fib(int N) {
         if (N <= 1) {
             return N;
@@ -70,7 +79,6 @@ public:
 
 
 class ClimbStairs {
-    
     
 public:
     int climbStairs(int n)  {
@@ -106,31 +114,28 @@ public:
         }
         return dp[n];
     }
+    
+    int minCostClimbingStairs(vector<int> &cost){
+        int dp0 = 0;
+        int dp1 = 0;
+        for (int i = 2; i <=cost.size(); i ++) {
+            int dpi = min(dp1 + cost[i-1], dp0 + cost[i -2]);
+            dp0 = dp1;
+            dp1 = dpi;
+        }
+        return dp1;
+    }
 };
 
-int minCostClimbingStairs(vector<int> &cost){
-    int dp0 = 0;
-    int dp1 = 0;
-    for (int i = 2; i <=cost.size(); i ++) {
-        int dpi = min(dp1 + cost[i-1], dp0 + cost[i -2]);
-        dp0 = dp1;
-        dp1 = dpi;
-    }
-    return dp1;
-}
 
 class UniquePaths {
     /*
      62.不同路径
      力扣题目链接
-
      一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。
-
      机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。
-
      问总共有多少条不同的路径？
      */
-    
 public:
     int uniquePaths(int m, int n) {
         vector<int>dp(n);
@@ -161,7 +166,6 @@ public:
         return dp[m-1][n-1];
     }
     
-    
     int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
         int m = (int)obstacleGrid.size();
         int n = (int)obstacleGrid[0].size();
@@ -182,8 +186,6 @@ public:
         return dp[m-1][n-1];
     }
 };
-
-
 
 class InterBreake {
     /*
@@ -212,9 +214,7 @@ public:
         return dp[n];
     }
     
-    
     int integerBreakII(int n) {
-        
         if(n == 2) {
             return 1;
         } else if(n == 3) {
@@ -229,16 +229,16 @@ public:
         }
         result *= n;
         return result;
-        
     }
 };
+
 #endif /* DynamicProgram_hpp */
 
 
 class Knapsack {
     
 public:
-    void test_2_wei_bag_problem1() {
+    vector<vector<int>> test_2_wei_bag_problem1() {
         vector<int>weight = {1,3,4};
         vector<int> value = {15, 20, 30};
         int bagweight = 4;
@@ -248,7 +248,6 @@ public:
             dp[0][j] =  value[0];
         }
         // weight数组的大小 就是物品个数
-        
         for (int i=1; i< weight.size(); ++i) {
             for (int j=0; j<= bagweight; ++j) {
                 if (j < weight[i]) {
@@ -257,9 +256,67 @@ public:
                     dp[i][j] = max(dp[i-1][j], dp[i-1][j - weight[i]] + value[i]);
                 }
             }
-            
         }
-        
+        for (int i=0; i< dp.size(); ++i) {
+            cout << "\n -- end" << endl;
+            for (int j=0; j< dp[0].size(); ++j) {
+                cout << dp[i][j] << endl;
+            }
+        }
+        return dp;
     }
- 
+    
+    void test_1_wei_bag_problem() {
+        vector<int>weight = {1,3,4};
+        vector<int>value =  {15,20, 30};
+        int bagWeight= 4;
+        vector<int>dp(bagWeight +1, 0);
+        for (int i = 0; i < weight.size() ; i ++) {
+            for (int j = bagWeight; j >= weight[i] ; j--) {
+                dp[j] = max(dp[j], dp[j - weight[i]] + value[i]);
+            }
+        }
+        cout << "test_1_wei_bag_problem dp----: " << dp[bagWeight] << endl;
+    }
 };
+
+class DivideEqualSumSubsets {
+    
+    /*
+     题目难易：中等
+     给定一个只包含正整数的非空数组。是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。
+     注意: 每个数组中的元素不会超过 100 数组的大小不会超过 200
+     示例 1:
+     输入: [1, 5, 11, 5]
+     输出: true
+     解释: 数组可以分割成 [1, 5, 5] 和 [11].
+     示例 2:
+     输入: [1, 2, 3, 5]
+     输出: false
+     解释: 数组不能分割成两个元素和相等的子集.
+     */
+    
+public:
+    
+    bool canPartition(vector<int>& nums) {
+        int sum = 0;
+        vector<int>dp(10001,0);
+        for (int i=0; i< nums.size(); i++) {
+            sum += nums[i];
+        }
+        if (sum % 2 == 1) {
+            return false;
+        }
+        int target = sum / 2;
+        for (int i = 0; i < nums.size() ; i++) {
+            for (int j = target; j >= nums[i]; j--) {
+                dp[j] = max(dp[j], dp[j - nums[i]] + nums[i]);
+            }
+        }
+        if (dp[target] == target) {
+            return true;
+        }
+        return false;
+    }
+};
+

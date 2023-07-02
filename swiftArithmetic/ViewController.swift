@@ -62,7 +62,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
-    
     @IBAction func listNoteClick(_ sender: Any) {
         
         let vc = ListNoteViewController()

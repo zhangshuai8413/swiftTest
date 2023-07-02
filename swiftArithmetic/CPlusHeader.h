@@ -15,6 +15,8 @@
 #include <string>
 #include <unordered_set>
 #include <list>
+#include <iostream>
+#include <bitset>
 
 struct TreeNode {
    int val;
@@ -27,7 +29,6 @@ struct TreeNode {
 
 
 using namespace std;
-
 
 
 #endif /* CPlusHeader_h */

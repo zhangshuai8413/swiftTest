@@ -11,31 +11,26 @@ class HashViewController: BaseTableViewController {
 
     enum Constant {
         static let 异位词 = "异位词"
-        static let  查找常用字符 = "查找常用字符"
+        static let 查找常用字符 = "查找常用字符"
         static let 翻转字符串 = "翻转字符串"
         static let reverse2K = "2K 翻转字符串"
         static let kuohao = "有效括号"
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.textViewCompletionBlock = { [weak self ]text in
             guard let strongSelf = self else { return }
             strongSelf.inputText = text
-            
         }
-        dataSource =  [Constant.异位词, Constant.查找常用字符,Constant.翻转字符串, Constant.reverse2K,Constant.kuohao]
+        dataSource = [Constant.异位词, Constant.查找常用字符,Constant.翻转字符串, Constant.reverse2K,Constant.kuohao]
         self.compleBlock = { [weak self ]title, _ in
             guard let strongSelf = self else { return }
             strongSelf.didSelected(title: title)
         }
-      
     }
     
-    
     override func didSelected(title: String)  {
-        
         switch title {
         case Constant.异位词:
             isAnagram()
@@ -45,7 +40,6 @@ class HashViewController: BaseTableViewController {
             reverseStrs()
         case  Constant.reverse2K:
             reverseStringK()
-            
         case Constant.kuohao:
             isValidkuooa()
         default:
@@ -53,12 +47,12 @@ class HashViewController: BaseTableViewController {
         }
     }
     
-    
     func isValidkuooa() {
         let s: String = ""
         let isValide = isValid(s)
         print("isValide---\(isValide)")
     }
+
     func isValid(_ s: String) -> Bool {
         guard s.count % 2 == 0 else {return false}
         let dict: [Character: Character] = ["{":"}","(":")","[":"]"]
@@ -138,7 +132,6 @@ class HashViewController: BaseTableViewController {
         var res = [String]()
 //        let words: [String] = ["bella","label","roller"]
         let words: [String] = ["cppllllldl","llllllock","cooklttllllsso"]
-        
         let first: String = words.first ?? ""
         let lettersMaxCount: Int = 26
         var hashArray: [Int] = Array(repeating: 0, count: lettersMaxCount)
@@ -157,7 +150,6 @@ class HashViewController: BaseTableViewController {
                 hashArray[k] = min(hashArray[k], otherHash[k])
             }
         }
-        
         for i in 0..<lettersMaxCount {
             while hashArray[i] != 0 {
                 print("i---\(i)---\(hashArray[i])\n")
@@ -170,7 +162,6 @@ class HashViewController: BaseTableViewController {
         }
         print("\n----\(res)----")
     }
-    
     
     func isAnagram() {
         let s = "abcde"
@@ -200,16 +191,13 @@ class HashViewController: BaseTableViewController {
         return isAnagram
     }
     
-    
     func quikMul(_ x: Double, _ n: Int) -> Double {
         if n == 0 {
             return 1.0
         }
-
         let y = quikMul(x, n / 2)
         return n % 2 == 0 ?  y * y :  y * y * x
     }
-    
     
 //    func quikMul(_ x: Double, _ n: Int) -> Double {
 //        var ans: Double = 1.0

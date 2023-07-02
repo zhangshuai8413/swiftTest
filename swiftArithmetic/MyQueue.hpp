@@ -80,7 +80,6 @@ public:
 
 
 class MyStack1 {
-    
 public:
     queue<int> que;
     MyStack1() {
@@ -109,6 +108,5 @@ public:
         return que.empty();
     }
 };
-
 
 #endif /* MyQueue_hpp */

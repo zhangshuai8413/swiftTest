@@ -8,33 +8,17 @@
 import UIKit
 
 class DoublePointViewController: BaseTableViewController {
-
-    enum Constant {
     
+    enum Constant {
         static let replaceArray = "移除数组"
         static let replaceSa = "替换空格"
         static let reverseLeftString = "左转文字"
-     
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "数组"
-//        dataSource = [Constant.re]
-
-        // Do any additional setup after loading the view.
     }
-    
-//    override func didSelected(title: String) {
-//    
-//        switch title {
-//        case Constant.replaceArray:
-//       
-//        default:
-//            break
-//        }
-//    }
     
     func threeSum(nums:[Int]) -> [[Int]] {
         var result: [[Int]] = []
@@ -63,5 +47,4 @@ class DoublePointViewController: BaseTableViewController {
         }
         return result
     }
-    
 }

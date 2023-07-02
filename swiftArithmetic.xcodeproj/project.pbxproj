@@ -34,7 +34,7 @@
 		5B26D4E92A1A6D0200EDCA2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26D4E82A1A6D0200EDCA2F /* ViewController.swift */; };
 		5B26D4EC2A1A6D2600EDCA2F /* TreeNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B26D4EB2A1A6D2600EDCA2F /* TreeNode.cpp */; };
 		5B26D4EF2A1A6D2F00EDCA2F /* MyQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B26D4EE2A1A6D2F00EDCA2F /* MyQueue.cpp */; };
-		84C785F42A4BB442007DC50F /* TestMetal.metal in Sources */ = {isa = PBXBuildFile; fileRef = 84C785F32A4BB442007DC50F /* TestMetal.metal */; };
+		5B76E3472A4FB67700141D86 /* BrideCPlusManger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5B76E3462A4FB67700141D86 /* BrideCPlusManger.mm */; };
 		84C785F72A4BB4C7007DC50F /* DynamicProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +74,8 @@
 		5B26D4EB2A1A6D2600EDCA2F /* TreeNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TreeNode.cpp; sourceTree = "<group>"; };
 		5B26D4ED2A1A6D2F00EDCA2F /* MyQueue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MyQueue.hpp; sourceTree = "<group>"; };
 		5B26D4EE2A1A6D2F00EDCA2F /* MyQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyQueue.cpp; sourceTree = "<group>"; };
-		84C785F32A4BB442007DC50F /* TestMetal.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = TestMetal.metal; sourceTree = "<group>"; };
+		5B76E3452A4FB67700141D86 /* BrideCPlusManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrideCPlusManger.h; sourceTree = "<group>"; };
+		5B76E3462A4FB67700141D86 /* BrideCPlusManger.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BrideCPlusManger.mm; sourceTree = "<group>"; };
 		84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DynamicProgram.cpp; sourceTree = "<group>"; };
 		84C785F62A4BB4C7007DC50F /* DynamicProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DynamicProgram.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,43 +110,44 @@
 		5B26D4B32A1A6C8D00EDCA2F /* swiftArithmetic */ = {
 			isa = PBXGroup;
 			children = (
-				5B26D4B42A1A6C8D00EDCA2F /* swiftArithmeticApp.swift */,
-				5B26D4B62A1A6C8D00EDCA2F /* ContentView.swift */,
-				5B1E2C032A3764DC00096D0D /* Greedy.cpp */,
-				5B1E2C042A3764DC00096D0D /* Greedy.hpp */,
-				5B1E2C062A37651500096D0D /* CPlusHeader.h */,
-				5B26D4EE2A1A6D2F00EDCA2F /* MyQueue.cpp */,
-				5B26D4ED2A1A6D2F00EDCA2F /* MyQueue.hpp */,
-				5B26D4EB2A1A6D2600EDCA2F /* TreeNode.cpp */,
-				5B26D4EA2A1A6D2600EDCA2F /* TreeNode.hpp */,
+				5B26D4CB2A1A6CC600EDCA2F /* ArrayViewController.swift */,
+				5B26D4B82A1A6C8E00EDCA2F /* Assets.xcassets */,
 				5B1E2C002A2F864000096D0D /* BackTrack.cpp */,
 				5B1E2C012A2F864000096D0D /* BackTrack.hpp */,
-				5B26D4C32A1A6CAA00EDCA2F /* ListNode.cpp */,
-				5B26D4C42A1A6CAA00EDCA2F /* ListNode.hpp */,
-				84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */,
-				84C785F62A4BB4C7007DC50F /* DynamicProgram.hpp */,
-				84C785F32A4BB442007DC50F /* TestMetal.metal */,
-				5B26D4CB2A1A6CC600EDCA2F /* ArrayViewController.swift */,
-				5B26D4E82A1A6D0200EDCA2F /* ViewController.swift */,
 				5B26D4D62A1A6CC600EDCA2F /* BaseTableViewController.swift */,
+				5B76E3452A4FB67700141D86 /* BrideCPlusManger.h */,
+				5B76E3462A4FB67700141D86 /* BrideCPlusManger.mm */,
+				5B26D4B62A1A6C8D00EDCA2F /* ContentView.swift */,
+				5B1E2C062A37651500096D0D /* CPlusHeader.h */,
 				5B26D4D42A1A6CC600EDCA2F /* DictViewController.swift */,
 				5B26D4C62A1A6CC600EDCA2F /* DoublePointViewController.swift */,
 				5B26D4C82A1A6CC600EDCA2F /* DynamicPlanningViewController.swift */,
+				84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */,
+				84C785F62A4BB4C7007DC50F /* DynamicProgram.hpp */,
 				5B26D4CC2A1A6CC600EDCA2F /* GreedViewController.swift */,
+				5B1E2C032A3764DC00096D0D /* Greedy.cpp */,
+				5B1E2C042A3764DC00096D0D /* Greedy.hpp */,
 				5B26D4CE2A1A6CC600EDCA2F /* HashViewController.swift */,
 				5B26D4D02A1A6CC600EDCA2F /* InputView.swift */,
 				5B26D4CA2A1A6CC600EDCA2F /* KnapsackViewController.swift */,
+				5B26D4C32A1A6CAA00EDCA2F /* ListNode.cpp */,
+				5B26D4C42A1A6CAA00EDCA2F /* ListNode.hpp */,
 				5B26D4CD2A1A6CC600EDCA2F /* ListNoteViewController.swift */,
 				5B26D4D22A1A6CC600EDCA2F /* longViewController.swift */,
+				5B26D4EE2A1A6D2F00EDCA2F /* MyQueue.cpp */,
+				5B26D4ED2A1A6D2F00EDCA2F /* MyQueue.hpp */,
 				5B26D4D12A1A6CC600EDCA2F /* Person.swift */,
+				5B26D4BA2A1A6C8E00EDCA2F /* Preview Content */,
 				5B26D4CF2A1A6CC600EDCA2F /* RetracingAlgorithmViewController.swift */,
 				5B26D4D32A1A6CC600EDCA2F /* StackViewController.swift */,
 				5B26D4C92A1A6CC600EDCA2F /* StringViewController.swift */,
 				5B26D4C72A1A6CC600EDCA2F /* Student.swift */,
-				5B26D4D52A1A6CC600EDCA2F /* TreeNoteViewController.swift */,
-				5B26D4B82A1A6C8E00EDCA2F /* Assets.xcassets */,
-				5B26D4BA2A1A6C8E00EDCA2F /* Preview Content */,
 				5B26D4C22A1A6CAA00EDCA2F /* swiftArithmetic-Bridging-Header.h */,
+				5B26D4B42A1A6C8D00EDCA2F /* swiftArithmeticApp.swift */,
+				5B26D4EB2A1A6D2600EDCA2F /* TreeNode.cpp */,
+				5B26D4EA2A1A6D2600EDCA2F /* TreeNode.hpp */,
+				5B26D4D52A1A6CC600EDCA2F /* TreeNoteViewController.swift */,
+				5B26D4E82A1A6D0200EDCA2F /* ViewController.swift */,
 			);
 			path = swiftArithmetic;
 			sourceTree = "<group>";
@@ -234,7 +236,6 @@
 				5B26D4E72A1A6CC600EDCA2F /* BaseTableViewController.swift in Sources */,
 				5B26D4E42A1A6CC600EDCA2F /* StackViewController.swift in Sources */,
 				5B1E2C022A2F864000096D0D /* BackTrack.cpp in Sources */,
-				84C785F42A4BB442007DC50F /* TestMetal.metal in Sources */,
 				84C785F72A4BB4C7007DC50F /* DynamicProgram.cpp in Sources */,
 				5B26D4E62A1A6CC600EDCA2F /* TreeNoteViewController.swift in Sources */,
 				5B26D4E32A1A6CC600EDCA2F /* longViewController.swift in Sources */,
@@ -249,6 +250,7 @@
 				5B26D4E02A1A6CC600EDCA2F /* RetracingAlgorithmViewController.swift in Sources */,
 				5B26D4EF2A1A6D2F00EDCA2F /* MyQueue.cpp in Sources */,
 				5B26D4DA2A1A6CC600EDCA2F /* StringViewController.swift in Sources */,
+				5B76E3472A4FB67700141D86 /* BrideCPlusManger.mm in Sources */,
 				5B1E2C052A3764DC00096D0D /* Greedy.cpp in Sources */,
 				5B26D4DE2A1A6CC600EDCA2F /* ListNoteViewController.swift in Sources */,
 				5B26D4D72A1A6CC600EDCA2F /* DoublePointViewController.swift in Sources */,
