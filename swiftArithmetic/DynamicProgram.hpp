@@ -332,12 +332,10 @@ class LastStoneWeightII {
      有一堆石头，用整数数组 stones 表示。其中 stones[i] 表示第 i 块石头的重量。
 
      每一回合，从中选出任意两块石头，然后将它们一起粉碎。假设石头的重量分别为 x 和 y，且 x <= y。那么粉碎的可能结果如下：
-
      如果 x == y，那么两块石头都会被完全粉碎；
      如果 x != y，那么重量为 x 的石头将会完全粉碎，而重量为 y 的石头新重量为 y-x。
      最后，最多只会剩下一块 石头。返回此石头 最小的可能重量 。如果没有石头剩下，就返回 0。
 
-    
      示例 1：
      输入：stones = [2,7,4,1,8,1]
      输出：1
@@ -371,3 +369,58 @@ public:
     }
 };
 
+class SumOfZeroOne {
+    /*
+     给你一个二进制字符串数组 strs 和两个整数 m 和 n 。
+
+     请你找出并返回 strs 的最大子集的大小，该子集中 最多 有 m 个 0 和 n 个 1 。
+
+     如果 x 的所有元素也是 y 的元素，集合 x 是集合 y 的 子集 。
+
+     示例 1：
+
+     输入：strs = ["10", "0001", "111001", "1", "0"], m = 5, n = 3
+
+     输出：4
+
+     解释：最多有 5 个 0 和 3 个 1 的最大子集是 {"10","0001","1","0"} ，因此答案是 4 。 其他满足题意但较小的子集包括 {"0001","1"} 和 {"10","1","0"} 。{"111001"} 不满足题意，因为它含 4 个 1 ，大于 n 的值 3 。
+
+     示例 2：
+
+     输入：strs = ["10", "0", "1"], m = 1, n = 1
+     输出：2
+     解释：最大的子集是 {"0", "1"} ，所以答案是 2 。
+     提示：
+
+     1 <= strs.length <= 600
+     1 <= strs[i].length <= 100
+     strs[i] 仅由 '0' 和 '1' 组成
+     1 <= m, n <= 100
+     */
+    
+public:
+    
+    int findMaxForm(vector<string>& strs, int m, int n) {
+        vector<vector<int>>dp(m +1, vector<int>(n + 1, 0));
+        for(string str: strs) {
+            int  oneNum = 0;
+            int  zeroNum = 0;
+            for(char c: str) {
+                if(c == '0') {
+                    zeroNum ++;
+                } else {
+                    oneNum++;
+                }
+            }
+            
+            for (int i = m; i >= zeroNum; i--) {
+                for (int j = n; j >= oneNum; j--) {
+                    dp[i][j] = max(dp[i][j], dp[i - zeroNum][j - oneNum] + 1);
+                }
+            }
+            
+        }
+        return dp[m][n];
+    }
+    
+};
