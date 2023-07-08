@@ -19,7 +19,7 @@ enum DynamicProgram: Int {
 
 }
 
-struct ContentView: View {
+struct LeetCodeListView: View {
     
     var dataSources: [Item] = [Item(id: .weight01, title: "01背包"),
                                Item(id: .weight01Array1, title: "01背包一维数组"),
@@ -42,18 +42,7 @@ struct ContentView: View {
         .padding()
     }
     
-    func maxproxt(prices:[Int]) -> Int {
-        let n = prices.count
-        var dp:[[Int]] = Array(repeating: Array(repeating: 0, count: 2), count: n)
-
-        dp[0][0] = -prices[0]
-        for(i, price)  in prices.enumerated() {
-            dp[i][0] = max(dp[i - 1][1], dp[i-1][0] + price)
-            dp[i][1] = max(dp[i - 1][0], dp[i - 1][1] - price)
-        }
-        return max(dp[n - 1][0], dp[n - 1][1 ])
-        
-    }
+ 
     
     func addOCBrige(index: DynamicProgram) {
         print("addOCBrie  \(index) \n")
@@ -66,12 +55,12 @@ struct ContentView: View {
         case .targetSum:
             ocBrige.targetSum()
         }
-    
     }
 }
 
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LeetCodeListView()
     }
 }

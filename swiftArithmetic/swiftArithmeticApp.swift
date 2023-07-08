@@ -11,7 +11,7 @@ import SwiftUI
 struct swiftArithmeticApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TarBarViewController()
         }
     }
 }

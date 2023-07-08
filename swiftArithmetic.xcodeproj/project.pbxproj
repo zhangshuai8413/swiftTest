@@ -10,7 +10,7 @@
 		5B1E2C022A2F864000096D0D /* BackTrack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E2C002A2F864000096D0D /* BackTrack.cpp */; };
 		5B1E2C052A3764DC00096D0D /* Greedy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E2C032A3764DC00096D0D /* Greedy.cpp */; };
 		5B26D4B52A1A6C8D00EDCA2F /* swiftArithmeticApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26D4B42A1A6C8D00EDCA2F /* swiftArithmeticApp.swift */; };
-		5B26D4B72A1A6C8D00EDCA2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26D4B62A1A6C8D00EDCA2F /* ContentView.swift */; };
+		5B26D4B72A1A6C8D00EDCA2F /* LeetCodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B26D4B62A1A6C8D00EDCA2F /* LeetCodeListView.swift */; };
 		5B26D4B92A1A6C8E00EDCA2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B26D4B82A1A6C8E00EDCA2F /* Assets.xcassets */; };
 		5B26D4BC2A1A6C8E00EDCA2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B26D4BB2A1A6C8E00EDCA2F /* Preview Assets.xcassets */; };
 		5B26D4C52A1A6CAA00EDCA2F /* ListNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B26D4C32A1A6CAA00EDCA2F /* ListNode.cpp */; };
@@ -39,6 +39,7 @@
 		5BE297002A595028001EF7E2 /* FLArithmeticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FC2A595028001EF7E2 /* FLArithmeticViewController.swift */; };
 		5BE297012A595028001EF7E2 /* FLMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FD2A595028001EF7E2 /* FLMeViewController.swift */; };
 		5BE297022A595028001EF7E2 /* FLHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FE2A595028001EF7E2 /* FLHomeViewController.swift */; };
+		5BE297042A59526D001EF7E2 /* TarBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297032A59526D001EF7E2 /* TarBarViewController.swift */; };
 		84C785F72A4BB4C7007DC50F /* DynamicProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +51,7 @@
 		5B1E2C062A37651500096D0D /* CPlusHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CPlusHeader.h; sourceTree = "<group>"; };
 		5B26D4B12A1A6C8D00EDCA2F /* swiftArithmetic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftArithmetic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B26D4B42A1A6C8D00EDCA2F /* swiftArithmeticApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftArithmeticApp.swift; sourceTree = "<group>"; };
-		5B26D4B62A1A6C8D00EDCA2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5B26D4B62A1A6C8D00EDCA2F /* LeetCodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCodeListView.swift; sourceTree = "<group>"; };
 		5B26D4B82A1A6C8E00EDCA2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B26D4BB2A1A6C8E00EDCA2F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5B26D4C22A1A6CAA00EDCA2F /* swiftArithmetic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swiftArithmetic-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -84,6 +85,7 @@
 		5BE296FC2A595028001EF7E2 /* FLArithmeticViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLArithmeticViewController.swift; sourceTree = "<group>"; };
 		5BE296FD2A595028001EF7E2 /* FLMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLMeViewController.swift; sourceTree = "<group>"; };
 		5BE296FE2A595028001EF7E2 /* FLHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLHomeViewController.swift; sourceTree = "<group>"; };
+		5BE297032A59526D001EF7E2 /* TarBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarBarViewController.swift; sourceTree = "<group>"; };
 		84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DynamicProgram.cpp; sourceTree = "<group>"; };
 		84C785F62A4BB4C7007DC50F /* DynamicProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DynamicProgram.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,8 +125,10 @@
 				5BE296F72A594F61001EF7E2 /* leecodeSwift */,
 				5B26D4B82A1A6C8E00EDCA2F /* Assets.xcassets */,
 				5B76E3452A4FB67700141D86 /* BrideCPlusManger.h */,
+				5B26D4B42A1A6C8D00EDCA2F /* swiftArithmeticApp.swift */,
 				5B76E3462A4FB67700141D86 /* BrideCPlusManger.mm */,
-				5B26D4B62A1A6C8D00EDCA2F /* ContentView.swift */,
+				5B26D4B62A1A6C8D00EDCA2F /* LeetCodeListView.swift */,
+				5BE297032A59526D001EF7E2 /* TarBarViewController.swift */,
 				5B26D4BA2A1A6C8E00EDCA2F /* Preview Content */,
 				5B26D4C22A1A6CAA00EDCA2F /* swiftArithmetic-Bridging-Header.h */,
 			);
@@ -157,7 +161,6 @@
 				5B26D4D32A1A6CC600EDCA2F /* StackViewController.swift */,
 				5B26D4C92A1A6CC600EDCA2F /* StringViewController.swift */,
 				5B26D4C72A1A6CC600EDCA2F /* Student.swift */,
-				5B26D4B42A1A6C8D00EDCA2F /* swiftArithmeticApp.swift */,
 				5B26D4D52A1A6CC600EDCA2F /* TreeNoteViewController.swift */,
 				5B26D4E82A1A6D0200EDCA2F /* ViewController.swift */,
 				5B26D4CB2A1A6CC600EDCA2F /* ArrayViewController.swift */,
@@ -283,10 +286,11 @@
 				5B26D4DF2A1A6CC600EDCA2F /* HashViewController.swift in Sources */,
 				5B26D4EC2A1A6D2600EDCA2F /* TreeNode.cpp in Sources */,
 				5BE296FF2A595028001EF7E2 /* FLSettingController.swift in Sources */,
+				5BE297042A59526D001EF7E2 /* TarBarViewController.swift in Sources */,
 				5B26D4DC2A1A6CC600EDCA2F /* ArrayViewController.swift in Sources */,
 				5B26D4DB2A1A6CC600EDCA2F /* KnapsackViewController.swift in Sources */,
 				5B26D4DD2A1A6CC600EDCA2F /* GreedViewController.swift in Sources */,
-				5B26D4B72A1A6C8D00EDCA2F /* ContentView.swift in Sources */,
+				5B26D4B72A1A6C8D00EDCA2F /* LeetCodeListView.swift in Sources */,
 				5B26D4E02A1A6CC600EDCA2F /* RetracingAlgorithmViewController.swift in Sources */,
 				5B26D4EF2A1A6D2F00EDCA2F /* MyQueue.cpp in Sources */,
 				5B26D4DA2A1A6CC600EDCA2F /* StringViewController.swift in Sources */,
@@ -435,6 +439,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -467,6 +472,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
