@@ -40,6 +40,7 @@
 		5BE297012A595028001EF7E2 /* FLMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FD2A595028001EF7E2 /* FLMeViewController.swift */; };
 		5BE297022A595028001EF7E2 /* FLHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FE2A595028001EF7E2 /* FLHomeViewController.swift */; };
 		5BE297042A59526D001EF7E2 /* TarBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297032A59526D001EF7E2 /* TarBarViewController.swift */; };
+		5BE297082A59558E001EF7E2 /* FLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297072A59558E001EF7E2 /* FLData.swift */; };
 		84C785F72A4BB4C7007DC50F /* DynamicProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		5BE296FD2A595028001EF7E2 /* FLMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLMeViewController.swift; sourceTree = "<group>"; };
 		5BE296FE2A595028001EF7E2 /* FLHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLHomeViewController.swift; sourceTree = "<group>"; };
 		5BE297032A59526D001EF7E2 /* TarBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarBarViewController.swift; sourceTree = "<group>"; };
+		5BE297072A59558E001EF7E2 /* FLData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLData.swift; sourceTree = "<group>"; };
 		84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DynamicProgram.cpp; sourceTree = "<group>"; };
 		84C785F62A4BB4C7007DC50F /* DynamicProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DynamicProgram.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,9 +122,7 @@
 		5B26D4B32A1A6C8D00EDCA2F /* swiftArithmetic */ = {
 			isa = PBXGroup;
 			children = (
-				5BE296FA2A59501A001EF7E2 /* Controller */,
-				5BE296F82A594F9F001EF7E2 /* leecodeC++ */,
-				5BE296F72A594F61001EF7E2 /* leecodeSwift */,
+				5BE297052A595562001EF7E2 /* Class */,
 				5B26D4B82A1A6C8E00EDCA2F /* Assets.xcassets */,
 				5B76E3452A4FB67700141D86 /* BrideCPlusManger.h */,
 				5B26D4B42A1A6C8D00EDCA2F /* swiftArithmeticApp.swift */,
@@ -197,6 +197,25 @@
 				5BE296FB2A595028001EF7E2 /* FLSettingController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		5BE297052A595562001EF7E2 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				5BE297062A595578001EF7E2 /* Tool */,
+				5BE296FA2A59501A001EF7E2 /* Controller */,
+				5BE296F82A594F9F001EF7E2 /* leecodeC++ */,
+				5BE296F72A594F61001EF7E2 /* leecodeSwift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		5BE297062A595578001EF7E2 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				5BE297072A59558E001EF7E2 /* FLData.swift */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +300,7 @@
 				84C785F72A4BB4C7007DC50F /* DynamicProgram.cpp in Sources */,
 				5B26D4E62A1A6CC600EDCA2F /* TreeNoteViewController.swift in Sources */,
 				5B26D4E32A1A6CC600EDCA2F /* longViewController.swift in Sources */,
+				5BE297082A59558E001EF7E2 /* FLData.swift in Sources */,
 				5B26D4E12A1A6CC600EDCA2F /* InputView.swift in Sources */,
 				5B26D4D92A1A6CC600EDCA2F /* DynamicPlanningViewController.swift in Sources */,
 				5B26D4DF2A1A6CC600EDCA2F /* HashViewController.swift in Sources */,
