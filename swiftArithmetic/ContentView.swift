@@ -15,14 +15,16 @@ struct Item: Identifiable {
 enum DynamicProgram: Int {
     case weight01 = 1
     case weight01Array1
+    case targetSum
 
 }
 
 struct ContentView: View {
     
     var dataSources: [Item] = [Item(id: .weight01, title: "01背包"),
-            Item(id: .weight01Array1, title: "01背包一维数组"),
-    
+                               Item(id: .weight01Array1, title: "01背包一维数组"),
+                               Item(id: .targetSum, title: "sum of target"),
+                               
     ]
     var body: some View {
         VStack {
@@ -61,7 +63,10 @@ struct ContentView: View {
             ocBrige.wei_bag_problem1()
         case .weight01Array1:
             ocBrige.test_1_wei_bag_problem()
+        case .targetSum:
+            ocBrige.targetSum()
         }
+    
     }
 }
 
