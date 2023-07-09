@@ -9,7 +9,24 @@ import SwiftUI
 
 struct FLHomeViewController: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            
+            ForEach(coursePart, id: \.title) { sectionCourse in
+                Section {
+                    HStack {
+                        Text(sectionCourse.title)
+                        Text(sectionCourse.subTitle)
+                    }
+                    ForEach(sectionCourse.list) { course in
+                        HStack {
+                            Text(course.title)
+                        }
+                    }
+                  
+                }
+
+            }
+        }.navigationTitle("Youdao 精品课")
     }
 }
 

@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 import SwiftUI
 
-let usersForJsonData: [FLUser] = load("userData.json")
+
+let coursePart: [CourseList] = load("Youdao.json")
 
 func load<T: Decodable>(_ filename: String, as type: T.Type = T.self) -> T {
     let data: Data
