@@ -13,6 +13,9 @@ struct Course: Hashable, Decodable, Identifiable {
     var id: Int
     var title: String
     var url: String?
+    var type: Int?
+    var list:[CourseDetail]? = []
+    
 }
 
 

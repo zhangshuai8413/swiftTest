@@ -10,7 +10,6 @@ import SwiftUI
 struct FLHomeViewController: View {
     var body: some View {
         List {
-            
             ForEach(coursePart, id: \.title) { sectionCourse in
                 Section {
                     HStack {
@@ -18,15 +17,27 @@ struct FLHomeViewController: View {
                         Text(sectionCourse.subTitle)
                     }
                     ForEach(sectionCourse.list) { course in
-                        HStack {
-                            Text(course.title)
+                        
+                        NavigationLink {
+                            FLCourseDetailView(course: course)
+                        } label: {
+                            Label(course.title, systemImage: "folder")
                         }
+
+
                     }
-                  
                 }
 
             }
         }.navigationTitle("Youdao 精品课")
+    }
+
+    
+    func jumpWebView(urlString: String?) -> some View {
+        let url = (urlString != nil) ? urlString! : ""
+        print("jumpWebView url \(url)")
+        let webView = WebView(url: URL(string: url) ?? URL(fileURLWithPath: "abc"))
+        return webView
     }
 }
 
