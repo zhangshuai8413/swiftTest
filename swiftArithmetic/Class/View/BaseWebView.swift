@@ -10,11 +10,7 @@ import SafariServices
 
 struct WebView: UIViewControllerRepresentable {
 
-    var url: URL {
-        didSet {
-            print("url-----\(url)")
-        }
-    }
+    let url: URL
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<WebView>) -> SFSafariViewController {
         return SFSafariViewController(url: url)

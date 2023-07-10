@@ -5,7 +5,7 @@
 //  Created by 张帅 on 2022/11/17.
 //
 
-import SwiftUI
+import UIKit
 
 class Person: NSObject {
 
