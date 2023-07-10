@@ -9,27 +9,31 @@ import SwiftUI
 
 struct FLHomeViewController: View {
     var body: some View {
-        List {
-            ForEach(coursePart, id: \.title) { sectionCourse in
-                Section {
-                    HStack {
-                        Text(sectionCourse.title)
-                        Text(sectionCourse.subTitle)
-                    }
-                    ForEach(sectionCourse.list) { course in
-                        
-                        NavigationLink {
-                            FLCourseDetailView(course: course)
-                        } label: {
-                            Label(course.title, systemImage: "folder")
+        
+        NavigationView {
+            List {
+                ForEach(coursePart, id: \.title) { sectionCourse in
+                    Section {
+                        HStack {
+                            Text(sectionCourse.title)
+                            Text(sectionCourse.subTitle)
                         }
-
-
+                        ForEach(sectionCourse.list) { course in
+                            
+                            NavigationLink {
+                                FLCourseDetailView(course: course)
+                            } label: {
+                                Label(course.title, systemImage: "folder")
+                            }
+                            
+                            
+                        }
                     }
+                    
                 }
-
-            }
-        }.navigationTitle("Youdao 精品课")
+            }.navigationTitle("Youdao 精品课")
+            
+        }
     }
 
     

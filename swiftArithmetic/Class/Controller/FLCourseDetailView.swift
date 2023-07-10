@@ -16,11 +16,11 @@ struct FLCourseDetailView: View {
             ForEach(course.list ?? [], id: \.id) { courseDetail in
                 
                 Text(courseDetail.title)
-                
             
             }
             
-        }
+        }.navigationTitle(course.title)
+            .navigationBarTitleDisplayMode(.inline)
         
     }
 }
