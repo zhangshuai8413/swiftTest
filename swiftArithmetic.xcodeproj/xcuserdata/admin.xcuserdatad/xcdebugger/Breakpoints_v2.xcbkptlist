@@ -3,4 +3,118 @@
    uuid = "2F5508F3-A6A9-46B5-AE97-4FC34021639F"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7E537CB7-33E6-4578-8511-613A87511F55"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "swiftArithmetic/Class/View/BaseWebView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "url"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "66EB059E-2A0F-4115-B186-D4D5DF0BC901"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "swiftArithmetic/Class/View/BaseWebView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "makeUIViewController(context:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6CC0E7D8-53A4-4F5E-886D-F590F2CB1EC1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "swiftArithmetic/Class/View/BaseWebView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "WebView"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A21FFF59-07CD-4AC1-8D64-895C8626854B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "swiftArithmetic/Class/Controller/FLCourseDetailView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9D2B27C0-0060-4E2D-835C-404732ED078C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "swiftArithmetic/Class/Controller/FLCourseDetailView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "9D2B27C0-0060-4E2D-835C-404732ED078C - 6394f530c63fc5f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (swiftArithmetic.CourseDetail) -&gt; SwiftUI.NavigationLink&lt;SwiftUI.Text, swiftArithmetic.WebView&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;swiftArithmetic.CourseDetail&gt;, Swift.Int, SwiftUI.NavigationLink&lt;SwiftUI.Text, swiftArithmetic.WebView&gt;&gt; in swiftArithmetic.FLCourseDetailView.body.getter : some"
+                  moduleName = "swiftArithmetic"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/project/swiftTest/swiftArithmetic/Class/Controller/FLCourseDetailView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "184">
+               </Location>
+               <Location
+                  uuid = "9D2B27C0-0060-4E2D-835C-404732ED078C - 21825dfb9a16eba8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; swiftArithmetic.WebView in closure #1 (swiftArithmetic.CourseDetail) -&gt; SwiftUI.NavigationLink&lt;SwiftUI.Text, swiftArithmetic.WebView&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;swiftArithmetic.CourseDetail&gt;, Swift.Int, SwiftUI.NavigationLink&lt;SwiftUI.Text, swiftArithmetic.WebView&gt;&gt; in swiftArithmetic.FLCourseDetailView.body.getter : some"
+                  moduleName = "swiftArithmetic"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/admin/project/swiftTest/swiftArithmetic/Class/Controller/FLCourseDetailView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "312">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -163,6 +163,7 @@
 		5BE296F72A594F61001EF7E2 /* leecodeSwift */ = {
 			isa = PBXGroup;
 			children = (
+				84C83B352A5B901400578CF6 /* Mode */,
 				5B26D4D62A1A6CC600EDCA2F /* BaseTableViewController.swift */,
 				5B26D4D42A1A6CC600EDCA2F /* DictViewController.swift */,
 				5B26D4C62A1A6CC600EDCA2F /* DoublePointViewController.swift */,
@@ -173,11 +174,9 @@
 				5B26D4CA2A1A6CC600EDCA2F /* KnapsackViewController.swift */,
 				5B26D4CD2A1A6CC600EDCA2F /* ListNoteViewController.swift */,
 				5B26D4D22A1A6CC600EDCA2F /* longViewController.swift */,
-				5B26D4D12A1A6CC600EDCA2F /* Person.swift */,
 				5B26D4CF2A1A6CC600EDCA2F /* RetracingAlgorithmViewController.swift */,
 				5B26D4D32A1A6CC600EDCA2F /* StackViewController.swift */,
 				5B26D4C92A1A6CC600EDCA2F /* StringViewController.swift */,
-				5B26D4C72A1A6CC600EDCA2F /* Student.swift */,
 				5B26D4D52A1A6CC600EDCA2F /* TreeNoteViewController.swift */,
 				5B26D4E82A1A6D0200EDCA2F /* ViewController.swift */,
 				5B26D4CB2A1A6CC600EDCA2F /* ArrayViewController.swift */,
@@ -256,6 +255,15 @@
 				5BE2971D2A5A9404001EF7E2 /* BaseWebView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		84C83B352A5B901400578CF6 /* Mode */ = {
+			isa = PBXGroup;
+			children = (
+				5B26D4D12A1A6CC600EDCA2F /* Person.swift */,
+				5B26D4C72A1A6CC600EDCA2F /* Student.swift */,
+			);
+			path = Mode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,6 +523,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ALan.Zhangshuai.test.swiftArithmetic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftArithmetic/swiftArithmetic-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -548,6 +559,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ALan.Zhangshuai.test.swiftArithmetic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftArithmetic/swiftArithmetic-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

@@ -15,8 +15,13 @@ struct FLCourseDetailView: View {
         List {
             ForEach(course.list ?? [], id: \.id) { courseDetail in
                 
-                Text(courseDetail.title)
-            
+                NavigationLink {
+                    WebView(url: URL(string: courseDetail.url ?? "https://www.baidu.com/")!)
+
+                } label: {
+                    
+                    Text(courseDetail.title)
+                }
             }
             
         }.navigationTitle(course.title)
