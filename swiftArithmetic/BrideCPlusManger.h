@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)wei_bag_problem1;
 - (void)test_1_wei_bag_problem;
+
+- (void)targetSum;
 @end
 
 NS_ASSUME_NONNULL_END

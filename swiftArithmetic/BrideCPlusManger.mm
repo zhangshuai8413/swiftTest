@@ -35,4 +35,13 @@ void printArray(vector<vector<int>> result) {
     knapsack->test_1_wei_bag_problem();
     
 }
+
+- (void)targetSum {
+    vector<int>nums = {1};
+    int target = 1;
+    SumOfZeroOne * sumOfZero = new SumOfZeroOne;
+    
+   int count = sumOfZero->findTargetSumWays(nums, target);
+    cout << "target Sum Count" << count << endl;
+}
 @end
