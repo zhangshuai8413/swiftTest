@@ -18,63 +18,23 @@ struct TarBarViewController: View {
                 Label("Home", systemImage: "house")
             }
             
-            VStack {
-                Text("Search")
-                Button("0") {
-                    selectedTabIndex = 0
-                }
-                Button("1") {
-                    selectedTabIndex = 1
-                }
-                Button("2") {
-                    selectedTabIndex = 2
-                }
-                Button("3") {
-                    selectedTabIndex = 3
-                }
-            }
+           
+            
+            LeetCodeListView()
             .tag(1)
             
             .tabItem {
-                Label("Search", systemImage: "magnifyingglass")
+                Label("leecode", systemImage: "magnifyingglass")
             }
             
-            VStack {
-                Text("Notification")
-                Button("0") {
-                    selectedTabIndex = 0
-                }
-                Button("1") {
-                    selectedTabIndex = 1
-                }
-                Button("2") {
-                    selectedTabIndex = 2
-                }
-                Button("3") {
-                    selectedTabIndex = 3
-                }
-            }
+           FLMeViewController()
             .tag(2)
             
             .tabItem {
-                Label("Notification", systemImage: "bell")
+                Label("me", systemImage: "bell")
             }
             
-            VStack {
-                Text("Settings")
-                Button("0") {
-                    selectedTabIndex = 0
-                }
-                Button("1") {
-                    selectedTabIndex = 1
-                }
-                Button("2") {
-                    selectedTabIndex = 2
-                }
-                Button("3") {
-                    selectedTabIndex = 3
-                }
-            }
+            FLSettingController()
             .tag(3)
             
             .tabItem {

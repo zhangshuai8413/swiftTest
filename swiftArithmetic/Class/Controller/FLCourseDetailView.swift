@@ -7,13 +7,24 @@
 
 import SwiftUI
 
+
 struct FLCourseDetailView: View {
     
     var course: Course
     
+
     var body: some View {
         List {
             ForEach(course.list ?? [], id: \.id) { courseDetail in
+                
+                if let url = courseDetail.url {
+                    Link(courseDetail.title, destination: URL(string: url)!)
+                   
+                    HStack {
+                        Text(url)
+                            .textSelection(.enabled)
+                    }
+                }
                 
                 NavigationLink {
                     WebView(url: URL(string: courseDetail.url ?? "https://www.baidu.com/")!)
@@ -21,7 +32,10 @@ struct FLCourseDetailView: View {
                 } label: {
                     
                     Text(courseDetail.title)
+                    
                 }
+
+               
             }
             
         }.navigationTitle(course.title)
