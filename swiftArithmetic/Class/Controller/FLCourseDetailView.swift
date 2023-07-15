@@ -35,8 +35,7 @@ struct FLCourseDetailView: View {
 }
 
 //struct FLCourseDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        
+//    static var previews: some View {     
 //        let course: Course = Course(from: <#Decoder#>)
 //        FLCourseDetailView(course: course)
 //    }
