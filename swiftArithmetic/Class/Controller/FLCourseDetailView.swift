@@ -10,16 +10,11 @@ import SwiftUI
 struct FLCourseDetailView: View {
     
     var course: Course
-    
     var body: some View {
         List {
             ForEach(course.list ?? [], id: \.id) { courseDetail in
-                
                 Text(courseDetail.title)
-                
-            
             }
-            
         }
         
     }
