@@ -442,3 +442,188 @@ public:
         return dp[bagSize];
     }
 };
+
+
+class FindTargetSumWays {
+    /*
+     给你一个整数数组 nums 和一个整数 target 。
+
+     向数组中的每个整数前添加 '+' 或 '-' ，然后串联起所有整数，可以构造一个 表达式 ：
+
+     例如，nums = [2, 1] ，可以在 2 之前添加 '+' ，在 1 之前添加 '-' ，然后串联起来得到表达式 "+2-1" 。
+     返回可以通过上述方法构造的、运算结果等于 target 的不同 表达式 的数目。
+
+      
+
+     示例 1：
+
+     输入：nums = [1,1,1,1,1], target = 3
+     输出：5
+     解释：一共有 5 种方法让最终目标和为 3 。
+     -1 + 1 + 1 + 1 + 1 = 3
+     +1 - 1 + 1 + 1 + 1 = 3
+     +1 + 1 - 1 + 1 + 1 = 3
+     +1 + 1 + 1 - 1 + 1 = 3
+     +1 + 1 + 1 + 1 - 1 = 3
+     示例 2：
+
+     输入：nums = [1], target = 1
+     输出：1
+      
+     */
+    
+public:
+    
+    int findTargetSumWays(vector<int>& nums, int S) {
+        int sum = 0;
+        for (int i = 0; i <nums.size(); i ++) sum += nums[i];
+        if (abs(S) > sum || (S + sum) %2 == 1) {
+            return 0;
+        }
+        int bagSize = (S + sum) / 2;
+        vector<int>dp(bagSize + 1, 0);
+        dp[0] = 1;
+        for (int i = 0; i <nums.size(); i ++) {
+            for (int j =  bagSize; j >=nums[i]; j--) {
+                dp[j] += dp[j - nums[i]];
+            }
+        }
+        return dp[bagSize];
+        
+    }
+    
+};
+
+
+class ChangeCoinII {
+    
+    /*
+     518. 零钱兑换 II
+     给你一个整数数组 coins 表示不同面额的硬币，另给一个整数 aamount 表示总金额。
+
+     请你计算并返回可以凑成总金额的硬币组合数。如果任何硬币组合都无法凑出总金额，返回 0 。
+
+     假设每一种面额的硬币有无限个。
+
+     题目数据保证结果符合 32 位带符号整数。
+
+      
+
+     示例 1：
+
+     输入：aamount = 5, coins = [1, 2, 5]
+     输出：4
+     解释：有四种方式可以凑成总金额：
+     5=5
+     5=2+2+1
+     5=2+1+1+1
+     5=1+1+1+1+1
+     示例 2：
+
+     输入：aamount = 3, coins = [2]
+     输出：0
+     解释：只用面额 2 的硬币不能凑成总金额 3 。
+     示例 3：
+
+     输入：aamount = 10, coins = [10]
+     输出：1
+     */
+public:
+    
+    int change(int amount, vector<int>&coins) {
+        vector<int>dp(amount+1, 0);
+        dp[0] = 1;
+        for (int i = 0; i <coins.size(); i ++) {
+            for (int j = coins[i]; j <= amount; j++) {
+                dp[j] += dp[j - coins[i]];
+                
+            }
+        }
+        return dp[amount];
+    }
+    
+    int coinChange(vector<int>& coins, int amount) {
+        vector<int> dp(amount + 1, INT_MAX);
+        dp[0] = 0;
+        for (int i = 0; i <coins.size(); i ++) {
+            for (int j =  coins[i]; j <= amount; j++) {
+                if(dp[j - coins[i]] != INT_MAX ) {
+                    dp[j] = min(dp[j], dp[j - coins[i]] + 1);
+                }
+            }
+        }
+        if (dp[amount] == INT_MAX) {
+            return  -1;
+        }
+        return dp[amount];
+    }
+};
+
+
+class CombinationSum4 {
+    /*
+     难度：中等
+
+     给定一个由正整数组成且不存在重复数字的数组，找出和为给定目标正整数的组合的个数。
+
+     示例:
+
+     nums = [1, 2, 3]
+     target = 4
+     所有可能的组合为： (1, 1, 1, 1) (1, 1, 2) (1, 2, 1) (1, 3) (2, 1, 1) (2, 2) (3, 1)
+
+     请注意，顺序不同的序列被视作不同的组合。
+
+     因此输出为 7。
+     */
+    
+public:
+    int combinationSum4(vector<int>& nums, int target) {
+        vector<int>dp(target+ 1, 0);
+        dp[0] = 1;
+        for (int i = 0; i <= target; i ++) {
+            for (int j = 0; j <nums.size(); j ++) {
+                
+                if (i - nums[j] >=0 &&  dp[i] < INT_MAX - dp[i - nums[j]]) {
+                    dp[i] += dp[i - nums[j]];
+                }
+            }
+        }
+        return  dp[target];
+        
+    }
+    
+};
+
+
+class NumSquares {
+    /*
+     279. 完全平方数
+     给你一个整数 n ，返回 和为 n 的完全平方数的最少数量 。
+     完全平方数 是一个整数，其值等于另一个整数的平方；换句话说，其值等于一个整数自乘的积。例如，1、4、9 和 16 都是完全平方数，而 3 和 11 不是。
+
+     示例 1：
+     输入：n = 12
+     输出：3
+     解释：12 = 4 + 4 + 4
+     示例 2：
+
+     输入：n = 13
+     输出：2
+     解释：13 = 4 + 9
+
+     */
+    
+public:
+    
+    int numSquares(int n) {
+        vector<int>dp(n + 1, INT_MAX);
+        dp[0] = 0;
+        for (int i = 0; i <=n; i ++) {
+            for (int j = 1; j * j <= i; j++) {
+                dp[i] = min(dp[i - j* j] + 1, dp[i]) ;
+            }
+        }
+        return dp[n];
+    }
+};
