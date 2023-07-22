@@ -590,9 +590,7 @@ public:
             }
         }
         return  dp[target];
-        
     }
-    
 };
 
 
@@ -671,7 +669,6 @@ public:
         return dp[s.size()];
     }
     
-    
     void test_multi_pack() {
         vector<int>weight  = {1,3,4};
         vector<int> value = {15,20, 30};
@@ -684,7 +681,6 @@ public:
                     dp[j] = max(dp[j], dp[j - k*weight[i]] + value[i] * k);
                 }
             }
-            
         }
         cout << dp[bagWeight] << endl;
     }
@@ -793,5 +789,92 @@ public:
         return max(result1, result2);
     }
     
-  
+};
+
+
+class LengthOFLIS {
+    
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        vector<int>dp(nums.size() + 1, 1);
+        int result = 0;
+        for (int i = 0; i < nums.size() ; i ++) {
+            for (int j = 0; j < i ; j ++) {
+                if (nums[j] > nums[i]) {
+                    dp[i] = max(dp[i], dp[j] + 1);
+                }
+                if (dp[i] > result)
+                    result = dp[i];
+            }
+        }
+        return result;
+    }
+    
+    int findLengthOfLCIS(vector<int>& nums) {
+        if (nums.size() == 0) {
+            return 0;
+        }
+        int result = 0;
+        vector<int>dp(nums.size() + 1, 1);
+        for (int i = 1; i < nums.size() ; i ++) {
+            if(nums[i]> nums[i - 1]) {
+                dp[i] = dp[i - 1] + 1;
+            }
+            result = max(result, dp[i]);
+        }
+        return result;
+    }
+    
+    int longestCommonSubsequence(string text1, string text2) {
+        vector<vector<int>>dp(text1.size() + 1,vector<int>(text2.size() +1, 1));
+        for (int i = 1; i <= text1.size(); i ++) {
+            for (int j = 1; j <= text2.size(); j ++) {
+                if(text1[i -1] == text2[j -1]) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                } else {
+                    dp[i][j] = max(dp[i -1][j], dp[i][j -1] );
+                }
+            }
+        }
+        return dp[text1.size()][text2.size()];
+    }
+};
+
+
+class Subsequence {
+    /*
+     给定字符串 s 和 t ，判断 s 是否为 t 的子序列。
+
+     字符串的一个子序列是原始字符串删除一些（也可以不删除）字符而不改变剩余字符相对位置形成的新字符串。（例如，"ace"是"abcde"的一个子序列，而"aec"不是）。
+
+     示例 1：
+     输入：s = "abc", t = "ahbgdc"
+     输出：true
+
+     示例 2：
+     输入：s = "axc", t = "ahbgdc"
+     输出：false
+
+     提示：
+
+     0 <= s.length <= 100
+     0 <= t.length <= 10^4
+     两个字符串都只由小写字符组成
+     */
+    
+public:
+    bool isSubsequence(string s, string t) {
+        vector<vector<int>> dp(s.size() + 1, vector<int>(t.size() + 1, 0));
+        for (int i = 1; i <= s.size(); i++) {
+            for (int j = 1; j <= t.size(); j++) {
+                if (s[i - 1] == t[j - 1]) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                } else {
+                    dp[i][j] = dp[i][j - 1];
+                }
+            }
+        }
+        if (dp[s.size()][t.size()] == s.size()) return true;
+        return false;
+    }
 };
