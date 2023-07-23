@@ -837,6 +837,26 @@ public:
             }
         }
         return dp[text1.size()][text2.size()];
+        
+    }
+    // 一维数组
+    int longestCommonSubsequenceII(string text1, string text2) {
+        int n1 = (int)text1.size();
+        int n2 = (int)text2.size();
+        vector<int>dp(n2 +1);
+        for (int i=1; i<= n1; ++i) {
+            int pre = dp[0];
+            for (int j = 1; j <= n2; j++) {
+                int cur = dp[j];
+                if(text1[ i- 1] == text2[j -1]) {
+                    dp[j] = pre + 1;
+                } else {
+                    dp[j] = max(dp[j], dp[j -1]);
+                }
+                pre = cur;
+            }
+        }
+        return dp[n2];
     }
 };
 
