@@ -944,9 +944,8 @@ public:
                 if (nums1[i -1] == nums2[j -1]) {
                     dp[i][j] = dp[i -1][j -1] + 1;
                 }
-                if(dp[i][j] > result) {
-                    result = dp[i][j];
-                }
+                
+                result = max(result, dp[i][j]);
             }
         }
         return result;
