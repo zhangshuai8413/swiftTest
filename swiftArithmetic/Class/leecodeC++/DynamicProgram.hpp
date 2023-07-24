@@ -590,9 +590,7 @@ public:
             }
         }
         return  dp[target];
-        
     }
-    
 };
 
 
@@ -671,7 +669,6 @@ public:
         return dp[s.size()];
     }
     
-    
     void test_multi_pack() {
         vector<int>weight  = {1,3,4};
         vector<int> value = {15,20, 30};
@@ -684,7 +681,6 @@ public:
                     dp[j] = max(dp[j], dp[j - k*weight[i]] + value[i] * k);
                 }
             }
-            
         }
         cout << dp[bagWeight] << endl;
     }
@@ -793,7 +789,131 @@ public:
         return max(result1, result2);
     }
     
-  
+};
+
+
+class LengthOFLIS {
+    
+public:
+    int lengthOfLIS(vector<int>& nums) {
+        vector<int>dp(nums.size() + 1, 1);
+        int result = 0;
+        for (int i = 0; i < nums.size() ; i ++) {
+            for (int j = 0; j < i ; j ++) {
+                if (nums[j] > nums[i]) {
+                    dp[i] = max(dp[i], dp[j] + 1);
+                }
+                if (dp[i] > result)
+                    result = dp[i];
+            }
+        }
+        return result;
+    }
+    
+    int findLengthOfLCIS(vector<int>& nums) {
+        if (nums.size() == 0) {
+            return 0;
+        }
+        int result = 0;
+        vector<int>dp(nums.size() + 1, 1);
+        for (int i = 1; i < nums.size() ; i ++) {
+            if(nums[i]> nums[i - 1]) {
+                dp[i] = dp[i - 1] + 1;
+            }
+            result = max(result, dp[i]);
+        }
+        return result;
+    }
+    
+    int longestCommonSubsequence(string text1, string text2) {
+        vector<vector<int>>dp(text1.size() + 1,vector<int>(text2.size() +1, 1));
+        for (int i = 1; i <= text1.size(); i ++) {
+            for (int j = 1; j <= text2.size(); j ++) {
+                if(text1[i -1] == text2[j -1]) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                } else {
+                    dp[i][j] = max(dp[i -1][j], dp[i][j -1] );
+                }
+            }
+        }
+        return dp[text1.size()][text2.size()];
+        
+    }
+    // 一维数组
+    int longestCommonSubsequenceII(string text1, string text2) {
+        int n1 = (int)text1.size();
+        int n2 = (int)text2.size();
+        vector<int>dp(n2 +1);
+        for (int i=1; i<= n1; ++i) {
+            int pre = dp[0];
+            for (int j = 1; j <= n2; j++) {
+                int cur = dp[j];
+                if(text1[ i- 1] == text2[j -1]) {
+                    dp[j] = pre + 1;
+                } else {
+                    dp[j] = max(dp[j], dp[j -1]);
+                }
+                pre = cur;
+            }
+        }
+        return dp[n2];
+    }
+};
+
+
+class Subsequence {
+    /*
+     给定字符串 s 和 t ，判断 s 是否为 t 的子序列。
+
+     字符串的一个子序列是原始字符串删除一些（也可以不删除）字符而不改变剩余字符相对位置形成的新字符串。（例如，"ace"是"abcde"的一个子序列，而"aec"不是）。
+
+     示例 1：
+     输入：s = "abc", t = "ahbgdc"
+     输出：true
+
+     示例 2：
+     输入：s = "axc", t = "ahbgdc"
+     输出：false
+
+     提示：
+
+     0 <= s.length <= 100
+     0 <= t.length <= 10^4
+     两个字符串都只由小写字符组成
+     */
+    
+public:
+    bool isSubsequence(string s, string t) {
+        vector<vector<int>> dp(s.size() + 1, vector<int>(t.size() + 1, 0));
+        for (int i = 1; i <= s.size(); i++) {
+            for (int j = 1; j <= t.size(); j++) {
+                if (s[i - 1] == t[j - 1]) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                } else {
+                    dp[i][j] = dp[i][j - 1];
+                }
+            }
+        }
+        if (dp[s.size()][t.size()] == s.size()) return true;
+        return false;
+    }
+    
+    int lengthOfLIS(vector<int>& nums) {
+        if (nums.size() <= 1) {
+            return (int)nums.size();
+        }
+        vector<int>dp(nums.size(), 1);
+        int result = 0;
+        for (int i = 0; i< nums.size(); ++i) {
+            for (int j = 0; j< i; ++j) {
+                if (nums[j] > nums[i]) {
+                    dp[i] = max(dp[i], dp[j] + 1);
+                }
+                result = max(result, dp[i]);
+            }
+        }
+        return result;
+    }
 };
 
 
@@ -887,4 +1007,103 @@ class RobIII {
         return dp[n1][n2];
     }
     
+};
+
+class FindLength {
+    
+    
+public:
+    int findLength(vector<int>& nums1, vector<int>& nums2) {
+        vector<vector<int>>dp(nums1.size() + 1, vector<int>(nums2.size() + 1,0));
+        int result = 0;
+        for (int i = 1; i <= nums1.size() ; i ++) {
+            for (int j = 1; j <= nums2.size() ; j ++) {
+                if (nums1[i -1] == nums2[j -1]) {
+                    dp[i][j] = dp[i -1][j -1] + 1;
+                }
+                
+                result = max(result, dp[i][j]);
+            }
+        }
+        return result;
+    }
+};
+
+class LoggesttSubStrings {
+    
+    /*
+     673.最长递增子序列的个数
+     力扣题目链接
+
+     给定一个未排序的整数数组，找到最长递增子序列的个数。
+
+     示例 1:
+
+     输入: [1,3,5,4,7]
+     输出: 2
+     解释: 有两个最长递增子序列，分别是 [1, 3, 4, 7] 和[1, 3, 5, 7]。
+     示例 2:
+
+     输入: [2,2,2,2,2]
+     输出: 5
+     解释: 最长递增子序列的长度是1，并且存在5个子序列的长度为1，因此输出5。
+
+     */
+public:
+    
+    int findNumberOfLIS(vector<int>& nums) {
+        if (nums.size() <= 1) return (int)nums.size();
+        vector<int> dp(nums.size(), 1);
+        vector<int>count(nums.size(), 1);
+        int maxCount = 0;
+        for (int i = 1; i < nums.size() ; i ++) {
+            for (int j = 0; j < i ; j ++) {
+                if (nums[i] > nums[j]) {
+                    if(dp[j] + 1 > dp[i]) {
+                        dp[i] = dp[j] + 1;
+                        count[i] = count[j];
+                    } else if (dp[j] + 1 == dp[i]) {
+                        count[i] += count[j];
+                    }
+                }
+                maxCount = max(maxCount, dp[i]);
+            }
+        }
+        int result = 0;
+        for (int i = 0; i < nums.size() ; i ++) {
+            if (maxCount == dp[i]) result += count[i];
+        }
+        return result;
+    }
+};
+
+
+class MaxUncrossedLines {
+    /*
+     1035.不相交的线
+     力扣题目链接
+
+     我们在两条独立的水平线上按给定的顺序写下 A 和 B 中的整数。
+
+     现在，我们可以绘制一些连接两个数字 A[i] 和 B[j] 的直线，只要 A[i] == B[j]，且我们绘制的直线不与任何其他连线（非水平线）相交。
+
+     以这种方法绘制线条，并返回我们可以绘制的最大连线数。
+     */
+    
+public:
+    int maxUncrossedLines(vector<int>& nums1, vector<int>& nums2) {
+        vector<vector<int>>dp(nums1.size() + 1, vector<int>(nums2.size() + 1,0));
+        for (int i = 1; i <= nums1.size() ; i ++) {
+            for (int j=1; j<= nums2.size(); ++j) {
+                if(nums1[i -1] == nums2[j -1]) {
+                    dp[i][j] = dp[i -1][j -1] + 1;
+                } else {
+                    dp[i][j] = max(dp[i -1][j], dp[i][j -1]);
+                }
+                
+            }
+
+        }
+        return dp[nums1.size()][nums2.size()];
+    }
 };
