@@ -49,6 +49,7 @@
 		5BE2971C2A5A5096001EF7E2 /* Youdao.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BE2970F2A5A4647001EF7E2 /* Youdao.json */; };
 		5BE2971E2A5A9404001EF7E2 /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2971D2A5A9404001EF7E2 /* BaseWebView.swift */; };
 		5BE297272A5A94C6001EF7E2 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297262A5A94C6001EF7E2 /* Repository.swift */; };
+		842B2EF52A70A5C800ECDC3A /* MonotoneStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842B2EF32A70A5C800ECDC3A /* MonotoneStack.cpp */; };
 		84C785F72A4BB4C7007DC50F /* DynamicProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,8 @@
 		5BE2971A2A5A4CA0001EF7E2 /* CoursePart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursePart.swift; sourceTree = "<group>"; };
 		5BE2971D2A5A9404001EF7E2 /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		5BE297262A5A94C6001EF7E2 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		842B2EF32A70A5C800ECDC3A /* MonotoneStack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MonotoneStack.cpp; sourceTree = "<group>"; };
+		842B2EF42A70A5C800ECDC3A /* MonotoneStack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MonotoneStack.hpp; sourceTree = "<group>"; };
 		84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DynamicProgram.cpp; sourceTree = "<group>"; };
 		84C785F62A4BB4C7007DC50F /* DynamicProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DynamicProgram.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +192,8 @@
 			children = (
 				5B1E2C002A2F864000096D0D /* BackTrack.cpp */,
 				5B1E2C012A2F864000096D0D /* BackTrack.hpp */,
+				842B2EF32A70A5C800ECDC3A /* MonotoneStack.cpp */,
+				842B2EF42A70A5C800ECDC3A /* MonotoneStack.hpp */,
 				5B1E2C062A37651500096D0D /* CPlusHeader.h */,
 				84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */,
 				84C785F62A4BB4C7007DC50F /* DynamicProgram.hpp */,
@@ -362,6 +367,7 @@
 				5BE297042A59526D001EF7E2 /* TarBarViewController.swift in Sources */,
 				5B26D4DC2A1A6CC600EDCA2F /* ArrayViewController.swift in Sources */,
 				5B26D4DB2A1A6CC600EDCA2F /* KnapsackViewController.swift in Sources */,
+				842B2EF52A70A5C800ECDC3A /* MonotoneStack.cpp in Sources */,
 				5B26D4DD2A1A6CC600EDCA2F /* GreedViewController.swift in Sources */,
 				5B26D4B72A1A6C8D00EDCA2F /* LeetCodeListView.swift in Sources */,
 				5BE297172A5A4702001EF7E2 /* Course.swift in Sources */,
