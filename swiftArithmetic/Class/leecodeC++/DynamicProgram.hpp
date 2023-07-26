@@ -986,8 +986,8 @@ class RobIII {
     
     
     long long  numDistinct(string s, string t) {
-        int n1 =  s.size();
-        int  n2 = t.size();
+        int n1 = (int)s.size();
+        int  n2 = (int)t.size();
         vector<vector<uint64_t>>dp(n1 + 1,vector<uint64_t>(n2 + 1));
         for (int i = 0; i <=n1; i ++) {
             dp[i][0] = 1;
