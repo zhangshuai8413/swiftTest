@@ -17,7 +17,7 @@
 #include <list>
 #include <iostream>
 #include <bitset>
-
+#include <stdlib.h>
 struct TreeNode {
    int val;
    TreeNode *left;
