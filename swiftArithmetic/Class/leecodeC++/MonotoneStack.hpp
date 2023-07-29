@@ -9,8 +9,7 @@
 #define MonotoneStack_hpp
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <iostream>
+
 #include "CPlusHeader.h"
 
 

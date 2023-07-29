@@ -51,6 +51,7 @@
 		5BE297272A5A94C6001EF7E2 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297262A5A94C6001EF7E2 /* Repository.swift */; };
 		842B2EF52A70A5C800ECDC3A /* MonotoneStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842B2EF32A70A5C800ECDC3A /* MonotoneStack.cpp */; };
 		84C785F72A4BB4C7007DC50F /* DynamicProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */; };
+		84D6BD502A734A9D00E781D3 /* Graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D6BD4E2A734A9D00E781D3 /* Graph.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,8 @@
 		842B2EF42A70A5C800ECDC3A /* MonotoneStack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MonotoneStack.hpp; sourceTree = "<group>"; };
 		84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DynamicProgram.cpp; sourceTree = "<group>"; };
 		84C785F62A4BB4C7007DC50F /* DynamicProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DynamicProgram.hpp; sourceTree = "<group>"; };
+		84D6BD4E2A734A9D00E781D3 /* Graph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Graph.cpp; sourceTree = "<group>"; };
+		84D6BD4F2A734A9D00E781D3 /* Graph.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Graph.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +197,8 @@
 				5B1E2C012A2F864000096D0D /* BackTrack.hpp */,
 				842B2EF32A70A5C800ECDC3A /* MonotoneStack.cpp */,
 				842B2EF42A70A5C800ECDC3A /* MonotoneStack.hpp */,
+				84D6BD4E2A734A9D00E781D3 /* Graph.cpp */,
+				84D6BD4F2A734A9D00E781D3 /* Graph.hpp */,
 				5B1E2C062A37651500096D0D /* CPlusHeader.h */,
 				84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */,
 				84C785F62A4BB4C7007DC50F /* DynamicProgram.hpp */,
@@ -359,6 +364,7 @@
 				5B26D4E62A1A6CC600EDCA2F /* TreeNoteViewController.swift in Sources */,
 				5B26D4E32A1A6CC600EDCA2F /* longViewController.swift in Sources */,
 				5BE297082A59558E001EF7E2 /* FLData.swift in Sources */,
+				84D6BD502A734A9D00E781D3 /* Graph.cpp in Sources */,
 				5B26D4E12A1A6CC600EDCA2F /* InputView.swift in Sources */,
 				5B26D4D92A1A6CC600EDCA2F /* DynamicPlanningViewController.swift in Sources */,
 				5B26D4DF2A1A6CC600EDCA2F /* HashViewController.swift in Sources */,
