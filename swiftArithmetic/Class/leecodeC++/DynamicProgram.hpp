@@ -1360,3 +1360,39 @@ public:
     }
     
 };
+
+
+class LargestRectangleArea {
+    
+    
+public:
+    
+    int largestRectangleArea(vector<int>& heights) {
+        if (heights.size() < 1) {
+            return 0;
+        }
+        int result = 0;
+        
+        stack<int>st;
+        st.push(0);
+        heights.insert(heights.begin(), 0);
+        heights.push_back(0);
+        for (int i=0; i< heights.size(); ++i) {
+            while (!st.empty() &&heights[i] < heights[st.top()]) {
+                int mid = st.top();
+                st.pop();
+                int width = i - st.top() - 1;
+                int height = heights[mid];
+                result = max(result, width * height);
+       
+            }
+            
+            st.push(i);
+            
+        }
+
+        return result;
+
+       }
+    
+};
