@@ -7,6 +7,8 @@
 
 #import "BrideCPlusManger.h"
 #import "DynamicProgram.hpp"
+#import "Greedy.hpp"
+#include "Graph.hpp"
 #include <iostream>
 #include <bitset>
 
@@ -43,5 +45,19 @@ void printArray(vector<vector<int>> result) {
     
    int count = sumOfZero->findTargetSumWays(nums, target);
     cout << "target Sum Count" << count << endl;
+}
+
+-(void)numIslands {
+    NumIslands * number =  new NumIslands;
+    
+    vector<vector<char>> grid = {
+        {'1','1','1','1','0'},
+        {'1','1','0','1','0'},
+        {'1','1','0','0','0'},
+        {'0','0','0','0','0'}
+    };
+
+    number->numIslands(grid);
+
 }
 @end

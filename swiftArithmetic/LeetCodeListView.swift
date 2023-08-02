@@ -16,6 +16,7 @@ enum DynamicProgram: Int {
     case weight01 = 1
     case weight01Array1
     case targetSum
+    case numberOfIsland
 
 }
 
@@ -24,6 +25,7 @@ struct LeetCodeListView: View {
     var dataSources: [Item] = [Item(id: .weight01, title: "01背包"),
                                Item(id: .weight01Array1, title: "01背包一维数组"),
                                Item(id: .targetSum, title: "sum of target"),
+                               Item(id: .numberOfIsland, title: "岛屿数量"),
                                
     ]
     var body: some View {
@@ -54,7 +56,10 @@ struct LeetCodeListView: View {
             ocBrige.test_1_wei_bag_problem()
         case .targetSum:
             ocBrige.targetSum()
+        case .numberOfIsland:
+            ocBrige.numIslands()
         }
+
     }
 }
 

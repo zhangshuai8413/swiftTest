@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)test_1_wei_bag_problem;
 
 - (void)targetSum;
+
+-(void)numIslands;
 @end
 
 NS_ASSUME_NONNULL_END
