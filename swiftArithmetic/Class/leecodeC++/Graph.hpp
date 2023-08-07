@@ -163,4 +163,50 @@ public:
         return result;
     }
 };
+
+class Arealands {
+    
+    
+public:
+    
+    int count = 0;
+    int dir[4][2] = {0, 1, 1, 0, -1, 0, 0, -1}; // 四个方向
+    
+    void dfs(vector<vector<int>> & grid,vector<vector<bool>>& visited, int x, int y) {
+        for (int i = 0; i < 4; i ++) {
+            int nextX = x + dir[i][0];
+            int nextY = y + dir[i][1];
+            if (nextX < 0 || nextX >= grid.size() || nextY < 0 || nextY >= grid[0].size()) {
+                continue;
+            }
+            if (!visited[nextX][nextY] && grid[nextX][nextY] == 1) {
+                visited[nextX][nextY] = true;
+                count += 1;
+                dfs(grid, visited, nextX, nextY);
+            }
+            
+        }
+    }
+    
+    int maxAreaOfIsland(vector<vector<int>>& grid) {
+        
+        int n = (int)grid.size();
+        int m = (int)grid[0].size();
+        vector<vector<bool>>visited(n, vector<bool>(m, false));
+        int result = 0;
+        for (int i = 0; i < n; i ++) {
+            for (int j = 0; j < m; j ++) {
+                if (!visited[i][j] && grid[i][j] == 1) {
+                    count = 1;
+                    visited[i][j] = true;
+                    dfs(grid,visited, i, j);
+                    result = max(result, count);
+                }
+               
+            }
+            
+        }
+        return result;
+    }
+};
 #endif /* Graph_hpp */

@@ -1715,7 +1715,7 @@ class Automaton {
     var ans: Int = 0
     var state = "start"
     var table: [String: [String]] = ["start": ["start","sign", "number", "end"],
-                                     "sign": ["end", "sign","number","end"],
+                                     "sign": ["end", "end","number","end"],
                                      "number" : ["end", "end", "number", "end"],
                                      "end" : ["end","end","end","end"]
     ]

@@ -37,6 +37,9 @@
 		5B76E3472A4FB67700141D86 /* BrideCPlusManger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5B76E3462A4FB67700141D86 /* BrideCPlusManger.mm */; };
 		5BC238372A5AA20B00D083AB /* CourseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC238362A5AA20B00D083AB /* CourseDetail.swift */; };
 		5BC238392A5B05DC00D083AB /* FLCourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC238382A5B05DC00D083AB /* FLCourseDetailView.swift */; };
+		5BC8F0F42A7E4F9D003BF9E6 /* BrideCPlusManger+a.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8F0F32A7E4F9D003BF9E6 /* BrideCPlusManger+a.m */; };
+		5BC8F0F72A7E4FBD003BF9E6 /* BrideCPlusManger+B.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8F0F62A7E4FBD003BF9E6 /* BrideCPlusManger+B.m */; };
+		5BC8F1062A8082FE003BF9E6 /* StringModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8F1042A8082FE003BF9E6 /* StringModule.cpp */; };
 		5BE296FF2A595028001EF7E2 /* FLSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FB2A595028001EF7E2 /* FLSettingController.swift */; };
 		5BE297002A595028001EF7E2 /* FLArithmeticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FC2A595028001EF7E2 /* FLArithmeticViewController.swift */; };
 		5BE297012A595028001EF7E2 /* FLMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FD2A595028001EF7E2 /* FLMeViewController.swift */; };
@@ -94,6 +97,12 @@
 		5B76E3462A4FB67700141D86 /* BrideCPlusManger.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BrideCPlusManger.mm; sourceTree = "<group>"; };
 		5BC238362A5AA20B00D083AB /* CourseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetail.swift; sourceTree = "<group>"; };
 		5BC238382A5B05DC00D083AB /* FLCourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLCourseDetailView.swift; sourceTree = "<group>"; };
+		5BC8F0F22A7E4F9D003BF9E6 /* BrideCPlusManger+a.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BrideCPlusManger+a.h"; sourceTree = "<group>"; };
+		5BC8F0F32A7E4F9D003BF9E6 /* BrideCPlusManger+a.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BrideCPlusManger+a.m"; sourceTree = "<group>"; };
+		5BC8F0F52A7E4FBD003BF9E6 /* BrideCPlusManger+B.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BrideCPlusManger+B.h"; sourceTree = "<group>"; };
+		5BC8F0F62A7E4FBD003BF9E6 /* BrideCPlusManger+B.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BrideCPlusManger+B.m"; sourceTree = "<group>"; };
+		5BC8F1042A8082FE003BF9E6 /* StringModule.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StringModule.cpp; sourceTree = "<group>"; };
+		5BC8F1052A8082FE003BF9E6 /* StringModule.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StringModule.hpp; sourceTree = "<group>"; };
 		5BE296FB2A595028001EF7E2 /* FLSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLSettingController.swift; sourceTree = "<group>"; };
 		5BE296FC2A595028001EF7E2 /* FLArithmeticViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLArithmeticViewController.swift; sourceTree = "<group>"; };
 		5BE296FD2A595028001EF7E2 /* FLMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLMeViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +157,10 @@
 				5B26D4B82A1A6C8E00EDCA2F /* Assets.xcassets */,
 				5B76E3452A4FB67700141D86 /* BrideCPlusManger.h */,
 				5B76E3462A4FB67700141D86 /* BrideCPlusManger.mm */,
+				5BC8F0F22A7E4F9D003BF9E6 /* BrideCPlusManger+a.h */,
+				5BC8F0F32A7E4F9D003BF9E6 /* BrideCPlusManger+a.m */,
+				5BC8F0F52A7E4FBD003BF9E6 /* BrideCPlusManger+B.h */,
+				5BC8F0F62A7E4FBD003BF9E6 /* BrideCPlusManger+B.m */,
 				5B26D4B42A1A6C8D00EDCA2F /* swiftArithmeticApp.swift */,
 				5B26D4B62A1A6C8D00EDCA2F /* LeetCodeListView.swift */,
 				5BE297032A59526D001EF7E2 /* TarBarViewController.swift */,
@@ -210,6 +223,8 @@
 				5B26D4ED2A1A6D2F00EDCA2F /* MyQueue.hpp */,
 				5B26D4EB2A1A6D2600EDCA2F /* TreeNode.cpp */,
 				5B26D4EA2A1A6D2600EDCA2F /* TreeNode.hpp */,
+				5BC8F1042A8082FE003BF9E6 /* StringModule.cpp */,
+				5BC8F1052A8082FE003BF9E6 /* StringModule.hpp */,
 			);
 			path = "leecodeC++";
 			sourceTree = "<group>";
@@ -348,6 +363,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC8F0F42A7E4F9D003BF9E6 /* BrideCPlusManger+a.m in Sources */,
+				5BC8F0F72A7E4FBD003BF9E6 /* BrideCPlusManger+B.m in Sources */,
+				5B76E3472A4FB67700141D86 /* BrideCPlusManger.mm in Sources */,
 				5B26D4E22A1A6CC600EDCA2F /* Person.swift in Sources */,
 				5B26D4C52A1A6CAA00EDCA2F /* ListNode.cpp in Sources */,
 				5BE297022A595028001EF7E2 /* FLHomeViewController.swift in Sources */,
@@ -358,6 +376,7 @@
 				5BE297192A5A4896001EF7E2 /* CourseList.swift in Sources */,
 				5BE2971E2A5A9404001EF7E2 /* BaseWebView.swift in Sources */,
 				5BE2971B2A5A4CA0001EF7E2 /* CoursePart.swift in Sources */,
+				5BC8F1062A8082FE003BF9E6 /* StringModule.cpp in Sources */,
 				5B1E2C022A2F864000096D0D /* BackTrack.cpp in Sources */,
 				5BE297012A595028001EF7E2 /* FLMeViewController.swift in Sources */,
 				84C785F72A4BB4C7007DC50F /* DynamicProgram.cpp in Sources */,
@@ -380,7 +399,6 @@
 				5B26D4E02A1A6CC600EDCA2F /* RetracingAlgorithmViewController.swift in Sources */,
 				5B26D4EF2A1A6D2F00EDCA2F /* MyQueue.cpp in Sources */,
 				5B26D4DA2A1A6CC600EDCA2F /* StringViewController.swift in Sources */,
-				5B76E3472A4FB67700141D86 /* BrideCPlusManger.mm in Sources */,
 				5B1E2C052A3764DC00096D0D /* Greedy.cpp in Sources */,
 				5B26D4DE2A1A6CC600EDCA2F /* ListNoteViewController.swift in Sources */,
 				5B26D4D72A1A6CC600EDCA2F /* DoublePointViewController.swift in Sources */,

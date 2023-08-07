@@ -15,6 +15,13 @@
 using namespace std;
 @implementation BrideCPlusManger
 
++ (void)load {
+    NSLog(@"BrideCPlusManger------");
+}
+
+-(void)test1 {
+    NSLog(@"test1 -----");
+}
 
 void printArray(vector<vector<int>> result) {
     for (int i = 0; i < result.size(); i ++) {
@@ -60,4 +67,6 @@ void printArray(vector<vector<int>> result) {
     number->numIslands(grid);
 
 }
+
+
 @end

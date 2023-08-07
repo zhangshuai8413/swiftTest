@@ -49,16 +49,18 @@ struct LeetCodeListView: View {
     func addOCBrige(index: DynamicProgram) {
         print("addOCBrie  \(index) \n")
         let ocBrige = BrideCPlusManger()
-        switch index {
-        case .weight01:
-            ocBrige.wei_bag_problem1()
-        case .weight01Array1:
-            ocBrige.test_1_wei_bag_problem()
-        case .targetSum:
-            ocBrige.targetSum()
-        case .numberOfIsland:
-            ocBrige.numIslands()
-        }
+        ocBrige.test1()
+    
+//        switch index {
+//        case .weight01:
+//            ocBrige.wei_bag_problem1()
+//        case .weight01Array1:
+//            ocBrige.test_1_wei_bag_problem()
+//        case .targetSum:
+//            ocBrige.targetSum()
+//        case .numberOfIsland:
+//            ocBrige.numIslands()
+//        }
 
     }
 }

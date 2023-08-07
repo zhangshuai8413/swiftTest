@@ -3,3 +3,5 @@
 //
 
 #import "BrideCPlusManger.h"
+#import "BrideCPlusManger+a.h"
+#import "BrideCPlusManger+B.h"
