@@ -68,5 +68,4 @@ void printArray(vector<vector<int>> result) {
 
 }
 
-
 @end
