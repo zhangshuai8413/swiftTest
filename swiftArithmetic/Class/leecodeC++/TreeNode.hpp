@@ -187,4 +187,73 @@ vector<int> postorderTraversal1(TreeNode* root) {
 
 vector<vector<int>> levelOrder(TreeNode* root);
 
+
+class NodeMaxDepth {
+    
+    
+public:
+    int maxDepth(TreeNode* root) {
+        
+        stack<TreeNode*> st;
+        if (root != NULL) st.push(root);
+        int depth = 0; // 记录深度
+        int result = 0;
+        while (!st.empty()) {
+            TreeNode* node = st.top();
+            if (node != NULL) {
+                st.pop();
+                st.push(node);                          // 中
+                st.push(NULL);
+                depth++;
+                if (node->right) st.push(node->right);  // 右
+                if (node->left) st.push(node->left);    // 左
+                
+            } else {
+                st.pop();
+                node = st.top();
+                st.pop();
+                depth--;
+            }
+            result = result > depth ? result : depth;
+        }
+        return result;
+        
+    }
+    
+    
+    int maxDepthII(TreeNode* root) {
+
+        if (root == NULL) {
+            return 0;
+        }
+       
+       stack<pair<TreeNode*, int>> s;
+       s.push(make_pair(root, 1));
+       int depth = 0;
+       
+       while (!s.empty()) {
+           TreeNode* node = s.top().first;
+           int currDepth = s.top().second;
+           s.pop();
+           
+           if (node->left == NULL && node->right == NULL) {
+               depth = max(depth, currDepth);
+           }
+           
+           if (node->left != NULL) {
+               s.push(make_pair(node->left, currDepth + 1));
+           }
+           
+           if (node->right != NULL) {
+               s.push(make_pair(node->right, currDepth + 1));
+           }
+       }
+       
+       return depth;
+       }
+};
+
+
+
+
 #endif /* TreeNode_hpp */

@@ -1706,6 +1706,30 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
         return result
     }
+    
+    
+    func isValid(_ s: String) -> Bool {
+        guard s.count % 2 == 0 else {return false}
+        let dict:[Character: Character] = ["}":"{",")":"(","]":"["]
+        var stack:[Character] = []
+        for ch in s {
+            if let ch1 = dict[ch] {
+                if stack.isEmpty {
+                    return false
+                }
+                if let top = stack.last, ch1 != top {
+                    return false
+                }
+                stack.removeLast()
+            } else {
+                stack.append(ch)
+            }
+            
+        }
+        
+        return stack.isEmpty
+    }
+    
 }
 
 class Automaton {
@@ -1749,3 +1773,4 @@ class Automaton {
         }
     }
 }
+
