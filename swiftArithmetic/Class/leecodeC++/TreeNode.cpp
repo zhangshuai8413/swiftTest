@@ -8,6 +8,95 @@
 #include "TreeNode.hpp"
 #include <string>
 
+
+class TreeNodeTraversal {
+    
+    
+public:
+    
+    // 前序遍历
+    void traversal(TreeNode* cur, vector<int>& vec) {
+          if (cur == NULL) return;
+          vec.push_back(cur->val);    // 中
+          traversal(cur->left, vec);  // 左
+          traversal(cur->right, vec); // 右
+      }
+    
+    
+    // 中序遍历：
+    void traversalII(TreeNode* cur, vector<int>& vec) {
+        if (cur == NULL) return;
+        traversal(cur->left, vec);  // 左
+        vec.push_back(cur->val);    // 中
+        traversal(cur->right, vec); // 右
+    }
+    
+//    后序遍历：
+    void traversalIII(TreeNode* cur, vector<int>& vec) {
+        if (cur == NULL) return;
+        traversal(cur->left, vec);  // 左
+        traversal(cur->right, vec); // 右
+        vec.push_back(cur->val);    // 中
+    }
+};
+
+class TreeNodeIteration {
+    
+    
+public:
+    
+    vector<int> preorderTraversal(TreeNode* root) {
+        stack<TreeNode*> st;
+        vector<int> result;
+        if (root == NULL) return result;
+        st.push(root);
+        while (!st.empty()) {
+            TreeNode* node = st.top();                       // 中
+            st.pop();
+            result.push_back(node->val);
+            if (node->right) st.push(node->right);           // 右（空节点不入栈）
+            if (node->left) st.push(node->left);             // 左（空节点不入栈）
+        }
+        return result;
+    }
+    
+    vector<int> inorderTraversal(TreeNode* root) {
+         vector<int> result;
+         stack<TreeNode*> st;
+         TreeNode* cur = root;
+         while (cur != NULL || !st.empty()) {
+             if (cur != NULL) { // 指针来访问节点，访问到最底层
+                 st.push(cur); // 将访问的节点放进栈
+                 cur = cur->left;                // 左
+             } else {
+                 cur = st.top(); // 从栈里弹出的数据，就是要处理的数据（放进result数组里的数据）
+                 st.pop();
+                 result.push_back(cur->val);     // 中
+                 cur = cur->right;               // 右
+             }
+         }
+         return result;
+     }
+    
+    vector<int> postorderTraversal(TreeNode* root) {
+        stack<TreeNode*> st;
+        vector<int> result;
+        if (root == NULL) return result;    //  中 右 左
+        st.push(root);
+        while (!st.empty()) {
+            TreeNode* node = st.top();
+            st.pop();
+            result.push_back(node->val);
+            if (node->left) st.push(node->left); // 相对于前序遍历，这更改一下入栈顺序 （空节点不入栈）
+            if (node->right) st.push(node->right); // 空节点不入栈
+        }
+        reverse(result.begin(), result.end()); // 将结果反转之后就是左右中的顺序了
+        return result;
+    }
+    
+};
+
+
 vector<vector<int>> levelOrder(TreeNode* root) {
     vector<vector<int>> result;
     queue<TreeNode*> que;
@@ -245,14 +334,14 @@ int getDepth(TreeNode* cur) {
         TreeNode *node = st.top();
         if (node != NULL) {
             st.pop();
-            st.push(node);
+            st.push(node);  // 中
             st.push(nullptr);
             depth ++;
             if (node->right) {
-                st.push(node->right);
+                st.push(node->right);   // 右
             }
             if (node->left) {
-                st.push(node->left);
+                st.push(node->left);     // 左
             }
         } else {
             st.pop();
