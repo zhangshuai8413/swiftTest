@@ -20,7 +20,7 @@ using namespace std;
 }
 
 -(void)test1 {
-    NSLog(@"test1 -----");
+    NSLog(@"BrideCPlusManger");
 }
 
 void printArray(vector<vector<int>> result) {

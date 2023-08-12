@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ObjectiveC.runtime
 
 struct Item: Identifiable {
     var id: DynamicProgram
@@ -47,7 +48,8 @@ struct LeetCodeListView: View {
  
     
     func addOCBrige(index: DynamicProgram) {
-        print("addOCBrie  \(index) \n")
+        
+//        print("addOCBrie  \(index) \n")
         let ocBrige = BrideCPlusManger()
         ocBrige.test1()
     
@@ -61,7 +63,34 @@ struct LeetCodeListView: View {
 //        case .numberOfIsland:
 //            ocBrige.numIslands()
 //        }
-
+//        let aa = getAllSwiftClasses()
+        
+//        print("aa------\(aa)")
+        
+    }
+    
+    func getAllSwiftClasses() -> [String] {
+        var classes = [String]()
+        
+        // 获取所有已注册的类
+        let classCount = objc_getClassList(nil, 0)
+        let classesBuffer = UnsafeMutablePointer<AnyClass>.allocate(capacity: Int(classCount))
+        let autoreleasingClasses = AutoreleasingUnsafeMutablePointer<AnyClass>(classesBuffer)
+        objc_getClassList(autoreleasingClasses, classCount)
+        
+        for i in 0..<Int(classCount) {
+            // 判断类是否为Swift类
+//            if class_isMetaClass(classesBuffer[i]) == true {
+                let className = NSStringFromClass(classesBuffer[i])
+                if className.hasPrefix("_TtC") { // 判断类名前缀是否为Swift类
+                    classes.append(className)
+                }
+//            }
+        }
+        
+        classesBuffer.deallocate()
+        
+        return classes
     }
 }
 

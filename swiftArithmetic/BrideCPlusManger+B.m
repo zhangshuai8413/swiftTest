@@ -13,7 +13,7 @@
     NSLog(@"BrideCPlusManger B");
 }
 
--(void)test1 {
+- (void)test1 {
     NSLog(@"test1 -----b");
 }
 @end

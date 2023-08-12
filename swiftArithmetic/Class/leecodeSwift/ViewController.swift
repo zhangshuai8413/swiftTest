@@ -129,10 +129,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         var maxLenght: Int = 0
         let array: [Character] = Array(s)
         var left: Int = 0
-        for i in 0..<array.count {
-            let ch = array[i]
-            if let a = map[ch] {
-                left = max(left, a + 1)
+        for (i, ch) in array.enumerated() {
+            if let index = map[ch] {
+                left = max(left, index + 1)
             }
             map[ch] = i
             maxLenght = max(maxLenght, i - left + 1)
