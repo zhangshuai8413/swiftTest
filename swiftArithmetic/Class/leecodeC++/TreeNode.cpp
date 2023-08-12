@@ -185,7 +185,16 @@ public:
     }
 };
 
+/*
+ 完全二叉树
+ 以上方法都是按照普通二叉树来做的，对于完全二叉树特性不了解的同学可以看这篇 关于二叉树，你该了解这些！，这篇详细介绍了各种二叉树的特性。
 
+ 在完全二叉树中，除了最底层节点可能没填满外，其余每层节点数都达到最大值，并且最下面一层的节点都集中在该层最左边的若干位置。若最底层为第 h 层，则该层包含 1~ 2^(h-1)  个节点。
+
+ 大家要自己看完全二叉树的定义，很多同学对完全二叉树其实不是真正的懂了。
+
+ 我来举一个典型的例子如题：
+ */
 int countNodes(TreeNode* root) {
     if(root == nullptr) return 0;
     TreeNode *left = root->left;
@@ -202,9 +211,9 @@ int countNodes(TreeNode* root) {
     }
     
     if (leftDepth == rightDepth) {
-        return (2 << leftDepth )-1;
+        return (2 << leftDepth )-1; // 注意(2<<1) 相当于2^2，所以leftDepth初始为0
     }
-    return countNodes(left) + countNodes(right);
+    return countNodes(left) + countNodes(right) + 1;
 }
 
 
@@ -234,11 +243,17 @@ int getDepth(TreeNode* cur) {
     int depth = 0;
     while (!st.empty()) {
         TreeNode *node = st.top();
-        if (node == NULL) {
+        if (node != NULL) {
             st.pop();
             st.push(node);
             st.push(nullptr);
             depth ++;
+            if (node->right) {
+                st.push(node->right);
+            }
+            if (node->left) {
+                st.push(node->left);
+            }
         } else {
             st.pop();
             node = st.top();
@@ -247,7 +262,7 @@ int getDepth(TreeNode* cur) {
         }
         result = max(depth, result);
     }
-    return 0;
+    return result;
 }
 
 bool isBalancedIteration(TreeNode* root) {
@@ -583,6 +598,7 @@ public:
         return nullptr;
     }
     
+    
     TreeNode *pre = nullptr;
     bool isValidBST(TreeNode* root) {
         if (root == nullptr) {
@@ -638,7 +654,6 @@ public:
         }
         return result;
     }
-
 };
 
 

@@ -709,21 +709,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         return slow
     }
     
-    func maxArea(heights:[Int]) -> Int {
-        var ans: Int = 0
-        var left: Int = 0
-        var right: Int = heights.count - 1
-        while left < right {
-            let area = min(heights[left], heights[right]) * (right - left)
-            ans = max(area, ans)
-            if heights[left] <= heights[right] {
-                left += 1
-            } else {
-                right -= 1
-            }
-        }
-        return ans
-    }
+ 
     
     func GCDssss() {
         print("0000000")

@@ -1372,7 +1372,6 @@ public:
             return 0;
         }
         int result = 0;
-        
         stack<int>st;
         st.push(0);
         heights.insert(heights.begin(), 0);
