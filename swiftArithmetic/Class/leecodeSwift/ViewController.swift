@@ -312,9 +312,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                     left += 1
                 } else {
                     result[index] = rightNum
-                    index -= 1
                     right -= 1
                 }
+                index -= 1
             }
             return result
         }
@@ -644,6 +644,36 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         print(aaa)
     }
     
+    
+    func compareVersion(_ version1: String, _ version2: String) -> Int {
+        let version1 = version1.split(separator: ".").map({String($0)})
+        let version2 = version2.split(separator: ".").map({String($0)})
+        var n1 = 0 , n2 = 0
+        while n1<version1.count || n2<version2.count {
+            var count1 = 0
+            if n1<version1.count {
+                count1 = Int(version1[n1])!
+            }
+            
+            var count2 = 0
+            if n2<version2.count {
+                count2 = Int(version2[n2])!
+            }
+            
+            if count1 > count2 {
+                return 1
+            }
+            
+            if count1 < count2 {
+                return -1
+            }
+            
+            n1 += 1
+            n2 += 1
+        }
+        return 0
+    }
+   
     
     func minSubArrayLen(nums: [Int], target: Int) -> Int {
         var res: Int = Int.max

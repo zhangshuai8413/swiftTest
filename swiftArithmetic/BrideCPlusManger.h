@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)numIslands;
 -(void)test1;
+
+-(void)quickSort;
 @end
 
 NS_ASSUME_NONNULL_END

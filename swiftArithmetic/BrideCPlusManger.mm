@@ -11,7 +11,7 @@
 #include "Graph.hpp"
 #include <iostream>
 #include <bitset>
-
+#include "MyArray.hpp"
 using namespace std;
 @implementation BrideCPlusManger
 
@@ -66,6 +66,26 @@ void printArray(vector<vector<int>> result) {
 
     number->numIslands(grid);
 
+}
+
+-(void)quickSort {
+//    int aa[]  = {1,10,3,11,6,4,5,7,8};
+//    FLQuickSort *quick = new FLQuickSort;
+//    int n = sizeof(aa)/ sizeof(int);
+//
+//    quick->quickSort(aa, 0, n -1);
+//    for (int i=0; i< n; ++i) {
+//        cout << aa[i] << endl;
+//    }
+    
+    vector<int> bb = {1,10,3,11,6,4,5,7,8, 6};
+    
+    FLQuickSort *quick = new FLQuickSort;
+    quick->quicksort(bb, 0, (int)bb.size() );
+    
+    for (int i=0; i< bb.size(); ++i) {
+           cout << bb[i] << endl;
+    }
 }
 
 @end

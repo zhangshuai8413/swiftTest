@@ -18,6 +18,7 @@ enum DynamicProgram: Int {
     case weight01Array1
     case targetSum
     case numberOfIsland
+    case quikSort
 
 }
 
@@ -27,6 +28,7 @@ struct LeetCodeListView: View {
                                Item(id: .weight01Array1, title: "01背包一维数组"),
                                Item(id: .targetSum, title: "sum of target"),
                                Item(id: .numberOfIsland, title: "岛屿数量"),
+                               Item(id: .quikSort, title: "快速排序"),
                                
     ]
     var body: some View {
@@ -51,19 +53,21 @@ struct LeetCodeListView: View {
         
 //        print("addOCBrie  \(index) \n")
         let ocBrige = BrideCPlusManger()
-        ocBrige.test1()
+  
     
-//        switch index {
-//        case .weight01:
-//            ocBrige.wei_bag_problem1()
-//        case .weight01Array1:
-//            ocBrige.test_1_wei_bag_problem()
-//        case .targetSum:
-//            ocBrige.targetSum()
-//        case .numberOfIsland:
-//            ocBrige.numIslands()
-//        }
-//        let aa = getAllSwiftClasses()
+        switch index {
+        case .weight01:
+            ocBrige.wei_bag_problem1()
+        case .weight01Array1:
+            ocBrige.test_1_wei_bag_problem()
+        case .targetSum:
+            ocBrige.targetSum()
+        case .numberOfIsland:
+            ocBrige.numIslands()
+        case .quikSort:
+            ocBrige.quickSort()
+        }
+
         
 //        print("aa------\(aa)")
         
