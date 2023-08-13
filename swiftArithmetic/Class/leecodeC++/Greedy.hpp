@@ -43,9 +43,9 @@ class MinCameraCover {
     
 private:
     
-    // 2 是无覆盖
-    // 1 摄像头
-    // 0 无覆盖
+//    0：该节点无覆盖
+//    1：本节点有摄像头
+//    2：本节点有覆盖
     int result = 0;
     int traversal(TreeNode* cur) {
         if(cur == nullptr) {
@@ -54,17 +54,11 @@ private:
         int left = traversal(cur->left);
         int right = traversal(cur->right);
         
-        if (left == 2 && right == 2) {
-            return 0;
-        }
-        if(left == 0 || right == 0) {
-            result += 1;
+        if (left == 2 && right == 2) return 0;
+        else if (left == 0 || right == 0) {
+            result++;
             return 1;
-        }
-        if(left == 1 || right == 1) {
-            return 2;
-        }
-        return -1;
+        } else return 2;
     }
     
     int minCameraCover(TreeNode* root) {

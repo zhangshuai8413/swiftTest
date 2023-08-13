@@ -93,7 +93,6 @@ public:
         reverse(result.begin(), result.end()); // 将结果反转之后就是左右中的顺序了
         return result;
     }
-    
 };
 
 
@@ -156,8 +155,6 @@ bool isSymmetric(TreeNode* root) {
     return compare(root->left, root->right);
 }
 
-
-
 bool isSymmetriciteration(TreeNode* root) {
     if (root == NULL) {
         return true;
@@ -204,7 +201,6 @@ int getdepthIteration(TreeNode* root) {
 class solution {
     
 public:
-    
     int result;
     void getdepth(TreeNode* node, int depth) {
         result = max(result, depth);
@@ -300,7 +296,7 @@ int countNodes(TreeNode* root) {
     }
     
     if (leftDepth == rightDepth) {
-        return (2 << leftDepth )-1; // 注意(2<<1) 相当于2^2，所以leftDepth初始为0
+        return (2 << leftDepth ) - 1; // 注意(2<<1) 相当于2^2，所以leftDepth初始为0
     }
     return countNodes(left) + countNodes(right) + 1;
 }
@@ -366,7 +362,7 @@ bool isBalancedIteration(TreeNode* root) {
             return false;
         }
         if (node->right) st.push(node->right);           // 右（空节点不入栈）
-              if (node->left) st.push(node->left);
+        if (node->left) st.push(node->left);
     }
     return true;
 }
@@ -447,13 +443,13 @@ int leftNodeSum(TreeNode *root) {
         if (node->right) {
             que.push(node->right);
         }
-        
     }
     return result;
 }
 
 
 class LeftNodeSolution {
+//    给定一个二叉树，在树的最后一行找到最左边的值。
 public:
     int maxDepth = INT_MIN;
     int result = 0;
@@ -687,7 +683,6 @@ public:
         return nullptr;
     }
     
-    
     TreeNode *pre = nullptr;
     bool isValidBST(TreeNode* root) {
         if (root == nullptr) {
@@ -695,12 +690,9 @@ public:
         }
         bool left = isValidBST(root->left);
         if (pre != nullptr  && pre->val >= root->val) return false;
-            
         bool right = isValidBST(root->right);
-       
         return left && right;
     }
-    
 };
 
 bool isValidBST(TreeNode* root) {
@@ -766,7 +758,7 @@ public:
         return result;
     }
 
-    
+//    -------------------------------
     void searchBST(TreeNode *current, unordered_map<int, int> &map) {
         if(current == nullptr)  return;
         map[current->val] ++;
@@ -778,6 +770,21 @@ public:
     }
     
     vector<int> findMode(TreeNode *root) {
+        /*
+         给定一个有相同值的二叉搜索树（BST），找出 BST 中的所有众数（出现频率最高的元素）。
+
+         假定 BST 有如下定义：
+
+         结点左子树中所含结点的值小于等于当前结点的值
+         结点右子树中所含结点的值大于等于当前结点的值
+         左子树和右子树都是二叉搜索树
+         
+         给定 BST [1,null,2,2],
+
+         501. 二叉搜索树中的众数
+
+         返回[2].
+         */
         unordered_map<int, int> map;
         vector<int> result;
         if(root == nullptr) return result;
@@ -1004,7 +1011,23 @@ public:
 };
 
 class ZuHE {
-    
+//    给定两个整数 n 和 k，返回 1 ... n 中所有可能的 k 个数的组合。
+/*
+ 输入: n = 4, k = 2
+ 输出:
+ [
+   [2,4],
+   [3,4],
+   [2,3],
+   [1,2],
+   [1,3],
+   [1,4],
+ ]
+ 
+ 输入: n = 1, k = 1
+ 输出: [[1]]
+ */
+     
 public:
     vector<vector<int>> result;
     vector<int> path;
@@ -1026,7 +1049,19 @@ public:
 };
 
 class Combining {
-    
+    /*
+     找出所有相加之和为 n 的 k 个数的组合。组合中只允许含有 1 - 9 的正整数，并且每种组合中不存在重复的数字。
+
+     说明：
+
+     所有数字都是正整数。
+     解集不能包含重复的组合。
+     示例 1: 输入: k = 3, n = 7 输出: [[1,2,4]]
+
+     示例 2: 输入: k = 3, n = 9 输出: [[1,2,6], [1,3,5], [2,3,4]]
+
+
+     */
 public:
     vector<vector<int>>reslut;
     vector<int> path;
@@ -1143,7 +1178,6 @@ class Palindrome {
     
     
 public:
-    
     vector<vector<string>> result;
     vector<string> path; // 放已经回文的子串
     vector<vector<bool>> palindromes; // 放事先计算好的是否回文子串的结果
@@ -1243,7 +1277,6 @@ public:
                 s.erase(s.begin() + i + 1);
             } else break;;
         }
-
     }
     
     vector<string> restoreIpAddresses(string s) {
@@ -1252,6 +1285,5 @@ public:
         backtracking(s, 0, 0);
         return result;
     }
-    
 };
 
