@@ -422,6 +422,17 @@ public:
         return dp[m][n];
     }
     
+    /*
+     给定一个非负整数数组，a1, a2, ..., an, 和一个目标数，S。现在你有两个符号 + 和 -。对于数组中的任意一个整数，你都可以从 + 或 -中选择一个符号添加在前面。
+
+     返回可以使最终数组和为目标数 S 的所有添加符号的方法数。
+     
+     提示：
+
+     数组非空，且长度不会超过 20 。
+     初始的数组的和不会超过 1000 。
+     保证返回的最终结果能被 32 位整数存下。
+     */
     int findTargetSumWays(vector<int>& nums, int target) {
         int sum = 0;
         for (int num : nums) {
@@ -583,8 +594,7 @@ public:
         dp[0] = 1;
         for (int i = 0; i <= target; i ++) {
             for (int j = 0; j <nums.size(); j ++) {
-                
-                if (i - nums[j] >=0 &&  dp[i] < INT_MAX - dp[i - nums[j]]) {
+                if (i - nums[j] >=0 && dp[i] < INT_MAX - dp[i - nums[j]]) {
                     dp[i] += dp[i - nums[j]];
                 }
             }
@@ -658,9 +668,9 @@ public:
         unordered_set<string>wordSet(wordDict.begin(),wordDict.end());
         vector<bool>dp(s.size() + 1, false);
         dp[0] = true;
-        for (int i = 1; i <= s.size(); i ++) {
-            for (int j = 0; j < i ; j++) {
-                string word = s.substr(j, i - j);
+        for (int i = 1; i <= s.size(); i ++) {   // 遍历背包
+            for (int j = 0; j < i ; j++) {       // 遍历物品
+                string word = s.substr(j, i - j);  //substr(起始位置，截取的个数)
                 if (wordSet.find(word) != wordSet.end() && dp[j]) {
                     dp[i] = true;
                 }
@@ -793,19 +803,42 @@ public:
 
 
 class LengthOFLIS {
-    
+    /*
+     给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。
+
+     子序列是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。例如，[3,6,2,7] 是数组 [0,3,1,6,2,2,7] 的子序列。
+
+     示例 1：
+
+     输入：nums = [10,9,2,5,3,7,101,18]
+     输出：4
+     解释：最长递增子序列是 [2,3,7,101]，因此长度为 4 。
+     示例 2：
+
+     输入：nums = [0,1,0,3,2,3]
+     输出：4
+     示例 3：
+
+     输入：nums = [7,7,7,7,7,7,7]
+     输出：1
+     提示：
+
+     1 <= nums.length <= 2500
+     -10^4 <= nums[i] <= 104
+     */
 public:
     int lengthOfLIS(vector<int>& nums) {
+        if (nums.size() <= 1) return nums.size();
         vector<int>dp(nums.size() + 1, 1);
         int result = 0;
-        for (int i = 0; i < nums.size() ; i ++) {
+        for (int i = 1; i < nums.size() ; i ++) {
             for (int j = 0; j < i ; j ++) {
-                if (nums[j] > nums[i]) {
+                if (nums[i] > nums[j]) {
                     dp[i] = max(dp[i], dp[j] + 1);
                 }
-                if (dp[i] > result)
-                    result = dp[i];
+               
             }
+            result = max(result, dp[i]);
         }
         return result;
     }
