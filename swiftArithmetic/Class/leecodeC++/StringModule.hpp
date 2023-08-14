@@ -85,7 +85,7 @@ public:
                     anl = l;
                 }
                 if (ori.find(s[l]) != ori.end()) {
-                    --cnt[s[len]];
+                    --cnt[s[l]];
                 }
                 ++l;
             }
