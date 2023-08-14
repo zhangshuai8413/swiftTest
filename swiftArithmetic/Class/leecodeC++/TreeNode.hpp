@@ -40,150 +40,157 @@ vector<int> preorderTraversal(TreeNode* root) {
     return result;
 }
 
-vector<int> preorderTraversal1(TreeNode* root) {
-    stack<TreeNode*>st;
-    vector<int> result;
-    st.push(root);
-    while(!st.empty()) {
-        TreeNode *top = st.top();
-        st.pop();
-        result.push_back(top->val);
-        if (top->right) {
-            st.push(top->right);
-        }
-        if (top->left) {
-            st.push(top->left);
-        }
-    }
-    return result;
-}
-
-
-vector<int> preorderTraversal2(TreeNode* root) {
-    vector<int>result;
-    stack<TreeNode*>st;
-    if(root != NULL)
-    st.push(root);
-    while (!st.empty()) {
-        TreeNode *node = st.top();
-        if (node) {
+class TreeNodeIterationII {
+    //  二叉树 统一迭代
+    
+public:
+    
+    vector<int> preorderTraversal1(TreeNode* root) {
+        stack<TreeNode*>st;
+        vector<int> result;
+        st.push(root);
+        while(!st.empty()) {
+            TreeNode *top = st.top();
             st.pop();
+            result.push_back(top->val);
+            if (top->right) {
+                st.push(top->right);
+            }
+            if (top->left) {
+                st.push(top->left);
+            }
+        }
+        return result;
+    }
+
+
+    vector<int> preorderTraversal2(TreeNode* root) {
+        vector<int>result;
+        stack<TreeNode*>st;
+        if(root != NULL)
+        st.push(root);
+        while (!st.empty()) {
+            TreeNode *node = st.top();
+            if (node) {
+                st.pop();
+                if(node->right){
+                    st.push(node->right);  // 右边
+                }
+                if(node->left){
+                   st.push(node->left);  // 左
+                }
+                st.push(node);  // 中
+                st.push(NULL);
+            } else {
+                st.pop();
+                node = st.top();
+                st.pop();
+                result.push_back(node->val);
+            }
+        }
+      
+        return result;
+    }
+
+
+
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> result;
+        stack<TreeNode*>st;
+        TreeNode *current = root;
+        while (current != NULL || !st.empty()) {
+            if (current != NULL) {
+                st.push(current);
+                current = current->left;
+            } else {
+                current = st.top();
+                st.pop();
+                result.push_back(current->val);
+                current = current->right;
+            }
+            
+        }
+        return result;
+
+    }
+
+    vector<int> inorderTraversal1(TreeNode* root) {
+        vector<int>result;
+        stack<TreeNode*>st;
+        if(root != NULL)
+        st.push(root);
+        while (!st.empty()) {
+            TreeNode *node = st.top();
+            if (node) {
+                st.pop();
+                if(node->right){
+                    st.push(node->right);  // 右边
+                }
+                st.push(node);
+                st.push(NULL);   // 中
+                if(node->left){
+                   st.push(node->left);  //  左
+                }
+               
+            } else {
+                st.pop();
+                node = st.top();
+                st.pop();
+                result.push_back(node->val);
+            }
+        }
+        return result;
+    }
+
+
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int>result;
+        stack<TreeNode*>st;
+        st.push(root);
+        while (!st.empty()) {
+            TreeNode *node = st.top();
+            st.pop();
+            if(node->left){
+                st.push(node->left);
+            }
             if(node->right){
                 st.push(node->right);
             }
-            if(node->left){
-               st.push(node->left);
-            }
-            st.push(node);
-            st.push(NULL);
-        } else {
-            st.pop();
-            node = st.top();
-            st.pop();
-            result.push_back(node->val);
+            result.insert(result.begin(), node->val);
         }
+      
+        return result;
     }
-  
-    return result;
-}
 
-vector<int> inorderTraversal(TreeNode* root) {
-    vector<int> result;
-    stack<TreeNode*>st;
-    TreeNode *current = root;
-    while (current != NULL || !st.empty()) {
-        if (current != NULL) {
-            st.push(current);
-            current = current->left;
-        } else {
-            current = st.top();
-            st.pop();
-            result.push_back(current->val);
-            current = current->right;
-        }
-        
-    }
-    return result;
-
-}
-
-vector<int> inorderTraversal1(TreeNode* root) {
-    vector<int>result;
-    stack<TreeNode*>st;
-    if(root != NULL)
-    st.push(root);
-    while (!st.empty()) {
-        TreeNode *node = st.top();
-        if (node) {
-            st.pop();
-            if(node->right){
-                st.push(node->right);
+    vector<int> postorderTraversal1(TreeNode* root) {
+        vector<int>result;
+        stack<TreeNode*>st;
+        if(root != NULL)
+        st.push(root);
+        while (!st.empty()) {
+            TreeNode *node = st.top();
+            if (node) {
+                st.pop();
+                st.push(node);  // 中
+                st.push(NULL);
+                if(node->right){
+                    st.push(node->right); // 右边
+                }
+                if(node->left){
+                   st.push(node->left);   // 左
+                }
+            } else {
+                st.pop();
+                node = st.top();
+                st.pop();
+                result.push_back(node->val);
             }
-            st.push(node);
-            st.push(NULL);
-            if(node->left){
-               st.push(node->left);
-            }
-           
-        } else {
-            st.pop();
-            node = st.top();
-            st.pop();
-            result.push_back(node->val);
         }
+      
+        return result;
     }
-  
-    return result;
 
-}
-
-
-vector<int> postorderTraversal(TreeNode* root) {
-    vector<int>result;
-    stack<TreeNode*>st;
-    st.push(root);
-    while (!st.empty()) {
-        TreeNode *node = st.top();
-        st.pop();
-        if(node->left){
-            st.push(node->left);
-        }
-        if(node->right){
-            st.push(node->right);
-        }
-        result.insert(result.begin(), node->val);
-    }
-  
-    return result;
-}
-
-vector<int> postorderTraversal1(TreeNode* root) {
-    vector<int>result;
-    stack<TreeNode*>st;
-    if(root != NULL)
-    st.push(root);
-    while (!st.empty()) {
-        TreeNode *node = st.top();
-        if (node) {
-            st.pop();
-            st.push(node);
-            st.push(NULL);
-            if(node->right){
-                st.push(node->right);
-            }
-            if(node->left){
-               st.push(node->left);
-            }
-        } else {
-            st.pop();
-            node = st.top();
-            st.pop();
-            result.push_back(node->val);
-        }
-    }
-  
-    return result;
-}
+};
 
 vector<vector<int>> levelOrder(TreeNode* root);
 
