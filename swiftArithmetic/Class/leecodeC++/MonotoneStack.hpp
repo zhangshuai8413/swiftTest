@@ -121,7 +121,7 @@ public:
         }
         int sum = 0;
         for (int i = 0; i <size; i ++) {
-            int count = min(maxLeft[i], maxRight[i] - height[i]);
+            int count = min(maxLeft[i], maxRight[i]) - height[i];
             sum += count;
         }
         return sum;

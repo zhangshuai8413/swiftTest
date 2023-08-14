@@ -801,6 +801,39 @@ public:
     
 };
 
+class RobIII {
+    /**
+     
+     337.打家劫舍 III
+     力扣题目链接
+     
+     在上次打劫完一条街道之后和一圈房屋后，小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为“根”。 除了“根”之外，每栋房子有且只有一个“父“房子与之相连。一番侦察之后，聪明的小偷意识到“这个地方的所有房屋的排列类似于一棵二叉树”。 如果两个直接相连的房子在同一天晚上被打劫，房屋将自动报警。
+     
+     计算在不触动警报的情况下，小偷一晚能够盗取的最高金额。
+     
+     337.打家劫舍III
+     
+     */
+    
+    int rob(TreeNode *root) {
+        vector<int>result = robTree(root);
+        return max(result[0], result[1]);
+    }
+    
+    // 长度为2的数组，0：不偷，1：偷
+    vector<int> robTree(TreeNode* cur) {
+        if(cur == nullptr) {
+            return vector<int>{0,0};
+        }
+        vector<int>left = robTree(cur ->left);
+        vector<int>right = robTree(cur ->right);
+        int val1 = cur->val + left[0] + right[0];
+        int val2 = max(left[0], left[1]) + max(right[0], right[1]);
+        
+        return {val2, val1};
+    }
+    
+};
 
 class LengthOFLIS {
     /*
@@ -828,7 +861,7 @@ class LengthOFLIS {
      */
 public:
     int lengthOfLIS(vector<int>& nums) {
-        if (nums.size() <= 1) return nums.size();
+        if (nums.size() <= 1) return (int)nums.size();
         vector<int>dp(nums.size() + 1, 1);
         int result = 0;
         for (int i = 1; i < nums.size() ; i ++) {
@@ -842,10 +875,30 @@ public:
         }
         return result;
     }
-    
+    /*
+     给定一个未经排序的整数数组，找到最长且 连续递增的子序列，并返回该序列的长度。
+
+     连续递增的子序列 可以由两个下标 l 和 r（l < r）确定，如果对于每个 l <= i < r，都有 nums[i] < nums[i + 1] ，那么子序列 [nums[l], nums[l + 1], ..., nums[r - 1], nums[r]] 就是连续递增子序列。
+
+     示例 1：
+
+     输入：nums = [1,3,5,4,7]
+     输出：3
+     解释：最长连续递增序列是 [1,3,5], 长度为3。尽管 [1,3,5,7] 也是升序的子序列, 但它不是连续的，因为 5 和 7 在原数组里被 4 隔开。
+     示例 2：
+
+     输入：nums = [2,2,2,2,2]
+     输出：1
+     解释：最长连续递增序列是 [2], 长度为1。
+     提示：
+
+     0 <= nums.length <= 10^4
+     -10^9 <= nums[i] <= 10^9
+     */
     int findLengthOfLCIS(vector<int>& nums) {
-        if (nums.size() == 0) {
-            return 0;
+        
+        if (nums.size() <= 1) {
+            return (int)nums.size();
         }
         int result = 0;
         vector<int>dp(nums.size() + 1, 1);
@@ -857,7 +910,36 @@ public:
         }
         return result;
     }
-    
+    /*
+     给定两个字符串 text1 和 text2，返回这两个字符串的最长公共子序列的长度。
+
+     一个字符串的 子序列 是指这样一个新的字符串：它是由原字符串在不改变字符的相对顺序的情况下删除某些字符（也可以不删除任何字符）后组成的新字符串。
+
+     例如，"ace" 是 "abcde" 的子序列，但 "aec" 不是 "abcde" 的子序列。两个字符串的「公共子序列」是这两个字符串所共同拥有的子序列。
+
+     若这两个字符串没有公共子序列，则返回 0。
+
+     示例 1:
+
+     输入：text1 = "abcde", text2 = "ace"
+     输出：3
+     解释：最长公共子序列是 "ace"，它的长度为 3。
+     示例 2:
+
+     输入：text1 = "abc", text2 = "abc"
+     输出：3
+     解释：最长公共子序列是 "abc"，它的长度为 3。
+     示例 3:
+
+     输入：text1 = "abc", text2 = "def"
+     输出：0
+     解释：两个字符串没有公共子序列，返回 0。
+     提示:
+
+     1 <= text1.length <= 1000
+     1 <= text2.length <= 1000 输入的字符串只含有小写英文字符。
+
+     */
     int longestCommonSubsequence(string text1, string text2) {
         vector<vector<int>>dp(text1.size() + 1,vector<int>(text2.size() +1, 1));
         for (int i = 1; i <= text1.size(); i ++) {
@@ -947,41 +1029,10 @@ public:
         }
         return result;
     }
-};
 
 
-class RobIII {
-    /**
-     
-     337.打家劫舍 III
-     力扣题目链接
 
-     在上次打劫完一条街道之后和一圈房屋后，小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为“根”。 除了“根”之外，每栋房子有且只有一个“父“房子与之相连。一番侦察之后，聪明的小偷意识到“这个地方的所有房屋的排列类似于一棵二叉树”。 如果两个直接相连的房子在同一天晚上被打劫，房屋将自动报警。
 
-     计算在不触动警报的情况下，小偷一晚能够盗取的最高金额。
-
-     337.打家劫舍III
-     
-     */
-    
-    int rob(TreeNode *root) {
-        vector<int>result = robTree(root);
-        return max(result[0], result[1]);
-    }
-    
-    // 长度为2的数组，0：不偷，1：偷
-    vector<int> robTree(TreeNode* cur) {
-        
-        if(cur == nullptr) {
-            return vector<int>{0,0};
-        }
-        vector<int>left = robTree(cur ->left);
-        vector<int>right = robTree(cur ->right);
-        int val1 = cur->val + left[0] + right[0];
-        int val2 = max(left[0], left[1]) + max(right[0], right[1]);
-        
-        return {val2, val1};
-    }
     
     /*
      
@@ -1012,15 +1063,34 @@ class RobIII {
      babgbag
      babgbag
 
+     
+     每次当初始化的时候，都要回顾一下dp[i][j]的定义，不要凭感觉初始化。
+
+     dp[i][0]表示什么呢？
+
+     dp[i][0] 表示：以i-1为结尾的s可以随便删除元素，出现空字符串的个数。
+
+     那么dp[i][0]一定都是1，因为也就是把以i-1为结尾的s，删除所有元素，出现空字符串的个数就是1。
+
+     再来看dp[0][j]，dp[0][j]：空字符串s可以随便删除元素，出现以j-1为结尾的字符串t的个数。
+
+     那么dp[0][j]一定都是0，s如论如何也变成不了t。
+
+     最后就要看一个特殊位置了，即：dp[0][0] 应该是多少。
+
+     dp[0][0]应该是1，空字符串s，可以删除0个元素，变成空字符串t。
+
+
+     
      来源：力扣（LeetCode）
      链接：https://leetcode.cn/problems/distinct-subsequences
      著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      */
     
     
-    long long  numDistinct(string s, string t) {
+    long long numDistinct(string s, string t) {
         int n1 = (int)s.size();
-        int  n2 = (int)t.size();
+        int n2 = (int)t.size();
         vector<vector<uint64_t>>dp(n1 + 1,vector<uint64_t>(n2 + 1));
         for (int i = 0; i <=n1; i ++) {
             dp[i][0] = 1;
@@ -1039,11 +1109,27 @@ class RobIII {
         }
         return dp[n1][n2];
     }
-    
 };
 
 class FindLength {
-    
+    /*
+     给两个整数数组 A 和 B ，返回两个数组中公共的、长度最长的子数组的长度。
+
+     示例：
+
+     输入：
+
+     A: [1,2,3,2,1]
+     B: [3,2,1,4,7]
+     输出：3
+     解释：长度最长的公共子数组是 [3, 2, 1] 。
+     提示：
+
+     1 <= len(A), len(B) <= 1000
+     0 <= A[i], B[i] < 100
+     718. 最长重复子数组
+
+     */
     
 public:
     int findLength(vector<int>& nums1, vector<int>& nums2) {
@@ -1397,7 +1483,6 @@ public:
 
 class LargestRectangleArea {
     
-    
 public:
     
     int largestRectangleArea(vector<int>& heights) {
@@ -1418,13 +1503,9 @@ public:
                 result = max(result, width * height);
        
             }
-            
             st.push(i);
-            
         }
-
         return result;
-
        }
     
 };
