@@ -144,7 +144,80 @@ public:
 };
 
 
+class MedianSortedArray {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        
+        if(nums1.size() >  nums2.size()) {
+            return findMedianSortedArrays(nums2, nums1);
+        }
+        int m = (int)nums1.size();
+        int n = (int)nums2.size();
+        int left = 0;
+        int right = m;
+        int median1 = 0, median2 = 0;
+        while (left <= right) {
+            int i = (left + right) / 2;
+            int j = (m + n + 1) / 2 - i;
+            int nums_im1 = (i == 0 ? INT_MIN : nums1[i - 1]);
+            int nums_i = (i == m? INT_MAX : nums1[i]);
+            int nums_jm1 = (j == 0 ? INT_MIN : nums2[j - 1]);
+            int nums_j = (j == n? INT_MAX : nums2[j]);
+            if (nums_im1 <= nums_j) {
+                median1 = max(nums_im1, nums_jm1);
+                median2 = min(nums_i, nums_j);
+                left = i + 1;
+            } else {
+                right = i - 1;
+            }
+        }
+        return (m + n) % 2 == 0 ? (median1 + median2) / 2.0 : median1;
+    }
+    
+};
 
+
+class SolutionBinarySearch {
+    /*
+     统计一个数字在排序数组中出现的次数。
+     示例 1:
+
+     输入: nums = [5,7,7,8,8,10], target = 8
+     输出: 2
+     示例 2:
+
+     输入: nums = [5,7,7,8,8,10], target = 6
+     输出: 0
+
+     */
+public:
+    int binarySearch(vector<int>& nums, int target, bool lower) {
+        int left = 0, right = (int)nums.size() - 1, ans = (int)nums.size();
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (nums[mid] > target || (lower && nums[mid] >= target)) {
+                right = mid - 1;
+                ans = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return ans;
+    }
+
+    int search(vector<int>& nums, int target) {
+        int leftIdx = binarySearch(nums, target, true);
+        int rightIdx = binarySearch(nums, target, false) - 1;
+        if (leftIdx <= rightIdx && rightIdx < nums.size() && nums[leftIdx] == target && nums[rightIdx] == target) {
+            return rightIdx - leftIdx + 1;
+        }
+        return 0;
+    }
+    
+    int searchII(vector<int>& nums, int target) {
+        return upper_bound(begin(nums), end(nums), target) - lower_bound(begin(nums), end(nums), target);
+    }
+};
 
 
 //    func threeSum(_ nums: [Int]) -> [[Int]] {
