@@ -137,13 +137,13 @@ class ListNoteViewController: BaseTableViewController {
             fast = fast?.next?.next
             slow = slow?.next
             if fast === slow {
-                var index1 = slow
-                var index2 = fast
-                while index1 !== index1 {
+                var index1 = fast
+                var index2 = head
+                while index1 !== index2 {
                     index1 = index1?.next
                     index2 = index2?.next
                 }
-                return index1
+                return index2
             }
         }
         return nil
@@ -163,8 +163,8 @@ class ListNoteViewController: BaseTableViewController {
         var view1: UIView? = viewA
         var view2: UIView? = viewB
         while viewA != viewB {
-            view1 = (view1 == nil) ? viewB : view1?.superview
-            view2 = (view2 == nil) ? viewA : view2?.superview
+            view1 = (view1 != nil) ? view1?.superview : viewB
+            view2 = (view2 != nil) ? view2?.superview : viewA
         }
         return view1
     }

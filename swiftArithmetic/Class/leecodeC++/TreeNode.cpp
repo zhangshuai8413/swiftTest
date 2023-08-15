@@ -714,6 +714,8 @@ bool isValidBST(TreeNode* root) {
     return true;
 }
 
+
+
 class SolutionSearchBSTMin {
 private: vector<int> vec;
     
