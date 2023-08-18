@@ -95,4 +95,64 @@ class ArrayViewController: BaseTableViewController {
     }
 }
 
+/*
+ 16. 最接近的三数之和
+ 中等
+ 1.5K
+ 相关企业
+ 给你一个长度为 n 的整数数组 nums 和 一个目标值 target。请你从 nums 中选出三个整数，使它们的和与 target 最接近。
+
+ 返回这三个数的和。
+
+ 假定每组输入只存在恰好一个解。
+
+  
+
+ 示例 1：
+
+ 输入：nums = [-1,2,1,-4], target = 1
+ 输出：2
+ 解释：与 target 最接近的和是 2 (-1 + 2 + 1 = 2) 。
+ 示例 2：
+
+ 输入：nums = [0,0,0], target = 1
+ 输出：0
+  
+
+ 提示：
+
+ 3 <= nums.length <= 1000
+ -1000 <= nums[i] <= 1000
+ -104 <= target <= 104
+ */
+func threeSumClosest(_ nums: [Int], _ target: Int) -> Int {
+    
+    let sortedNums = nums.sorted()
+    var closestSum = sortedNums[0] + sortedNums[1] + sortedNums[2]
+    
+    for i in 0..<sortedNums.count - 2 {
+        var left = i + 1
+        var right = sortedNums.count - 1
+        
+        while left < right {
+            let sum = sortedNums[i] + sortedNums[left] + sortedNums[right]
+            
+            if sum == target {
+                return sum
+            }
+            
+            if abs(sum - target) < abs(closestSum - target) {
+                closestSum = sum
+            }
+            
+            if sum < target {
+                left += 1
+            } else {
+                right -= 1
+            }
+        }
+    }
+    
+    return closestSum
+}
 

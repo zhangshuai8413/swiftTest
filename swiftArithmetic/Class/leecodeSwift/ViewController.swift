@@ -1397,7 +1397,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         var res: Int = 0
         for index in 0..<height.count {
             while !stack.isEmpty && height[index] > height[stack.last ?? 0] {
-                let top: Int = (stack.last ?? 0) as  Int
+                let top: Int = (stack.last ?? 0) as Int
                 stack.removeLast()
                 if stack.isEmpty {
                     break
@@ -1739,9 +1739,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             } else {
                 stack.append(ch)
             }
-            
         }
-        
         return stack.isEmpty
     }
     
