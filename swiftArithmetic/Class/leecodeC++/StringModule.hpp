@@ -288,4 +288,201 @@ public:
 
 };
 
+
+
+const pair<int, string> valueSymbols[] = {
+    {1000, "M"},
+    {900,  "CM"},
+    {500,  "D"},
+    {400,  "CD"},
+    {100,  "C"},
+    {90,   "XC"},
+    {50,   "L"},
+    {40,   "XL"},
+    {10,   "X"},
+    {9,    "IX"},
+    {5,    "V"},
+    {4,    "IV"},
+    {1,    "I"},
+};
+class SolutionIntToRoman {
+public:
+
+   
+    /*
+     作者：力扣官方题解
+     链接：https://leetcode.cn/problems/integer-to-roman/solutions/774611/zheng-shu-zhuan-luo-ma-shu-zi-by-leetcod-75rs/
+     来源：力扣（LeetCode）
+     著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+     */
+
+
+public:
+    string intToRoman(int num) {
+        string roman;
+        for (const auto &[value, symbol] : valueSymbols) {
+            while (num >= value) {
+                num -= value;
+                roman += symbol;
+            }
+            if (num == 0) {
+                break;
+            }
+        }
+        return roman;
+    }
+};
+
+class SolutionRomanToInt {
+    
+    /*
+     示例 1:
+
+     输入: s = "III"
+     输出: 3
+     示例 2:
+
+     输入: s = "IV"
+     输出: 4
+     示例 3:
+
+     输入: s = "IX"
+     输出: 9
+     示例 4:
+
+     输入: s = "LVIII"
+     输出: 58
+     解释: L = 50, V= 5, III = 3.
+
+     作者：力扣官方题解
+     链接：https://leetcode.cn/problems/roman-to-integer/solutions/774992/luo-ma-shu-zi-zhuan-zheng-shu-by-leetcod-w55p/
+     来源：力扣（LeetCode）
+     著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+     */
+private:
+    unordered_map<char, int> symbolValues = {
+        {'I', 1},
+        {'V', 5},
+        {'X', 10},
+        {'L', 50},
+        {'C', 100},
+        {'D', 500},
+        {'M', 1000},
+    };
+
+public:
+    int romanToInt(string s) {
+        int ans = 0;
+        int n = (int)s.length();
+        for (int i = 0; i < n; ++i) {
+            int value = symbolValues[s[i]];
+            if (i < n - 1 && value < symbolValues[s[i + 1]]) {
+                ans -= value;
+            } else {
+                ans += value;
+            }
+        }
+        return ans;
+    }
+};
+
+class SolutionDivide {
+    /*
+     作者：力扣官方题解
+     链接：https://leetcode.cn/problems/divide-two-integers/solutions/1041939/liang-shu-xiang-chu-by-leetcode-solution-5hic/
+     来源：力扣（LeetCode）
+     著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+     */
+public:
+    int divide(int dividend, int divisor) {
+        // 考虑被除数为最小值的情况
+        if (dividend == INT_MIN) {
+            if (divisor == 1) {
+                return INT_MIN;
+            }
+            if (divisor == -1) {
+                return INT_MAX;
+            }
+        }
+        // 考虑除数为最小值的情况
+        if (divisor == INT_MIN) {
+            return dividend == INT_MIN ? 1 : 0;
+        }
+        // 考虑被除数为 0 的情况
+        if (dividend == 0) {
+            return 0;
+        }
+        
+        // 一般情况，使用类二分查找
+        // 将所有的正数取相反数，这样就只需要考虑一种情况
+        bool rev = false;
+        if (dividend > 0) {
+            dividend = -dividend;
+            rev = !rev;
+        }
+        if (divisor > 0) {
+            divisor = -divisor;
+            rev = !rev;
+        }
+
+        vector<int> candidates = {divisor};
+        // 注意溢出
+        while (candidates.back() >= dividend - candidates.back()) {
+            candidates.push_back(candidates.back() + candidates.back());
+        }
+        int ans = 0;
+        for (int i = (int)candidates.size() - 1; i >= 0; --i) {
+            if (candidates[i] >= dividend) {
+                ans += (1 << i);
+                dividend -= candidates[i];
+            }
+        }
+
+        return rev ? -ans : ans;
+    }
+    
+    int divideI(int dividend, int divisor) {
+        
+        if(dividend==INT_MIN){
+            if(divisor==1) return INT_MIN;
+            else if(divisor==-1) return INT_MAX;
+        }
+        if(divisor==INT_MIN)
+        {
+            return dividend==INT_MIN?1:0;
+        }
+        if(dividend==0) return 0;
+        if(divisor==1) return dividend;
+        if(divisor==-1) return -dividend;
+        
+        
+        int sign = 1;
+        if((dividend > 0 && divisor < 0) || (dividend < 0 && divisor > 0)){
+            sign = -1;
+        }
+        int result = 0;
+        long dividend_long = abs((long)dividend);
+        long divisor_long = abs((long)divisor);
+        while (dividend_long >= divisor_long) {
+            long i = 1;
+            long temp = divisor_long;
+            while (dividend_long >= temp) {
+                dividend_long -= temp;
+                result += i;
+                i = i << 1;
+                temp = temp << 1;
+            }
+        }
+        result *= sign;
+        if (result > INT_MAX || result < INT_MIN) {
+            return INT_MAX;
+        }
+        
+        return int(result);
+    }
+};
+
+
 #endif /* StringModule_hpp */

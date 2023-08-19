@@ -16,5 +16,52 @@
 #include <unordered_set>
 using namespace std;
 
+class SolutionGenerateParenthesis {
+    
+    /*
+     作者：力扣官方题解
+     链接：https://leetcode.cn/problems/generate-parentheses/solutions/192912/gua-hao-sheng-cheng-by-leetcode-solution/
+     来源：力扣（LeetCode）
+     著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+     */
+    bool valid(const string& str) {
+        int balance = 0;
+        for (char c : str) {
+            if (c == '(') {
+                ++balance;
+            } else {
+                --balance;
+            }
+            if (balance < 0) {
+                return false;
+            }
+        }
+        return balance == 0;
+    }
+
+    void generate_all(string& current, int n, vector<string>& result) {
+        if (n == current.size()) {
+            if (valid(current)) {
+                result.push_back(current);
+            }
+            return;
+        }
+        current += '(';
+        generate_all(current, n, result);
+        current.pop_back();
+        current += ')';
+        generate_all(current, n, result);
+        current.pop_back();
+    }
+public:
+    vector<string> generateParenthesis(int n) {
+        vector<string> result;
+        string current;
+        generate_all(current, n * 2, result);
+        return result;
+    }
+};
+
+
 
 #endif /* BackTrack_hpp */
