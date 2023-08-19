@@ -211,4 +211,83 @@ ListNode* deleteNode(ListNode* head, int val) {
     
 }
 
+/*
+ 
+ 输入：head = [1,2,3,4,5], n = 2
+ 输出：[1,2,3,5]
+ 示例 2：
+
+ 输入：head = [1], n = 1
+ 输出：[]
+ 示例 3：
+
+ 输入：head = [1,2], n = 1
+ 输出：[1]
+
+ 作者：力扣官方题解
+ 链接：https://leetcode.cn/problems/SLwz0R/solutions/1417848/shan-chu-lian-biao-de-dao-shu-di-n-ge-ji-ydte/
+ 来源：力扣（LeetCode）
+ 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+ */
+
+ListNode* removeNthFromEnd(ListNode* head, int n) {
+      ListNode* dummy = new ListNode(0, head);
+      ListNode* first = head;
+      ListNode* second = dummy;
+      for (int i = 0; i < n; ++i) {
+          first = first->next;
+      }
+      while (first) {
+          first = first->next;
+          second = second->next;
+      }
+      second->next = second->next->next;
+      ListNode* ans = dummy->next;
+      delete dummy;
+      return ans;
+  }
+
+/*
+ 作者：力扣官方题解
+ 链接：https://leetcode.cn/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/solutions/1398788/he-bing-liang-ge-pai-xu-de-lian-biao-by-g3z6g/
+ 来源：力扣（LeetCode）
+ 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+ */
+
+ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+     if (l1 == nullptr) {
+         return l2;
+     } else if (l2 == nullptr) {
+         return l1;
+     } else if (l1->val < l2->val) {
+         l1->next = mergeTwoLists(l1->next, l2);
+         return l1;
+     } else {
+         l2->next = mergeTwoLists(l1, l2->next);
+         return l2;
+     }
+ }
+
+ListNode* mergeTwoListsII(ListNode* l1, ListNode* l2) {
+    ListNode* preHead = new ListNode(-1);
+    
+    ListNode* prev = preHead;
+    while (l1 != nullptr && l2 != nullptr) {
+        if (l1->val < l2->val) {
+            prev->next = l1;
+            l1 = l1->next;
+        } else {
+            prev->next = l2;
+            l2 = l2->next;
+        }
+        prev = prev->next;
+    }
+    // 合并后 l1 和 l2 最多只有一个还未被合并完，我们直接将链表末尾指向未合并完的链表即可
+    prev->next = l1 == nullptr ? l2 : l1;
+    
+    return preHead->next;
+}
+
+
+
 #endif /* ListNode_hpp */
