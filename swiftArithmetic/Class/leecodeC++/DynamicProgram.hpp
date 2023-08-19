@@ -1527,12 +1527,10 @@ public:
         stack<int>st;
         st.push(0);
         for (int i=1; i< nums2.size(); ++i) {
-            
             while (!st.empty() && nums2[i]> nums2[st.top()]) {
                 if (umap.count(nums2[st.top()])) {
                     int index = umap[nums2[st.top()]];
                     result[index] = nums2[i];
-                    
                 }
                 st.pop();
             }
@@ -1564,7 +1562,6 @@ public:
                 int width = i - st.top() - 1;
                 int height = heights[mid];
                 result = max(result, width * height);
-       
             }
             st.push(i);
         }
