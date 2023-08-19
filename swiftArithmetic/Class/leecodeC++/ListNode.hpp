@@ -337,5 +337,34 @@ ListNode* removeElementsII(ListNode* head, int val) {
   }
 
 
+ListNode* reverseList(ListNode* head) {
+    ListNode* temp; // 保存cur的下一个节点
+    ListNode* cur = head;
+    ListNode* pre = NULL;
+    while(cur) {
+        temp = cur->next;  // 保存一下 cur的下一个节点，因为接下来要改变cur->next
+        cur->next = pre; // 翻转操作
+        // 更新pre 和 cur指针
+        pre = cur;
+        cur = temp;
+    }
+    return pre;
+}
 
+ListNode* swapPairs(ListNode* head) {
+    ListNode* dummyHead = new ListNode(0); // 设置一个虚拟头结点
+    dummyHead->next = head; // 将虚拟头结点指向head，这样方面后面做删除操作
+    ListNode* cur = dummyHead;
+    while(cur->next != nullptr && cur->next->next != nullptr) {
+        ListNode* tmp = cur->next; // 记录临时节点
+        ListNode* tmp1 = cur->next->next->next; // 记录临时节点
+        
+        cur->next = cur->next->next;    // 步骤一
+        cur->next->next = tmp;          // 步骤二
+        cur->next->next->next = tmp1;   // 步骤三
+        
+        cur = cur->next->next; // cur移动两位，准备下一轮交换
+    }
+    return dummyHead->next;
+}
 #endif /* ListNode_hpp */
