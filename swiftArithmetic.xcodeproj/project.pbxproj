@@ -41,6 +41,7 @@
 		5BC8F0F42A7E4F9D003BF9E6 /* BrideCPlusManger+a.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8F0F32A7E4F9D003BF9E6 /* BrideCPlusManger+a.m */; };
 		5BC8F0F72A7E4FBD003BF9E6 /* BrideCPlusManger+B.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8F0F62A7E4FBD003BF9E6 /* BrideCPlusManger+B.m */; };
 		5BC8F1062A8082FE003BF9E6 /* StringModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8F1042A8082FE003BF9E6 /* StringModule.cpp */; };
+		5BDCED5C2A90DDCB0058171D /* DoublePointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BDCED5A2A90DDCB0058171D /* DoublePointer.cpp */; };
 		5BE296FF2A595028001EF7E2 /* FLSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FB2A595028001EF7E2 /* FLSettingController.swift */; };
 		5BE297002A595028001EF7E2 /* FLArithmeticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FC2A595028001EF7E2 /* FLArithmeticViewController.swift */; };
 		5BE297012A595028001EF7E2 /* FLMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FD2A595028001EF7E2 /* FLMeViewController.swift */; };
@@ -106,6 +107,8 @@
 		5BC8F0F62A7E4FBD003BF9E6 /* BrideCPlusManger+B.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BrideCPlusManger+B.m"; sourceTree = "<group>"; };
 		5BC8F1042A8082FE003BF9E6 /* StringModule.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StringModule.cpp; sourceTree = "<group>"; };
 		5BC8F1052A8082FE003BF9E6 /* StringModule.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StringModule.hpp; sourceTree = "<group>"; };
+		5BDCED5A2A90DDCB0058171D /* DoublePointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DoublePointer.cpp; sourceTree = "<group>"; };
+		5BDCED5B2A90DDCB0058171D /* DoublePointer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DoublePointer.hpp; sourceTree = "<group>"; };
 		5BE296FB2A595028001EF7E2 /* FLSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLSettingController.swift; sourceTree = "<group>"; };
 		5BE296FC2A595028001EF7E2 /* FLArithmeticViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLArithmeticViewController.swift; sourceTree = "<group>"; };
 		5BE296FD2A595028001EF7E2 /* FLMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLMeViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +231,8 @@
 				5B26D4EA2A1A6D2600EDCA2F /* TreeNode.hpp */,
 				5BC8F1042A8082FE003BF9E6 /* StringModule.cpp */,
 				5BC8F1052A8082FE003BF9E6 /* StringModule.hpp */,
+				5BDCED5A2A90DDCB0058171D /* DoublePointer.cpp */,
+				5BDCED5B2A90DDCB0058171D /* DoublePointer.hpp */,
 				5BBCFFBF2A8719DC00763DF5 /* MyArray.cpp */,
 				5BBCFFC02A8719DC00763DF5 /* MyArray.hpp */,
 			);
@@ -370,6 +375,7 @@
 			files = (
 				5BC8F0F42A7E4F9D003BF9E6 /* BrideCPlusManger+a.m in Sources */,
 				5BC8F0F72A7E4FBD003BF9E6 /* BrideCPlusManger+B.m in Sources */,
+				5BDCED5C2A90DDCB0058171D /* DoublePointer.cpp in Sources */,
 				5B76E3472A4FB67700141D86 /* BrideCPlusManger.mm in Sources */,
 				5B26D4E22A1A6CC600EDCA2F /* Person.swift in Sources */,
 				5B26D4C52A1A6CAA00EDCA2F /* ListNode.cpp in Sources */,
