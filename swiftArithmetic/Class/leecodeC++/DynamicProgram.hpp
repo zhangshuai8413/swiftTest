@@ -89,7 +89,7 @@ public:
         dp[1] = 1;
         dp[2] = 2;
         for (int i = 3; i <=n; i ++) {
-            int  sum = dp[1] + dp[2];
+            int sum = dp[1] + dp[2];
             dp[1] = dp[2];
             dp[2] = sum;
         }
@@ -271,7 +271,7 @@ public:
         vector<int>value =  {15,20, 30};
         int bagWeight= 4;
         vector<int>dp(bagWeight +1, 0);
-        for (int i = 0; i < weight.size() ; i ++) {
+        for (int i = 0; i < weight.size(); i ++) {
             for (int j = bagWeight; j >= weight[i] ; j--) {
                 dp[j] = max(dp[j], dp[j - weight[i]] + value[i]);
             }
@@ -417,7 +417,6 @@ public:
                     dp[i][j] = max(dp[i][j], dp[i - zeroNum][j - oneNum] + 1);
                 }
             }
-            
         }
         return dp[m][n];
     }
@@ -495,14 +494,12 @@ public:
         vector<int>dp(bagSize + 1, 0);
         dp[0] = 1;
         for (int i = 0; i <nums.size(); i ++) {
-            for (int j =  bagSize; j >=nums[i]; j--) {
+            for (int j = bagSize; j >=nums[i]; j--) {
                 dp[j] += dp[j - nums[i]];
             }
         }
         return dp[bagSize];
-        
     }
-    
 };
 
 
@@ -552,13 +549,45 @@ public:
         }
         return dp[amount];
     }
-    
+    /*
+     给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。
+
+     你可以认为每种硬币的数量是无限的。
+
+     示例 1：
+
+     输入：coins = [1, 2, 5], amount = 11
+     输出：3
+     解释：11 = 5 + 5 + 1
+     示例 2：
+
+     输入：coins = [2], amount = 3
+     输出：-1
+     示例 3：
+
+     输入：coins = [1], amount = 0
+     输出：0
+     示例 4：
+
+     输入：coins = [1], amount = 1
+     输出：1
+     示例 5：
+
+     输入：coins = [1], amount = 2
+     输出：2
+     提示：
+
+     1 <= coins.length <= 12
+     1 <= coins[i] <= 2^31 - 1
+     0 <= amount <= 10^4
+
+     */
     int coinChange(vector<int>& coins, int amount) {
         vector<int> dp(amount + 1, INT_MAX);
         dp[0] = 0;
-        for (int i = 0; i <coins.size(); i ++) {
-            for (int j =  coins[i]; j <= amount; j++) {
-                if(dp[j - coins[i]] != INT_MAX ) {
+        for (int i = 0; i <coins.size(); i ++) {  // 遍历物品
+            for (int j =  coins[i]; j <= amount; j++) {   // 遍历背包
+                if(dp[j - coins[i]] != INT_MAX ) {  // 如果dp[j - coins[i]]是初始值则跳过
                     dp[j] = min(dp[j], dp[j - coins[i]] + 1);
                 }
             }
@@ -869,7 +898,6 @@ public:
                 if (nums[i] > nums[j]) {
                     dp[i] = max(dp[i], dp[j] + 1);
                 }
-               
             }
             result = max(result, dp[i]);
         }
@@ -1418,6 +1446,41 @@ public:
             }
         }
         return dp[0][s.size() -1];
+    }
+    
+    string longestPalindrome(string s) {
+        int n = (int)s.size();
+        if (n < 2) {
+            return s;
+        }
+        int maxLen = 1;
+        int begin = 0;
+        vector<vector<int>> dp(n, vector<int>(n));
+        for (int i = 0; i < n; i++) {
+            dp[i][i] = true;
+        }
+        for (int L=2; L<= n; L++) {
+            for (int i=0; i< n; i++) {
+                int j = L + i - 1;
+                if (j >=n) {
+                    break;;
+                }
+                if (s[i] != s[j]) {
+                    dp[i][j] = false;
+                } else {
+                    if (j -i < 3) {
+                        dp[i][j] = true;
+                    } else {
+                        dp[i][j] = dp[i + 1][j - 1];
+                    }
+                }
+                if (dp[i][j] && j - i + 1 > maxLen) {
+                    maxLen = j - i + 1;
+                    begin = i;
+                }
+            }
+        }
+        return s.substr(begin, maxLen);
     }
 };
 

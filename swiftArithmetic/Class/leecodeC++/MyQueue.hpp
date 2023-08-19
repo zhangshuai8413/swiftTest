@@ -44,7 +44,7 @@ public:
         return res;
     }
     bool empty() {
-        return  stIn.empty() && stOut.empty();
+        return stIn.empty() && stOut.empty();
     }
 };
 
