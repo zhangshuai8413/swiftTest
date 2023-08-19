@@ -288,6 +288,54 @@ ListNode* mergeTwoListsII(ListNode* l1, ListNode* l2) {
     return preHead->next;
 }
 
+/*
+ 
+ 给你一个链表的头节点 head 和一个整数 val ，请你删除链表中所有满足 Node.val == val 的节点，并返回 新的头节点 。
+  
+
+ 示例 1：
+
+
+ 输入：head = [1,2,6,3,4,5,6], val = 6
+ 输出：[1,2,3,4,5]
+ 示例 2：
+
+ 输入：head = [], val = 1
+ 输出：[]
+ 示例 3：
+
+ 输入：head = [7,7,7,7], val = 7
+ 输出：[]
+  
+ 作者：力扣官方题解
+ 链接：https://leetcode.cn/problems/remove-linked-list-elements/solutions/813358/yi-chu-lian-biao-yuan-su-by-leetcode-sol-654m/
+ 来源：力扣（LeetCode）
+ 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+ */
+
+ListNode* removeElements(ListNode* head, int val) {
+      if (head == nullptr) {
+          return head;
+      }
+      head->next = removeElements(head->next, val);
+      return head->val == val ? head->next : head;
+  }
+
+
+
+ListNode* removeElementsII(ListNode* head, int val) {
+      struct ListNode* dummyHead = new ListNode(0, head);
+      struct ListNode* temp = dummyHead;
+      while (temp->next != NULL) {
+          if (temp->next->val == val) {
+              temp->next = temp->next->next;
+          } else {
+              temp = temp->next;
+          }
+      }
+      return dummyHead->next;
+  }
+
 
 
 #endif /* ListNode_hpp */
