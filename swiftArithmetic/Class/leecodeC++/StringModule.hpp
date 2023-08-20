@@ -506,4 +506,112 @@ vector<vector<string>> groupAnagrams(vector<string>& strs) {
 }
 
 
+/*
+ 作者：力扣官方题解
+ 链接：https://leetcode.cn/problems/count-and-say/solutions/1047325/wai-guan-shu-lie-by-leetcode-solution-9rt8/
+ 来源：力扣（LeetCode）
+ 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+ */
+string countAndSay(int n) {
+      string prev = "1";
+      for (int i = 2; i <= n; ++i) {
+          string curr = "";
+          int start = 0;
+          int pos = 0;
+
+          while (pos < prev.size()) {
+              while (pos < prev.size() && prev[pos] == prev[start]) {
+                  pos++;
+              }
+              curr += to_string(pos - start) + prev[start];
+              start = pos;
+          }
+          prev = curr;
+      }
+      
+      return prev;
+  }
+
+class SolutionFindSubstring {
+    /*
+     作者：力扣官方题解
+     链接：https://leetcode.cn/problems/substring-with-concatenation-of-all-words/solutions/1616997/chuan-lian-suo-you-dan-ci-de-zi-chuan-by-244a/
+     来源：力扣（LeetCode）
+     著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+     */
+public:
+    vector<int> findSubstring(string &s, vector<string> &words) {
+        vector<int> res;
+        int m = (int)words.size(), n = (int)words[0].size(), ls = (int)s.size();
+        for (int i = 0; i < n && i + m * n <= ls; ++i) {
+            unordered_map<string, int> differ;
+            for (int j = 0; j < m; ++j) {
+                ++differ[s.substr(i + j * n, n)];
+            }
+            for (string &word: words) {
+                if (--differ[word] == 0) {
+                    differ.erase(word);
+                }
+            }
+            for (int start = i; start < ls - m * n + 1; start += n) {
+                if (start != i) {
+                    string word = s.substr(start + (m - 1) * n, n);
+                    if (++differ[word] == 0) {
+                        differ.erase(word);
+                    }
+                    word = s.substr(start - n, n);
+                    if (--differ[word] == 0) {
+                        differ.erase(word);
+                    }
+                }
+                if (differ.empty()) {
+                    res.emplace_back(start);
+                }
+            }
+        }
+        return res;
+    }
+};
+
+
+vector<int> findSubstringII(string s, vector<string>& words) {
+        vector<int> res;
+        // 设 words中所有单词的长度为 d
+        int n = s.size(), m = words.size(), d = words[0].size();
+        int len = 0;
+        unordered_map<string, int> um;
+        for (string w : words) {
+            len += w.size();
+            um[w]++;
+        }
+
+        // init: 初始化长度为 d 的数组
+        vector<unordered_map<string, int> > vu(d);
+        for (int i = 0; i < d && i + len <= n; i++) {
+            for (int j = i; j < i + len; j += d) {
+                string w = s.substr(j, d);
+                vu[i][w]++;
+            }
+            if (vu[i] == um) {
+                res.emplace_back(i);
+            }
+        }
+
+        // sliding window: 滑动窗口，每次移动 d 个位置
+        for (int i = d; i + len <= n; i++) {
+            int r = i % d;
+            string wa = s.substr(i - d, d), wb = s.substr(i + len - d, d);
+            if(--vu[r][wa] == 0) vu[r].erase(wa);
+            vu[r][wb]++;
+            if (vu[r] == um) {
+                res.emplace_back(i);
+            }
+        }
+
+        return res;
+    }
+
+
+
+
 #endif /* StringModule_hpp */
