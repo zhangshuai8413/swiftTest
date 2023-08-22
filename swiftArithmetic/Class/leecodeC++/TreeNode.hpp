@@ -59,7 +59,6 @@ public:
         return result;
     }
 
-
     vector<int> preorderTraversal2(TreeNode* root) {
         vector<int>result;
         stack<TreeNode*>st;
@@ -141,20 +140,20 @@ public:
 
     vector<int> postorderTraversal(TreeNode* root) {
         vector<int>result;
-        stack<TreeNode*>st;
+        stack<TreeNode*>st;    // 中  右 左   - reverse   左 右 中
         st.push(root);
         while (!st.empty()) {
             TreeNode *node = st.top();
             st.pop();
+            result.push_back(node->val);
             if(node->left){
                 st.push(node->left);
             }
             if(node->right){
                 st.push(node->right);
             }
-            result.insert(result.begin(), node->val);
         }
-      
+        reverse(result.begin(), result.end()); // 将结果反转之后就是左右中的顺序了
         return result;
     }
 
@@ -423,6 +422,44 @@ public:
 
     bool isSymmetric(TreeNode* root) {
         return check(root, root);
+    }
+};
+
+class SolutionMaxGain {
+    /*
+     
+     作者：力扣官方题解
+     链接：https://leetcode.cn/problems/jC7MId/solutions/1398949/jie-dian-zhi-he-zui-da-de-lu-jing-by-lee-u5q7/
+     来源：力扣（LeetCode）
+     著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+     */
+private:
+    int maxSum = INT_MIN;
+
+public:
+    int maxGain(TreeNode* node) {
+        if (node == nullptr) {
+            return 0;
+        }
+        
+        // 递归计算左右子节点的最大贡献值
+        // 只有在最大贡献值大于 0 时，才会选取对应子节点
+        int leftGain = max(maxGain(node->left), 0);
+        int rightGain = max(maxGain(node->right), 0);
+
+        // 节点的最大路径和取决于该节点的值与该节点的左右子节点的最大贡献值
+        int priceNewpath = node->val + leftGain + rightGain;
+
+        // 更新答案
+        maxSum = max(maxSum, priceNewpath);
+
+        // 返回节点的最大贡献值
+        return node->val + max(leftGain, rightGain);
+    }
+
+    int maxPathSum(TreeNode* root) {
+        maxGain(root);
+        return maxSum;
     }
 };
 

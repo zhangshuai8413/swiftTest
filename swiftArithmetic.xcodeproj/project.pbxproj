@@ -51,7 +51,7 @@
 		5BE297172A5A4702001EF7E2 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297162A5A4702001EF7E2 /* Course.swift */; };
 		5BE297192A5A4896001EF7E2 /* CourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297182A5A4896001EF7E2 /* CourseList.swift */; };
 		5BE2971B2A5A4CA0001EF7E2 /* CoursePart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2971A2A5A4CA0001EF7E2 /* CoursePart.swift */; };
-		5BE2971C2A5A5096001EF7E2 /* Youdao.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BE2970F2A5A4647001EF7E2 /* Youdao.json */; };
+		5BE2971C2A5A5096001EF7E2 /* Youdao.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BE2970F2A5A4647001EF7E2 /* Youdao.json */; settings = {ASSET_TAGS = (New, ); }; };
 		5BE2971E2A5A9404001EF7E2 /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2971D2A5A9404001EF7E2 /* BaseWebView.swift */; };
 		5BE297272A5A94C6001EF7E2 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297262A5A94C6001EF7E2 /* Repository.swift */; };
 		842B2EF52A70A5C800ECDC3A /* MonotoneStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842B2EF32A70A5C800ECDC3A /* MonotoneStack.cpp */; };
@@ -328,6 +328,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					New,
+					"New-1",
+					"New-2",
+					"New-3",
+					level1,
+				);
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {

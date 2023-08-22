@@ -290,7 +290,7 @@ public:
 
 
 
- pair<int, string> valueSymbols[] = {
+const pair<int, string> valueSymbols[] = {
     {1000, "M"},
     {900,  "CM"},
     {500,  "D"},
