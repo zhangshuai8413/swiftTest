@@ -96,7 +96,7 @@ public:
                 int mid = st.top();
                 st.pop();
                 if(!st.empty()) {
-                    int h = min(height[st.top()], height[i] - height[mid]);
+                    int h = min(height[st.top()], height[i]) - height[mid];
                     int w = i - st.top() - 1;
                     sum += h * w;
                 }

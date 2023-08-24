@@ -99,7 +99,6 @@ public:
                 dsf(grid, visited, nextx, nexty);
             }
         }
-        
     }
     int numIslands(vector<vector<char>>& grid) {
         vector<vector<bool>>visited(grid.size(), vector<bool>(grid[0].size(),false));
@@ -159,7 +158,6 @@ public:
                 }
             }
         }
-        
         return result;
     }
 };
