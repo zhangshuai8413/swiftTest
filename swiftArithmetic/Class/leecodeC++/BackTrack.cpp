@@ -178,7 +178,7 @@ class RangeII {
 public:
     vector<vector<int>>result;
     vector<int>path;
-    void backtracking(vector<int>&nums, vector<bool>used) {
+    void backtracking(vector<int>&nums, vector<bool>&used) {
         if (path.size() == nums.size()) {
             result.push_back(path);
             return;

@@ -42,6 +42,7 @@
 		5BC8F0F72A7E4FBD003BF9E6 /* BrideCPlusManger+B.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8F0F62A7E4FBD003BF9E6 /* BrideCPlusManger+B.m */; };
 		5BC8F1062A8082FE003BF9E6 /* StringModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8F1042A8082FE003BF9E6 /* StringModule.cpp */; };
 		5BDCED5C2A90DDCB0058171D /* DoublePointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BDCED5A2A90DDCB0058171D /* DoublePointer.cpp */; };
+		5BDCED722AA31E870058171D /* Youdao.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BDCED712AA31E870058171D /* Youdao.json */; };
 		5BE296FF2A595028001EF7E2 /* FLSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FB2A595028001EF7E2 /* FLSettingController.swift */; };
 		5BE297002A595028001EF7E2 /* FLArithmeticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FC2A595028001EF7E2 /* FLArithmeticViewController.swift */; };
 		5BE297012A595028001EF7E2 /* FLMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FD2A595028001EF7E2 /* FLMeViewController.swift */; };
@@ -51,7 +52,6 @@
 		5BE297172A5A4702001EF7E2 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297162A5A4702001EF7E2 /* Course.swift */; };
 		5BE297192A5A4896001EF7E2 /* CourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297182A5A4896001EF7E2 /* CourseList.swift */; };
 		5BE2971B2A5A4CA0001EF7E2 /* CoursePart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2971A2A5A4CA0001EF7E2 /* CoursePart.swift */; };
-		5BE2971C2A5A5096001EF7E2 /* Youdao.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BE2970F2A5A4647001EF7E2 /* Youdao.json */; settings = {ASSET_TAGS = (New, ); }; };
 		5BE2971E2A5A9404001EF7E2 /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2971D2A5A9404001EF7E2 /* BaseWebView.swift */; };
 		5BE297272A5A94C6001EF7E2 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297262A5A94C6001EF7E2 /* Repository.swift */; };
 		842B2EF52A70A5C800ECDC3A /* MonotoneStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842B2EF32A70A5C800ECDC3A /* MonotoneStack.cpp */; };
@@ -109,13 +109,13 @@
 		5BC8F1052A8082FE003BF9E6 /* StringModule.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StringModule.hpp; sourceTree = "<group>"; };
 		5BDCED5A2A90DDCB0058171D /* DoublePointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DoublePointer.cpp; sourceTree = "<group>"; };
 		5BDCED5B2A90DDCB0058171D /* DoublePointer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DoublePointer.hpp; sourceTree = "<group>"; };
+		5BDCED712AA31E870058171D /* Youdao.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Youdao.json; sourceTree = "<group>"; };
 		5BE296FB2A595028001EF7E2 /* FLSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLSettingController.swift; sourceTree = "<group>"; };
 		5BE296FC2A595028001EF7E2 /* FLArithmeticViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLArithmeticViewController.swift; sourceTree = "<group>"; };
 		5BE296FD2A595028001EF7E2 /* FLMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLMeViewController.swift; sourceTree = "<group>"; };
 		5BE296FE2A595028001EF7E2 /* FLHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLHomeViewController.swift; sourceTree = "<group>"; };
 		5BE297032A59526D001EF7E2 /* TarBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarBarViewController.swift; sourceTree = "<group>"; };
 		5BE297072A59558E001EF7E2 /* FLData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLData.swift; sourceTree = "<group>"; };
-		5BE2970F2A5A4647001EF7E2 /* Youdao.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Youdao.json; sourceTree = "<group>"; };
 		5BE297162A5A4702001EF7E2 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		5BE297182A5A4896001EF7E2 /* CourseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseList.swift; sourceTree = "<group>"; };
 		5BE2971A2A5A4CA0001EF7E2 /* CoursePart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursePart.swift; sourceTree = "<group>"; };
@@ -166,11 +166,11 @@
 				5BC8F0F22A7E4F9D003BF9E6 /* BrideCPlusManger+a.h */,
 				5BC8F0F32A7E4F9D003BF9E6 /* BrideCPlusManger+a.m */,
 				5BC8F0F52A7E4FBD003BF9E6 /* BrideCPlusManger+B.h */,
-				5BC8F0F62A7E4FBD003BF9E6 /* BrideCPlusManger+B.m */,
 				5B26D4B42A1A6C8D00EDCA2F /* swiftArithmeticApp.swift */,
-				5B26D4B62A1A6C8D00EDCA2F /* LeetCodeListView.swift */,
+				5BC8F0F62A7E4FBD003BF9E6 /* BrideCPlusManger+B.m */,
 				5BE297032A59526D001EF7E2 /* TarBarViewController.swift */,
-				5BE2970F2A5A4647001EF7E2 /* Youdao.json */,
+				5B26D4B62A1A6C8D00EDCA2F /* LeetCodeListView.swift */,
+				5BDCED712AA31E870058171D /* Youdao.json */,
 				5B26D4BA2A1A6C8E00EDCA2F /* Preview Content */,
 				5B26D4C22A1A6CAA00EDCA2F /* swiftArithmetic-Bridging-Header.h */,
 			);
@@ -367,7 +367,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BE2971C2A5A5096001EF7E2 /* Youdao.json in Resources */,
+				5BDCED722AA31E870058171D /* Youdao.json in Resources */,
 				5B26D4BC2A1A6C8E00EDCA2F /* Preview Assets.xcassets in Resources */,
 				5B26D4B92A1A6C8E00EDCA2F /* Assets.xcassets in Resources */,
 			);

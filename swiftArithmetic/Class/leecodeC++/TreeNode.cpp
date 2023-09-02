@@ -117,7 +117,6 @@ vector<vector<int>> levelOrder(TreeNode* root) {
             }
         }
         result.push_back(vec);
-       
     }
     return result;
 }
@@ -644,9 +643,7 @@ public:
             indexMap[inorder[i]] = i;
         }
         return buideTree(preorder, inorder, 0, n -1, 0, n -1);
-
     }
-
 };
 
 
@@ -1128,7 +1125,6 @@ public:
             s.push_back(ch);
             backtracking(digits, index + 1);
             s.pop_back();
-            
         }
     }
     
@@ -1141,7 +1137,6 @@ public:
         backtracking(digits, 0);
         return result;
     }
-    
 };
 
 

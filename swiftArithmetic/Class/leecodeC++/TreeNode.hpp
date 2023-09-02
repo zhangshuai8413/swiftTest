@@ -192,10 +192,8 @@ vector<vector<int>> levelOrder(TreeNode* root);
 
 class NodeMaxDepth {
     
-    
 public:
     int maxDepth(TreeNode* root) {
-        
         stack<TreeNode*> st;
         if (root != NULL) st.push(root);
         int depth = 0; // 记录深度
