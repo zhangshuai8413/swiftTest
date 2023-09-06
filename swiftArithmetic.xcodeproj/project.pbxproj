@@ -43,6 +43,7 @@
 		5BC8F1062A8082FE003BF9E6 /* StringModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8F1042A8082FE003BF9E6 /* StringModule.cpp */; };
 		5BDCED5C2A90DDCB0058171D /* DoublePointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BDCED5A2A90DDCB0058171D /* DoublePointer.cpp */; };
 		5BDCED722AA31E870058171D /* Youdao.json in Resources */ = {isa = PBXBuildFile; fileRef = 5BDCED712AA31E870058171D /* Youdao.json */; };
+		5BDCED932AA770430058171D /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BDCED922AA770430058171D /* Media.xcassets */; };
 		5BE296FF2A595028001EF7E2 /* FLSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FB2A595028001EF7E2 /* FLSettingController.swift */; };
 		5BE297002A595028001EF7E2 /* FLArithmeticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FC2A595028001EF7E2 /* FLArithmeticViewController.swift */; };
 		5BE297012A595028001EF7E2 /* FLMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FD2A595028001EF7E2 /* FLMeViewController.swift */; };
@@ -110,6 +111,7 @@
 		5BDCED5A2A90DDCB0058171D /* DoublePointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DoublePointer.cpp; sourceTree = "<group>"; };
 		5BDCED5B2A90DDCB0058171D /* DoublePointer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DoublePointer.hpp; sourceTree = "<group>"; };
 		5BDCED712AA31E870058171D /* Youdao.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Youdao.json; sourceTree = "<group>"; };
+		5BDCED922AA770430058171D /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		5BE296FB2A595028001EF7E2 /* FLSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLSettingController.swift; sourceTree = "<group>"; };
 		5BE296FC2A595028001EF7E2 /* FLArithmeticViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLArithmeticViewController.swift; sourceTree = "<group>"; };
 		5BE296FD2A595028001EF7E2 /* FLMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLMeViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				5BE297052A595562001EF7E2 /* Class */,
 				5B26D4B82A1A6C8E00EDCA2F /* Assets.xcassets */,
+				5BDCED922AA770430058171D /* Media.xcassets */,
 				5B76E3452A4FB67700141D86 /* BrideCPlusManger.h */,
 				5B76E3462A4FB67700141D86 /* BrideCPlusManger.mm */,
 				5BC8F0F22A7E4F9D003BF9E6 /* BrideCPlusManger+a.h */,
@@ -369,6 +372,7 @@
 			files = (
 				5BDCED722AA31E870058171D /* Youdao.json in Resources */,
 				5B26D4BC2A1A6C8E00EDCA2F /* Preview Assets.xcassets in Resources */,
+				5BDCED932AA770430058171D /* Media.xcassets in Resources */,
 				5B26D4B92A1A6C8E00EDCA2F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,6 +569,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -601,6 +606,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

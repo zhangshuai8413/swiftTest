@@ -33,6 +33,7 @@ struct LeetCodeListView: View {
     ]
     var body: some View {
         VStack {
+//
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
@@ -52,23 +53,27 @@ struct LeetCodeListView: View {
     func addOCBrige(index: DynamicProgram) {
         
 //        print("addOCBrie  \(index) \n")
-        let ocBrige = BrideCPlusManger()
-  
-    
-        switch index {
-        case .weight01:
-            ocBrige.wei_bag_problem1()
-        case .weight01Array1:
-            ocBrige.test_1_wei_bag_problem()
-        case .targetSum:
-            ocBrige.targetSum()
-        case .numberOfIsland:
-            ocBrige.numIslands()
-        case .quikSort:
-            ocBrige.quickSort()
-        }
+//        let ocBrige = BrideCPlusManger()
+//
+//
+//        switch index {
+//        case .weight01:
+//            ocBrige.wei_bag_problem1()
+//        case .weight01Array1:
+//            ocBrige.test_1_wei_bag_problem()
+//        case .targetSum:
+//            ocBrige.targetSum()
+//        case .numberOfIsland:
+//            ocBrige.numIslands()
+//        case .quikSort:
+//            ocBrige.quickSort()
+//        }
 
-        
+        let input = "apple banana apple cherry banana apple"
+        if let result = findMostFrequentString(input: input) {
+            print(result) // 输出：apple
+        }
+    
 //        print("aa------\(aa)")
         
     }
@@ -96,7 +101,46 @@ struct LeetCodeListView: View {
         
         return classes
     }
+    
+    
+    func findMostFrequentString(input: String) -> String? {
+       var frequencyDict: [String: Int] = [:]
+       var firstOccurrenceDict: [String: Int] = [:]
+       
+       let words = input.components(separatedBy: " ")
+       
+       for (index, word) in words.enumerated() {
+           frequencyDict[word, default: 0] += 1
+           
+           if firstOccurrenceDict[word] == nil {
+               firstOccurrenceDict[word] = index
+           }
+       }
+       
+       let mostFrequentWord = frequencyDict.max { $0.value < $1.value }
+       var result: String?
+       
+       if let word = mostFrequentWord {
+           var minIndex = firstOccurrenceDict[word.key] ?? 0
+           let maxIndex = firstOccurrenceDict[word.key] ?? 0
+           
+           for (key, value) in firstOccurrenceDict {
+               if frequencyDict[key] == word.value && value < minIndex {
+                   minIndex = value
+                   result = key
+               }
+           }
+       }
+       
+       return result
+    }
+
 }
+
+
+
+
+
 
 
 struct ContentView_Previews: PreviewProvider {

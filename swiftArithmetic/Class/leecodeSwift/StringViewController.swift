@@ -34,6 +34,41 @@ class StringViewController: BaseTableViewController {
         }
     }
     
+    
+    func letterCombinations(_ digits: String) -> [String] {
+        let mapping: [String: String] = [
+            "1": "a", "2": "b", "3": "c", "4": "d", "5": "e",
+            "6": "f", "7": "g", "8": "h", "9": "i", "10": "j",
+            "11": "k", "12": "l", "13": "m", "14": "n", "15": "o",
+            "16": "p", "17": "q", "18": "r", "19": "s", "20": "t",
+            "21": "u", "22": "v", "23": "w", "24": "x", "25": "y", "26": "z"
+        ]
+        
+        var combinations: [String] = []
+        
+        func generateCombinations(_ currentCombination: String, _ remainingDigits: String) {
+            if remainingDigits.isEmpty {
+                combinations.append(currentCombination)
+                return
+            }
+            
+            let firstDigit = remainingDigits.first!
+            let remainingDigitsWithoutFirst = String(remainingDigits.dropFirst())
+            
+            if let letters = mapping[String(firstDigit)] {
+                for letter in letters {
+                    generateCombinations(currentCombination + String(letter), remainingDigitsWithoutFirst)
+                }
+            }
+        }
+        
+        generateCombinations("", digits)
+        
+        return combinations
+    }
+
+
+
     func replaceEmptyStringW()  {
 //        请实现一个函数，把字符串 s 中的每个空格替换成"%20"。
 //        示例 1： 输入：s = "We are happy."
@@ -191,3 +226,76 @@ class StringViewController: BaseTableViewController {
     }
 
 }
+
+/*
+ 
+ let number = 1234567
+ let formattedNumber = formatNumber(number: number)
+ print(formattedNumber) //
+
+ */
+func formatNumber(number: Int) -> String {
+    let numberFormatter = NumberFormatter()
+    numberFormatter.numberStyle = .decimal
+    return numberFormatter.string(from: NSNumber(value: number)) ?? ""
+}
+
+
+func formatNumberToThousands(_ number: Int) -> String {
+    var numberString = String(number)
+    var result = ""
+    
+    while numberString.count > 3 {
+        let index = numberString.index(numberString.endIndex, offsetBy: -3)
+        let subString = numberString[index...]
+        result = "," + subString + result
+        numberString = String(numberString[..<index])
+    }
+    
+    result = numberString + result
+    return result
+}
+
+/*
+ 
+ let input = "apple banana apple cherry banana apple"
+ if let result = findMostFrequentString(input: input) {
+     print(result) // 输出：apple
+ }
+ */
+
+func findMostFrequentString(input: String) -> String? {
+    var frequencyDict: [String: Int] = [:]
+    var firstOccurrenceDict: [String: Int] = [:]
+    
+    let words = input.components(separatedBy: " ")
+    
+    for (index, word) in words.enumerated() {
+        frequencyDict[word, default: 0] += 1
+        
+        if firstOccurrenceDict[word] == nil {
+            firstOccurrenceDict[word] = index
+        }
+    }
+    
+    let mostFrequentWord = frequencyDict.max { $0.value < $1.value }
+    var result: String?
+    
+    if let word = mostFrequentWord {
+        var minIndex = firstOccurrenceDict[word.key] ?? 0
+        let maxIndex = firstOccurrenceDict[word.key] ?? 0
+        
+        for (key, value) in firstOccurrenceDict {
+            if frequencyDict[key] == word.value && value < minIndex {
+                minIndex = value
+                result = key
+            }
+        }
+    }
+    
+    return result
+}
+
+
+
+
