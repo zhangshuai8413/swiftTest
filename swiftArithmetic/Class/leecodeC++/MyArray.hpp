@@ -635,6 +635,7 @@ public:
 class MinWindow {
     unordered_map<char, int> ori, cnt;
     string minWindow(string s, string t) {
+        
         auto isValid = [&]() {
             for (const auto &p : ori) {
                 if (cnt[p.first] < p.second) {
@@ -667,4 +668,29 @@ class MinWindow {
     }
     
 };
+
+class yangHuiSanjiao {
+    /*
+     输入: numRows = 5
+     输出: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+     示例 2:
+
+     输入: numRows = 1
+     输出: [[1]]
+      
+     */
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>> ret(numRows);
+        for (int i = 0; i < numRows; ++i) {
+            ret[i].resize(i + 1);
+            ret[i][0] = ret[i][i] = 1;
+            for (int j = 1; j < i; ++j) {
+                ret[i][j] = ret[i - 1][j] + ret[i - 1][j - 1];
+            }
+        }
+        return ret;
+
+    }
+};
+
 #endif /* MyArray_hpp */
