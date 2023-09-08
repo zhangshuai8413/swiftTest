@@ -132,3 +132,52 @@ class StackViewController: BaseTableViewController {
 
 
 }
+
+
+class SolutionLargestRectangleArea {
+    
+    func largestRectangleArea(_ heights: [Int]) -> Int {
+        var stack = [Int]()
+        var heights = heights
+        heights.insert(0, at: 0) // 数组头部加入元素0
+        heights.append(0) // 数组尾部加入元素0
+        stack.append(0)
+        var result = 0
+        
+        for i in 1..<heights.count {
+            while heights[i] < heights[stack.last!] {
+                let mid = stack.popLast()!
+                let w = i - stack.last! - 1
+                let h = heights[mid]
+                result = max(result, w * h)
+            }
+            stack.append(i)
+        }
+        
+        return result
+    }
+    
+    func maximalRectangle(_ matrix: [[Character]]) -> Int {
+        
+        if matrix.isEmpty || matrix[0].isEmpty {
+            return 0
+        }
+        let rows = matrix.count
+        let cols = matrix[0].count
+        var heights = [Int](repeating: 0, count: cols)
+        var maxArea = 0
+        
+        for row in 0..<rows {
+            for col in 0..<cols {
+                if matrix[row][col] == "1" {
+                    heights[col] += 1
+                } else {
+                    heights[col] = 0
+                }
+            }
+            maxArea = max(maxArea, largestRectangleArea(heights))
+        }
+        return maxArea
+        
+    }
+}
