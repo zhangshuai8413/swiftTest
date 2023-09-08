@@ -64,4 +64,39 @@ public:
 
 
 
+class GenerateParenthesis {
+    /*
+     作者：力扣官方题解
+     链接：https://leetcode.cn/problems/generate-parentheses/solutions/192912/gua-hao-sheng-cheng-by-leetcode-solution/
+     来源：力扣（LeetCode）
+     著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+     */
+    void backtrack(vector<string>& ans, string& cur, int open, int close, int n) {
+        if (cur.size() == n * 2) {
+            ans.push_back(cur);
+            return;
+        }
+        if (open < n) {
+            cur.push_back('(');
+            backtrack(ans, cur, open + 1, close, n);
+            cur.pop_back();
+        }
+        if (close < open) {
+            cur.push_back(')');
+            backtrack(ans, cur, open, close + 1, n);
+            cur.pop_back();
+        }
+    }
+public:
+    vector<string> generateParenthesis(int n) {
+        vector<string> result;
+        string current;
+        backtrack(result, current, 0, 0, n);
+        return result;
+    }
+};
+
+
+
 #endif /* BackTrack_hpp */
