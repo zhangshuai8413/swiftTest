@@ -766,7 +766,7 @@ public:
 };
 
 
-std::string addBinary(std::string a, std::string b) {
+string addBinary(std::string a, std::string b) {
     string ans = "";
     int ca = 0;
     int i = (int)a.length() - 1;

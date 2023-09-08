@@ -593,5 +593,44 @@ public:
 
 };
 
+class SearchWordIII {
+    /*
+     作者：脱碳苯酚
+     链接：https://leetcode.cn/problems/word-search/solutions/2413793/shen-sou-hui-su-by-gracious-6reiderd1f-6f51/
+     来源：力扣（LeetCode）
+     著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+     */
+public:
+    bool exist(vector<vector<char>>& board, string word) {
+        int m=(int)board.size();
+        int n= (int)board[0].size();
+        int len = (int)word.length();
+        if (word.length() > m * n) return false;//先判断一下
+        vector<vector<bool>>visited(m,vector<bool>(n));
+        
+        function<bool(int, int,int)>dfs = [&](int x, int y, int pos) -> bool {
+            if (x < 0 || x >=m || y < 0 || visited[x][y] || board[x][y] !=  word[pos] ) {
+                return false;
+            }
+            visited[x][y] = true;
+            if(pos==len-1&&board[x][y]==word[pos]) return true;
+            if(dfs(x,y+1,pos+1)||dfs(x+1,y,pos+1)||dfs(x,y-1,pos+1)||dfs(x-1,y,pos+1)) {
+                return true;//后面有一条可以则正确
+            }
+            visited[x][y] = false;
+            return false;
+        };
+        
+        for(int i=0;i < m;i++){
+            for(int j=0;j < n;j++){
+                if(board[i][j] == word[0]){//剪去一部分枝
+                    if(dfs(i,j,0)) return true;
+                }
+            }
+        }
+        return false;
+    }
+};
+
 
 #endif /* MyArray_hpp */
