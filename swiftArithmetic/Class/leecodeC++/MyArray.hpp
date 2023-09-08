@@ -602,14 +602,13 @@ class SearchWordIII {
      */
 public:
     bool exist(vector<vector<char>>& board, string word) {
-        int m=(int)board.size();
-        int n= (int)board[0].size();
+        int m =(int)board.size();
+        int n = (int)board[0].size();
         int len = (int)word.length();
         if (word.length() > m * n) return false;//先判断一下
         vector<vector<bool>>visited(m,vector<bool>(n));
-        
         function<bool(int, int,int)>dfs = [&](int x, int y, int pos) -> bool {
-            if (x < 0 || x >=m || y < 0 || visited[x][y] || board[x][y] !=  word[pos] ) {
+            if (x < 0 || x >=m || y < 0 || visited[x][y] || board[x][y] != word[pos] ) {
                 return false;
             }
             visited[x][y] = true;
@@ -621,8 +620,8 @@ public:
             return false;
         };
         
-        for(int i=0;i < m;i++){
-            for(int j=0;j < n;j++){
+        for(int i = 0;i < m;i++){
+            for(int j = 0;j < n;j++){
                 if(board[i][j] == word[0]){//剪去一部分枝
                     if(dfs(i,j,0)) return true;
                 }
@@ -633,4 +632,39 @@ public:
 };
 
 
+class MinWindow {
+    unordered_map<char, int> ori, cnt;
+    string minWindow(string s, string t) {
+        auto isValid = [&]() {
+            for (const auto &p : ori) {
+                if (cnt[p.first] < p.second) {
+                    return false;
+                }
+            }
+            return true;
+        };
+        
+        for (const auto &c:t) {
+            ++ori[c];
+        }
+        int len = INT_MAX, l = 0,r = -1, ansL = -1;
+        while (r < int(s.size())) {
+            if (ori.find(s[++r]) != ori.end()){
+                ++cnt[s[r]];
+            }
+            while (isValid() && l <= r) {
+                if(r -l +1 < len) {
+                    len = r - l + 1;
+                    ansL = l;
+                }
+                if (ori.find(s[l]) != ori.end()) {
+                    --cnt[s[l]];
+                }
+                ++l;
+            }
+        }
+        return ansL == -1 ? string() : s.substr(ansL, len);
+    }
+    
+};
 #endif /* MyArray_hpp */
