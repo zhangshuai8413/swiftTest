@@ -781,5 +781,55 @@ string addBinary(std::string a, std::string b) {
     return ans;
 }
 
+class SolutionFullJustify {
+public:
+    vector<string> fullJustify(vector<string>& words, int maxWidth) {
 
+    vector<string> result;
+    int i = 0;
+    
+    while (i < words.size()) {
+        int j = i + 1;
+        int lineLength = (int)words[i].size();
+        
+        // 尽可能多地加入单词，直到达到 maxWidth 或没有更多单词为止
+        while (j < words.size() && lineLength + words[j].size() + 1 <= maxWidth) {
+            lineLength += words[j].size() + 1;
+            j++;
+        }
+        
+        int extraSpaces = maxWidth - lineLength  ;
+        int numberOfWords = j - i;
+        
+        // 构建当前行的字符串
+        string line = words[i];
+        
+        if (numberOfWords == 1 || j == words.size()) {
+            // 如果是一行只有一个单词或者是最后一行，左对齐
+            for (int k = i + 1; k < j; k++) {
+                line += " " + words[k];
+            }
+            line += string(maxWidth - line.size(), ' '); // 填充额外的空格
+        } else {
+            // 计算额外的空格需要分配给单词之间的间隔
+            int spacesBetweenWords = extraSpaces / (numberOfWords - 1);
+            int extraSpacesLeft = extraSpaces % (numberOfWords - 1);
+            
+            for (int k = i + 1; k < j; k++) {
+                line += string(spacesBetweenWords + 1, ' ');
+                if (extraSpacesLeft > 0) {
+                    line += ' ';
+                    extraSpacesLeft--;
+                }
+                line += words[k];
+            }
+        }
+        
+        result.push_back(line);
+        i = j;
+    }
+    
+    return result;
+    }
+};
 #endif /* StringModule_hpp */
