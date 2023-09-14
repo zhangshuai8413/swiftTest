@@ -634,6 +634,8 @@ public:
 
 class MinWindow {
     unordered_map<char, int> ori, cnt;
+    
+  
     string minWindow(string s, string t) {
         
         auto isValid = [&]() {
@@ -717,6 +719,23 @@ class yangHuiSanjiao {
            int maxSquare = maxSide * maxSide;
            return maxSquare;
        }
+    
+    int eraseOverlapIntervals(vector<vector<int>>& intervals) {
+        if (intervals.size() == 0) return 0;
+        sort(intervals.begin(), intervals.end(), []( auto a , auto b) {
+            return  a[0] < b[0];
+        });
+        int count = 0; // 注意这里从0开始，因为是记录重叠区间
+        int end = intervals[0][1]; // 记录区间分割点
+        for (int i = 1; i < intervals.size(); i++) {
+            if (intervals[i][0] >= end)  end = intervals[i][1]; // 无重叠的情况
+            else { // 重叠情况
+                end = min(end, intervals[i][1]);
+                count++;
+            }
+        }
+        return count;
+    }
 };
 
 #endif /* MyArray_hpp */

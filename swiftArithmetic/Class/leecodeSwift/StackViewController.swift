@@ -184,3 +184,88 @@ class SolutionLargestRectangleArea {
     
 
 }
+
+class AAAARR: NSObject {
+    
+    func solveNQueens(_ n: Int) -> [[String]] {
+        // 存储所有解决方案的数组
+        var solutions = [[String]]()
+        
+        // 创建一个二维字符数组来表示棋盘，初始化为全是"."
+        var board = Array(repeating: Array(repeating: ".", count: n), count: n)
+
+        // 检查某个位置是否安全放置皇后
+        func isSafe(_ row: Int, _ col: Int) -> Bool {
+            // 检查同一列是否已经有皇后
+            for i in 0..<row {
+                if board[i][col] == "Q" {
+                    return false
+                }
+            }
+            
+            // 检查左上方斜线是否有皇后
+            var i = row - 1
+            var j = col - 1
+            while i >= 0 && j >= 0 {
+                if board[i][j] == "Q" {
+                    return false
+                }
+                i -= 1
+                j -= 1
+            }
+            
+            // 检查右上方斜线是否有皇后
+            i = row - 1
+            j = col + 1
+            while i >= 0 && j < n {
+                if board[i][j] == "Q" {
+                    return false
+                }
+                i -= 1
+                j += 1
+            }
+            
+            // 如果通过以上检查，说明该位置安全
+            return true
+        }
+
+        // 递归函数，用于尝试放置皇后
+        func backtrack(_ row: Int) {
+            // 如果已经放置完所有皇后，将当前棋盘添加到解决方案列表
+            if row == n {
+                solutions.append(board.map { "\($0)" })
+                return
+            }
+
+            // 尝试在当前行的每个列中放置皇后
+            for col in 0..<n {
+                if isSafe(row, col) {
+                    // 放置皇后
+                    board[row][col] = "Q"
+                    // 递归放置下一行的皇后
+                    backtrack(row + 1)
+                    // 回溯，将当前位置重新设为"."
+                    board[row][col] = "."
+                }
+            }
+        }
+
+        // 开始回溯算法
+        backtrack(0)
+        
+        // 返回所有解决方案
+        return solutions
+    }
+
+    // 例子：解决8皇后问题
+    let n: Int = 8
+
+//    for solution in solutions {
+//        for row in solution {
+//            print(row)
+//        }
+//        print()
+//    }
+    
+}
+

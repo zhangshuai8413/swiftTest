@@ -156,3 +156,31 @@ func threeSumClosest(_ nums: [Int], _ target: Int) -> Int {
     return closestSum
 }
 
+
+var meetingCount: Int = 0
+
+func minMeetings(_ meetings:[[Int]]) -> Int {
+    if meetings.isEmpty {
+        return meetingCount
+    }
+    meetingCount += 1
+    let meetings = meetings.sorted { meet1, meet2 in
+        return meet1.first! < meet2.first!
+    }
+    var restMeeting: [[Int]] = []
+    var lastMeeting: [Int] = []
+    lastMeeting = meetings.first!
+    for (i, meeting) in meetings.enumerated() {
+        if i >= 1 {
+           let start = meeting.first!
+            if start < lastMeeting.last! {
+                restMeeting.append(meeting)
+            } else {
+                lastMeeting = meeting
+            }
+        }
+    }
+    
+  return minMeetings(restMeeting)
+
+}

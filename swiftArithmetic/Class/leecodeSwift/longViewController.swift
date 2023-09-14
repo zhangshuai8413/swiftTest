@@ -60,12 +60,11 @@ class longViewController: BaseTableViewController {
         var longestLength: Int = Int.min
         filtterStrs.forEach { str in
             if str.count > longestLength {
-                let subStr = longestCommonSubString(string1: target, string2: str)
-                if subStr >= longestLength {
-                    if subStr > longestLength {
-                        longestLength = subStr
-                        res.removeAll()
-                    }
+                let commonLen = longestCommonSubString(string1: target, string2: str)
+                if commonLen > longestLength {
+                    res = [str]
+                    longestLength = commonLen
+                } else if commonLen == longestLength {
                     res.append(str)
                 }
             }
@@ -73,41 +72,27 @@ class longViewController: BaseTableViewController {
         return res
     }
     
-    func longestCommonSubString(string1: String, string2: String) -> Int {
+    
+  private func longestCommonSubString(string1: String, string2: String) -> Int {
         let str1: [Character] = Array(string1)
         let str2: [Character] = Array(string2)
         let m: Int = str1.count
         let n: Int = str2.count
         var maxLenght: Int = 0
-        var index: Int = 0
         var dp:[[Int]] = [[Int]](repeating: Array(repeating: 0, count: n + 1), count: m + 1)
         for i in 0..<m {
-            let ch1: Character = str1[i]
             for j in 0..<n {
-                let ch2: Character = str2[j]
-                if ch2 == ch1 {
+                if str1[i] ==  str2[j] {
                     if i >= 1 && j >= 1 {
                         dp[i][j] = dp[i - 1][j - 1] + 1
                     } else {
                         dp[i][j] = 1
                     }
-                } else {
-                    dp[i][j] = 0
                 }
-                if dp[i][j] >= maxLenght {
-                    maxLenght = dp[i][j]
-                    index = i
-                }
+                maxLenght = max(maxLenght, dp[i][j])
             }
         }
-        
-        //        let startIndex = string1.index(string1.startIndex, offsetBy:  index + 1 - maxLenght)
-        //        let endIndex = string1.index(string1.startIndex, offsetBy: index)
-        //        let string = String(string1[startIndex...endIndex])
-        //        print("------\(string)")
-        
         return maxLenght
-        
     }
 }
 

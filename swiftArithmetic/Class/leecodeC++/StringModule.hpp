@@ -832,4 +832,38 @@ public:
     return result;
     }
 };
+
+class SolutionFindAnagrams {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        int sLen = (int)s.size(), pLen = (int)p.size();
+        if (sLen < pLen) {
+            return {};
+        }
+        
+        std::vector<int> ans;
+        std::vector<int> pCount(26, 0), sCount(26, 0);
+        
+        for (int i = 0; i < pLen; ++i) {
+            ++sCount[s[i] - 'a'];
+            ++pCount[p[i] - 'a'];
+        }
+        
+        if (sCount == pCount) {
+            ans.push_back(0);
+        }
+        
+        for (int i = pLen; i < sLen; ++i) {
+            --sCount[s[i - pLen] - 'a'];
+            ++sCount[s[i] - 'a'];
+            
+            if (sCount == pCount) {
+                ans.push_back(i - pLen + 1);
+            }
+        }
+        
+        return ans;
+        
+    }
+};
 #endif /* StringModule_hpp */

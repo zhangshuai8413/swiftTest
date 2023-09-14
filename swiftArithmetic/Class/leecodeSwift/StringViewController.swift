@@ -224,6 +224,62 @@ class StringViewController: BaseTableViewController {
         result = nums.reversed().map({"\(String($0))"}).joined()
         return result
     }
+    
+    
+    /*
+     224. 基本计算器
+     困难
+     950
+     相关企业
+     给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。
+
+     注意:不允许使用任何将字符串作为数学表达式计算的内置函数，比如 eval() 。
+
+      
+
+     示例 1：
+
+     输入：s = "1 + 1"
+     输出：2
+     示例 2：
+
+     输入：s = " 2-1 + 2 "
+     输出：3
+     示例 3：
+
+     输入：s = "(1+(4+5+2)-3)+(6+8)"
+     输出：23
+      
+     */
+    func calculate(_ s: String) -> Int {
+        var stack: [Int] = []
+        var result = 0
+        var num = 0
+        var sign = 1
+
+        for char in s {
+            if char.isNumber {
+                num = num * 10 + Int(String(char))!
+            } else if "+-".contains(char) {
+                result += sign * num
+                num = 0
+                sign = char == "+" ? 1 : -1
+            } else if char == "(" {
+                stack.append(result)
+                stack.append(sign)
+                result = 0
+                sign = 1
+            } else if char == ")" {
+                result += sign * num
+                num = 0
+                result *= stack.popLast()!
+                result += stack.popLast()!
+            }
+        }
+
+        result += sign * num
+        return result
+    }
 
 }
 
