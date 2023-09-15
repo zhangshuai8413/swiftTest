@@ -458,13 +458,13 @@ int findKthLargest(vector<int>& nums, int k) {
 
 class SolutionReconstructQueue {
 public:
-    // 身高从大到小排（身高相同k小的站前面）
-    static bool cmp(const vector<int> a, const vector<int> b) {
-        if (a[0] == b[0]) return a[1] < b[1];
-        return a[0] > b[0];
-    }
+  
+    
     vector<vector<int>> reconstructQueue(vector<vector<int>>& people) {
-        sort (people.begin(), people.end(), cmp);
+        sort (people.begin(), people.end(), [](auto &a, auto &b) {
+            if (a[0] == b[0]) return a[1] < b[1];
+            return a[0] > b[0];
+        });
         list<vector<int>> que; // list底层是链表实现，插入效率比vector高的多
         for (int i = 0; i < people.size(); i++) {
             int position = people[i][1]; // 插入到下标为position的位置

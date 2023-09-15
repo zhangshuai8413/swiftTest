@@ -87,6 +87,22 @@ class CanCompleteCircuit {
         if (totalSum < 0) return -1; // 说明怎么走都不可能跑一圈了
         return start;
     }
+    
+    int monotoneIncreasingDigits(int N) {
+        string strNum = to_string(N);
+        int flag = (int)strNum.size(), size = (int)strNum.size();
+        
+        for (int i = size;i >=0; i--) {
+            if (strNum[i -1] > strNum[i]) {
+                flag = i;
+                strNum[i-1]--;
+            }
+        }
+        for(int i = flag; i < size; i ++) {
+            strNum[i] = '9';
+        }
+        return stoi(strNum);
+    }
 };
 
 #endif /* Greedy_hpp */

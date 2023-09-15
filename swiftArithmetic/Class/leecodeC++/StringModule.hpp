@@ -311,24 +311,11 @@ public:
 
 
 
-const pair<int, string> valueSymbols[] = {
-    {1000, "M"},
-    {900,  "CM"},
-    {500,  "D"},
-    {400,  "CD"},
-    {100,  "C"},
-    {90,   "XC"},
-    {50,   "L"},
-    {40,   "XL"},
-    {10,   "X"},
-    {9,    "IX"},
-    {5,    "V"},
-    {4,    "IV"},
-    {1,    "I"},
-};
-class SolutionIntToRoman {
-public:
 
+class SolutionIntToRoman {
+
+    
+  
    
     /*
      作者：力扣官方题解
@@ -340,6 +327,22 @@ public:
 
 public:
     string intToRoman(int num) {
+       pair<int, string> valueSymbols[] = {
+            {1000, "M"},
+            {900,  "CM"},
+            {500,  "D"},
+            {400,  "CD"},
+            {100,  "C"},
+            {90,   "XC"},
+            {50,   "L"},
+            {40,   "XL"},
+            {10,   "X"},
+            {9,    "IX"},
+            {5,    "V"},
+            {4,    "IV"},
+            {1,    "I"},
+        };
+
         string roman;
         for (const auto &[value, symbol] : valueSymbols) {
             while (num >= value) {
