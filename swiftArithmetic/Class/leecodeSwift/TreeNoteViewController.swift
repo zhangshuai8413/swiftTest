@@ -7,10 +7,21 @@
 
 import UIKit
 
+indirect enum BinaryTree<T> {
+    case val(T)
+    case left(BinaryTree<T>?)
+    case right(BinaryTree<T>?)
+}
+
 class TreeNoteViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    
+        
+        var  lefttree = BinaryTree.val(1)
+        var  root = BinaryTree.right(BinaryTree.val(2))
         
 
     }

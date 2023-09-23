@@ -12,15 +12,53 @@
 #include <iostream>
 #include <bitset>
 #include "MyArray.hpp"
+
+
 using namespace std;
 @implementation BrideCPlusManger
-
+//@synthesize zhangSan = _zhangSan;
 + (void)load {
     NSLog(@"BrideCPlusManger------");
+    
+    [BrideCPlusManger testMethod];
+    
 }
 
--(void)test1 {
+- (instancetype)init {
+    if (self == [super init]) {
+        Person *person = [[Person alloc] init];
+        self.person = person;
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            // 添加观察者
+            [self.person addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
+            // 修改Person对象的name属性，触发KVO通知
+            self.person.name = @"John";
+        });
+    }
+    return self;
+    
+}
+
+
+// 观察者方法，当name属性发生变化时会调用此方法
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"name"]) {
+        NSString *newName = change[NSKeyValueChangeNewKey];
+        NSLog(@"Name changed to %@", newName);
+    }
+}
+
++ (void)testMethod {
+    NSLog(@"testMethod------");
+}
+
+
+-(void)methodtest1 {
     NSLog(@"BrideCPlusManger");
+
+//    self.zhangSan =  @"q22";
+//    NSString *Aa = self.zhangSan;
+    
 }
 
 void printArray(vector<vector<int>> result) {
@@ -79,7 +117,6 @@ void printArray(vector<vector<int>> result) {
 //    }
     
     vector<int> bb = {1,10,3,11,6,4,5,7,8, 6};
-    
     FLQuickSort *quick = new FLQuickSort;
     quick->quicksort(bb, 0, (int)bb.size() );
     
@@ -87,5 +124,10 @@ void printArray(vector<vector<int>> result) {
            cout << bb[i] << endl;
     }
 }
+
+- (void)test1 {
+}
+
+
 
 @end

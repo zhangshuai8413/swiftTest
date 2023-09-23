@@ -39,22 +39,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DEBC7680-D45B-46FD-822F-BD8DFA257C8C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "swiftArithmetic/BrideCPlusManger.mm"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "-test1"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "48DF858D-8BF8-4983-BB6D-75AD47FD3816"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -62,10 +46,42 @@
             filePath = "swiftArithmetic/LeetCodeListView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "findMostFrequentString(input:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "48DF858D-8BF8-4983-BB6D-75AD47FD3816 - d6a6e2d3d5e8236"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "swiftArithmetic.LeetCodeListView.findMostFrequentString(input: Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "swiftArithmetic"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangshuai/Desktop/swiftTest/swiftArithmetic/LeetCodeListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "448">
+               </Location>
+               <Location
+                  uuid = "48DF858D-8BF8-4983-BB6D-75AD47FD3816 - d6a6e2d3d5e8217"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "swiftArithmetic.LeetCodeListView.findMostFrequentString(input: Swift.String) -&gt; Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "swiftArithmetic"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangshuai/Desktop/swiftTest/swiftArithmetic/LeetCodeListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "336">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -78,8 +94,8 @@
             filePath = "swiftArithmetic/LeetCodeListView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "findMostFrequentString(input:)"
             landmarkType = "7">
          </BreakpointContent>

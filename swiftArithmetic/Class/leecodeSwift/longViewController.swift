@@ -72,7 +72,27 @@ class longViewController: BaseTableViewController {
         return res
     }
     
-    
+//
+//    int longestCommonSub(string string1, string string2) {
+//        long length1 = string1.size();
+//        long length2 = string2.size();
+//        if (length1 == 0 || length2 == 0) {
+//            return 0;
+//        }
+//        vector<vector<int>> dp(length1 + 1, vector<int>(length2 + 1, 0));
+//        int maxLength = 0;
+//
+//        for (int i = 1; i <= length1; ++i) {
+//            for (int j = 1; j <= length2; ++j) {
+//                if (string1[i - 1] == string2[j - 1]) {
+//                    dp[i][j] = dp[i - 1][j - 1] + 1;
+//                    maxLength = max(maxLength, dp[i][j]);
+//                }
+//            }
+//        }
+//
+//        return maxLength;
+//    }
   private func longestCommonSubString(string1: String, string2: String) -> Int {
         let str1: [Character] = Array(string1)
         let str2: [Character] = Array(string2)
@@ -94,6 +114,8 @@ class longViewController: BaseTableViewController {
         }
         return maxLenght
     }
+    
+  
 }
 
 

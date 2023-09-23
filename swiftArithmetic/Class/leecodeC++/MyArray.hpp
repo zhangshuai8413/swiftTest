@@ -217,6 +217,16 @@ public:
     int searchII(vector<int>& nums, int target) {
         return upper_bound(begin(nums), end(nums), target) - lower_bound(begin(nums), end(nums), target);
     }
+    
+    void moveZeroes(vector<int>& nums) {
+        int slowIndex = 0;
+        for (int fastIndex = 0; fastIndex < nums.size(); fastIndex++) {
+            if (nums[fastIndex] != 0) {
+                swap(nums[slowIndex++], nums[fastIndex]);
+            }
+        }
+
+    }
 };
 
 

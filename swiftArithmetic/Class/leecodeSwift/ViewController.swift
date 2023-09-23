@@ -16,6 +16,7 @@ public class ListNode {
 }
 
 
+
 class TreeNode {
     var val: Int = 0
     var left: TreeNode?
@@ -28,6 +29,8 @@ class TreeNode {
 }
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
+  
+    
     @IBOutlet weak var redview: UIView!
     
     var a: Person? = nil
@@ -53,7 +56,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var redButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        String(11, radix: 2)
     }
     
     
@@ -124,6 +127,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         return res
     }
     
+    enum Date {
+        case digit(year: Int, month: Int, day: Int)
+        case string(String)
+    }
     func longestSubString(s: String) -> Int {
         var map:[Character: Int] = [:]
         var maxLenght: Int = 0

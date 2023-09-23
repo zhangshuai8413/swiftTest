@@ -6,10 +6,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Person.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BrideCPlusManger : NSObject
+
+
+@protocol BrideCPlusMangerDelegate <NSObject>
+@required
+@property (nonatomic, copy) NSString *zhangSan;
+
+@end
+
+@interface BrideCPlusManger : NSObject<BrideCPlusMangerDelegate>
+@property (nonatomic, strong) Person *person;
+@property (nonatomic, copy) NSString *name;
+//@property (nonatomic, copy) NSString *zhangSan;
 
 - (void)wei_bag_problem1;
 - (void)test_1_wei_bag_problem;
@@ -20,6 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)test1;
 
 -(void)quickSort;
+-(void)methodtest1;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

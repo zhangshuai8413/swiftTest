@@ -19,8 +19,6 @@ struct FLHomeViewController: View {
                             Text(sectionCourse.subTitle)
                         }
                         ForEach(sectionCourse.list) { course in
-              
-                            
                             NavigationLink {
                                 FLCourseDetailView(course: course)
                             } label: {

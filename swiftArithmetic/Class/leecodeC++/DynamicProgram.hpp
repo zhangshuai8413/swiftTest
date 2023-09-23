@@ -1599,11 +1599,9 @@ class LongestCommonSubString {
     int longestCommonSub(string string1, string string2) {
         long length1 = string1.size();
         long length2 = string2.size();
-
         if (length1 == 0 || length2 == 0) {
             return 0;
         }
-
         vector<vector<int>> dp(length1 + 1, vector<int>(length2 + 1, 0));
         int maxLength = 0;
 
