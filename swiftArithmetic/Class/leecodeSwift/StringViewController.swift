@@ -359,6 +359,3 @@ func getString() {
 func getString1() {
     
 }
-
-    
-
