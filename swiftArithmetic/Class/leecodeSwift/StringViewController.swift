@@ -352,6 +352,10 @@ func findMostFrequentString(input: String) -> String? {
     return result
 }
 
+func getString() {
+    
+}
 
-
-
+func getString1() {
+    
+}
