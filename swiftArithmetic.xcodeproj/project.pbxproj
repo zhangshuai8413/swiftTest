@@ -36,6 +36,7 @@
 		5B26D4EF2A1A6D2F00EDCA2F /* MyQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B26D4EE2A1A6D2F00EDCA2F /* MyQueue.cpp */; };
 		5B76E3472A4FB67700141D86 /* BrideCPlusManger.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5B76E3462A4FB67700141D86 /* BrideCPlusManger.mm */; };
 		5BBCFFC12A8719DC00763DF5 /* MyArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCFFBF2A8719DC00763DF5 /* MyArray.cpp */; };
+		5BC22D7F2ABEAFE900E42098 /* PriorityQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BC22D7D2ABEAFE900E42098 /* PriorityQueue.cpp */; };
 		5BC238372A5AA20B00D083AB /* CourseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC238362A5AA20B00D083AB /* CourseDetail.swift */; };
 		5BC238392A5B05DC00D083AB /* FLCourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC238382A5B05DC00D083AB /* FLCourseDetailView.swift */; };
 		5BC8F0F42A7E4F9D003BF9E6 /* BrideCPlusManger+a.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8F0F32A7E4F9D003BF9E6 /* BrideCPlusManger+a.m */; };
@@ -101,6 +102,8 @@
 		5B76E3462A4FB67700141D86 /* BrideCPlusManger.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BrideCPlusManger.mm; sourceTree = "<group>"; };
 		5BBCFFBF2A8719DC00763DF5 /* MyArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyArray.cpp; sourceTree = "<group>"; };
 		5BBCFFC02A8719DC00763DF5 /* MyArray.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyArray.hpp; sourceTree = "<group>"; };
+		5BC22D7D2ABEAFE900E42098 /* PriorityQueue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PriorityQueue.cpp; sourceTree = "<group>"; };
+		5BC22D7E2ABEAFE900E42098 /* PriorityQueue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PriorityQueue.hpp; sourceTree = "<group>"; };
 		5BC238362A5AA20B00D083AB /* CourseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetail.swift; sourceTree = "<group>"; };
 		5BC238382A5B05DC00D083AB /* FLCourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLCourseDetailView.swift; sourceTree = "<group>"; };
 		5BC8F0F22A7E4F9D003BF9E6 /* BrideCPlusManger+a.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BrideCPlusManger+a.h"; sourceTree = "<group>"; };
@@ -233,6 +236,8 @@
 				5B1E2C042A3764DC00096D0D /* Greedy.hpp */,
 				5B26D4C32A1A6CAA00EDCA2F /* ListNode.cpp */,
 				5B26D4C42A1A6CAA00EDCA2F /* ListNode.hpp */,
+				5BC22D7D2ABEAFE900E42098 /* PriorityQueue.cpp */,
+				5BC22D7E2ABEAFE900E42098 /* PriorityQueue.hpp */,
 				5B26D4EE2A1A6D2F00EDCA2F /* MyQueue.cpp */,
 				5B26D4ED2A1A6D2F00EDCA2F /* MyQueue.hpp */,
 				5B26D4EB2A1A6D2600EDCA2F /* TreeNode.cpp */,
@@ -389,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC22D7F2ABEAFE900E42098 /* PriorityQueue.cpp in Sources */,
 				5BC8F0F42A7E4F9D003BF9E6 /* BrideCPlusManger+a.m in Sources */,
 				5BC8F0F72A7E4FBD003BF9E6 /* BrideCPlusManger+B.m in Sources */,
 				5BDCED5C2A90DDCB0058171D /* DoublePointer.cpp in Sources */,
