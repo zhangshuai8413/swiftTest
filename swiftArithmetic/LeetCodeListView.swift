@@ -137,11 +137,12 @@ struct LeetCodeListView: View {
        
        return result
     }
+    
+    func test1() {
+        
+    }
 
 }
-
-
-
 
 
 
