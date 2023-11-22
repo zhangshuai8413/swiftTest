@@ -9,4 +9,8 @@
 
 @implementation Person
 
+-(void)mainTest {
+    NSLog(@"main分支修改");
+    NSLog(@"main分支修改1111");
+}
 @end

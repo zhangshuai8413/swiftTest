@@ -56,7 +56,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var redButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        String(11, radix: 2)
+
     }
     
     
@@ -1791,6 +1791,7 @@ class Automaton {
         } else {
             return 3
         }
-    }
-}
 
+    }
+
+}
