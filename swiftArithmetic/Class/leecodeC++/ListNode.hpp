@@ -509,3 +509,13 @@ public:
         return head.next;
     }
 };
+
+class DeleteNode {
+    
+public:
+    void deleteNode(ListNode* node, int target) {
+        node->val = node->next->val;
+        node->next = node->next->next;
+    }
+};
+
