@@ -746,6 +746,11 @@ class yangHuiSanjiao {
         }
         return count;
     }
+    
+    bool containsDuplicate(vector<int>& nums) {
+        bool isDoubleNumber = nums.size() > unordered_set<int>(nums.begin(), nums.end()).size();
+        return isDoubleNumber;
+    }
 };
 
 #endif /* MyArray_hpp */
