@@ -360,6 +360,5 @@ func getString1() {
     
 }
 
-func getString2() {
     
-}
+
