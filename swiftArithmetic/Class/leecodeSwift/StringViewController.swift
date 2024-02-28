@@ -359,3 +359,7 @@ func getString() {
 func getString1() {
     
 }
+
+func getString2() {
+    
+}
