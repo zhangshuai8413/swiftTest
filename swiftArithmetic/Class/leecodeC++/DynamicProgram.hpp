@@ -1648,4 +1648,32 @@ public:
         return *max_element(maxF.begin(), maxF.end());
     }
     
+    
+    /*
+     
+     
+     */
+    
+    string getPermutation(int n, int k) {
+        vector<int> nums(n);
+        int factorial = 1;
+        string result = "";
+        for (int i=0; i< n; ++i) {
+            nums[i] = i + 1;
+            factorial *= (i +1);
+        }
+        --k;
+        for (int i=0; i< n; ++i) {
+            factorial /= (n -i);
+            int index = k / factorial;
+
+            result += to_string(nums[index]);
+            nums.erase(nums.begin() + index);
+            k -= index * factorial;
+ 
+            
+        }
+        return result;
+    }
+    
 };
