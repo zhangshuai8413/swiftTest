@@ -510,10 +510,6 @@ public:
     }
 };
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 487399f (@fix 是否包含重复数字 (+1 squashed commit))
 class DeleteNode {
     
 public:
@@ -523,7 +519,6 @@ public:
     }
 };
 
-<<<<<<< HEAD
 
 class ReverseList {
     
@@ -547,5 +542,4 @@ public:
         return dummyNode->next;
     }
 };
-=======
->>>>>>> 487399f (@fix 是否包含重复数字 (+1 squashed commit))
+
