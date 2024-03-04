@@ -537,9 +537,33 @@ public:
             cur->next = next->next;
             next->next = pre->next;
             pre->next = next;
-            
         }
         return dummyNode->next;
+    }
+    
+    ListNode* insertionSortList(ListNode* head) {
+        if (head == nullptr) {
+            return head;
+        }
+        ListNode *dummyHead = new ListNode(0);
+        dummyHead->next = head;
+        ListNode *lastSorted = head;
+        ListNode *curr = head->next;
+        while (curr != nullptr) {
+            if (lastSorted-> val <= curr->val) {
+                lastSorted = lastSorted->next;
+            } else {
+                ListNode *pre = dummyHead;
+                while (pre->next->val <= curr->val) {
+                    pre = pre->next;
+                }
+                lastSorted->next = curr->next;
+                curr->next = pre->next;
+                pre->next = curr;
+            }
+            curr = lastSorted->next;
+        }
+        return dummyHead->next;
     }
 };
 
