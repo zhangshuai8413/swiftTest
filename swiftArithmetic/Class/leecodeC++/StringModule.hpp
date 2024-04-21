@@ -769,19 +769,20 @@ public:
 };
 
 
-string addBinary(std::string a, std::string b) {
+string addBinary(string a, string b) {
     string ans = "";
-    int ca = 0;
+    int carry = 0;
     int i = (int)a.length() - 1;
     int j = (int)b.length() - 1;
-    while (i >= 0 || j >= 0 || ca != 0) {
-        int a1 = (i >= 0) ? (a[i--] - '0') : 0;
-        int b1 = (j >= 0) ? (b[j--] - '0') : 0;
-        int sum = a1 + b1 + ca;
+    while (i >= 0 || j >= 0 ||  carry !=0) {
+        int a1 = i >=0 ? a[i--] - '0' : 0;
+        int b1 = j >=0 ? b[j--] - '0' : 0;
+        int sum = a1 + b1 + carry;
         ans = to_string(sum % 2) + ans;
-        ca = sum / 2;
+        carry = sum / 2;
     }
-    return ans;
+    
+    return ans ;
 }
 
 class SolutionFullJustify {

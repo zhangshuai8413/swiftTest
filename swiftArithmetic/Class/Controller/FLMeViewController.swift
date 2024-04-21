@@ -9,14 +9,9 @@ import SwiftUI
 
 struct FLMeViewController: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).onTapGesture {
-            sharedVariable = 0
-            test1()
-        }
-        
        
+        UIKitView()
     }
-
 }
 
 func test1() {
