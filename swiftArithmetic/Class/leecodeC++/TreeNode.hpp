@@ -529,4 +529,38 @@ class LevelOrderBottom {
 public:
     
 };
+
+// 有序链表 转换搜索二叉树
+class SortedListToBST {
+    
+    int getLength(ListNode * head) {
+        int ret = 0;
+        while (head != nullptr) {
+            ret++;
+            head = head->next;
+        }
+        return ret;
+    }
+    
+    TreeNode* buildTree(ListNode*& head, int left, int right) {
+        if (left > right) {
+            return nullptr;
+        }
+        int mid = (left + right + 1) / 2;
+        TreeNode *root = new TreeNode();
+        root->left = buildTree(head, left, mid - 1);
+        root->val = head->val;
+        head = head->next;
+        root->right = buildTree(head, mid + 1, right);
+        return root;
+    }
+    
+    TreeNode* sortedListToBST(ListNode* head) {
+        int length = getLength(head);
+        return buildTree(head, 0, length - 1);
+    }
+    
+public:
+    
+};
 #endif /* TreeNode_hpp */
