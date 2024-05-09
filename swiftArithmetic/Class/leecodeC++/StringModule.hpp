@@ -941,31 +941,31 @@ public:
         }
         return tokens;
     }
+    
     string simplifyPath(string path) {
-        
         vector<string> components = splitString(path, '/');
-        
         stack<string> stack;
-        
-        for (int i=0; i< (int)components.size() - 1; ++i) {
-            string s =  components[i];
-            if (s == " " && s == ".") {
+        for (int i=0; i< (int)components.size(); ++i) {
+            string s = components[i];
+            if (s.empty() || s == ".") {
                 continue;
-            } else if (s == "..") {
-                stack.pop();
+            }
+            if (s == "..") {
+                if (!stack.empty()) {
+                    stack.pop();
+                }
             } else {
                 stack.push(s);
             }
         }
-
         // 1 2 3 4 5
-        
 //      3 4 5
-        string result  = "/";
+        string result ;
         while (!stack.empty()) {
-            result = "/" + stack.top() + result;
+            result  = "/" + stack.top() + result;
+            stack.pop();
         }
-        return "";
+        return result.empty() ? "/" : result;
     }
 };
 #endif /* StringModule_hpp */
