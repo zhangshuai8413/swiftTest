@@ -12,7 +12,7 @@
 #include <iostream>
 #include <bitset>
 #include "MyArray.hpp"
-
+#include "CPlusHeader.h"
 
 using namespace std;
 @implementation BrideCPlusManger
@@ -125,7 +125,19 @@ void printArray(vector<vector<int>> result) {
     }
 }
 
-- (void)test1 {
+- (void)mapLearn {
+    
+    std::map<double, std::string> products;
+    
+    // 插入商品及其价格
+    products[19.99] = "Book";
+    products[9.99] = "Pen";
+    products[49.99] = "Shoes";
+    products[29.99] = "Shirt";
+    
+    for (auto rit  = products.rbegin(); rit != products.rend(); rit++) {
+        std:: cout  << rit->first << ":" << rit->second << std::endl;
+    }
 }
 
 

@@ -56,9 +56,9 @@ struct LeetCodeListView: View {
     func addOCBrige(index: DynamicProgram) {
         
 //        print("addOCBrie  \(index) \n")
-//        let ocBrige = BrideCPlusManger()
+        let ocBrige = BrideCPlusManger()
 //
-//
+        ocBrige.mapLearn()
 //        switch index {
 //        case .weight01:
 //            ocBrige.wei_bag_problem1()
@@ -72,11 +72,11 @@ struct LeetCodeListView: View {
 //            ocBrige.quickSort()
 //        }
 
-        let input = "apple banana apple cherry banana apple"
-        if let result = findMostFrequentString(input: input) {
-            print(result) // 输出：apple
-        }
-    
+//        let input = "apple banana apple cherry banana apple"
+//        if let result = findMostFrequentString(input: input) {
+//            print(result) // 输出：apple
+//        }
+//
 //        print("aa------\(aa)")
         
     }
