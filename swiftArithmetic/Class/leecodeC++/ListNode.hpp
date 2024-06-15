@@ -543,3 +543,35 @@ public:
         return dummyNode->next;
     }
 };
+
+class GenerateTrees {
+    
+public:
+    
+    vector<TreeNode*> generateTrees(int start, int end) {
+        vector<TreeNode*> allTrees;
+        if (start > end) {
+            return { nullptr };
+        }
+        for (int i = start; i <= end; i ++) {
+            vector<TreeNode*> leftTrees = generateTrees(start, i - 1);
+            vector<TreeNode*> rightTrees = generateTrees(i + 1, end);
+            for (auto &left: leftTrees) {
+                for (auto &right : rightTrees) {
+                    TreeNode *currentTree = new TreeNode(i);
+                    currentTree->left = left;
+                    currentTree->right = right;
+                    allTrees.emplace_back(currentTree);
+                }
+            }
+            
+        }
+        return allTrees;
+    }
+    vector<TreeNode*> generateTrees(int n) {
+        if (!n) {
+            return {};
+        }
+        return generateTrees(1, n);
+    }
+};
