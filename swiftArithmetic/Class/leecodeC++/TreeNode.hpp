@@ -462,4 +462,39 @@ public:
 };
 
 
+class ZigzagLevelOrder {
+    
+    
+public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        vector<vector<int>> result;
+        if (root == nullptr) {
+            return result;
+        }
+        bool isleftRoRight = true;
+        queue<TreeNode*> queue;
+        queue.push(root);
+        while (!queue.empty()) {
+            int size = (int)queue.size();
+            vector<int>level(size);
+            for (int i= 0; i< size; ++i) {
+                TreeNode *topNode = queue.front();
+                queue.pop();
+                int index = isleftRoRight ? i : (size - 1 - i);
+                level[index] = topNode->val;
+                if (topNode->left != nullptr) {
+                    queue.push(topNode->left);
+                }
+                if (topNode->right != nullptr) {
+                    queue.push(topNode->right);
+                }
+            }
+            result.push_back(level);
+            isleftRoRight = !isleftRoRight;
+        }
+        return result;
+    }
+
+};
+
 #endif /* TreeNode_hpp */
