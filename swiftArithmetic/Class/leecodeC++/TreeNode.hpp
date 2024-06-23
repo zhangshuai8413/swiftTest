@@ -497,4 +497,31 @@ public:
 
 };
 
+
+class ConnectTree {
+public:
+    TreeNode* connect(TreeNode* root) {
+        if (!root) {
+            return root;
+        }
+        queue<TreeNode*>queue;
+        queue.push(root);
+        while (!queue.empty()) {
+            int size = (int)queue.size();
+            for (int i = 0; i < size; i ++) {
+                TreeNode *node = queue.front();
+                queue.pop();
+                if (i < size -1) {
+                    node->next = queue.front();
+                }
+                if (node->left) {
+                    queue.push(node->left);
+                    queue.push(node->right);
+                }
+            }
+        }
+        return  root;
+    }
+};
+    
 #endif /* TreeNode_hpp */
