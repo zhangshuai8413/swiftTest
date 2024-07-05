@@ -509,3 +509,149 @@ public:
         return head.next;
     }
 };
+
+class DeleteNode {
+    
+public:
+    void deleteNode(ListNode* node, int target) {
+        node->val = node->next->val;
+        node->next = node->next->next;
+    }
+};
+
+
+class ReverseList {
+    
+    
+public:
+    ListNode* reverseBetween(ListNode* head, int left, int right) {
+        ListNode *dummyNode = new ListNode(0);
+        dummyNode->next = head;
+        ListNode *pre = dummyNode;
+        for (int i = 0; i< left - 1 ; i ++) {
+            pre = pre->next;
+        }
+        ListNode *cur = pre->next;
+        ListNode *next;
+        for (int i = 0; i< right - left; i ++) {
+            next = cur->next;
+            cur->next = next->next;
+            next->next = pre->next;
+            pre->next = next;
+            
+        }
+        return dummyNode->next;
+    }
+};
+
+
+class GenerateTrees {
+    
+public:
+    
+    vector<TreeNode*> generateTrees(int start, int end) {
+        vector<TreeNode*> allTrees;
+        if (start > end) {
+            return { nullptr };
+        }
+        for (int i = start; i <= end; i ++) {
+            vector<TreeNode*> leftTrees = generateTrees(start, i - 1);
+            vector<TreeNode*> rightTrees = generateTrees(i + 1, end);
+            for (auto &left: leftTrees) {
+                for (auto &right : rightTrees) {
+                    TreeNode *currentTree = new TreeNode(i);
+                    currentTree->left = left;
+                    currentTree->right = right;
+                    allTrees.emplace_back(currentTree);
+                }
+            }
+            
+        }
+        return allTrees;
+    }
+    vector<TreeNode*> generateTrees(int n) {
+        if (!n) {
+            return {};
+        }
+        return generateTrees(1, n);
+    }
+};
+
+class NumTrees {
+    // 给你一个整数 n ，求恰由 n 个节点组成且节点值从 1 到 n 互不相同的 二叉搜索树 有多少种？返回满足题意的二叉搜索树的种数。
+    
+    /*
+    示例 1：
+    输入：n = 3
+    输出：5
+    示例 2：
+
+    输入：n = 1
+    输出：1
+*/
+    int numTrees(int n) {
+        std::vector<int> dp(n + 1, 0);
+        dp[0] = 1;  // 空树的数量为1
+        dp[1] = 1;  // 只有一个节点的树的数量为1
+        
+        for (int i = 2; i <= n; ++i) {
+            for (int j = 1; j <= i; ++j) {
+                dp[i] += dp[j - 1] * dp[i - j];
+            }
+        }
+        return dp[n];
+    }
+};
+
+
+class SortList {
+    
+public:
+    
+    ListNode* getMiddle(ListNode* head) {
+        ListNode *slow = head;
+        ListNode *fast = head->next;
+        while (fast && fast->next) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return slow;
+    }
+
+    ListNode* merge(ListNode* head1, ListNode* head2) {
+        ListNode* dummyHead = new ListNode(0);
+        ListNode* temp = dummyHead, *temp1 = head1, *temp2 = head2;
+        while (temp1 != nullptr && temp2 != nullptr) {
+            if (temp1->val < temp2->val) {
+                temp->next = temp1;
+                temp1 = temp1->next;
+            } else {
+                temp->next = temp2;
+                temp2 = temp2->next;
+            }
+            temp = temp->next;
+        }
+        if (temp1 != nullptr) {
+            temp->next = temp1;
+        } else if (temp2 != nullptr) {
+            temp->next = temp2;
+        }
+        
+        return dummyHead->next;
+    }
+  
+    ListNode* sortList(ListNode* head) {
+   
+        if (!head || !head->next) {
+            return head;
+        }
+        ListNode *mid = getMiddle(head);
+        ListNode *right = mid->next;
+        mid->next = nullptr;
+        
+        ListNode * leftSort = sortList(head);
+        ListNode * rightSort = sortList(right);
+        return merge(leftSort, rightSort);
+        
+    }
+};

@@ -462,4 +462,66 @@ public:
 };
 
 
+class ZigzagLevelOrder {
+    
+    
+public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        vector<vector<int>> result;
+        if (root == nullptr) {
+            return result;
+        }
+        bool isleftRoRight = true;
+        queue<TreeNode*> queue;
+        queue.push(root);
+        while (!queue.empty()) {
+            int size = (int)queue.size();
+            vector<int>level(size);
+            for (int i= 0; i< size; ++i) {
+                TreeNode *topNode = queue.front();
+                queue.pop();
+                int index = isleftRoRight ? i : (size - 1 - i);
+                level[index] = topNode->val;
+                if (topNode->left != nullptr) {
+                    queue.push(topNode->left);
+                }
+                if (topNode->right != nullptr) {
+                    queue.push(topNode->right);
+                }
+            }
+            result.push_back(level);
+            isleftRoRight = !isleftRoRight;
+        }
+        return result;
+    }
+
+};
+
+
+class ConnectTree {
+public:
+    TreeNode* connect(TreeNode* root) {
+        if (!root) {
+            return root;
+        }
+        queue<TreeNode*>queue;
+        queue.push(root);
+        while (!queue.empty()) {
+            int size = (int)queue.size();
+            for (int i = 0; i < size; i ++) {
+                TreeNode *node = queue.front();
+                queue.pop();
+                if (i < size -1) {
+                    node->next = queue.front();
+                }
+                if (node->left) {
+                    queue.push(node->left);
+                    queue.push(node->right);
+                }
+            }
+        }
+        return  root;
+    }
+};
+    
 #endif /* TreeNode_hpp */

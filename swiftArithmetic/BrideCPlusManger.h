@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)targetSum;
 
 -(void)numIslands;
--(void)test1;
+- (void)mapLearn;
 
 -(void)quickSort;
 -(void)methodtest1;

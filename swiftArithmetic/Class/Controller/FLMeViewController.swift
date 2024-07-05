@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct FLMeViewController: View {
+     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).onTapGesture {
-            sharedVariable = 0
-            test1()
-        }
+//
+        Text("单价").font(.headline)
+            .bold()
+            .padding(100)
+            .italic()
+//            .shadow(color: .red, radius: 1,x: 10,y: 10)
         
+
        
     }
 
