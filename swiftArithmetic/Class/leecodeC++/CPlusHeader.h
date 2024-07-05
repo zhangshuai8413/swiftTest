@@ -19,6 +19,9 @@
 #include <bitset>
 #include <stdlib.h>
 #include <set>
+#include <tuple>
+#include <sstream>
+
 struct TreeNode {
    int val;
    TreeNode *left;

@@ -127,10 +127,6 @@ class StackViewController: BaseTableViewController {
         }
         return result
     }
-
-
-
-
 }
 
 
@@ -269,3 +265,24 @@ class AAAARR: NSObject {
     
 }
 
+
+class SimplifyPathClass {
+    
+    func simplifyPath(_ path: String) -> String {
+        var stack = [String]()
+        let components = path.components(separatedBy: "/")
+        for component in components {
+            if component.isEmpty || component == "." {
+                continue
+            } else if component == ".." {
+                if !stack.isEmpty {
+                    stack.removeLast()
+                }
+            } else {
+                stack.append(component)
+            }
+        }
+        let simplifiedPath =  "/" + stack.joined(separator: "/")
+        return simplifiedPath
+    }
+}

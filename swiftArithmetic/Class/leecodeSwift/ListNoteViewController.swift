@@ -66,6 +66,10 @@ class ListNoteViewController: BaseTableViewController {
             strongSelf.didSelected(title: title)
          
         }
+        let button = UIButton(type: .close)
+        button.setTitle("宝山", for: .normal)
+        button.frame =  CGRect(x: 100, y: 100, width: 50, height: 40)
+        view.addSubview(button)
     }
     
     override func didSelected(title: String) {

@@ -34,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)quickSort;
 -(void)methodtest1;
 
+-(void)simplifyPath;
 
 @end
 
