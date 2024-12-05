@@ -20,6 +20,8 @@
 #include <stdlib.h>
 #include <set>
 #include <map>
+#include <tuple>
+#include <sstream>
 struct TreeNode {
    int val;
    TreeNode *left;

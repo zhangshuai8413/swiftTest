@@ -15,12 +15,8 @@ struct FLMeViewController: View {
             .bold()
             .padding(100)
             .italic()
-//            .shadow(color: .red, radius: 1,x: 10,y: 10)
-        
-
-       
+        UIKitView()
     }
-
 }
 
 func test1() {

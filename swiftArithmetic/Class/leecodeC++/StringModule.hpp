@@ -769,19 +769,20 @@ public:
 };
 
 
-string addBinary(std::string a, std::string b) {
+string addBinary(string a, string b) {
     string ans = "";
-    int ca = 0;
+    int carry = 0;
     int i = (int)a.length() - 1;
     int j = (int)b.length() - 1;
-    while (i >= 0 || j >= 0 || ca != 0) {
-        int a1 = (i >= 0) ? (a[i--] - '0') : 0;
-        int b1 = (j >= 0) ? (b[j--] - '0') : 0;
-        int sum = a1 + b1 + ca;
+    while (i >= 0 || j >= 0 ||  carry !=0) {
+        int a1 = i >=0 ? a[i--] - '0' : 0;
+        int b1 = j >=0 ? b[j--] - '0' : 0;
+        int sum = a1 + b1 + carry;
         ans = to_string(sum % 2) + ans;
-        ca = sum / 2;
+        carry = sum / 2;
     }
-    return ans;
+    
+    return ans ;
 }
 
 class SolutionFullJustify {
@@ -867,6 +868,104 @@ public:
         
         return ans;
         
+    }
+};
+
+/*
+ 有效数字（按顺序）可以分成以下几个部分：
+
+ 一个 小数 或者 整数
+ （可选）一个 'e' 或 'E' ，后面跟着一个 整数
+ 小数（按顺序）可以分成以下几个部分：
+
+ （可选）一个符号字符（'+' 或 '-'）
+ 下述格式之一：
+ 至少一位数字，后面跟着一个点 '.'
+ 至少一位数字，后面跟着一个点 '.' ，后面再跟着至少一位数字
+ 一个点 '.' ，后面跟着至少一位数字
+ 整数（按顺序）可以分成以下几个部分：
+
+ （可选）一个符号字符（'+' 或 '-'）
+ 至少一位数字
+ 部分有效数字列举如下：["2", "0089", "-0.1", "+3.14", "4.", "-.9", "2e10", "-90E3", "3e+7", "+6e-1", "53.5e93", "-123.456e789"]
+
+ 部分无效数字列举如下：["abc", "1a", "1e", "e3", "99e2.5", "--6", "-+3", "95a54e53"]
+
+ 给你一个字符串 s ，如果 s 是一个 有效数字 ，请返回 true 。
+ */
+
+class iSNumber {
+    
+public:
+    bool isNumber(string s) {
+        int n = (int)s.length();
+        int left = 0, right = n - 1;
+        while (left <= right && s[left] == ' ') left++;
+        while (right >= left && s[right] == ' ') right --;
+        if (left > right) {
+            return false;
+        }
+        bool seen_digit = false;
+        bool seen_dot = false;
+        bool seen_e = false;
+        
+        for (int i= left; i<= right; ++i) {
+            char c = s[i];
+            if (isdigit(c)) {
+                seen_digit = true;
+            } else if (c == '.') {
+                if (seen_dot || seen_e) return false;
+                seen_dot = true;
+            } else if (c == 'e' || c == 'E') {
+                if (seen_e || !seen_digit) return false;
+                seen_e = true;
+                seen_digit = false;
+            } else if (c == '+' || c == '-') {
+                if (i > left && s[i -1] != 'e' && s[i-1] != 'E') return false;
+            } else {
+                return false;
+            }
+        }
+        return seen_digit;
+    }
+};
+
+class SimplifyPathCPlus {
+public:
+    vector<string> splitString(const string& s, char delimiter) {
+        vector<string>tokens;
+        istringstream iss(s);
+        string token;
+        while (getline(iss, token, delimiter)) {
+            tokens.push_back(token);
+        }
+        return tokens;
+    }
+    
+    string simplifyPath(string path) {
+        vector<string> components = splitString(path, '/');
+        stack<string> stack;
+        for (int i=0; i< (int)components.size(); ++i) {
+            string s = components[i];
+            if (s.empty() || s == ".") {
+                continue;
+            }
+            if (s == "..") {
+                if (!stack.empty()) {
+                    stack.pop();
+                }
+            } else {
+                stack.push(s);
+            }
+        }
+        // 1 2 3 4 5
+//      3 4 5
+        string result ;
+        while (!stack.empty()) {
+            result  = "/" + stack.top() + result;
+            stack.pop();
+        }
+        return result.empty() ? "/" : result;
     }
 };
 #endif /* StringModule_hpp */

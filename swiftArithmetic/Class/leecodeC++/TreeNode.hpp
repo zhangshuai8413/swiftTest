@@ -463,8 +463,7 @@ public:
 
 
 class ZigzagLevelOrder {
-    
-    
+
 public:
     vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
         vector<vector<int>> result;
@@ -524,4 +523,89 @@ public:
     }
 };
     
+class LevelOrderBottom {
+public:
+    
+    vector<vector<int>> levelOrderBottom(TreeNode* root) {
+        auto levelOder = vector<vector<int>>();
+        if (root == nullptr) {
+            return levelOder;
+        }
+        queue<TreeNode*>q;
+        q.push(root);
+        while (!q.empty()) {
+            auto level = vector<int>();
+            int size = (int)q.size();
+            for (int i=0; i< size; ++i) {
+                auto node = q.front();
+                q.pop();
+                level.push_back(node->val);
+                if (node->left) {
+                    q.push(node->left);
+                }
+                if (node->right) {
+                    q.push(node->right);
+                }
+            }
+            levelOder.push_back(level);
+        }
+        reverse(levelOder.begin(), levelOder.end());
+        return levelOder;
+    }
+};
+
+// 有序链表 转换搜索二叉树
+class SortedListToBST {
+public:
+    int getLength(ListNode * head) {
+        int ret = 0;
+        while (head != nullptr) {
+            ret++;
+            head = head->next;
+        }
+        return ret;
+    }
+    
+    TreeNode* buildTree(ListNode*& head, int left, int right) {
+        if (left > right) {
+            return nullptr;
+        }
+        int mid = (left + right + 1) / 2;
+        TreeNode *root = new TreeNode();
+        root->left = buildTree(head, left, mid - 1);
+        root->val = head->val;
+        head = head->next;
+        root->right = buildTree(head, mid + 1, right);
+        return root;
+    }
+    
+    TreeNode* sortedListToBST(ListNode* head) {
+        int length = getLength(head);
+        return buildTree(head, 0, length - 1);
+    }
+};
+
+class TreeNodePathSum {
+public:
+    vector<vector<int>> ret;
+    vector<int> path;
+    void dfs(TreeNode* root, int targetSum) {
+        if (root == nullptr) {
+            return;
+        }
+        path.emplace_back(root->val);
+        targetSum -= root->val;
+        if (root->left == nullptr && root->right == nullptr && targetSum == 0) {
+            ret.emplace_back(path);
+        }
+        dfs(root->left, targetSum);
+        dfs(root->right, targetSum);
+        path.pop_back();
+    }
+    vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
+        dfs(root, targetSum);
+        return ret;
+    }
+};
+
 #endif /* TreeNode_hpp */

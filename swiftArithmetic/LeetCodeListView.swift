@@ -144,9 +144,6 @@ struct LeetCodeListView: View {
 
 }
 
-
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         LeetCodeListView()

@@ -751,6 +751,22 @@ class yangHuiSanjiao {
         bool isDoubleNumber = nums.size() > unordered_set<int>(nums.begin(), nums.end()).size();
         return isDoubleNumber;
     }
+
+};
+
+
+class MyTuple {
+    tuple<int, double> myFunction() {
+        return make_tuple(10, 3.14);
+    }
+public:
+    void test() {
+        auto result = myFunction();
+        int age =  get<0>(result);
+        double height = get<1>(result);
+        cout << "age:" <<age << " height" << height << endl;
+        
+    }
 };
 
 #endif /* MyArray_hpp */
