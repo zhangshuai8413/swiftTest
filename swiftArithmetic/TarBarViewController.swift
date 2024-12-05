@@ -46,11 +46,7 @@ struct TarBarViewController: View {
 
 
 func test() {
-    var a = true
-    var tile = [1,2,3,4,5]
-    if a {
-        tile.append(6)
-    }
+    var tile = [1,2,3,4,5,6]
 }
 struct TarBarViewController_Previews: PreviewProvider {
     static var previews: some View {
