@@ -769,4 +769,33 @@ public:
     }
 };
 
+class RemoveElement {
+    
+    public :
+    int removeElement(vector<int>& nums, int val) {
+        int left = 0;
+        for (int i = 0; i < nums.size() -1; i ++) {
+            if (val != nums[i]) {
+                nums[left++] = nums[i];
+            }
+        }
+        return left;
+    }
+    
+    
+    int removeDuplicates(vector<int>& nums) {
+        int n = (int)nums.size();
+        if (n == 0) {
+            return 0;
+        }
+        int left = 1;
+        for (int i = 1; i < nums.size(); i ++) {
+            if (nums[i] != nums[i - 1]) {
+                nums[left++] = nums[i];
+            }
+        }
+        return left;
+    }
+
+};
 #endif /* MyArray_hpp */

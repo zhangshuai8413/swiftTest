@@ -380,6 +380,21 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         return -1
     }
+    func searchMidI(nums:[Int], target: Int) -> Int {
+        var left: Int = 0
+        var right: Int = nums.count - 1
+        while left <= right {
+            let mid = left + (right - left) / 2
+            if nums[mid] > target {
+                right = mid - 1
+            } else if nums[mid] < target {
+                left = mid + 1
+            } else {
+                return mid
+            }
+        }
+        return -1
+    }
     
     func topKFrequent(_ nums: [Int], _ k: Int) -> [Int] {
         var map:[Int: Int] = [:]
