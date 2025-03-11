@@ -1333,6 +1333,19 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         return len
     }
 
+    func lengthOfLongestSubstring1(str: String) -> Int {
+        var dict: [Character : Int] = [:]
+        var left: Int = 0
+        var len: Int = 0
+        for (i, ch) in str.enumerated() {
+            if let index = dict[ch] {
+                left = max(left,index + 1)
+            }
+            len = max(len, i - left + 1)
+            dict[ch] = i
+        }
+        return len
+    }
     
     func rootView(view: UIView?, tag: Int) -> UIView? {
         guard let rootView  = view else {

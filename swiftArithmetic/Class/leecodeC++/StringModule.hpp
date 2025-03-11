@@ -247,6 +247,25 @@ public:
         }
         return s.substr(left, maxlenth);
     }
+    
+    string longestPalindromeIII(string s) { // 最简单版本
+        int size = (int)s.size();
+        vector<vector<int>>dp(size, vector<int>(size,0));
+        int maxLenght = 0;
+        int left = 0;
+        for (int i = size -1; i >=0 ; i--) {
+            for (int j = i; j < size - 1; j ++) {
+                if (s[i] == s[j] && (j - i <= 1 || dp[i + 1][j -1])) {
+                    dp[i][j] = true;
+                }
+                if (dp[i][j] && (j - i + 1 > maxLenght)) {
+                    maxLenght = j -i + 1;
+                    left = i;
+                }
+            }
+        }
+        return s.substr(left, maxLenght);
+    }
 };
 
 class KMP {
