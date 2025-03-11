@@ -1288,6 +1288,16 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         return  (-1,-1)
     }
+    func twoSumNumer(nums:[Int], target: Int) -> (Int,Int) {
+        var dict: [Int : Any] = [:]
+        for (index, num) in nums.enumerated() {
+            if let a = dict[target - num] as? Int {
+                return (a, index)
+            }
+            dict[num] = index
+        }
+        return (-1,-1)
+    }
     
     func lengthOfLongestSubstring(string: String) -> Int {
         let occ = NSMutableSet()

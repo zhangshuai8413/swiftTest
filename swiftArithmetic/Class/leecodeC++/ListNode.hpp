@@ -121,6 +121,26 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
     
 }
 
+ListNode *addTwoNumbers1(ListNode *l1,ListNode *l2) {
+    int carray = 0;
+    ListNode *dummy = new ListNode(0);
+    ListNode *tail = dummy;
+    while (l1 != nullptr || l2 != nullptr || carray != 0) {
+        int a = l1 ? l1->val : 0;
+        int b = l2 ? l2 ->val : 0;
+        int sum = a + b + carray;
+        tail->next = new  ListNode(sum % 10);
+        carray = sum / 10;
+        
+        if (l1){
+            l1 = l1->next;
+        }
+        if (l2){
+            l2 = l2->next;
+        }
+    }
+    return  dummy->next;
+}
 
 class SolutionDeleteDuplicates {
     

@@ -231,4 +231,27 @@ class ListNoteViewController: BaseTableViewController {
         }
         return  (tail, head)
     }
+    
+    func addTwoNumbers(_ l1: ListNode? , _ l2: ListNode?) -> ListNode? {
+        var dummy: ListNode = ListNode()
+        var tail: ListNode? = dummy
+        var carray: Int = 0
+        var list1: ListNode? = l1
+        var list2: ListNode? = l2
+        while list1 != nil  || list2 != nil  || carray > 0 {
+            let a: Int = list1 != nil ? list1!.val : 0
+            let b: Int = list1 != nil ? list1!.val : 0
+            var sum = a + b + carray
+            tail?.next = ListNode(sum % 10)
+            tail = tail?.next
+            carray = sum / 10
+            if list1?.next != nil {
+                list1 = list1?.next
+            }
+            if list1?.next != nil {
+                list2 = list2?.next
+            }
+        }
+        return dummy.next
+    }
 }
