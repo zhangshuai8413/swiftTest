@@ -50,6 +50,41 @@ public:
             automaton.get(c);
         return automaton.sign * automaton.ans;
     }
+    
+    int myAtoiII(const std::string& s) {
+        // 去除字符串两端的空白字符
+        std::string str = s;
+        size_t start = str.find_first_not_of(" ");
+        str = str.substr(start);
+
+        if (str.empty()) {
+            return 0;
+        }
+
+        int num = 0;
+        int sign = 1;
+        char firstChar = str[0];
+        if (firstChar == '+' || firstChar == '-') {
+            if (firstChar == '-') {
+                sign = -1;
+            }
+            str = str.substr(1);
+        }
+
+        for (char c : str) {
+            if (c >= '0' && c <= '9') {
+                // 检查溢出
+                if (num > (INT_MAX - (c - '0')) / 10) {
+                    return (sign == 1)? INT_MAX : INT_MIN;
+                }
+                num = num * 10 + (c - '0');
+            } else {
+                break;
+            }
+        }
+
+        return num * sign;
+    }
 };
 
 
