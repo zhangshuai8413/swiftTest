@@ -1551,6 +1551,58 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         return ret
     }
     
+    class SolutionMyAtoi {
+        func myAtoi(_ s: String) -> Int {
+            var str = s.trimmingCharacters(in: .whitespaces)
+            if str.isEmpty {
+                return 0
+            }
+            var sign = 1
+            if str.first == "+" || str.first == "-" {
+                if str.first == "-" {
+                    sign = -1
+                }
+                str.removeFirst()
+            }
+            var num = 0
+            for char in str {
+                if let digit = char.wholeNumberValue {
+                    num = num * 10 + digit
+                    if num > Int32.max {
+                        return sign == 1 ? Int(Int32.max) : Int(Int32.min)
+                    }
+                } else {
+                    break
+                }
+            }
+            return num * sign
+        }
+    }
+    
+    func myAtoiII( _ s: String) -> Int {
+        var str = s.trimmingCharacters(in: .whitespaces)
+        if str.isEmpty {
+            return 0
+        }
+        var num: Int = 0
+        var sigin = 1;
+        let firtChar = str.first
+        if firtChar == "+" || firtChar == "-" {
+            if firtChar == "-" {
+                sigin = -1
+            }
+            str.removeFirst()
+        }
+        for char in str {
+            if let diget = char.wholeNumberValue {
+                num = num * 10 + diget
+            } else {
+                break
+            }
+        }
+       return num * sigin
+    }
+    
     func myAtoi(_ str: String) -> Int {
         //！ 开始录入有效字符的起点
         var start = false
@@ -1589,6 +1641,33 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         return Int(finalInt!)
     }
     
+    class Solution {
+        func myAtoi(_ s: String) -> Int {
+            var str = s.trimmingCharacters(in: .whitespaces)
+            if str.isEmpty {
+                return 0
+            }
+            var sign = 1
+            if str.first == "+" || str.first == "-" {
+                if str.first == "-" {
+                    sign = -1
+                }
+                str.removeFirst()
+            }
+            var num = 0
+            for char in str {
+                if let digit = char.wholeNumberValue {
+                    num = num * 10 + digit
+                    if num > Int32.max {
+                        return sign == 1 ? Int(Int32.max) : Int(Int32.min)
+                    }
+                } else {
+                    break
+                }
+            }
+            return num * sign
+        }
+    }
     func lengthOfLIS(nums: [Int]) -> Int {
         var dp: [Int] = []
         dp = nums.compactMap({ _ in return 1})
