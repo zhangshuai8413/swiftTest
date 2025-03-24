@@ -751,7 +751,41 @@ class yangHuiSanjiao {
         bool isDoubleNumber = nums.size() > unordered_set<int>(nums.begin(), nums.end()).size();
         return isDoubleNumber;
     }
-
+    
+    // https://leetcode.cn/problems/spiral-matrix-ii/description/
+    /*
+     
+     代码
+     测试用例
+     测试结果
+     测试结果
+     59. 螺旋矩阵 II
+     已解答
+     中等
+     相关标签
+     相关企业
+     给你一个正整数 n ，生成一个包含 1 到 n2 所有元素，且元素按顺时针顺序螺旋排列的 n x n 正方形矩阵 matrix 。
+     */
+    
+    vector<vector<int>> generateMatrix(int n) {
+          int maxNum = n * n;
+          int curNum = 1;
+          vector<vector<int>> matrix(n, vector<int>(n));
+          int row = 0, column = 0;
+          vector<vector<int>> directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};  // 右下左上
+          int directionIndex = 0;
+          while (curNum <= maxNum) {
+              matrix[row][column] = curNum;
+              curNum++;
+              int nextRow = row + directions[directionIndex][0], nextColumn = column + directions[directionIndex][1];
+              if (nextRow < 0 || nextRow >= n || nextColumn < 0 || nextColumn >= n || matrix[nextRow][nextColumn] != 0) {
+                  directionIndex = (directionIndex + 1) % 4;  // 顺时针旋转至下一个方向
+              }
+              row = row + directions[directionIndex][0];
+              column = column + directions[directionIndex][1];
+          }
+          return matrix;
+      }
 };
 
 
@@ -828,5 +862,22 @@ class RemoveElement {
           return result;
       }
     
+   int minSubArrayLen(int target, vector<int>& nums) {
+        int result = INT32_MAX;
+        int sublength = 0;
+        int size = (int)nums.size();
+        int sum = 0;
+        int i = 0;
+        for (int j = 0; j < size; j ++) {
+            sum += nums[j];
+            while (sum >= target) {
+                sublength = (j - i + 1);
+                result = min(sublength, result);
+                sum -= nums[i++];
+            }
+           
+        }
+        return result == INT32_MAX ? 0 : result;
+    }
 };
 #endif /* MyArray_hpp */
