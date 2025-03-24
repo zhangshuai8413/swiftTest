@@ -184,3 +184,25 @@ func minMeetings(_ meetings:[[Int]]) -> Int {
   return minMeetings(restMeeting)
 
 }
+
+func generateMatrix(_ n: Int) -> [[Int]] {
+    var matrix:[[Int]] = Array(repeating: Array(repeating: 0, count: n), count: n)
+    let maxNum = n * n
+    var curNum = 1
+    var row = 0
+    var column = 0
+    let directions = [[0, 1], [1, 0], [0, -1], [-1, 0]]
+    var directionIndex = 0
+    while curNum <= maxNum  {
+        matrix[row][column] = curNum;
+        curNum += 1
+        let nextRow = row + directions[directionIndex][0]
+        let nextcolumn = column + directions[directionIndex][1]
+        if nextRow >= n || nextRow < 0 || nextcolumn < 0 || nextcolumn >= n || matrix[nextRow][nextcolumn] != 0 {
+            directionIndex = (directionIndex + 1) % 4
+        }
+        row = nextRow
+        column = nextcolumn
+    }
+    return matrix
+}

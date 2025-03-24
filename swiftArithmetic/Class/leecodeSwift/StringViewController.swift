@@ -175,8 +175,8 @@ class StringViewController: BaseTableViewController {
         }
         let len1: Int = num1.count
         let len2: Int = num2.count
-        let nums1: [Int] = num1.compactMap({ Int(String($0))})
-        let nums2: [Int] = num2.compactMap({ Int(String($0))})
+        let nums1: [Int] = num1.compactMap({ $0.wholeNumberValue})
+        let nums2: [Int] = num2.compactMap({ $0.wholeNumberValue})
         var result: String = ""
         var nums: [Int] = [Int](repeating: 0, count: len1 + len2)
         for (i, num1) in nums1.enumerated().reversed() {

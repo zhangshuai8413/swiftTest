@@ -371,6 +371,23 @@ ListNode* reverseList(ListNode* head) {
     return pre;
 }
 
+class ReverseListII {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if(head == NULL) return NULL;
+        if (head->next == NULL) return head;
+        
+        // 递归调用，翻转第二个节点开始往后的链表
+        ListNode *last = reverseList(head->next);
+        // 翻转头节点与第二个节点的指向
+        head->next->next = head;
+        // 此时的 head 节点为尾节点，next 需要指向 NULL
+        head->next = NULL;
+        return last;
+    }
+
+};
+
 ListNode* swapPairs(ListNode* head) {
     
     ListNode* dummyHead = new ListNode(0); // 设置一个虚拟头结点
@@ -435,6 +452,10 @@ class SolutionDeleteDuplicatesII {
      
      作者：力扣官方题解
      链接：https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/solutions/678122/shan-chu-pai-xu-lian-biao-zhong-de-zhong-oayn/
+     
+     给定一个已排序的链表的头 head ， 删除原始链表中所有重复数字的节点，只留下不同的数字 。返回 已排序的链表 。
+     输入：head = [1,2,3,3,4,4,5]
+     输出：[1,2,5]
      来源：力扣（LeetCode）
      著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
      */
