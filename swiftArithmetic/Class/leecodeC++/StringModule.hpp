@@ -1047,4 +1047,46 @@ public:
         return result.empty() ? "/" : result;
     }
 };
+
+class DecodeString {
+
+public:
+    /*
+     
+     输入：s = "3[a]2[bc]"
+     输出："aaabcbc"
+     https://leetcode.cn/problems/decode-string/description/?envType=study-plan-v2&envId=top-100-liked
+     */
+    string decodeString(string s) {
+        stack<int> numStack; // 存储 k
+        stack<string> strStack; // 存储字符串前缀
+        string curString = "";
+        int curNum = 0;
+        
+        for (char c : s) {
+            if (isdigit(c)) { // 处理 k，可能是多位数
+                curNum = curNum * 10 + (c - '0');
+            } else if (c == '[') { // 遇到 `[`，存入栈
+                numStack.push(curNum);
+                strStack.push(curString);
+                curNum = 0;
+                curString = "";
+            } else if (c == ']') { // 遇到 `]`，弹栈并拼接
+                int k = numStack.top();
+                numStack.pop();
+                string temp = "";
+                for (int i = 0; i < k; i++) {
+                    temp += curString;
+                }
+                curString = strStack.top() + temp; // 解码后 重新会压入 stack
+                strStack.pop();
+            } else { // 普通字符
+                curString += c;  //  字符持续入栈
+            }
+        }
+        
+        return curString;
+    }
+
+};
 #endif /* StringModule_hpp */
