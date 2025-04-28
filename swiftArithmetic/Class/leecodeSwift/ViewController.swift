@@ -1338,7 +1338,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         var dict:[Character: Int] = [:]
         var left: Int = 0
         var len: Int = 0
-        for (i, ch)  in str.enumerated() {
+        for (i, ch) in str.enumerated() {
             if let index = dict[ch] {
                 left = max(left, index + 1)
             }

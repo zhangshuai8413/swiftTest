@@ -57,8 +57,8 @@ struct LeetCodeListView: View {
         
 //        print("addOCBrie  \(index) \n")
         let ocBrige = BrideCPlusManger()
-//
-        ocBrige.mapLearn()
+        ocBrige.testString()
+//        ocBrige.mapLearn()
 //        switch index {
 //        case .weight01:
 //            ocBrige.wei_bag_problem1()
