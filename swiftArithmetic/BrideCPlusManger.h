@@ -21,6 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BrideCPlusManger : NSObject<BrideCPlusMangerDelegate>
 @property (nonatomic, strong) Person *person;
 @property (nonatomic, copy) NSString *name;
+
+@property (nonatomic, strong,nullable) NSString *strongString;
+@property (nonatomic, weak)   NSString *weakString;
+
 //@property (nonatomic, copy) NSString *zhangSan;
 
 - (void)wei_bag_problem1;
@@ -30,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)numIslands;
 - (void)mapLearn;
-
+- (void)testString;
 -(void)quickSort;
 -(void)methodtest1;
 

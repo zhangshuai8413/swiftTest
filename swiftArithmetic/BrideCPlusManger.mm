@@ -6,6 +6,7 @@
 //
 
 #import "BrideCPlusManger.h"
+#import "BrideCPlusManger+a.h"
 #import "DynamicProgram.hpp"
 #import "Greedy.hpp"
 #include "Graph.hpp"
@@ -15,30 +16,64 @@
 #include "CPlusHeader.h"
 
 using namespace std;
+
 @implementation BrideCPlusManger
 //@synthesize zhangSan = _zhangSan;
 + (void)load {
     NSLog(@"BrideCPlusManger------");
     
     [BrideCPlusManger testMethod];
+    [BrideCPlusManger testLoad];
     
 }
 
 - (instancetype)init {
     if (self == [super init]) {
-        Person *person = [[Person alloc] init];
-        self.person = person;
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            // 添加观察者
-            [self.person addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
-            // 修改Person对象的name属性，触发KVO通知
-            self.person.name = @"John";
-        });
+//        Person *person = [[Person alloc] init];
+//        self.person = person;
+//        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//            // 添加观察者
+//            [self.person addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
+//            // 修改Person对象的name属性，触发KVO通知
+//            self.person.name = @"John";
+//        });
+        [self testSyn];
     }
     return self;
     
 }
 
+- (void)testSyn {
+    
+    dispatch_queue_t serialQueue = dispatch_queue_create("com.example.serialQueue", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_sync(serialQueue, ^{
+        NSLog(@"任务3：%@", [NSThread currentThread]);
+    });
+    dispatch_async(serialQueue, ^{
+        NSLog(@"任务4：%@", [NSThread currentThread]);
+    });
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        dispatch_sync(serialQueue, ^{
+            NSLog(@"任务1：%@", [NSThread currentThread]);
+        });
+        NSLog(@"任务2：%@", [NSThread currentThread]);
+        
+    });
+  
+}
+- (void)testString {
+//    self.strongString = [NSString stringWithFormat:@"dad"];
+////    [NSString stringWithFormat:@"%@",@"string1"];
+//    self.weakString =  self.strongString;
+//    self.strongString = nil;
+//    NSLog(@"weakString-------%@", self.weakString);
+    @autoreleasepool {
+        self.strongString = [NSMutableString stringWithFormat:@"%@", @"string1"];
+        self.weakString = self.strongString;
+        self.strongString = nil;
+    }
+    NSLog(@"weakString-------%@", self.weakString);
+}
 
 // 观察者方法，当name属性发生变化时会调用此方法
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

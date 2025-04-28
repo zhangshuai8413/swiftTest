@@ -16,5 +16,8 @@
 -(void)test1 {
     NSLog(@"test1 -----a");
 }
++(void)testLoad {
+    NSLog(@"test-------testLoad");
+}
 
 @end

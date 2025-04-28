@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BrideCPlusManger (a)
 
 -(void)test1;
-    
++(void)testLoad;
 @end
 
 NS_ASSUME_NONNULL_END
