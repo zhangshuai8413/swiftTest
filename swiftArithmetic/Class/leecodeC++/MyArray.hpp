@@ -147,26 +147,24 @@ public:
 class MedianSortedArray {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        if (nums1.size() > nums2.size()) return findMedianSortedArrays(nums2, nums1);
         
-        if(nums1.size() >  nums2.size()) {
-            return findMedianSortedArrays(nums2, nums1);
-        }
-        int m = (int)nums1.size();
-        int n = (int)nums2.size();
-        int left = 0;
-        int right = m;
-        int median1 = 0, median2 = 0;
+        int m = (int)nums1.size(), n = (int)nums2.size();
+        int left = 0, right = m, median1 = 0, median2 = 0;
+
         while (left <= right) {
             int i = (left + right) / 2;
             int j = (m + n + 1) / 2 - i;
-            int nums_im1 = (i == 0 ? INT_MIN : nums1[i - 1]);
-            int nums_i = (i == m? INT_MAX : nums1[i]);
-            int nums_jm1 = (j == 0 ? INT_MIN : nums2[j - 1]);
-            int nums_j = (j == n? INT_MAX : nums2[j]);
-            if (nums_im1 <= nums_j) {
-                median1 = max(nums_im1, nums_jm1);
-                median2 = min(nums_i, nums_j);
-                left = i + 1;
+
+            int leftAMax = (i == 0 ? INT_MIN : nums1[i - 1]);
+            int rightAMin = (i == m ? INT_MAX : nums1[i]);
+            int leftBMax = (j == 0 ? INT_MIN : nums2[j - 1]);
+            int rightBMin = (j == n ? INT_MAX : nums2[j]);
+
+            if (leftAMax <= rightBMin) {
+                median1 = max(leftAMax, leftBMax);
+                median2 = min(rightAMin, rightBMin);
+                left = i + 1;  // 继续二分查找
             } else {
                 right = i - 1;
             }

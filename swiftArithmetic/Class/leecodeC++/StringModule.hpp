@@ -289,7 +289,7 @@ public:
         int maxLenght = 0;
         int left = 0;
         for (int i = size -1; i >=0 ; i--) {
-            for (int j = i; j < size - 1; j ++) {
+            for (int j = size - 1; j >= i; j--) {
                 if (s[i] == s[j] && (j - i <= 1 || dp[i + 1][j -1])) {
                     dp[i][j] = true;
                 }
@@ -300,6 +300,31 @@ public:
             }
         }
         return s.substr(left, maxLenght);
+    }
+    // 一维数组优化
+    string longestPalindromeOne(string s) {
+        int n = (int)s.size();
+        if (n == 0) return "";
+        vector<bool> dp(n, false); // 用一维数组替代 dp[i][j]
+        int maxLength = 0;
+        int left = 0;
+        
+        // 倒序遍历 i，保证 dp[j-1] 是上一行的值
+        for (int i = n - 1; i >= 0; i--) {
+            for (int j = n - 1; j >= i; j--) {
+                if (s[i] == s[j] && (j - i <= 1 || dp[j - 1])) {
+                    dp[j] = true; // 只存 j 位置的值
+                    if (j - i + 1 > maxLength) {
+                        maxLength = j - i + 1;
+                        left = i;
+                    }
+                } else {
+                    dp[j] = false; // 确保不影响下一次计算
+                }
+            }
+        }
+        
+        return s.substr(left, maxLength);
     }
 };
 
