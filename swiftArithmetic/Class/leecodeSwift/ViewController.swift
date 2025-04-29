@@ -1242,30 +1242,34 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func reverseKGroup(_ head: ListNode?, _ k: Int) -> ListNode? {
-        var header: ListNode? = head
-        let dummy: ListNode = ListNode(0)
-        dummy.next = head
-        var pre: ListNode? = dummy
-        while header != nil {
-            var tail: ListNode? = pre
-            for _ in 0..<k {
-                tail = tail?.next
-                if tail == nil {
-                    return dummy.next
-                }
-            }
-            let next: ListNode? = tail?.next
-            let (h1, t1) = reverseKGroup(header, tail)
-            pre?.next = h1
-            t1?.next = next
-            pre = t1
-            header = t1?.next
+        var current = head
+        var count = 0
+        while current != nil && count < k {
+            current = current?.next
+            count += 1
+            
         }
-        return dummy
+        if count < k {
+            return head
+        }
+        var pre: ListNode? = nil
+        var next: ListNode? = nil
+        var node = head
+        for _ in 0..<k {
+            next =  node?.next
+            node?.next = pre
+            pre = node
+            node = next
+            
+        }
+        if next != nil {
+            head?.next = reverseKGroup(next, k)
+        }
+        return pre
     }
     
     func reverseKGroup(_ head: ListNode?, _ tail: ListNode?) -> (ListNode?, ListNode?){
-        var pre = tail?.next
+        var pre: ListNode? =  nil
         var node = head
         while pre !== tail {
             let next = node?.next
