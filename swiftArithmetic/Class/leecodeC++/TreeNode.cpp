@@ -147,6 +147,17 @@ bool compare(TreeNode* left, TreeNode* right) {
     return outSide && inSide;
 }
 
+bool compareII(TreeNode *left, TreeNode* right) {
+    if (left!= nullptr && right == nullptr) {
+        return false;
+    } else if (left == nullptr && right != nullptr) {
+        return false;
+    } if (left->val != right->val) {
+        return  false;
+    }
+    return compareII(left->left, right->right) && compareII(left->right, right->left);;
+}
+
 bool isSymmetric(TreeNode* root) {
     if (root == NULL) {
         return true;

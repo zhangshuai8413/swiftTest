@@ -359,3 +359,44 @@ func getString() {
 func getString1() {
     
 }
+
+//int longestValidParentheses(string s) {
+//    
+//    int maxans = 0;
+//    stack<int> stk;
+//    stk.push(-1);
+//    for (int i = 0; i < s.length(); i++) {
+//        if (s[i] == '(') {
+//            stk.push(i);
+//        } else {
+//            stk.pop();
+//            if (stk.empty()) {
+//                stk.push(i);
+//            } else {
+//                maxans = max(maxans, i - stk.top());
+//            }
+//        }
+//    }
+//    return maxans;
+//    
+//}
+
+func longestValidParentheses(_ s: String) -> Int  {
+    var maxAns = 0
+    var stack: [Int] = []
+    stack.append(-1)
+    let strs:[Character] = Array(s)
+    for (i, ch) in strs.enumerated() {
+        if ch == "(" {
+            stack.append(i)
+        } else {
+            stack.removeLast()
+            if stack.isEmpty {
+                stack.append(i)
+            } else {
+                maxAns = max(maxAns, i - stack.last!)
+            }
+        }
+    }
+    return maxAns
+}

@@ -17,9 +17,7 @@ struct TarBarViewController: View {
             .tabItem {
                 Label("Home", systemImage: "house")
             }
-            
-           
- 
+
             LeetCodeListView()
             .tag(1)
             

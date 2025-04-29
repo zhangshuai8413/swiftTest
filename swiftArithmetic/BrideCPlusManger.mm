@@ -26,6 +26,9 @@ using namespace std;
     [BrideCPlusManger testLoad];
     
 }
++ (void)initialize {
+    NSLog(@"BrideCPlusManger initialize");
+}
 
 - (instancetype)init {
     if (self == [super init]) {
@@ -37,7 +40,8 @@ using namespace std;
 //            // 修改Person对象的name属性，触发KVO通知
 //            self.person.name = @"John";
 //        });
-        [self testSyn];
+//        [self testSyn];
+        [self testString];
     }
     return self;
     
@@ -69,6 +73,10 @@ using namespace std;
 //    NSLog(@"weakString-------%@", self.weakString);
     @autoreleasepool {
         self.strongString = [NSMutableString stringWithFormat:@"%@", @"string1"];
+        self.strongString = [self.strongString stringByAppendingString:@"aa"];
+        self.strongString = [self.strongString stringByAppendingString:@"a2"];
+        self.strongString = [self.strongString stringByAppendingString:@"a3"];
+        self.strongString =  [self.strongString stringByAppendingString:@"a4"];
         self.weakString = self.strongString;
         self.strongString = nil;
     }

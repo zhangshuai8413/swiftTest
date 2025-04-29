@@ -698,20 +698,18 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
    
     
     func minSubArrayLen(nums: [Int], target: Int) -> Int {
-        var res: Int = Int.max
-        var subLength: Int = 0
+        var result: Int = Int.max
         var sum: Int = 0
         var i: Int = 0
-        for (j,num) in nums.enumerated() {
-            sum += num
-            if sum >= target {
-                subLength = j - i + 1
-                res = res < subLength ? res : subLength
-                i += 1
+        for j in 0..<nums.count {
+            sum += nums[j]
+            while sum >= target {
+                result = min(result, j - i + 1)
                 sum -= nums[i]
+                i += 1
             }
         }
-        return res == Int.max ? 0 : res;
+        return result == Int.max ? 0 : result
     }
     
     func removeDuplicates(nums: inout [Int]) -> Int {
@@ -1102,6 +1100,319 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         return longString
     }
     
+    
+    func longestPalindromeII(s: String) -> String {
+        var maxLenght: Int = Int.min
+        var strs: [Character] = Array(s)
+        let count: Int = strs.count
+        var left: Int = 0
+        var dp:[[Bool]] = Array(repeating: Array(repeating: false, count: count), count: count)
+        for i in stride(from: count - 1, through:  0, by: -1) {
+            for j in i..<count {
+                if strs[i] == strs[j] && ((j - i <= 1) || dp[i + 1] [j - 1]) {
+                    dp[i][j] = true
+                }
+                if dp[i][j] && (j - i + 1 > maxLenght) {
+                    maxLenght = j - i + 1
+                    left = i
+                }
+            }
+        }
+        return String(strs[left..<(left + maxLenght)])
+    }
+    
+    func lengthOfLongestSubstring(_ s: String) -> Int {
+        var len: Int = 0
+        var left: Int = 0
+        var dict:[Character: Int] = [:]
+        var chs: [Character] = Array(s)
+        for (i, ch) in chs.enumerated() {
+            if let index = dict[ch] {
+                left = max(left,index + 1)
+            }
+            len = max(len, i - left + 1)
+            dict[ch] = i
+        }
+        return len
+    }
+    
+    func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        var dummy: ListNode = ListNode(0)
+        var tail: ListNode? = dummy
+        var carry: Int = 0
+        var list1: ListNode? = l1
+        var list2: ListNode? = l2
+        
+        while list1 != nil || list2 != nil  ||  carry != 0 {
+            let a: Int = list1 !=  nil ? list1!.val : 0
+            let b: Int = list2 !=  nil ? list2!.val : 0
+            let sum = a + b + carry
+            let newNode = ListNode(sum % 10)
+            carry = sum / 10
+            tail?.next = newNode
+            tail = tail?.next
+            if list1 != nil {
+                list1 = list1?.next
+            }
+            if list2 != nil {
+                list2 = list2?.next
+            }
+        }
+        return dummy.next
+    }
+    
+    func twoSumII(_ nums: [Int], _ target: Int) -> [Int] {
+        var dict: [Int: Int] = [:]
+        for (i, num) in nums.enumerated() {
+            if let index = dict[target - num] {
+                return [index, i]
+            }
+            dict[num] = i
+        }
+        return  [-1,-1]
+    }
+    
+    func myAtoiII(_ s: String) -> Int {
+        var str: String = s.trimmingCharacters(in: .whitespaces)
+        if str.isEmpty {
+            return 0
+        }
+        var sign: Int = 1
+        var num: Int = 0
+        let first: Character = str.first!
+        if first == "+" || first == "-" {
+            if first == "-" {
+                sign = -1
+            }
+            str.removeFirst()
+        }
+        for ch in str {
+            if let digit = ch.wholeNumberValue {
+                num += 10 + digit
+                if num >= Int.max {
+                    return sign == 1 ? Int.max : Int.min
+                }
+            } else {
+                break
+            }
+        }
+        return sign * num
+    }
+    
+    func isValidII(_ s: String) -> Bool {
+        if s.isEmpty {
+            return false
+        }
+        var stack: [Character] = []
+        let dic:[Character : Character] = ["}":"{" , ")": "(", "]":"["]
+        for ch in s {
+            if let ch1 = dic[ch] {
+                if stack.isEmpty {
+                    return false
+                }
+                if let top = stack.last, top != ch1 {
+                    stack.removeLast()
+                }
+            } else {
+                stack.append(ch)
+            }
+        }
+        return stack.isEmpty
+    }
+    
+    func removeNthFromEndII(_ head: ListNode?, _ n: Int) -> ListNode? {
+        let dummy:ListNode = ListNode()
+        dummy.next = head
+        var fast: ListNode? = dummy
+        var slow: ListNode? = dummy
+        var n: Int = n
+        while  n > 0{
+            fast = fast?.next
+            n -= 1
+        }
+        while fast?.next !=  nil  {
+            fast = fast?.next
+            slow = slow?.next
+        }
+        slow?.next = slow?.next?.next
+        return dummy.next
+     }
+    
+    func removeNthFromEndIII(_ head: ListNode?, _ n: Int) -> ListNode? {
+        let dummy:ListNode = ListNode()
+        dummy.next = head
+        var fast: ListNode? = dummy
+        var slow: ListNode? = dummy
+        var n: Int = n
+        while  n > 0{
+            fast = fast?.next
+            n -= 1
+        }
+        while fast?.next !=  nil  {
+            fast = fast?.next
+            slow = slow?.next
+        }
+        slow?.next = slow?.next?.next
+        return dummy.next
+     }
+    
+    func reverseList(_ head: ListNode?) -> ListNode? {
+        guard let root = head, root.next !=  nil  else {
+            return head
+        }
+        let node = reverseList(root.next)
+        root.next?.next = root
+        root.next = nil
+        return node
+    }
+    
+    func reverseListIteration(_ head: ListNode?) -> ListNode? {
+        if head == nil || head?.next == nil {
+            return head
+        }
+        var pre: ListNode? = nil
+        var node: ListNode? = head
+        while node != nil {
+            var next = node?.next
+            node?.next = pre
+            pre = node
+            node = next
+        }
+        return pre
+    }
+    
+    func isSameTree(_ p: TreeNode?, _ q: TreeNode?) -> Bool {
+        if p == nil && q == nil {
+            return true
+        }
+        if p == nil || q == nil {
+              return false
+           }
+        if let p = p, let q = q , p.val != q.val {
+            return false
+        }
+        return isSameTree(p?.left, q?.left) && isSameTree(p?.right, q?.right)
+      }
+    
+    
+    func isSymmetric(_ root: TreeNode?) -> Bool {
+        func check(_ left: TreeNode?, _ right: TreeNode?) ->Bool {
+            if left == nil && right == nil {
+                return true
+            }
+            if left == nil || right == nil {
+                return false
+            }
+            return left!.val == right!.val && check(left?.left, right?.right) && check(left?.right, right?.left)
+        }
+        return check(root, root)
+    }
+    
+    func numDecodings(_ s: String) -> Int {
+        if s.isEmpty {
+            return 0
+        }
+        let sChars:[Character] = Array(s)
+        var dp1: Int = 1
+        var dp: Int = sChars[0] == "0" ? 0 : 1
+        for i in 1..<sChars.count {
+            var newDp = 0
+            if let oneDidigt:Int = sChars[i].wholeNumberValue, oneDidigt >= 1 {
+                newDp += dp
+            }
+            if let twoDidigt:Int = Int(String(sChars[(i-1)...i])), twoDidigt >= 10 && twoDidigt <= 26 {
+                newDp += dp1
+            }
+            dp1 = dp
+            dp = newDp
+       }
+       return dp
+    }
+    
+    func isValidBST(_ root: TreeNode?) -> Bool {
+        var pre:TreeNode? = nil
+        
+        func isValid(_ root: TreeNode?) -> Bool {
+            guard let root = root else {
+                return true
+            }
+            let isLeft:Bool = isValid(root.left)
+            if let pre = pre, pre.val >= root.val {
+                return false
+            }
+            pre = root
+            let isRight :Bool = isValid(root.right)
+            return isLeft && isRight
+        }
+        return isValid(root)
+    }
+    
+    func isPalindrome(_ x: Int) -> Bool {
+        if x <= 0 || (x % 10 == 0 && x != 0) {
+            return false
+        }
+        var x: Int = x
+        var res: Int = 0
+        while x > res {
+            res = res * 10 + x % 10
+            x /= 10
+        }
+        return x == res || res / 10 == x
+    }
+  
+    
+    func threeSumII(_ nums: [Int]) -> [[Int]] {
+        var nums:[Int] = nums.sorted()
+        let count: Int = nums.count
+        var res:[[Int]] = []
+        for (i, a) in  nums.enumerated() {
+            if i > 0 && a == nums[i - 1] {
+                continue
+            }
+            var thrid: Int = count - 1
+            var target = -a
+            for j in (i + 1)..<count {
+                if (j > i + 1) && nums[j] == nums[j - 1] {
+                    continue
+                }
+                while j < thrid && nums[j] + nums[thrid] > target {
+                    thrid -= 1
+                }
+                if thrid == j {
+                    break
+                }
+                if nums[j] + nums[thrid] == target {
+                    res.append([a,nums[j],nums[thrid]])
+                }
+            }
+        }
+        return res
+    }
+
+
+    func isValidBSTiteration(_ root: TreeNode?) -> Bool {
+        var pre:TreeNode? = nil
+        if root == nil {
+            return true
+        }
+        var cur: TreeNode? = root
+        var stack: [TreeNode] = []
+        while cur != nil || !stack.isEmpty {
+            if  cur != nil {
+                stack.append(cur!)
+                cur = cur?.left
+            } else {
+                cur = stack.removeLast()
+                if let pre = pre, let cur = cur, pre.val >= cur.val {
+                    return false
+                }
+                pre = cur
+                cur = cur?.right
+            }
+        }
+        return true
+    }
+    
     func reverse(_ x: Int) -> Int {
         var x = x
         var revers: Int = 0
@@ -1280,8 +1591,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         return (tail, head)
     }
     
+    
+    nonisolated(unsafe)
     func method1()  {
-        var local = NSLock()
+        let local = NSLock()
         var i = 0
         local.lock()
         i += 1
@@ -1307,6 +1620,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         return  (-1,-1)
     }
+    
     func twoSumNumer(nums:[Int], target: Int) -> (Int,Int) {
         var dict: [Int : Any] = [:]
         for (index, num) in nums.enumerated() {
@@ -1462,7 +1776,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func search(_ nums: [Int], _ target: Int) -> Int {
-       
         let length: Int = nums.count
         let first: Int = nums.first ?? 0
         var left: Int = 0
@@ -1583,7 +1896,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    func myAtoiII( _ s: String) -> Int {
+    func myAtoiIII( _ s: String) -> Int {
         var str = s.trimmingCharacters(in: .whitespaces)
         if str.isEmpty {
             return 0

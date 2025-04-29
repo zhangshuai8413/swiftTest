@@ -49,11 +49,6 @@ func reverseListNode(_ head: ListNode?) -> ListNode? {
     return reverseListNode(nil, head)
 }
 
-
-
-
-
-
 class ListNoteViewController: BaseTableViewController {
 
     override func viewDidLoad() {
@@ -233,7 +228,7 @@ class ListNoteViewController: BaseTableViewController {
     }
     
     func addTwoNumbers(_ l1: ListNode? , _ l2: ListNode?) -> ListNode? {
-        var dummy: ListNode = ListNode()
+        let dummy: ListNode = ListNode()
         var tail: ListNode? = dummy
         var carray: Int = 0
         var list1: ListNode? = l1
@@ -241,7 +236,7 @@ class ListNoteViewController: BaseTableViewController {
         while list1 != nil  || list2 != nil  || carray > 0 {
             let a: Int = list1 != nil ? list1!.val : 0
             let b: Int = list1 != nil ? list1!.val : 0
-            var sum = a + b + carray
+            let sum = a + b + carray
             tail?.next = ListNode(sum % 10)
             tail = tail?.next
             carray = sum / 10
@@ -251,6 +246,26 @@ class ListNoteViewController: BaseTableViewController {
             if list1?.next != nil {
                 list2 = list2?.next
             }
+        }
+        return dummy.next
+    }
+    //  pre  start  current
+      
+    //  pre current  start
+    func reverseBetween(_ head: ListNode?, _ left: Int, _ right: Int) -> ListNode? {
+        let dummy = ListNode(0)
+        dummy.next = head
+        var pre: ListNode? = dummy
+        for _ in 0..<left-1 {
+            pre = pre?.next
+        }
+        let reverseStart = pre?.next        // 要开始反转的第一个节点
+        var current = reverseStart?.next    // 反转区里正在处理的节点
+        for _ in 0..<(right-left) {
+            reverseStart?.next = current?.next
+            current?.next = pre?.next
+            pre?.next = current
+            current = reverseStart?.next
         }
         return dummy.next
     }

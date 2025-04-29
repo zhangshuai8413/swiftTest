@@ -9,6 +9,10 @@
 
 @implementation BrideCPlusManger (a)
 
+
+//+ (void)initialize {
+//    NSLog(@"BrideCPlusManger initialize");
+//}
 + (void)load {
     NSLog(@"BrideCPlusManger a");
 }
@@ -17,7 +21,7 @@
     NSLog(@"test1 -----a");
 }
 +(void)testLoad {
-    NSLog(@"test-------testLoad");
+    NSLog(@"test-------testtest---");
 }
 
 @end

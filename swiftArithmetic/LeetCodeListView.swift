@@ -24,8 +24,6 @@ enum DynamicProgram: Int {
 
 
 struct LeetCodeListView: View {
-
-    
     
     var dataSources: [Item] = [Item(id: .weight01, title: "01背包"),
                                Item(id: .weight01Array1, title: "01背包一维数组"),
@@ -36,7 +34,6 @@ struct LeetCodeListView: View {
     ]
     var body: some View {
         VStack {
-//
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
@@ -54,7 +51,6 @@ struct LeetCodeListView: View {
  
     
     func addOCBrige(index: DynamicProgram) {
-        
 //        print("addOCBrie  \(index) \n")
         let ocBrige = BrideCPlusManger()
         ocBrige.testString()
@@ -71,14 +67,11 @@ struct LeetCodeListView: View {
 //        case .quikSort:
 //            ocBrige.quickSort()
 //        }
-
 //        let input = "apple banana apple cherry banana apple"
 //        if let result = findMostFrequentString(input: input) {
 //            print(result) // 输出：apple
 //        }
-//
 //        print("aa------\(aa)")
-        
     }
     
     func getAllSwiftClasses() -> [String] {
@@ -101,7 +94,6 @@ struct LeetCodeListView: View {
         }
         
         classesBuffer.deallocate()
-        
         return classes
     }
     
@@ -109,12 +101,9 @@ struct LeetCodeListView: View {
     func findMostFrequentString(input: String) -> String? {
        var frequencyDict: [String: Int] = [:]
        var firstOccurrenceDict: [String: Int] = [:]
-       
        let words = input.components(separatedBy: " ")
-       
        for (index, word) in words.enumerated() {
            frequencyDict[word, default: 0] += 1
-           
            if firstOccurrenceDict[word] == nil {
                firstOccurrenceDict[word] = index
            }
@@ -122,11 +111,9 @@ struct LeetCodeListView: View {
        
        let mostFrequentWord = frequencyDict.max { $0.value < $1.value }
        var result: String?
-       
        if let word = mostFrequentWord {
            var minIndex = firstOccurrenceDict[word.key] ?? 0
            let maxIndex = firstOccurrenceDict[word.key] ?? 0
-           
            for (key, value) in firstOccurrenceDict {
                if frequencyDict[key] == word.value && value < minIndex {
                    minIndex = value
@@ -134,7 +121,6 @@ struct LeetCodeListView: View {
                }
            }
        }
-       
        return result
     }
     

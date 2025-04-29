@@ -55,7 +55,7 @@ class ArrayViewController: BaseTableViewController {
     func quikSorted() {
         print("begin")
         var nums:[Int] = [1,3,5,7,10,5,7,24,5,6]
-        quickSort(nums: &nums, low: 0, high: nums.count - 1)
+        quickSort(&nums, low: 0, high: nums.count - 1)
         print("nums-----\(nums)")
     }
     
@@ -72,26 +72,24 @@ class ArrayViewController: BaseTableViewController {
         return Array(nums[0..<slow])
     }
 
-    func quickSort(nums: inout [Int], low: Int, high: Int) {
-        if low >= high { // 递归结束条件
-            return
-        }
-        var i: Int = low
-        var j: Int = high
-        let key: Int = nums[i]
+    func quickSort(_ nums: inout [Int], low: Int, high: Int) {
+        guard low < high else { return }
+        var i = low
+        var j = high
+        let pivot = nums[low]
         while i < j {
-            while i < j && nums[j] >= key {
+            while i < j && nums[j] >= pivot {
                 j -= 1
             }
             nums[i] = nums[j]
-            while i < j && nums[i] <= key {
+            while i < j && nums[i] <= pivot {
                 i += 1
             }
             nums[j] = nums[i]
         }
-        nums[i] = key
-        quickSort(nums: &nums, low: low, high: i - 1)
-        quickSort(nums: &nums, low: i + 1, high: high)
+        nums[i] = pivot
+        quickSort(&nums, low: low, high: i - 1)
+        quickSort(&nums, low: i + 1, high: high)
     }
 }
 
@@ -157,7 +155,7 @@ func threeSumClosest(_ nums: [Int], _ target: Int) -> Int {
 }
 
 
-var meetingCount: Int = 0
+nonisolated(unsafe) var meetingCount: Int = 0
 
 func minMeetings(_ meetings:[[Int]]) -> Int {
     if meetings.isEmpty {
