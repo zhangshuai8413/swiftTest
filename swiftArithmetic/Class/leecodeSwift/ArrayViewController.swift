@@ -185,6 +185,21 @@ func minMeetings(_ meetings:[[Int]]) -> Int {
 
 }
 
+func merge(_ intervals: [[Int]]) -> [[Int]] {
+    guard !intervals.isEmpty else { return [] }
+    let sortIntervals = intervals.sorted { $0[0] < $1[0]}
+    var merge:[[Int]] =  [sortIntervals[0]]
+    for current in sortIntervals[1...] {
+        var last = merge.removeLast()
+        if current[0] < last[1] {
+            last[1] = max(current[1], last[1])
+        } else {
+            merge.append(current)
+        }
+    }
+    return merge
+}
+
 func generateMatrix(_ n: Int) -> [[Int]] {
     var matrix:[[Int]] = Array(repeating: Array(repeating: 0, count: n), count: n)
     let maxNum = n * n
