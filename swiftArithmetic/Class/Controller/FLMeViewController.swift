@@ -37,7 +37,7 @@ func test1() {
     }
 }
 
-var sharedVariable: Int = 0
+nonisolated(unsafe) var sharedVariable: Int = 0
 
 func testmethod()  {
     for _ in 0..<10 {
