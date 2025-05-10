@@ -49,11 +49,6 @@ func reverseListNode(_ head: ListNode?) -> ListNode? {
     return reverseListNode(nil, head)
 }
 
-
-
-
-
-
 class ListNoteViewController: BaseTableViewController {
 
     override func viewDidLoad() {
@@ -256,7 +251,7 @@ class ListNoteViewController: BaseTableViewController {
     }
     //  pre  start  current
       
-    // pre current  start
+    //  pre current  start
     func reverseBetween(_ head: ListNode?, _ left: Int, _ right: Int) -> ListNode? {
         let dummy = ListNode(0)
         dummy.next = head

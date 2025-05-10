@@ -173,10 +173,10 @@
 				5BC8F0F22A7E4F9D003BF9E6 /* BrideCPlusManger+a.h */,
 				5BC8F0F32A7E4F9D003BF9E6 /* BrideCPlusManger+a.m */,
 				5BC8F0F52A7E4FBD003BF9E6 /* BrideCPlusManger+B.h */,
+				5BC8F0F62A7E4FBD003BF9E6 /* BrideCPlusManger+B.m */,
 				5BDD82A82ABAE0D200171D8B /* Person.h */,
 				5BDD82A92ABAE0D200171D8B /* Person.m */,
 				5B26D4B42A1A6C8D00EDCA2F /* swiftArithmeticApp.swift */,
-				5BC8F0F62A7E4FBD003BF9E6 /* BrideCPlusManger+B.m */,
 				5BE297032A59526D001EF7E2 /* TarBarViewController.swift */,
 				5B26D4B62A1A6C8D00EDCA2F /* LeetCodeListView.swift */,
 				5BDCED712AA31E870058171D /* Youdao.json */,
@@ -592,7 +592,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftArithmetic/swiftArithmetic-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -628,7 +628,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftArithmetic/swiftArithmetic-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

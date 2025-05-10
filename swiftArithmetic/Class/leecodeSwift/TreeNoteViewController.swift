@@ -17,13 +17,9 @@ class TreeNoteViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    
-        
         var  lefttree = BinaryTree.val(1)
         var  root = BinaryTree.right(BinaryTree.val(2))
-        
-
+    
     }
     
     func lowestCommonAncestor(_ root: TreeNode?, _ p: TreeNode?, _ q: TreeNode?) -> TreeNode? {
@@ -146,3 +142,33 @@ func postorderTraversal2(_ root: TreeNode?) -> [Int] {
  }
 
 
+func isSymmetry(tree: TreeNode?) -> Bool {
+    if  tree == nil {
+        return true
+    }
+    func symmetry(left: TreeNode? ,right: TreeNode?) -> Bool {
+        if left != nil && right == nil {
+            return false
+        } else if left == nil && right != nil {
+            return false
+        } else if left?.val != right?.val {
+            return false
+        }
+        
+        return symmetry(left: left?.left, right: right?.right) && symmetry(left: left?.right, right: right?.left)
+    }
+    return symmetry(left: tree?.left, right: tree?.right)
+}
+
+func maxPathSum(tree: TreeNode?) -> Int {
+    var maxSum: Int = Int.min
+    func greatPathSum(tree: TreeNode?) -> Int {
+        guard let node = tree else { return 0 }
+        let left = max(0, greatPathSum(tree: node.left))
+        let right = max(0, greatPathSum(tree: node.right))
+        maxSum = max(maxSum, left + right + node.val)
+        return max(left, right) + node.val
+    }
+   _ =  greatPathSum(tree: tree)
+    return maxSum
+}
