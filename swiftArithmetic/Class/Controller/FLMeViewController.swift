@@ -336,58 +336,58 @@ struct LearningHistoryView: View {
 
 struct StatisticsDetailView: View {
     var body: some View {
-        DetailNavigationView(title: "统计详情") {
-            ScrollView {
-                VStack(spacing: 20) {
-                    // 总体统计
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text("总体统计").font(.headline).fontWeight(.bold)
-                        LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 16) {
-                            StatCard(title: "总学习时长", value: "265分钟", icon: "clock", color: .blue)
-                            StatCard(title: "连续学习", value: "12天", icon: "flame", color: .orange)
-                            StatCard(title: "完成题目", value: "89题", icon: "checkmark.circle", color: .green)
-                            StatCard(title: "正确率", value: "85%", icon: "percent", color: .purple)
-                        }
+        ScrollView {
+            VStack(spacing: 20) {
+                // 总体统计
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("总体统计").font(.headline).fontWeight(.bold)
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 16) {
+                        StatCard(title: "总学习时长", value: "265分钟", icon: "clock", color: .blue)
+                        StatCard(title: "连续学习", value: "12天", icon: "flame", color: .orange)
+                        StatCard(title: "完成题目", value: "89题", icon: "checkmark.circle", color: .green)
+                        StatCard(title: "正确率", value: "85%", icon: "percent", color: .purple)
                     }
-                    .padding()
-                    .background(CardBackground())
-                    
-                    // 算法分类统计
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text("算法分类统计").font(.headline).fontWeight(.bold)
-                        VStack(spacing: 12) {
-                            AlgorithmProgressRow(name: "数组算法", progress: 0.8, count: 25)
-                            AlgorithmProgressRow(name: "链表操作", progress: 0.6, count: 18)
-                            AlgorithmProgressRow(name: "树结构", progress: 0.4, count: 12)
-                            AlgorithmProgressRow(name: "动态规划", progress: 0.9, count: 30)
-                            AlgorithmProgressRow(name: "贪心算法", progress: 0.7, count: 22)
-                        }
-                    }
-                    .padding()
-                    .background(CardBackground())
-                    
-                    // 学习趋势
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text("学习趋势").font(.headline).fontWeight(.bold)
-                        HStack(alignment: .bottom, spacing: 8) {
-                            ForEach(0..<7, id: \.self) { index in
-                                VStack {
-                                    RoundedRectangle(cornerRadius: 4)
-                                        .fill(Color.blue)
-                                        .frame(width: 30, height: CGFloat(20 + index * 5))
-                                    Text("D\(index + 1)").font(.caption2).foregroundColor(.secondary)
-                                }
-                            }
-                        }
-                        .frame(height: 100)
-                        .padding(.top, 8)
-                    }
-                    .padding()
-                    .background(CardBackground())
                 }
                 .padding()
+                .background(CardBackground())
+                
+                // 算法分类统计
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("算法分类统计").font(.headline).fontWeight(.bold)
+                    VStack(spacing: 12) {
+                        AlgorithmProgressRow(name: "数组算法", progress: 0.8, count: 25)
+                        AlgorithmProgressRow(name: "链表操作", progress: 0.6, count: 18)
+                        AlgorithmProgressRow(name: "树结构", progress: 0.4, count: 12)
+                        AlgorithmProgressRow(name: "动态规划", progress: 0.9, count: 30)
+                        AlgorithmProgressRow(name: "贪心算法", progress: 0.7, count: 22)
+                    }
+                }
+                .padding()
+                .background(CardBackground())
+                
+                // 学习趋势
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("学习趋势").font(.headline).fontWeight(.bold)
+                    HStack(alignment: .bottom, spacing: 8) {
+                        ForEach(0..<7, id: \.self) { index in
+                            VStack {
+                                RoundedRectangle(cornerRadius: 4)
+                                    .fill(Color.blue)
+                                    .frame(width: 30, height: CGFloat(20 + index * 5))
+                                Text("D\(index + 1)").font(.caption2).foregroundColor(.secondary)
+                            }
+                        }
+                    }
+                    .frame(height: 100)
+                    .padding(.top, 8)
+                }
+                .padding()
+                .background(CardBackground())
             }
+            .padding()
         }
+        .toolbar(.hidden, for: .tabBar)
+    
     }
 }
 
@@ -452,7 +452,7 @@ struct HelpFeedbackView: View {
                     .background(CardBackground())
                 }
                 .padding()
-            }
+            }.navigationBarHidden(true)
         }
     }
 }
@@ -507,6 +507,7 @@ struct AboutUsView: View {
                 }
                 .padding()
             }
+           
         }
     }
 }
