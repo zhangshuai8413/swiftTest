@@ -21,7 +21,7 @@
     NSLog(@"test1 -----a");
 }
 +(void)testLoad {
-    NSLog(@"test-------testLoad");
+    NSLog(@"test-------testtest---");
 }
 
 @end
