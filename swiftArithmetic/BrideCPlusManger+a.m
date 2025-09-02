@@ -23,5 +23,8 @@
 +(void)testLoad {
     NSLog(@"test-------testLoad");
 }
++(void)testLoad1 {
+    NSLog(@"test-------testLoad1");
+}
 
 @end
