@@ -927,9 +927,6 @@ class RemoveDuplicatesII {
 public:
     int removeDuplicates(vector<int>& nums) {
         int n = (int)nums.size();
-        if (n <= 2) {
-            return n;
-        }
         int slow = 2, fast = 2;
         while (fast < n) {
             if (nums[slow - 2] != nums[fast]) {
