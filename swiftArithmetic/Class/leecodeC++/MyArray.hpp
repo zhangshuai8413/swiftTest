@@ -22,9 +22,6 @@ public:
         while (p >= 0 && q >=0) {
             nums1[k--] = nums1[p] > nums2[q] ? nums1[p--] : nums2[q--];
         }
-        while (q >= 0) {
-            nums1[k--] = nums2[q--];
-        }
     }
 };
 
