@@ -182,6 +182,17 @@ struct FLSettingController: View {
                     ) {
                         Toggle("", isOn: $isNotificationsEnabled)
                     }
+
+                    SettingRowView(
+                        icon: "faceid",
+                        title: "FingerprintJS 测试",
+                        subtitle: "生成设备指纹",
+                        color: .indigo
+                    ) {
+                        NavigationLink(destination: FingerprintTestView()) {
+                            EmptyView()
+                        }
+                    }
                 }
             }
             .navigationTitle("设置")

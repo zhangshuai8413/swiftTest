@@ -12,32 +12,29 @@ struct TarBarViewController: View {
     
     var body: some View {
         TabView(selection: $selectedTabIndex) {
-          FLHomeViewController()
-            .tag(0) // 3
-            .tabItem {
-                Label("Home", systemImage: "house")
-            }
-
+            FLHomeViewController()
+                .tag(0) // 3
+                .tabItem {
+                    Label("Home", systemImage: "house")
+                }
+            
             LeetCodeListView()
-            .tag(1)
+                .tag(1)
+                .tabItem {
+                    Label("leecode", systemImage: "magnifyingglass")
+                }
             
-            .tabItem {
-                Label("leecode", systemImage: "magnifyingglass")
-            }
-            
-           FLMeViewController()
-            .tag(2)
-            
-            .tabItem {
-                Label("me", systemImage: "bell")
-            }
+            FLMeViewController()
+                .tag(2)
+                .tabItem {
+                    Label("me", systemImage: "bell")
+                }
             
             FLSettingController()
-            .tag(3)
-            
-            .tabItem {
-                Label("Settings", systemImage: "gearshape")
-            }
+                .tag(3)
+                .tabItem {
+                    Label("Settings", systemImage: "gearshape")
+                }
         }
     }
 }

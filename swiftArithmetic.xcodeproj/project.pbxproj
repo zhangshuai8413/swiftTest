@@ -50,6 +50,7 @@
 		5BE297012A595028001EF7E2 /* FLMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FD2A595028001EF7E2 /* FLMeViewController.swift */; };
 		5BE297022A595028001EF7E2 /* FLHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FE2A595028001EF7E2 /* FLHomeViewController.swift */; };
 		5BE297042A59526D001EF7E2 /* TarBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297032A59526D001EF7E2 /* TarBarViewController.swift */; };
+		1A2B3C4D5E6F708192A3B4C5 /* FingerprintTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4A1B2C3D4E5F6012345678 /* FingerprintTestView.swift */; };
 		5BE297082A59558E001EF7E2 /* FLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297072A59558E001EF7E2 /* FLData.swift */; };
 		5BE297172A5A4702001EF7E2 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297162A5A4702001EF7E2 /* Course.swift */; };
 		5BE297192A5A4896001EF7E2 /* CourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297182A5A4896001EF7E2 /* CourseList.swift */; };
@@ -123,6 +124,7 @@
 		5BE296FD2A595028001EF7E2 /* FLMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLMeViewController.swift; sourceTree = "<group>"; };
 		5BE296FE2A595028001EF7E2 /* FLHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLHomeViewController.swift; sourceTree = "<group>"; };
 		5BE297032A59526D001EF7E2 /* TarBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarBarViewController.swift; sourceTree = "<group>"; };
+		6F4A1B2C3D4E5F6012345678 /* FingerprintTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintTestView.swift; sourceTree = "<group>"; };
 		5BE297072A59558E001EF7E2 /* FLData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLData.swift; sourceTree = "<group>"; };
 		5BE297162A5A4702001EF7E2 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		5BE297182A5A4896001EF7E2 /* CourseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseList.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				5BDD82A92ABAE0D200171D8B /* Person.m */,
 				5B26D4B42A1A6C8D00EDCA2F /* swiftArithmeticApp.swift */,
 				5BE297032A59526D001EF7E2 /* TarBarViewController.swift */,
+				6F4A1B2C3D4E5F6012345678 /* FingerprintTestView.swift */,
 				5B26D4B62A1A6C8D00EDCA2F /* LeetCodeListView.swift */,
 				5BDCED712AA31E870058171D /* Youdao.json */,
 				5B26D4BA2A1A6C8E00EDCA2F /* Preview Content */,
@@ -448,13 +451,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-swiftArithmetic/Pods-swiftArithmetic-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-swiftArithmetic/Pods-swiftArithmetic-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -497,6 +496,7 @@
 				5B26D4EC2A1A6D2600EDCA2F /* TreeNode.cpp in Sources */,
 				5BE296FF2A595028001EF7E2 /* FLSettingController.swift in Sources */,
 				5BE297042A59526D001EF7E2 /* TarBarViewController.swift in Sources */,
+				1A2B3C4D5E6F708192A3B4C5 /* FingerprintTestView.swift in Sources */,
 				5B26D4DC2A1A6CC600EDCA2F /* ArrayViewController.swift in Sources */,
 				5B26D4DB2A1A6CC600EDCA2F /* KnapsackViewController.swift in Sources */,
 				842B2EF52A70A5C800ECDC3A /* MonotoneStack.cpp in Sources */,
@@ -648,7 +648,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"swiftArithmetic/Preview Content\"";
-				DEVELOPMENT_TEAM = 95U7UBQYXE;
+				DEVELOPMENT_TEAM = 6TVV8SZDLZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -662,8 +662,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Alan.Zhangshuai.test.swiftArithmetic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Alan.test.swiftArithmetic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
@@ -686,7 +687,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"swiftArithmetic/Preview Content\"";
-				DEVELOPMENT_TEAM = 95U7UBQYXE;
+				DEVELOPMENT_TEAM = 6TVV8SZDLZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -700,8 +701,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Alan.Zhangshuai.test.swiftArithmetic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Alan.test.swiftArithmetic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
