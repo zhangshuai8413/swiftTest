@@ -56,9 +56,11 @@
 		5BE2971B2A5A4CA0001EF7E2 /* CoursePart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2971A2A5A4CA0001EF7E2 /* CoursePart.swift */; };
 		5BE2971E2A5A9404001EF7E2 /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2971D2A5A9404001EF7E2 /* BaseWebView.swift */; };
 		5BE297272A5A94C6001EF7E2 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297262A5A94C6001EF7E2 /* Repository.swift */; };
+		6D0578D32F73C11200F3C719 /* ABoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0578D22F73C11200F3C719 /* ABoutViewController.m */; };
 		842B2EF52A70A5C800ECDC3A /* MonotoneStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842B2EF32A70A5C800ECDC3A /* MonotoneStack.cpp */; };
 		84C785F72A4BB4C7007DC50F /* DynamicProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */; };
 		84D6BD502A734A9D00E781D3 /* Graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D6BD4E2A734A9D00E781D3 /* Graph.cpp */; };
+		E44C7A4A89D62C56D3FE9A98 /* Pods_swiftArithmetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32F718F9359A2200A0B40E8 /* Pods_swiftArithmetic.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,12 +129,17 @@
 		5BE2971A2A5A4CA0001EF7E2 /* CoursePart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursePart.swift; sourceTree = "<group>"; };
 		5BE2971D2A5A9404001EF7E2 /* BaseWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebView.swift; sourceTree = "<group>"; };
 		5BE297262A5A94C6001EF7E2 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		6D0578D12F73C11200F3C719 /* ABoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABoutViewController.h; sourceTree = "<group>"; };
+		6D0578D22F73C11200F3C719 /* ABoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABoutViewController.m; sourceTree = "<group>"; };
 		842B2EF32A70A5C800ECDC3A /* MonotoneStack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MonotoneStack.cpp; sourceTree = "<group>"; };
 		842B2EF42A70A5C800ECDC3A /* MonotoneStack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MonotoneStack.hpp; sourceTree = "<group>"; };
 		84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DynamicProgram.cpp; sourceTree = "<group>"; };
 		84C785F62A4BB4C7007DC50F /* DynamicProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DynamicProgram.hpp; sourceTree = "<group>"; };
 		84D6BD4E2A734A9D00E781D3 /* Graph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Graph.cpp; sourceTree = "<group>"; };
 		84D6BD4F2A734A9D00E781D3 /* Graph.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Graph.hpp; sourceTree = "<group>"; };
+		C32F718F9359A2200A0B40E8 /* Pods_swiftArithmetic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftArithmetic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4B2C2CBF9F6FEA39C5851C9 /* Pods-swiftArithmetic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftArithmetic.release.xcconfig"; path = "Target Support Files/Pods-swiftArithmetic/Pods-swiftArithmetic.release.xcconfig"; sourceTree = "<group>"; };
+		F56CE4CF1D3F73794C036242 /* Pods-swiftArithmetic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftArithmetic.debug.xcconfig"; path = "Target Support Files/Pods-swiftArithmetic/Pods-swiftArithmetic.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,17 +147,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E44C7A4A89D62C56D3FE9A98 /* Pods_swiftArithmetic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CC6F82E33A4A812921A6529 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F56CE4CF1D3F73794C036242 /* Pods-swiftArithmetic.debug.xcconfig */,
+				C4B2C2CBF9F6FEA39C5851C9 /* Pods-swiftArithmetic.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		5B26D4A82A1A6C8D00EDCA2F = {
 			isa = PBXGroup;
 			children = (
 				5B26D4B32A1A6C8D00EDCA2F /* swiftArithmetic */,
 				5B26D4B22A1A6C8D00EDCA2F /* Products */,
+				3CC6F82E33A4A812921A6529 /* Pods */,
+				ADABFFFD76BD4E9DA388732E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,6 +276,8 @@
 				5BE296FC2A595028001EF7E2 /* FLArithmeticViewController.swift */,
 				5BE296FE2A595028001EF7E2 /* FLHomeViewController.swift */,
 				5BC238382A5B05DC00D083AB /* FLCourseDetailView.swift */,
+				6D0578D12F73C11200F3C719 /* ABoutViewController.h */,
+				6D0578D22F73C11200F3C719 /* ABoutViewController.m */,
 				5BE296FD2A595028001EF7E2 /* FLMeViewController.swift */,
 				5BE296FB2A595028001EF7E2 /* FLSettingController.swift */,
 			);
@@ -311,6 +332,14 @@
 			path = Mode;
 			sourceTree = "<group>";
 		};
+		ADABFFFD76BD4E9DA388732E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C32F718F9359A2200A0B40E8 /* Pods_swiftArithmetic.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -318,9 +347,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B26D4BF2A1A6C8E00EDCA2F /* Build configuration list for PBXNativeTarget "swiftArithmetic" */;
 			buildPhases = (
+				501E30F0E53B2A5F961EDC7E /* [CP] Check Pods Manifest.lock */,
 				5B26D4AD2A1A6C8D00EDCA2F /* Sources */,
 				5B26D4AE2A1A6C8D00EDCA2F /* Frameworks */,
 				5B26D4AF2A1A6C8D00EDCA2F /* Resources */,
+				B813D82D00AA46366D1EF049 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -386,12 +417,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		501E30F0E53B2A5F961EDC7E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-swiftArithmetic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B813D82D00AA46366D1EF049 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-swiftArithmetic/Pods-swiftArithmetic-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-swiftArithmetic/Pods-swiftArithmetic-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swiftArithmetic/Pods-swiftArithmetic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5B26D4AD2A1A6C8D00EDCA2F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5BC22D7F2ABEAFE900E42098 /* PriorityQueue.cpp in Sources */,
+				6D0578D32F73C11200F3C719 /* ABoutViewController.m in Sources */,
 				5BC8F0F42A7E4F9D003BF9E6 /* BrideCPlusManger+a.m in Sources */,
 				5BC8F0F72A7E4FBD003BF9E6 /* BrideCPlusManger+B.m in Sources */,
 				5BDCED5C2A90DDCB0058171D /* DoublePointer.cpp in Sources */,
@@ -561,6 +639,7 @@
 		};
 		5B26D4C02A1A6C8E00EDCA2F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F56CE4CF1D3F73794C036242 /* Pods-swiftArithmetic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -599,6 +678,7 @@
 		};
 		5B26D4C12A1A6C8E00EDCA2F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4B2C2CBF9F6FEA39C5851C9 /* Pods-swiftArithmetic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
