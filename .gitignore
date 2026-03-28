@@ -3,3 +3,6 @@
 # CocoaPods
 Pods/
 
+# SwiftPM（Xcode 克隆依赖目录，如 -clonedSourcePackagesDirPath）
+SourcePackages/
+

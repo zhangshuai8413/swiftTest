@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A2B3C4D5E6F708192A3B4C5 /* FingerprintTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4A1B2C3D4E5F6012345678 /* FingerprintTestView.swift */; };
 		2B89270B2BD356FD005744AA /* UIKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B89270A2BD356FD005744AA /* UIKitView.swift */; };
 		5B1E2C022A2F864000096D0D /* BackTrack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E2C002A2F864000096D0D /* BackTrack.cpp */; };
 		5B1E2C052A3764DC00096D0D /* Greedy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E2C032A3764DC00096D0D /* Greedy.cpp */; };
@@ -50,7 +51,6 @@
 		5BE297012A595028001EF7E2 /* FLMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FD2A595028001EF7E2 /* FLMeViewController.swift */; };
 		5BE297022A595028001EF7E2 /* FLHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE296FE2A595028001EF7E2 /* FLHomeViewController.swift */; };
 		5BE297042A59526D001EF7E2 /* TarBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297032A59526D001EF7E2 /* TarBarViewController.swift */; };
-		1A2B3C4D5E6F708192A3B4C5 /* FingerprintTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4A1B2C3D4E5F6012345678 /* FingerprintTestView.swift */; };
 		5BE297082A59558E001EF7E2 /* FLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297072A59558E001EF7E2 /* FLData.swift */; };
 		5BE297172A5A4702001EF7E2 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297162A5A4702001EF7E2 /* Course.swift */; };
 		5BE297192A5A4896001EF7E2 /* CourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297182A5A4896001EF7E2 /* CourseList.swift */; };
@@ -62,6 +62,8 @@
 		84C785F72A4BB4C7007DC50F /* DynamicProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */; };
 		84D6BD502A734A9D00E781D3 /* Graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D6BD4E2A734A9D00E781D3 /* Graph.cpp */; };
 		E44C7A4A89D62C56D3FE9A98 /* Pods_swiftArithmetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32F718F9359A2200A0B40E8 /* Pods_swiftArithmetic.framework */; };
+		E8F9A0B12C3D4E5F6789012A /* InjectionNext in Frameworks */ = {isa = PBXBuildFile; productRef = E8F9A0B22C3D4E5F6789012B /* InjectionNext */; };
+		F1A2B3C22D5E6F708192A302 /* HotSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = F1A2B3C62D5E6F708192A306 /* HotSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,7 +126,6 @@
 		5BE296FD2A595028001EF7E2 /* FLMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLMeViewController.swift; sourceTree = "<group>"; };
 		5BE296FE2A595028001EF7E2 /* FLHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLHomeViewController.swift; sourceTree = "<group>"; };
 		5BE297032A59526D001EF7E2 /* TarBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarBarViewController.swift; sourceTree = "<group>"; };
-		6F4A1B2C3D4E5F6012345678 /* FingerprintTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintTestView.swift; sourceTree = "<group>"; };
 		5BE297072A59558E001EF7E2 /* FLData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLData.swift; sourceTree = "<group>"; };
 		5BE297162A5A4702001EF7E2 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		5BE297182A5A4896001EF7E2 /* CourseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseList.swift; sourceTree = "<group>"; };
@@ -133,6 +134,7 @@
 		5BE297262A5A94C6001EF7E2 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		6D0578D12F73C11200F3C719 /* ABoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABoutViewController.h; sourceTree = "<group>"; };
 		6D0578D22F73C11200F3C719 /* ABoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABoutViewController.m; sourceTree = "<group>"; };
+		6F4A1B2C3D4E5F6012345678 /* FingerprintTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintTestView.swift; sourceTree = "<group>"; };
 		842B2EF32A70A5C800ECDC3A /* MonotoneStack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MonotoneStack.cpp; sourceTree = "<group>"; };
 		842B2EF42A70A5C800ECDC3A /* MonotoneStack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MonotoneStack.hpp; sourceTree = "<group>"; };
 		84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DynamicProgram.cpp; sourceTree = "<group>"; };
@@ -149,6 +151,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8F9A0B12C3D4E5F6789012A /* InjectionNext in Frameworks */,
+				F1A2B3C22D5E6F708192A302 /* HotSwiftUI in Frameworks */,
 				E44C7A4A89D62C56D3FE9A98 /* Pods_swiftArithmetic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +365,10 @@
 			dependencies = (
 			);
 			name = swiftArithmetic;
+			packageProductDependencies = (
+				E8F9A0B22C3D4E5F6789012B /* InjectionNext */,
+				F1A2B3C62D5E6F708192A306 /* HotSwiftUI */,
+			);
 			productName = swiftArithmetic;
 			productReference = 5B26D4B12A1A6C8D00EDCA2F /* swiftArithmetic.app */;
 			productType = "com.apple.product-type.application";
@@ -397,6 +405,10 @@
 				Base,
 			);
 			mainGroup = 5B26D4A82A1A6C8D00EDCA2F;
+			packageReferences = (
+				E8F9A0B02C3D4E5F6789012C /* XCRemoteSwiftPackageReference "InjectionNext" */,
+				F1A2B3C42D5E6F708192A304 /* XCRemoteSwiftPackageReference "HotSwiftUI" */,
+			);
 			productRefGroup = 5B26D4B22A1A6C8D00EDCA2F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -451,9 +463,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-swiftArithmetic/Pods-swiftArithmetic-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-swiftArithmetic/Pods-swiftArithmetic-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -649,6 +665,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"swiftArithmetic/Preview Content\"";
 				DEVELOPMENT_TEAM = 6TVV8SZDLZ;
+				EMIT_FRONTEND_COMMAND_LINES = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -664,11 +681,17 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-Xlinker",
+					"-interposable",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alan.test.swiftArithmetic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_COMPILATION_MODE = incremental;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftArithmetic/swiftArithmetic-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -737,6 +760,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E8F9A0B02C3D4E5F6789012C /* XCRemoteSwiftPackageReference "InjectionNext" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnno1962/InjectionNext.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		F1A2B3C42D5E6F708192A304 /* XCRemoteSwiftPackageReference "HotSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnno1962/HotSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E8F9A0B22C3D4E5F6789012B /* InjectionNext */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8F9A0B02C3D4E5F6789012C /* XCRemoteSwiftPackageReference "InjectionNext" */;
+			productName = InjectionNext;
+		};
+		F1A2B3C62D5E6F708192A306 /* HotSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1A2B3C42D5E6F708192A304 /* XCRemoteSwiftPackageReference "HotSwiftUI" */;
+			productName = HotSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5B26D4A92A1A6C8D00EDCA2F /* Project object */;
 }

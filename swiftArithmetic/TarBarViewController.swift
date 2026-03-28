@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import HotSwiftUI
 
 struct TarBarViewController: View {
     @State private var selectedTabIndex = 0
+    @ObserveInjection var redraw
     
     var body: some View {
         TabView(selection: $selectedTabIndex) {
@@ -36,6 +38,7 @@ struct TarBarViewController: View {
                     Label("Settings", systemImage: "gearshape")
                 }
         }
+        .enableInjection()
     }
 }
 

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+//import TikTokOpenAuthSDK
+//import RSDesignToken
 
 struct FLSettingController: View {
     @State private var isDarkMode: Bool = false
@@ -20,12 +22,12 @@ struct FLSettingController: View {
         NavigationView {
             List {
                 // MARK: - 多线程设置
-                Section(header: Text("多线程设置").font(.headline)) {
+                Section(header: Text("多线成=你买电脑撒").font(.headline)) {
                     SettingRowView(
                         icon: "cpu",
-                        title: "线程数量",
+                        title: "线程都是",
                         subtitle: "当前使用 \(selectedThreadCount) 个线程",
-                        color: .blue
+                        color: .red
                     ) {
                         ThreadCountPicker(selectedCount: $selectedThreadCount)
                     }

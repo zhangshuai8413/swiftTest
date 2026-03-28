@@ -1,0 +1,24 @@
+{
+  "originHash" : "6c64da1c86ba89071e9b6816d382ac36a425ef890087887f0a370edfc9711110",
+  "pins" : [
+    {
+      "identity" : "hotswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnno1962/HotSwiftUI.git",
+      "state" : {
+        "revision" : "9e701abd2da67c7cfac5b70ae6f225fa92a1c7bc",
+        "version" : "1.2.4"
+      }
+    },
+    {
+      "identity" : "injectionnext",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnno1962/InjectionNext.git",
+      "state" : {
+        "revision" : "a24d3d1451d1d2efd753474a3885c8a1df741a84",
+        "version" : "1.5.3"
+      }
+    }
+  ],
+  "version" : 3
+}

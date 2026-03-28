@@ -1,13 +1,15 @@
 import SwiftUI
 import FingerprintJS
+import HotSwiftUI
 
 struct FingerprintTestView: View {
+    @ObserveInjection var redraw
     @State private var fingerprintText: String?
     @State private var isLoading = false
 
     var body: some View {
         VStack(spacing: 12) {
-            Text("FingerprintJS Test")
+            Text("Fingerpr对你撒娇")
                 .font(.headline)
 
             if isLoading {
@@ -38,6 +40,7 @@ struct FingerprintTestView: View {
             }
             print("[FingerprintJS] fingerprint =", fingerprint ?? "nil")
         }
+        .enableInjection()
     }
 }
 
