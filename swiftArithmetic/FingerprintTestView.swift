@@ -9,8 +9,16 @@ struct FingerprintTestView: View {
 
     var body: some View {
         VStack(spacing: 12) {
-            Text("Fingerpr对你撒娇")
+            Text("Fingerpr大萨达你撒娇")
                 .font(.headline)
+            
+            Text("Finger撒娇")
+                .font(.headline)
+            
+            Text("Finger撒娇")
+                .font(.subheadline)
+            Text("d都没看见开单尽快")
+                .font(.subheadline)
 
             if isLoading {
                 ProgressView()
@@ -29,7 +37,7 @@ struct FingerprintTestView: View {
         }
         .padding()
         .task {
-            // 避免视图重建时重复拉取
+//             避免视图重建时重复拉取
             guard fingerprintText == nil, !isLoading else { return }
             isLoading = true
             let fingerprinter = FingerprinterFactory.getInstance()
