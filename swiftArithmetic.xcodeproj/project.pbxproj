@@ -359,6 +359,7 @@
 				5B26D4AE2A1A6C8D00EDCA2F /* Frameworks */,
 				5B26D4AF2A1A6C8D00EDCA2F /* Resources */,
 				B813D82D00AA46366D1EF049 /* [CP] Embed Pods Frameworks */,
+				37508714DF5A2264B6BE2BD7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -433,6 +434,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		37508714DF5A2264B6BE2BD7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-swiftArithmetic/Pods-swiftArithmetic-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-swiftArithmetic/Pods-swiftArithmetic-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swiftArithmetic/Pods-swiftArithmetic-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		501E30F0E53B2A5F961EDC7E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

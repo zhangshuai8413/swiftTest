@@ -1,7 +1,8 @@
 *.xcuserstate
 
-# CocoaPods
-Pods/
+# CocoaPods：`pod install` 生成的整个目录，不提交、不出现在 git status
+# 若仍能看到 Pods 下文件被跟踪，执行一次：git rm -r --cached Pods
+/Pods
 
 # SwiftPM（Xcode 克隆依赖目录，如 -clonedSourcePackagesDirPath）
 SourcePackages/

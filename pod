@@ -1,0 +1,35 @@
+#!/bin/sh
+# 必须用「./pod」（本仓库脚本），不能写「pod」——否则会调用系统 CocoaPods，
+# 出现 Unknown command: -sim。
+#
+# 模拟器依赖：
+#   ./pod install -sim
+#   ./pod install - sim
+#   ./pod install -simulator
+# 或更简单：./podsim   /   ./podsim --repo-update
+#
+# 真机 / 全量 Pods：
+#   ./pod install
+#   pod install
+set -e
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+POD_BIN="$(command -v pod)"
+[ -n "$POD_BIN" ] || {
+  echo "cocoapods: pod not found in PATH" >&2
+  exit 1
+}
+
+cd "$ROOT"
+
+if [ "$1" = "install" ]; then
+  if [ "$2" = "-sim" ] || [ "$2" = "-simulator" ]; then
+    shift 2
+    exec env EXCLUDE_DEVICE_ONLY_PODS=1 "$POD_BIN" install "$@"
+  fi
+  if [ "$2" = "-" ] && { [ "$3" = "sim" ] || [ "$3" = "simulator" ]; }; then
+    shift 3
+    exec env EXCLUDE_DEVICE_ONLY_PODS=1 "$POD_BIN" install "$@"
+  fi
+fi
+
+exec "$POD_BIN" "$@"

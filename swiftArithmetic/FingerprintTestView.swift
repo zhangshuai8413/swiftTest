@@ -2,6 +2,8 @@ import SwiftUI
 import FingerprintJS
 import HotSwiftUI
 
+
+
 struct FingerprintTestView: View {
     @ObserveInjection var redraw
     @State private var fingerprintText: String?

@@ -1,0 +1,8 @@
+#!/bin/sh
+# 模拟器专用 pod install（不装仅真机 Pod）。在项目根目录执行：
+#   ./podsim
+#   ./podsim --repo-update
+# 勿写成 pod install -sim（会调用系统 pod，不认识 -sim）。
+set -e
+cd "$(dirname "$0")"
+exec env EXCLUDE_DEVICE_ONLY_PODS=1 pod install "$@"
