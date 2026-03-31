@@ -58,6 +58,7 @@
 		5BE2971E2A5A9404001EF7E2 /* BaseWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2971D2A5A9404001EF7E2 /* BaseWebView.swift */; };
 		5BE297272A5A94C6001EF7E2 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE297262A5A94C6001EF7E2 /* Repository.swift */; };
 		6D0578D32F73C11200F3C719 /* ABoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0578D22F73C11200F3C719 /* ABoutViewController.m */; };
+		6D9B9BA62F7BA05600BBE184 /* NSObject+QMUIBlocker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9B9BA52F7BA05600BBE184 /* NSObject+QMUIBlocker.m */; };
 		842B2EF52A70A5C800ECDC3A /* MonotoneStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 842B2EF32A70A5C800ECDC3A /* MonotoneStack.cpp */; };
 		84C785F72A4BB4C7007DC50F /* DynamicProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84C785F52A4BB4C7007DC50F /* DynamicProgram.cpp */; };
 		84D6BD502A734A9D00E781D3 /* Graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D6BD4E2A734A9D00E781D3 /* Graph.cpp */; };
@@ -134,6 +135,8 @@
 		5BE297262A5A94C6001EF7E2 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		6D0578D12F73C11200F3C719 /* ABoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABoutViewController.h; sourceTree = "<group>"; };
 		6D0578D22F73C11200F3C719 /* ABoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABoutViewController.m; sourceTree = "<group>"; };
+		6D9B9BA42F7BA05600BBE184 /* NSObject+QMUIBlocker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+QMUIBlocker.h"; sourceTree = "<group>"; };
+		6D9B9BA52F7BA05600BBE184 /* NSObject+QMUIBlocker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+QMUIBlocker.m"; sourceTree = "<group>"; };
 		6F4A1B2C3D4E5F6012345678 /* FingerprintTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerprintTestView.swift; sourceTree = "<group>"; };
 		842B2EF32A70A5C800ECDC3A /* MonotoneStack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MonotoneStack.cpp; sourceTree = "<group>"; };
 		842B2EF42A70A5C800ECDC3A /* MonotoneStack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MonotoneStack.hpp; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 				5BDCED922AA770430058171D /* Media.xcassets */,
 				5B76E3452A4FB67700141D86 /* BrideCPlusManger.h */,
 				5B76E3462A4FB67700141D86 /* BrideCPlusManger.mm */,
+				6D9B9BA42F7BA05600BBE184 /* NSObject+QMUIBlocker.h */,
+				6D9B9BA52F7BA05600BBE184 /* NSObject+QMUIBlocker.m */,
 				5BC8F0F22A7E4F9D003BF9E6 /* BrideCPlusManger+a.h */,
 				5BC8F0F32A7E4F9D003BF9E6 /* BrideCPlusManger+a.m */,
 				5BC8F0F52A7E4FBD003BF9E6 /* BrideCPlusManger+B.h */,
@@ -359,7 +364,6 @@
 				5B26D4AE2A1A6C8D00EDCA2F /* Frameworks */,
 				5B26D4AF2A1A6C8D00EDCA2F /* Resources */,
 				B813D82D00AA46366D1EF049 /* [CP] Embed Pods Frameworks */,
-				37508714DF5A2264B6BE2BD7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -434,23 +438,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		37508714DF5A2264B6BE2BD7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-swiftArithmetic/Pods-swiftArithmetic-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-swiftArithmetic/Pods-swiftArithmetic-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swiftArithmetic/Pods-swiftArithmetic-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		501E30F0E53B2A5F961EDC7E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -512,6 +499,7 @@
 				5BE297192A5A4896001EF7E2 /* CourseList.swift in Sources */,
 				5BE2971E2A5A9404001EF7E2 /* BaseWebView.swift in Sources */,
 				5BE2971B2A5A4CA0001EF7E2 /* CoursePart.swift in Sources */,
+				6D9B9BA62F7BA05600BBE184 /* NSObject+QMUIBlocker.m in Sources */,
 				5BC8F1062A8082FE003BF9E6 /* StringModule.cpp in Sources */,
 				5B1E2C022A2F864000096D0D /* BackTrack.cpp in Sources */,
 				5BE297012A595028001EF7E2 /* FLMeViewController.swift in Sources */,
@@ -705,7 +693,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_COMPILATION_MODE = incremental;
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftArithmetic/swiftArithmetic-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -745,6 +733,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "swiftArithmetic/swiftArithmetic-Bridging-Header.h";
 				SWIFT_VERSION = 6.0;

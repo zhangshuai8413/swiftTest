@@ -18,14 +18,16 @@
 using namespace std;
 
 @implementation BrideCPlusManger
-//@synthesize zhangSan = _zhangSan;
+
+// 在你的 main.m 或者任何 OC 类的 +load 方法中
+#import <objc/runtime.h>
+
 + (void)load {
-    NSLog(@"BrideCPlusManger------");
-    
-    [BrideCPlusManger testMethod];
-    [BrideCPlusManger testLoad];
-    
+    // 检查是否在预览环境
+
 }
+
+
 + (void)initialize {
     NSLog(@"BrideCPlusManger initialize");
 }

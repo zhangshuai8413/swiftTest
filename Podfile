@@ -46,6 +46,14 @@ target 'swiftArithmetic' do
   pod 'SDWebImage'
   pod 'ReactiveObjC'
   pod 'FingerprintJS', '1.4.1'
+  
+#  
+#  pod 'QMUIKit/QMUIComponents/QMUIButton',:git => 'https://github.com/bxxmwys/QMUI_iOS.git'
+#  pod 'QMUIKit/QMUIComponents/QMUILabel',:git => 'https://github.com/bxxmwys/QMUI_iOS.git'
+#  pod 'QMUIKit/QMUIComponents/QMUIPopupMenuView',:git => 'https://github.com/bxxmwys/QMUI_iOS.git'
+#  pod 'QMUIKit/QMUIComponents/QMUITextField',:git => 'https://github.com/bxxmwys/QMUI_iOS.git'
+#  pod 'QMUIKit/QMUIComponents/QMUITextView',:git => 'https://github.com/bxxmwys/QMUI_iOS.git'
+
 
   # 仅当「不排除真机专用 Pod」时才安装下列库（模拟器用 ./podsim 安装时不包含它们）。
   # 业务代码若引用：用 #if canImport(...) / #if !targetEnvironment(simulator) 包住 import。

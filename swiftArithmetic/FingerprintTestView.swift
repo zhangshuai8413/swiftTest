@@ -11,17 +11,18 @@ struct FingerprintTestView: View {
 
     var body: some View {
         VStack(spacing: 12) {
-            Text("Fingerpr大萨达你撒娇")
+            Text("Finge第三")
                 .font(.headline)
             
-            Text("Finger撒娇")
+            Text("Finge第三")
                 .font(.headline)
             
-            Text("Finger撒娇")
-                .font(.subheadline)
-            Text("d都没看见开单尽快")
-                .font(.subheadline)
-
+            Text("Finge第三")
+                .font(.headline)
+            Text("Finge第三")
+                .font(.headline)
+        
+        
             if isLoading {
                 ProgressView()
             } else if let fingerprintText, !fingerprintText.isEmpty {

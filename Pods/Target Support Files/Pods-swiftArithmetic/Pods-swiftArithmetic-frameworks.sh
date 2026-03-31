@@ -176,17 +176,11 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${PODS_ROOT}/AliPlayerSDK_iOS/AliyunPlayer.framework"
-  install_framework "${PODS_ROOT}/AliPlayerSDK_iOS/alivcffmpeg.framework"
-  install_framework "${PODS_ROOT}/AliPlayerSDK_iOS/AliyunMediaDownloader.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FingerprintJS/FingerprintJS.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${PODS_ROOT}/AliPlayerSDK_iOS/AliyunPlayer.framework"
-  install_framework "${PODS_ROOT}/AliPlayerSDK_iOS/alivcffmpeg.framework"
-  install_framework "${PODS_ROOT}/AliPlayerSDK_iOS/AliyunMediaDownloader.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FingerprintJS/FingerprintJS.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
